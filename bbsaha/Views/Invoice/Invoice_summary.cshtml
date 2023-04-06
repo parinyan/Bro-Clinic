@@ -1,0 +1,266 @@
+﻿
+<style>
+
+    .table-borderless tbody + tbody, .table-borderless td, .table-borderless th, .table-borderless thead th {
+        border: 1px solid #585858;
+    }
+
+    thead tr > th {
+        padding: 10px;
+        /*min-width: 78px;*/
+    }
+
+    tr > td {
+        padding: 5px;
+    }
+
+    .card {
+        padding: 20px;
+        height: 1000px;
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    select {
+        width: 200px;
+    }
+
+    .menu-search > span {
+        margin-right: 10px;
+        margin-left: 10px
+    }
+
+    .inkey {
+        width: 110px;
+        font-weight: 700
+    }
+
+    .inkey2 {
+        width: 90px;
+        font-weight: 700
+    }
+
+    tr:nth-child(even) {
+        background-color: #ededed;
+    }
+
+    .butap:hover {
+        color: #ce2f2f;
+        cursor: pointer;
+    }
+
+    .textnum {
+        text-align: right;
+    }
+
+    .del:hover {
+        color: #ffffff;
+        background-color: #e54949
+    }
+
+    .align-left {
+    }
+
+    .selectpop {
+        height: 38px;
+        border-radius: 3px;
+    }
+
+    select {
+        width: 140px;
+        margin-right: 5px;
+    }
+    thead tr th {
+        position: sticky;
+        top: 0;
+        background-color: #494848;
+    }
+</style>
+
+<div id="_inv_summa" style="overflow: auto;">
+    <div class="card" style="width: 100%">
+        <div style="display: flex; width: 800px; margin-right: 20px;">
+            <div style="">
+                <div> <small class="text-primary">Year :</small></div>
+                <div>
+                    <select v-model="seleyear" v-on:change="searchfil" class="selectpop">
+                        <option v-for="(value,key) in year" v-bind:value="value.year">{{value.year}}</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div style="">
+                <div> <small class="text-primary">Month :</small></div>
+                <div>
+
+                    <select v-model="selemon" v-on:change="searchfil" class="selectpop">
+                        <option v-bind:value="null">All</option>
+                        <option v-for="(value,key) in 12" v-bind:value="value">{{value}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <div> <small class="text-primary">Type :</small> </div>
+                <div>
+                   
+                    <select v-model="seletype" v-on:change="searchfil" class="selectpop">
+                        <option v-bind:value="null">All</option>
+                        <option v-bind:value="1">Finish</option>
+                        <option v-bind:value="2">ING</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <div> <small class="text-primary">Comapany :</small> </div>
+                <div>
+                   
+                    <select v-model="selecom" v-on:change="searchfil" class="selectpop">
+                        <option v-bind:value="null">All</option>
+                        <option v-for="(value,key) in com" v-bind:value="value.id">{{value.nameSimple}}</option>
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="mar-btn">
+               <div>&nbsp;</div>
+                <div style="display:flex">
+                    <button v-on:click="exportex" style="margin-left: 20px; height: 38px; width: 200px; border-radius: 3px; background-color: #28a745; color: #ffffff; ">Export Excel</button>
+                </div>
+            </div>
+            <div class="mar-btn" style="text-align: end">
+                <div>&nbsp;</div>
+                <div>
+                    <button v-on:click="savedat" style="margin-left: 20px; width: 200px; height: 38px; background-color: #365ccd;border-radius: 4px;color: #fff;font-size:18px">Save</button>
+                </div>
+            </div>
+        </div>
+        @*<div class="row menu-search">
+            <div class="flex" style="width: 100%;display: flex;">
+                <div class="col-left" style="height: 38px; display: flex;">
+                    <div>
+                        <span class="" style="margin-left: 20px">Year :</span>
+                        <select v-model="seleyear" v-on:change="searchfil" class="selectpop">
+                            <option v-for="(value,key) in year" v-bind:value="value.year">{{value.year}}</option>
+                        </select>
+                    </div>
+                    <div>
+                        <span>Month :</span>
+                        <select v-model="selemon" v-on:change="searchfil" class="selectpop">
+                            <option v-bind:value="null">All</option>
+                            <option v-for="(value,key) in 12" v-bind:value="value">{{value}}</option>
+                        </select>
+                    </div>
+                    <div>
+                        <span>Type :</span>
+                        <select v-model="seletype" v-on:change="searchfil" class="selectpop">
+                            <option v-bind:value="null">All</option>
+                            <option v-bind:value="1">Finish</option>
+                            <option v-bind:value="2">ING</option>
+                        </select>
+                    </div>
+                    <div>
+                        <span>Comapany :</span>
+                        <select v-model="selecom" v-on:change="searchfil" class="selectpop">
+                            <option v-bind:value="null">All</option>
+                            <option v-for="(value,key) in com" v-bind:value="value.custID">{{value.nameSimple}}</option>
+                        </select>
+                        <button v-on:click="exportex" style="margin-left: 20px; height: 38px; border-radius: 3px; background-color: #28a745; color: #ffffff; ">Export Excel</button>
+                    </div>
+                </div>
+                <div>
+                    <div class="col-right" style="text-align: end">
+                        <button v-on:click="savedat" style="margin-left: 20px; width: 200px; height: 38px; background-color: #365ccd;border-radius: 4px;color: #fff;font-size:18px">Save</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>*@
+        <h3 style="margin-top: 20px; color: #365ccd;">Invoice Summary</h3>
+        <div style="overflow-x:auto;height: 600px">
+            <table class="table-borderless" style="margin-top: 10px; width: 100%">
+                <thead>
+                    <tr style="padding: 20px; background-color: #494848; color: #fff ;text-align:center">
+                        <th>Customer</th>
+                        <th>Invoice</th>
+                        <th>Issue Date</th>
+                        
+                        @*<th>Total Price</th>*@
+                        
+                        <th>Total Amount</th>
+                        <th>Received Payment</th>
+                        <th>Payment Date</th>
+                        <th>Receipt</th>
+                        <th>Status</th>
+                        <th>Confirm</th>
+                       
+                        <th>Delete</th>
+
+
+                    </tr>
+                </thead>
+                <tr style="background-color: #c2c2c2 ;">
+                    <td colspan="3">Sum</td>
+
+                    
+                    <td class="textnum"><span id="totVacant">{{totaltransfersa.toLocaleString(undefined, {minimumFractionDigits: 2})}}</span></td>
+                    <td class="textnum"><span id="totDeployed">{{totalReceive.toLocaleString(undefined, {minimumFractionDigits: 2})}}</span></td>
+                    <td style="background-color: #494848; border-top-color: #494848"><span id="totVacant"></span></td>
+                    <td style="background-color: #494848"><span id="totDeployed"></span></td>
+                    <td style="background-color: #494848"><span id="totDeployed"></span></td>
+                    <td style="background-color: #494848"><span id="totDeployed"></span></td>
+                    <td style="background-color: #494848"><span id="totDeployed"></span></td>
+                    @*<td class="textnum"><span id="totVacant"></span>{{totalsso.toLocaleString(undefined, {minimumFractionDigits: 2})}}</td>
+                    <td class="textnum"><span id="totVacant"></span>{{totalesso.toLocaleString(undefined, {minimumFractionDigits: 2})}}</td>
+                    <td class="textnum"><span id="totVacant"></span>{{totalcsso.toLocaleString(undefined, {minimumFractionDigits: 2})}}</td>
+                    <td><span id="totVacant"></span></td>
+                    <td><span id="totVacant"></span></td>*@
+                </tr>
+                <tr v-for="(value,key) in fulldata">
+                    <td>{{value.nameSimple}}</td>
+                    <td><a href="#" v-on:click="printinvoice(value.id,value.invoiceID,value.rewrite)">{{value.invoiceID}}</a></td>
+                    <td style="width: 110px;">{{value.issueDate}}</td>
+                   
+                    @*<td class="textnum">{{value.transfer.toLocaleString(undefined, {minimumFractionDigits: 2})}}</td>*@
+                   
+                    <td class="textnum"> {{value.transfer.toLocaleString(undefined, {minimumFractionDigits: 2})}}</td>
+                    <td style="text-align:right"><input type="text" class="inkey textnum" name="name" v-model="fulldata[key].receive" /></td>
+                    <td style="text-align:right"><input type="date" class="inkey" name="name" v-model="fulldata[key].datereceive" style="width: 142px" /></td>
+                    <td style="width: 100px;"><a href="#" v-on:click="printreceive(value.id,value.invoiceID,value.rewrite)">{{value.billno}}</a></td>
+                    <td style="text-align: center">
+                        <div style="background-color: #22ff20; border-bottom: 1px solid #494848; " v-if="value.status == 'OK'">
+                            <span>{{value.status}}</span>
+                        </div>
+                        <div style="background-color: rgb(252 255 33); border-bottom: 1px solid #494848; " v-else="value.status == 'NOT'">
+                            <span>Wait</span>
+                        </div>
+
+
+                    </td>
+                    <td>
+
+                        <button v-if="value.status == 'OK'" class="butap btn-danger" style="width: 100%; border-radius: 3px; background-color: #ffbd29; color: #0f265c; font-weight: 500;" v-on:click="notapp(value.invoiceID)">Withdraw</button>
+                        <button v-if="value.status == 'NOT'" class="butap" style="width: 100%; border-radius: 3px; background-color: #365ccd; border: 1px solid #365ccd; color: #fff;" v-on:click="app(value.invoiceID)">Approve</button>
+
+                    </td>
+                    @*<td class="textnum">{{value.sso}}</td>
+                    <td><input type="text" class="inkey2 textnum" v-model="fulldata[key].e_SSO" /></td>
+                    <td><input type="text" class="inkey2 textnum" name="name" v-model="fulldata[key].c_SSO" /></td>*@
+                    <td style="color: #f12828"><button v-if="value.status == 'NOT'" class="butap btn-outline-danger del" style="margin-top: 4px; width: 100%; border-radius: 3px;" v-on:click="delinv(value.invoiceID)">Delete</button></td>
+                    @*<i class="fas fas-trash"></i>*@
+                    @*<td><a>Print</a></td>*@
+
+                </tr>
+            </table>
+
+        </div>
+        <span style="font-size: 16px">*Invoice/Receipt Print : Click Invoice/Receipt No.</span>
+    </div>
+</div>
+
+
+
+<script src="~/asset/invoice/_invoice_summary.js"></script>

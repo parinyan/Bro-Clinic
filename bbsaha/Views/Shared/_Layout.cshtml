@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - bbsaha</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+   
+    <script src="https://cdn.jsdelivr.net/npm/@@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    @*<script src="https://unpkg.com/axios@0.27.2/dist/axios.min.js"></script>*@
+   
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+    <script src="https://unpkg.com/vuejs-datepicker"></script>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/vee-validate@@<3.0.0/dist/vee-validate.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+    @*<link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">*@
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+    <script src="https://unpkg.com/vuejs-datepicker"></script>
+    <script src="~/asset/script/thaibath.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun&display=swap" rel="stylesheet">
+    <style>
+        body, button, h1, h2, h3, h4, h5, input, option {
+            font-family: 'Sarabun', sans-serif !important;
+            /*font-weight: 800 !important;*/
+            /*font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;*/
+        }
+
+        /*.footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;*/
+        /*  background-color: red;*/
+        /*color: white;
+            text-align: center;
+        }
+
+        nav {
+            box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+        }*/
+
+        .btn-log {
+            background-color: #f66;
+            border-radius: 20px;
+            color: #000;
+            border: 1px solid #f66;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Patient" asp-action="Patient">BBSahaclinic</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                      
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Patient" asp-action="Patient">Patient</a>
+                         
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Payment
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" asp-area="" asp-controller="Patient" asp-action="Paymentreport">Payment in detail</a>
+                                @*<a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Devpage">Invoice</a>*@
+                                <a class="dropdown-item" asp-area="" asp-controller="Payment" asp-action="Paymentsummary">Payment Summary</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Payment" asp-action="paymentcash">Cash Clear Report</a>
+                                @*<div class="dropdown-divider"></div>*@
+                                @*<a class="dropdown-item" href="#">Something else here</a>*@
+                            </div>
+                        </li>
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Invoice
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" asp-area="" asp-controller="invoice" asp-action="invoice">Invoice</a>
+                                @*<a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Devpage">Invoice</a>*@
+                                <a class="dropdown-item" asp-area="" asp-controller="invoice" asp-action="Invoice_summary">Invoice Summary</a>
+                                @*<div class="dropdown-divider"></div>*@
+                                @*<a class="dropdown-item" href="#">Something else here</a>*@
+                            </div>
+                        </li>
+
+
+
+                        <li class="nav-item dropdown">
+                            @*<a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register_account">Administration</a>*@
+                            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Administration
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Register_account">Users Account</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Manage" asp-action="Customer">Customer</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Manage" asp-action="Labstype">Labs type</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Manage" asp-action="Agency">Agency</a>
+                            </div>
+                        </li>
+                       
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="medic" asp-action="medcerti">Stock</a>
+                        </li>
+
+                    </ul>
+                    @User.Identity.Name | &nbsp;
+                    <a asp-controller="Account" asp-action="Logout"><input type="submit" class="button btn-log" value="Logout"></a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - bbsaha - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    @*<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+                integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+                crossorigin="anonymous"></script>*@
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

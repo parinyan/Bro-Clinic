@@ -1,0 +1,237 @@
+﻿
+<style>
+
+    .table-borderless tbody + tbody, .table-borderless td, .table-borderless th, .table-borderless thead th {
+        border: 1px solid #585858;
+    }
+
+    thead tr > th {
+        padding: 10px;
+        /*min-width: 78px;*/
+    }
+
+    tr > td {
+        padding: 5px;
+    }
+
+    .card {
+        padding: 20px;
+        height: 1000px;
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    select {
+        width: 200px;
+    }
+
+    .menu-search > span {
+        margin-right: 10px;
+        margin-left: 10px
+    }
+
+    .inkey {
+        width: 110px;
+        font-weight: 700
+    }
+
+    .inkey2 {
+        width: 90px;
+        font-weight: 700
+    }
+
+    tr:nth-child(even) {
+        background-color: #ededed;
+    }
+
+    .butap:hover {
+        color: #ce2f2f;
+        cursor: pointer;
+    }
+
+    .textnum {
+        text-align: right;
+    }
+
+    .del:hover {
+        color: #ffffff;
+        background-color: #e54949
+    }
+
+    .align-left {
+    }
+
+    .selectpop {
+        height: 38px;
+        border-radius: 3px;
+    }
+
+    select {
+        width: 140px;
+        margin-right: 5px;
+    }
+
+    thead tr th {
+        position: sticky;
+        top: 0;
+        background-color: #494848;
+    }
+</style>
+
+<div id="_pay">
+    <div style=" padding: 20px">
+        <div style="display: flex; width: 800px; margin-right: 20px;">
+
+
+            <div style="">
+                <div> <small class="text-primary">Medical Service :</small></div>
+                <div>
+
+                    <select v-model="selemed" v-on:change="searchfil" class="selectpop ">
+                        <option v-bind:value="null">All</option>
+                        <option v-for="(value,key) in getmedser" v-bind:value="value.id">{{value.typeName}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <div> <small class="text-primary">Payment type :</small> </div>
+                <div>
+
+                    <select v-model="selepay" v-on:change="searchfil" class="selectpop ">
+                        <option v-bind:value="null">All</option>
+                        <option v-for="(value,key) in gettypepay" v-bind:value="value.id">{{value.typeName}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <div> <small class="text-primary">Receive Person :</small> </div>
+                <div>
+
+                    <select v-model="seleper" v-on:change="searchfil" class="selectpop ">
+                        <option v-bind:value="null">All</option>
+                        <option v-for="(value,key) in gettyperev" v-bind:value="value.id">{{value.name}}</option>
+
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <div> <small class="text-primary">Recommen :</small> </div>
+                <div>
+
+                    <select v-model="selerec" v-on:change="searchfil" class="selectpop ">
+                        <option v-bind:value="null">All</option>
+                        <option v-for="(value,key) in getrec" v-bind:value="value">{{value}}</option>
+
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <div> <small class="text-primary">Period :</small> </div>
+                <div>
+                    <input type="date" v-on:change="searchfil" v-model="startdate" class="selectpop " />
+                </div>
+            </div>
+            <div>
+                <div> <small class="text-primary"></small> </div><br />
+                <div>
+                    <input type="date" v-on:change="searchfil" v-model="enddate" class="selectpop " />
+                </div>
+            </div>
+            <div class="mar-btn">
+                <div>&nbsp;</div>
+                <div style="display:flex">
+                    <button v-on:click="exportex" style="margin-left: 20px; height: 38px; width: 200px; border-radius: 3px; background-color: #28a745; color: #ffffff; ">Export Excel</button>
+                </div>
+            </div>
+            <div class="mar-btn" style="text-align: end">
+                <div>&nbsp;</div>
+                <div>
+                    <button v-on:click="savedat" style="margin-left: 20px; width: 200px; height: 38px; background-color: #365ccd;border-radius: 4px;color: #fff;font-size:18px">Save</button>
+
+                </div>
+            </div>
+
+
+        </div>
+        <div style="overflow: auto; max-height: 800px;  width: 100%;font-size: 14px">
+
+            <table class="table table-bordered mt-4 ">
+                <thead>
+                    <tr style="color: #fff">
+
+                        <th style="text-align:center">No.</th>
+                        <th>ServiceDate</th>
+                        <th style="width: 140px;">CN</th>
+                        <th>titlename</th>
+                        <th>FirstName</th>
+                        <th>LastName</th>
+                        <th>Medical Service</th>
+                        <th>Company</th>
+                        <th>Payment type</th>
+                        <th>TotalAmount</th>
+                        <th>Money Receiver</th>
+                        <th style="width: 140px;">Remark</th>
+                        <th>Receive Payment Date</th>
+                        @*<th>Deduct Salary Date</th>*@
+                        <th>Reciept</th>
+                        <th>Recommender</th>
+                        <th>Pay</th>
+
+                    </tr>
+                </thead>
+                <tr style="background-color: #c2c2c2 ;">
+                    <td colspan="3" style="font-weight:800">Sum</td>
+                    <td class="textnum"></td>
+                    <td class="textnum"></td>
+                    <td class="textnum"></td>
+                    <td class="textnum"></td>
+                    <td class="textnum"></td>
+                    <td class="textnum"></td>
+                    <td style="background-color: #494848" class="textnum"><span id="totDeployed" style="color: #fff;font-weight:800">{{totalprice.toLocaleString(undefined, {minimumFractionDigits: 2})}}</span></td>
+                    <td class="textnum"></td>
+                    <td class="textnum"></td>
+                    <td class="textnum"></td>
+                    <td class="textnum"></td>
+                   
+                    <td class="textnum"></td>
+                    <td class="textnum"></td>
+
+
+                    @*<td class="textnum"><span id="totVacant"></span>{{totalsso.toLocaleString(undefined, {minimumFractionDigits: 2})}}</td>
+        <td class="textnum"><span id="totVacant"></span>{{totalesso.toLocaleString(undefined, {minimumFractionDigits: 2})}}</td>
+        <td class="textnum"><span id="totVacant"></span>{{totalcsso.toLocaleString(undefined, {minimumFractionDigits: 2})}}</td>
+        <td><span id="totVacant"></span></td>
+        <td><span id="totVacant"></span></td>*@
+                </tr>
+                <tr v-for="(value,key) in getdatapay" style="color: #000">
+                    <td style="text-align:center">{{key + 1}}</td>
+                    <td>{{value.datereg}}</td>
+                    <td>{{value.refno}}</td>
+                    <td>{{value.titlename}}</td>
+                    <td>{{value.fname}}</td>
+                    <td>{{value.lname}}</td>
+                    <td>{{value.medservice}}</td>
+                    <td>{{value.customer}}</td>
+                    <td>{{value.paytype}}</td>
+                    <td class="textnum">{{value.totalamount}}</td>
+                    <td>{{value.moneyrev}}</td>
+                    <td>{{value.remark}}</td>
+                    @*<td><input type="date" class="inkey textnum" v-model="getdatapay[key].revinvdat" style="width: 100%" /></td>*@
+                    <td>{{value.revinvdat}}</td>
+                    @*<td><input type="date" class="inkey textnum" v-model="getdatapay[key].deductdate" style="width: 100%" /></td>*@
+                    <td><button class="btn btn-primary " v-on:click="printmedreciept(value.id)" style="height:35px;">Print</button></td>
+                    <td>{{value.recommend}}</td>
+                    <td><input type="text" class="inkey textnum" v-model="getdatapay[key].pricerec" style="width: 100%" /></td>
+                    @*<td>{{value.lname}}</td>*@
+
+
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="~/asset/patient/_pay.js" asp-append-version="true"></script>

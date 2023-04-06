@@ -1,0 +1,985 @@
+﻿@{
+    Layout = "";
+
+}
+<link href="~/css/sb-admin-2.css" rel="stylesheet" asp-append-version="true" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+<link href="~/css/fontawesome-free/css/all.css" rel="stylesheet" />
+
+<script src="~/js/jquery.min.js" asp-append-version="true"></script>
+<script src="~/js/jquery-3.5.1.js" asp-append-version="true"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/Scripts/umd/popper.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<script src="~/Scripts/vendor/chart.js/Chart.min.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4-4.6.0/jszip-2.5.0/dt-1.10.25/af-2.3.7/b-1.7.1/b-colvis-1.7.1/b-html5-1.7.1/b-print-1.7.1/cr-1.5.4/date-1.1.0/fc-3.3.3/fh-3.1.9/kt-2.6.2/r-2.2.9/rg-1.1.3/rr-1.2.8/sc-2.0.4/sb-1.1.0/sp-1.3.0/sl-1.3.3/datatables.min.css" />
+@*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" asp-append-version="true" />*@
+@*<script src="https://code.jquery.com/jquery-3.6.0.js"></script>*@
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4-4.6.0/jszip-2.5.0/dt-1.10.25/af-2.3.7/b-1.7.1/b-colvis-1.7.1/b-html5-1.7.1/b-print-1.7.1/cr-1.5.4/date-1.1.0/fc-3.3.3/fh-3.1.9/kt-2.6.2/r-2.2.9/rg-1.1.3/rr-1.2.8/sc-2.0.4/sb-1.1.0/sp-1.3.0/sl-1.3.3/datatables.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+<script src="https://unpkg.com/vuejs-datepicker"></script>
+<script src="~/asset/script/thaibath.js"></script>
+
+
+<style>
+    .flex {
+        display: flex;
+    }
+
+    .flex-a {
+        width: 50%;
+    }
+
+    .flex-b {
+        width: 50%
+    }
+
+    .flex-a-a {
+        width: 30%
+    }
+
+    .flex-a-b {
+        width: 80%;
+        font-size: 17px;
+        margin-top: 6px;
+        /* background-color: yellow*/
+    }
+
+    .flex-detail-a {
+        width: 100%
+    }
+
+    .flex-c-a {
+        width: 65%
+    }
+
+    .flex-c-b {
+        width: 40%
+    }
+
+    .flex-c-a-a {
+        width: 100%
+    }
+    .tda {
+        padding: 2px !important;
+    }
+</style>
+<div>
+    <div style="color:red;font-size:25px;width: 100%;text-align: right;padding-right:55px">ORIGINAL</div>
+    <div style="text-align:center;">
+        <img src="~/asset/img/logobbnew.png" style="width:35%;background-color:yellow" />
+    </div>
+    <div style="font-size:18px;white-space:pre-line;padding: 0px 35px;margin: 0px !important">
+        556/29-30 หมู่บ้าน บ่อวินนคร 2 ม.3 ต.บ่อวิน อ.ศรีราชา จ.ชลบุรี 20230
+        556/29-30 Bowin Nakorn 2 Village Moo 3 , Bowin  Sub-district, Si racha District, Chonburi Province 20230
+        Tel. 065-9459882 , 098-227684 &nbsp; Email: sahaclinic.bb@gmail.com
+        Tax ID 0-2055-65027-74-6
+    </div>
+    <div style="text-align:center;margin: 0px !important">
+
+        <h2>INVOICE / BILLING</h2>
+        @*<div style="position:absolute;color:red;left: 870px;top:2px;font-size:25px">ORIGINAL</div>*@
+    </div>
+    <div class="flex" style="font-size: 20px; margin-top: 10px; margin-left: 0px !important; max-height: 180px">
+        @{ var date = "";}
+        @foreach (var dat in ViewBag.dt_rw)
+        {
+            date = dat.InvDate;
+            <div class="flex-a" style="background-color: #8adefa; ">
+                <div style="margin: 10px 35px ">
+                    <div class="flex">
+                        <div class="flex-a-a" style="text-decoration:underline">CUSTOMER</div>
+                        <div class="flex-a-b">@dat.Cusname</div>
+                    </div>
+                    <div class="flex">
+                        <div class="flex-a-a" style="text-decoration:underline">ADDRESS</div>
+                        <div class="flex-a-b">@dat.Address</div>
+                    </div>
+                    <div class="flex">
+                        <div class="flex-a-a" style="text-decoration:underline">TAX ID</div>
+                        <div class="flex-a-b">@dat.TaxID</div>
+                    </div>
+                </div>
+
+            </div>
+            <div style="width:2%"></div>
+            <div class="flex-b" style="background-color: #8adefa;">
+                <div style="margin: 10px 35px ">
+                    <div class="flex">
+                        <div class="flex-a-a" style="text-decoration:underline">NO</div>
+                        <div class="flex-a-b">@dat.InvID</div>
+                    </div>
+                    <div class="flex">
+                        <div class="flex-a-a" style="text-decoration:underline">DATE</div>
+                        <div class="flex-a-b">@dat.InvDate</div>
+                    </div>
+                    @*<div class="flex">
+                            <div class="flex-a-a">TAX ID</div>
+                            <div class="flex-a-b"></div>
+                        </div>*@
+
+                </div>
+            </div>
+
+        }
+
+    </div>
+
+
+    <div class="flex" style="margin-top: 10px; ">
+        <div class="flex-detail-a">
+            <div>
+                <table style="width: 100%; " class="table table-bordered">
+                    <tr style="background-color: #8adefa">
+                        <th style="width:10px">No</th>
+                        <th>Date</th>
+                        <th style="width:100px">Name</th>
+                        <th>Service</th>
+                        <th style="width:100px">Company</th>
+                        <th style="width:30px">Amount(Baht)</th>
+                    </tr>
+                    <tr style="height: 620px">
+                        <td style="width: 10px; text-align: center">
+                            @{ var i = 0; var a = 0; var b = 0; var c = 0; var d = 0; var e = 0; var sum = 0; var chk = 29;}
+                            @foreach (var dat in ViewBag.dt_rwb)
+                            {
+                                i++;
+
+
+                                if (i < chk)
+                                {
+                            @i<br />
+                                }
+
+                            }
+                        </td>
+                        <td style="width:20px">
+                            @foreach (var dat in ViewBag.dt_rwb)
+                            {
+                                a++;
+                                if (a < chk)
+                                {
+                            @dat.Date<br />
+                                }
+
+                            }
+                        </td>
+                        <td style="width:172px">
+
+                            @foreach (var dat in ViewBag.dt_rwb)
+                            {
+                                b++;
+                                if (b < chk)
+                                {
+                            @(dat.FirstnameTH + "  " )  @(dat.LastNameTH)<br />
+                                }
+
+                            }
+                        </td>
+                        <td style="width:150px">
+                            @foreach (var dat in ViewBag.dt_rwb)
+                            {
+                                c++;
+                                if (c < chk)
+                                {
+                            @dat.Service<br />
+                                }
+
+                            }
+                        </td>
+                        <td style="width:100px">
+                            @foreach (var dat in ViewBag.dt_rwb)
+                            {
+                                d++;
+                                if (d < chk)
+                                {
+                            @dat.CusName  <br />
+                                }
+
+                            }
+                        </td>
+                        <td style="width:10px;text-align:center">
+                            @foreach (var dat in ViewBag.dt_rwb)
+                            {
+                                e++;
+                                if (e < chk)
+                                {
+                            @dat.Amount.ToString("#,##.00")<br />
+                                    sum += dat.Amount;
+                                }
+                            }
+                        </td>
+
+                    </tr>
+                </table>
+            </div>
+            <div class="flex" style="background-color:#8adefa;font-size:20px;margin-bottom: 4px">
+
+                <div style="text-align:right;width:100%;margin-right: 35px;height: 30px">@(ViewBag.dt_rwbcount <= 28 ? "Total Price: " + sum.ToString("#,##.00") : null) </div>
+
+            </div>
+            <span style="font-size: 14px;margin-top: 6px;margin-left: 40px">PAYMENT METHOD</span><br />
+            <div class="flex" style="padding: 0px 40px ;margin-top: 4px">
+
+                <table class="table table-bordered" style="font-size: 14px;text-align:center;margin-bottom: 1px !important">
+                    <thead>
+                        <tr>
+                            <td class="tda" style="width: 240px;">BANK</td>
+                            <td class="tda" style="width: 460px;">ACCOUNT NAME</td>
+                            <td class="tda">ACCOUNT NUMBER</td>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td class="tda" style="">KBANK</td>
+                        <td class="tda">BB SAHACLINIC</td>
+                        <td class="tda">133-2-98645-3</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="flex" style="padding: 0px 35px ;">
+                @*<div class="flex-c-a" style="text-align: left !important; font-size: 20px; margin-top: 30px;background-color:red">
+                <span>PAYMENT METHOD</span>
+                <div class="flex mt-2">
+                    <i class="fa fa-address-card" style="margin-right: 14px; color: #8adefa;margin-top: 6px "></i>
+                    <div class="flex-c-a-a"><span>KBANK, NAME: BB SAHACLINIC </span><span>, ACC NO. 133-2-98645-3 </span></div>
+                </div>
+                <div class="flex mt-2">
+                    <i class="fa fa-phone fa-flip-horizontal" style="margin-right: 20px; color: #8adefa; margin-top: 5px"></i>
+                    <div class="flex-c-a-a"><span>065-9459882 , 098-227684</span></div>
+                </div>
+                <div class="flex mt-2">
+                    <i class="fa fa-envelope" style="margin-right: 20px; color: #8adefa; margin-top: 5px "></i>
+                    <div class="flex-c-a-a"><span>sahaclinic.bb@gmail.com</span></div>
+                </div>
+
+            </div>*@
+
+
+                <div class="flex-c-b" style="font-size: 18px; text-align: center; margin-top: 25px; margin-bottom: 10px;">
+                    @*<img src="~/asset/img/signa.png" style="position:absolute;width:12%;top: 1285px;left:130px" />*@
+                    <div>........................................</div>
+                    <span style="font-size: 14px; position: absolute; left: 155px">@date</span>
+                    <div>(........................................)</div>
+                    <span>Sender</span>
+                </div>
+
+                <div class="flex-c-b" style="font-size: 18px; text-align: center; margin-top: 25px; margin-bottom: 10px;">
+                    @*<img src="~/asset/img/signa.png" style="position:absolute;width:20%;top: 1200px;right:120px" />*@
+                    <div>........................................</div>
+                    @*<span style="font-size: 14px; position: absolute; right: 165px">@date</span>*@
+                    <div>(........................................)</div>
+                    <span>Receiver</span>
+                </div>
+
+
+                <div class="flex-c-b" style="font-size: 18px; text-align: center; margin-top: 25px; margin-bottom: 10px;">
+                    @*<img src="~/asset/img/signa.png" style="position:absolute;width:20%;top: 1200px;right:120px" />*@
+                    <div>........................................</div>
+                    @*<span style="font-size: 14px; position: absolute; right: 165px">@date</span>*@
+                    <div>(........................................)</div>
+                    <span>
+                        Payment schedule
+                    </span>
+                </div>
+
+            </div>
+        </div>
+        </div>
+</div>
+
+@if (ViewBag.dt_rwbcount >= 29)
+{
+
+<div style="page-break-before: always">
+    <div style="color:red;font-size:25px;width: 100%;text-align: right;padding-right:55px">ORIGINAL</div>
+    <div style="text-align:center;">
+        <img src="~/asset/img/logobbnew.png" style="width:35%;background-color:yellow" />
+    </div>
+    <div style="font-size:18px;white-space:pre-line;padding: 0px 35px;margin: 0px !important">
+        556/29-30 หมู่บ้าน บ่อวินนคร 2 ม.3 ต.บ่อวิน อ.ศรีราชา จ.ชลบุรี 20230
+        556/29-30 Bowin Nakorn 2 Village Moo 3 , Bowin  Sub-district, Si racha District, Chonburi Province 20230
+        Tel. 065-9459882 , 098-227684
+        Tax ID 0-2055-65027-74-6
+    </div>
+    <div style="text-align:center;margin: 0px !important">
+
+        <h2>INVOICE / BILLING</h2>
+
+    </div>
+    <div class="flex" style="font-size: 20px; margin-top: 10px; margin-left: 0px !important; max-height: 180px">
+        @{ var date2 = "";}
+        @foreach (var dat in ViewBag.dt_rw)
+        {
+            date2 = dat.InvDate;
+            <div class="flex-a" style="background-color: #8adefa; ">
+                <div style="margin: 10px 35px ">
+                    <div class="flex">
+                        <div class="flex-a-a" style="text-decoration:underline">CUSTOMER</div>
+                        <div class="flex-a-b">@dat.Cusname</div>
+                    </div>
+                    <div class="flex">
+                        <div class="flex-a-a" style="text-decoration:underline">ADDRESS</div>
+                        <div class="flex-a-b">@dat.Address</div>
+                    </div>
+                    <div class="flex">
+                        <div class="flex-a-a" style="text-decoration:underline">TAX ID</div>
+                        <div class="flex-a-b">@dat.TaxID</div>
+                    </div>
+                </div>
+
+            </div>
+            <div style="width:2%"></div>
+            <div class="flex-b" style="background-color: #8adefa;">
+                <div style="margin: 10px 35px ">
+                    <div class="flex">
+                        <div class="flex-a-a" style="text-decoration:underline">NO</div>
+                        <div class="flex-a-b">@dat.InvID</div>
+                    </div>
+                    <div class="flex">
+                        <div class="flex-a-a" style="text-decoration:underline">DATE</div>
+                        <div class="flex-a-b">@dat.InvDate</div>
+                    </div>
+                    @*<div class="flex">
+                            <div class="flex-a-a">TAX ID</div>
+                            <div class="flex-a-b"></div>
+                        </div>*@
+
+                </div>
+            </div>
+
+        }
+
+    </div>
+
+
+    <div class="flex" style="margin-top: 10px; ">
+        <div class="flex-detail-a">
+            <div>
+                <table style="width: 100%; " class="table table-bordered">
+                    <tr style="background-color: #8adefa">
+                        <th style="width:10px">No</th>
+                        <th>Date</th>
+                        <th style="width:100px">Name</th>
+                        <th>Service</th>
+                        <th style="width:100px">Company</th>
+                        <th style="width:30px">Amount(Baht)</th>
+                    </tr>
+                    <tr style="height: 620px">
+                        <td style="width: 10px; text-align: center">
+                            @{ var i2 = 0; var a2 = 0; var b2 = 0; var c2 = 0; var d2 = 0; var e2 = 0; var sum2 = 0; var chk2 = 29;}
+                            @foreach (var dat in ViewBag.dt_rwb)
+                            {
+                                i2++;
+
+
+                                if (i2 >= chk2)
+                                {
+                                    @i2<br />
+                                }
+
+                            }
+                        </td>
+                        <td style="width:50px">
+                            @foreach (var dat in ViewBag.dt_rwb)
+                            {
+                                a2++;
+                                if (a2 >= chk2)
+                                {
+                                    @dat.Date<br />
+                                }
+
+                            }
+                        </td>
+                        <td style="width:250px">
+
+                            @foreach (var dat in ViewBag.dt_rwb)
+                            {
+                                b2++;
+                                if (b2 >= chk2)
+                                {
+                                    @(dat.FirstnameTH + "  " ) @(dat.LastNameTH)<br />
+                                }
+
+                            }
+                        </td>
+                        <td style="width:150px">
+                            @foreach (var dat in ViewBag.dt_rwb)
+                            {
+                                c2++;
+                                if (c2 >= chk2)
+                                {
+                                    @dat.Service<br />
+                                }
+
+                            }
+                        </td>
+                        <td style="width:100px">
+                            @foreach (var dat in ViewBag.dt_rwb)
+                            {
+                                d2++;
+                                if (d2 >= chk2)
+                                {
+                                    @dat.CusName <br />
+                                }
+
+                            }
+                        </td>
+                        <td style="width:30px;text-align:center">
+                            @foreach (var dat in ViewBag.dt_rwb)
+                            {
+                                e2++;
+                                if (e2 >= chk2)
+                                {
+                                    @dat.Amount.ToString("#,##.00")<br />
+
+                                }
+                                sum2 += dat.Amount;
+                            }
+                        </td>
+
+                    </tr>
+                </table>
+            </div>
+            <div class="flex" style="background-color:#8adefa;font-size:20px">
+                <div style="text-align:right;width:100%;margin-right: 35px">Total Price: @sum2.ToString("#,##.00")</div>
+            </div>
+            <span style="font-size: 14px;margin-top: 6px;margin-left: 40px">PAYMENT METHOD</span><br />
+            <div class="flex" style="padding: 0px 40px ;margin-top: 4px">
+
+                <table class="table table-bordered" style="font-size: 14px;text-align:center;margin-bottom: 1px !important">
+                    <thead>
+                        <tr>
+                            <td class="tda" style="width: 240px;">BANK</td>
+                            <td class="tda" style="width: 460px;">ACCOUNT NAME</td>
+                            <td class="tda">ACCOUNT NUMBER</td>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td class="tda" style="">KBANK</td>
+                        <td class="tda">BB SAHACLINIC</td>
+                        <td class="tda">133-2-98645-3</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="flex" style="padding: 0px 35px ;">
+                @*<div class="flex-c-a" style="text-align: left !important; font-size: 20px; margin-top: 30px;background-color:red">
+                        <span>PAYMENT METHOD</span>
+                        <div class="flex mt-2">
+                            <i class="fa fa-address-card" style="margin-right: 14px; color: #8adefa;margin-top: 6px "></i>
+                            <div class="flex-c-a-a"><span>KBANK, NAME: BB SAHACLINIC </span><span>, ACC NO. 133-2-98645-3 </span></div>
+                        </div>
+                        <div class="flex mt-2">
+                            <i class="fa fa-phone fa-flip-horizontal" style="margin-right: 20px; color: #8adefa; margin-top: 5px"></i>
+                            <div class="flex-c-a-a"><span>065-9459882 , 098-227684</span></div>
+                        </div>
+                        <div class="flex mt-2">
+                            <i class="fa fa-envelope" style="margin-right: 20px; color: #8adefa; margin-top: 5px "></i>
+                            <div class="flex-c-a-a"><span>sahaclinic.bb@gmail.com</span></div>
+                        </div>
+
+                    </div>*@
+
+
+                <div class="flex-c-b" style="font-size: 18px; text-align: center; margin-top: 25px; margin-bottom: 10px;">
+                    @*<img src="~/asset/img/signa.png" style="position:absolute;width:12%;top: 1285px;left:130px" />*@
+                    <div>........................................</div>
+                    <span style="font-size: 14px; position: absolute; left: 155px">@date</span>
+                    <div>(........................................)</div>
+                    <span>Sender</span>
+                </div>
+
+                <div class="flex-c-b" style="font-size: 18px; text-align: center; margin-top: 25px; margin-bottom: 10px;">
+                    @*<img src="~/asset/img/signa.png" style="position:absolute;width:20%;top: 1200px;right:120px" />*@
+                    <div>........................................</div>
+                    @*<span style="font-size: 14px; position: absolute; right: 165px">@date</span>*@
+                    <div>(........................................)</div>
+                    <span>Receiver</span>
+                </div>
+
+
+                <div class="flex-c-b" style="font-size: 18px; text-align: center; margin-top: 25px; margin-bottom: 10px;">
+                    @*<img src="~/asset/img/signa.png" style="position:absolute;width:20%;top: 1200px;right:120px" />*@
+                    <div>........................................</div>
+                    @*<span style="font-size: 14px; position: absolute; right: 165px">@date</span>*@
+                    <div>(........................................)</div>
+                    <span>
+                        Payment schedule
+                    </span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+}
+else if (ViewBag.dt_rwbcount >= 60)
+{
+
+
+}
+
+
+
+<div style="page-break-before: always">
+    <div style="color:red;font-size:25px;width: 100%;text-align: right;padding-right:55px">COPY</div>
+    <div style="text-align:center;">
+        <img src="~/asset/img/logobbnew.png" style="width:35%;background-color:yellow" />
+    </div>
+    <div style="font-size:18px;white-space:pre-line;padding: 0px 35px;margin: 0px !important">
+        556/29-30 หมู่บ้าน บ่อวินนคร 2 ม.3 ต.บ่อวิน อ.ศรีราชา จ.ชลบุรี 20230
+        556/29-30 Bowin Nakorn 2 Village Moo 3 , Bowin  Sub-district, Si racha District, Chonburi Province 20230
+        Tel. 065-9459882 , 098-227684
+        Tax ID 0-2055-65027-74-6
+    </div>
+    <div style="text-align:center;margin: 0px !important">
+
+        <h2>INVOICE / BILLING</h2>
+
+    </div>
+    <div class="flex" style="font-size: 20px; margin-top: 10px; margin-left: 0px !important; max-height: 180px">
+        @{ var datec = "";}
+        @foreach (var dat in ViewBag.dt_rw)
+        {
+            date = dat.InvDate;
+            <div class="flex-a" style="background-color: #8adefa; ">
+                <div style="margin: 10px 35px ">
+                    <div class="flex">
+                        <div class="flex-a-a" style="text-decoration:underline">CUSTOMER</div>
+                        <div class="flex-a-b">@dat.Cusname</div>
+                    </div>
+                    <div class="flex">
+                        <div class="flex-a-a" style="text-decoration:underline">ADDRESS</div>
+                        <div class="flex-a-b">@dat.Address</div>
+                    </div>
+                    <div class="flex">
+                        <div class="flex-a-a" style="text-decoration:underline">TAX ID</div>
+                        <div class="flex-a-b">@dat.TaxID</div>
+                    </div>
+                </div>
+
+            </div>
+            <div style="width:2%"></div>
+            <div class="flex-b" style="background-color: #8adefa;">
+                <div style="margin: 10px 35px ">
+                    <div class="flex">
+                        <div class="flex-a-a" style="text-decoration:underline">NO</div>
+                        <div class="flex-a-b">@dat.InvID</div>
+                    </div>
+                    <div class="flex">
+                        <div class="flex-a-a" style="text-decoration:underline">DATE</div>
+                        <div class="flex-a-b">@dat.InvDate</div>
+                    </div>
+                    @*<div class="flex">
+                            <div class="flex-a-a">TAX ID</div>
+                            <div class="flex-a-b"></div>
+                        </div>*@
+
+                </div>
+            </div>
+
+        }
+
+    </div>
+
+
+    <div class="flex" style="margin-top: 10px; ">
+        <div class="flex-detail-a">
+            <div>
+                <table style="width: 100%; " class="table table-bordered">
+                    <tr style="background-color: #8adefa">
+                        <th style="width:10px">No</th>
+                        <th>Date</th>
+                        <th style="width:100px">Name</th>
+                        <th>Service</th>
+                        <th style="width:100px">Company</th>
+                        <th style="width:30px">Amount(Baht)</th>
+                    </tr>
+                    <tr style="height: 620px">
+                        <td style="width: 10px; text-align: center">
+                            @{ var ic = 0; var ac = 0; var bc = 0; var cc = 0; var dc = 0; var ec = 0; var sumc = 0; var chkc = 29;}
+                            @foreach (var dat in ViewBag.dt_rwb)
+                            {
+                                ic++;
+
+
+                                if (ic < chkc)
+                                {
+                            @ic<br />
+                                }
+
+                            }
+                        </td>
+                        <td style="width:20px">
+                            @foreach (var dat in ViewBag.dt_rwb)
+                            {
+                                ac++;
+                                if (ac < chkc)
+                                {
+                            @dat.Date<br />
+                                }
+
+                            }
+                        </td>
+                        <td style="width:172px">
+
+                            @foreach (var dat in ViewBag.dt_rwb)
+                            {
+                                bc++;
+                                if (bc < chkc)
+                                {
+                            @(dat.FirstnameTH + "  " )  @(dat.LastNameTH)<br />
+                                }
+
+                            }
+                        </td>
+                        <td style="width:150px">
+                            @foreach (var dat in ViewBag.dt_rwb)
+                            {
+                                cc++;
+                                if (cc < chkc)
+                                {
+                            @dat.Service<br />
+                                }
+
+                            }
+                        </td>
+                        <td style="width:100px">
+                            @foreach (var dat in ViewBag.dt_rwb)
+                            {
+                                dc++;
+                                if (dc < chkc)
+                                {
+                            @dat.CusName  <br />
+                                }
+
+                            }
+                        </td>
+                        <td style="width:10px;text-align:center">
+                            @foreach (var dat in ViewBag.dt_rwb)
+                            {
+                                ec++;
+                                if (ec < chkc)
+                                {
+                            @dat.Amount.ToString("#,##.00")<br />
+                                    sumc += dat.Amount;
+                                }
+                            }
+                        </td>
+
+                    </tr>
+                </table>
+            </div>
+            <div class="flex" style="background-color:#8adefa;font-size:20px">
+
+                <div style="text-align:right;width:100%;margin-right: 35px;height: 30px">@(ViewBag.dt_rwbcount <= 28 ? "Total Price: " + sum.ToString("#,##.00") : null) </div>
+
+            </div>
+            <span style="font-size: 14px;margin-top: 6px;margin-left: 40px">PAYMENT METHOD</span><br />
+            <div class="flex" style="padding: 0px 40px ;margin-top: 4px">
+
+                <table class="table table-bordered" style="font-size: 14px;text-align:center;margin-bottom: 1px !important">
+                    <thead>
+                        <tr>
+                            <td class="tda" style="width: 240px;">BANK</td>
+                            <td class="tda" style="width: 460px;">ACCOUNT NAME</td>
+                            <td class="tda">ACCOUNT NUMBER</td>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td class="tda" style="">KBANK</td>
+                        <td class="tda">BB SAHACLINIC</td>
+                        <td class="tda">133-2-98645-3</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="flex" style="padding: 0px 35px ;">
+                @*<div class="flex-c-a" style="text-align: left !important; font-size: 20px; margin-top: 30px;background-color:red">
+                <span>PAYMENT METHOD</span>
+                <div class="flex mt-2">
+                    <i class="fa fa-address-card" style="margin-right: 14px; color: #8adefa;margin-top: 6px "></i>
+                    <div class="flex-c-a-a"><span>KBANK, NAME: BB SAHACLINIC </span><span>, ACC NO. 133-2-98645-3 </span></div>
+                </div>
+                <div class="flex mt-2">
+                    <i class="fa fa-phone fa-flip-horizontal" style="margin-right: 20px; color: #8adefa; margin-top: 5px"></i>
+                    <div class="flex-c-a-a"><span>065-9459882 , 098-227684</span></div>
+                </div>
+                <div class="flex mt-2">
+                    <i class="fa fa-envelope" style="margin-right: 20px; color: #8adefa; margin-top: 5px "></i>
+                    <div class="flex-c-a-a"><span>sahaclinic.bb@gmail.com</span></div>
+                </div>
+
+            </div>*@
+
+
+                <div class="flex-c-b" style="font-size: 18px; text-align: center; margin-top: 25px; margin-bottom: 10px;">
+                    @*<img src="~/asset/img/signa.png" style="position:absolute;width:12%;top: 1285px;left:130px" />*@
+                    <div>........................................</div>
+                    <span style="font-size: 14px; position: absolute; left: 155px">@date</span>
+                    <div>(........................................)</div>
+                    <span>Sender</span>
+                </div>
+
+                <div class="flex-c-b" style="font-size: 18px; text-align: center; margin-top: 25px; margin-bottom: 10px;">
+                    @*<img src="~/asset/img/signa.png" style="position:absolute;width:20%;top: 1200px;right:120px" />*@
+                    <div>........................................</div>
+                    @*<span style="font-size: 14px; position: absolute; right: 165px">@date</span>*@
+                    <div>(........................................)</div>
+                    <span>Receiver</span>
+                </div>
+
+
+                <div class="flex-c-b" style="font-size: 18px; text-align: center; margin-top: 25px; margin-bottom: 10px;">
+                    @*<img src="~/asset/img/signa.png" style="position:absolute;width:20%;top: 1200px;right:120px" />*@
+                    <div>........................................</div>
+                    @*<span style="font-size: 14px; position: absolute; right: 165px">@date</span>*@
+                    <div>(........................................)</div>
+                    <span>
+                        Payment schedule
+                    </span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (ViewBag.dt_rwbcount >= 29)
+{
+
+<div style="page-break-before: always">
+    <div style="color:red;font-size:25px;width: 100%;text-align: right;padding-right:55px">COPY</div>
+    <div style="text-align:center;">
+        <img src="~/asset/img/logobbnew.png" style="width:35%;background-color:yellow" />
+    </div>
+    <div style="font-size:18px;white-space:pre-line;padding: 0px 35px;margin: 0px !important">
+        556/29-30 หมู่บ้าน บ่อวินนคร 2 ม.3 ต.บ่อวิน อ.ศรีราชา จ.ชลบุรี 20230
+        556/29-30 Bowin Nakorn 2 Village Moo 3 , Bowin  Sub-district, Si racha District, Chonburi Province 20230
+        Tel. 065-9459882 , 098-227684
+        Tax ID 0-2055-65027-74-6
+    </div>
+    <div style="text-align:center;margin: 0px !important">
+
+        <h2>INVOICE / BILLING</h2>
+
+    </div>
+    <div class="flex" style="font-size: 20px; margin-top: 10px; margin-left: 0px !important; max-height: 180px">
+        @{ var date2c = "";}
+        @foreach (var dat in ViewBag.dt_rw)
+        {
+            date2c = dat.InvDate;
+            <div class="flex-a" style="background-color: #8adefa; ">
+                <div style="margin: 10px 35px ">
+                    <div class="flex">
+                        <div class="flex-a-a" style="text-decoration:underline">CUSTOMER</div>
+                        <div class="flex-a-b">@dat.Cusname</div>
+                    </div>
+                    <div class="flex">
+                        <div class="flex-a-a" style="text-decoration:underline">ADDRESS</div>
+                        <div class="flex-a-b">@dat.Address</div>
+                    </div>
+                    <div class="flex">
+                        <div class="flex-a-a" style="text-decoration:underline">TAX ID</div>
+                        <div class="flex-a-b">@dat.TaxID</div>
+                    </div>
+                </div>
+
+            </div>
+            <div style="width:2%"></div>
+            <div class="flex-b" style="background-color: #8adefa;">
+                <div style="margin: 10px 35px ">
+                    <div class="flex">
+                        <div class="flex-a-a" style="text-decoration:underline">NO</div>
+                        <div class="flex-a-b">@dat.InvID</div>
+                    </div>
+                    <div class="flex">
+                        <div class="flex-a-a" style="text-decoration:underline">DATE</div>
+                        <div class="flex-a-b">@dat.InvDate</div>
+                    </div>
+                    @*<div class="flex">
+                            <div class="flex-a-a">TAX ID</div>
+                            <div class="flex-a-b"></div>
+                        </div>*@
+
+                </div>
+            </div>
+
+        }
+
+    </div>
+
+
+    <div class="flex" style="margin-top: 10px; ">
+        <div class="flex-detail-a">
+            <div>
+                <table style="width: 100%; " class="table table-bordered">
+                    <tr style="background-color: #8adefa">
+                        <th style="width:10px">No</th>
+                        <th>Date</th>
+                        <th style="width:100px">Name</th>
+                        <th>Service</th>
+                        <th style="width:100px">Company</th>
+                        <th style="width:30px">Amount(Baht)</th>
+                    </tr>
+                    <tr style="height: 620px">
+                        <td style="width: 10px; text-align: center">
+                            @{ var i2c = 0; var a2c = 0; var b2c = 0; var c2c = 0; var d2c = 0; var e2c = 0; var sum2c = 0; var chk2c = 29;}
+                            @foreach (var dat in ViewBag.dt_rwb)
+                            {
+                                i2c++;
+
+
+                                if (i2c >= chk2c)
+                                {
+                                    @i2c<br />
+                                }
+
+                            }
+                        </td>
+                        <td style="width:50px">
+                            @foreach (var dat in ViewBag.dt_rwb)
+                            {
+                                a2c++;
+                                if (a2c >= chk2c)
+                                {
+                                    @dat.Date<br />
+                                }
+
+                            }
+                        </td>
+                        <td style="width:250px">
+
+                            @foreach (var dat in ViewBag.dt_rwb)
+                            {
+                                b2c++;
+                                if (b2c >= chk2c)
+                                {
+                                    @(dat.FirstnameTH + "  " ) @(dat.LastNameTH)<br />
+                                }
+
+                            }
+                        </td>
+                        <td style="width:150px">
+                            @foreach (var dat in ViewBag.dt_rwb)
+                            {
+                                c2c++;
+                                if (c2c >= chk2c)
+                                {
+                                    @dat.Service<br />
+                                }
+
+                            }
+                        </td>
+                        <td style="width:100px">
+                            @foreach (var dat in ViewBag.dt_rwb)
+                            {
+                                d2c++;
+                                if (d2c >= chk2c)
+                                {
+                                    @dat.CusName <br />
+                                }
+
+                            }
+                        </td>
+                        <td style="width:30px;text-align:center">
+                            @foreach (var dat in ViewBag.dt_rwb)
+                            {
+                                e2c++;
+                                if (e2c >= chk2c)
+                                {
+                                    @dat.Amount.ToString("#,##.00")<br />
+
+                                }
+                                sum2c += dat.Amount;
+                            }
+                        </td>
+
+                    </tr>
+                </table>
+            </div>
+            <div class="flex" style="background-color:#8adefa;font-size:20px">
+                <div style="text-align:right;width:100%;margin-right: 35px">Total Price: @sum2c.ToString("#,##.00")</div>
+            </div>
+            <span style="font-size: 14px;margin-top: 6px;margin-left: 40px">PAYMENT METHOD</span><br />
+            <div class="flex" style="padding: 0px 40px ;margin-top: 4px">
+
+                <table class="table table-bordered" style="font-size: 14px;text-align:center;margin-bottom: 1px !important">
+                    <thead>
+                        <tr>
+                            <td class="tda" style="width: 240px;">BANK</td>
+                            <td class="tda" style="width: 460px;">ACCOUNT NAME</td>
+                            <td class="tda">ACCOUNT NUMBER</td>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td class="tda" style="">KBANK</td>
+                        <td class="tda">BB SAHACLINIC</td>
+                        <td class="tda">133-2-98645-3</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="flex" style="padding: 0px 35px ;">
+                @*<div class="flex-c-a" style="text-align: left !important; font-size: 20px; margin-top: 30px;background-color:red">
+                        <span>PAYMENT METHOD</span>
+                        <div class="flex mt-2">
+                            <i class="fa fa-address-card" style="margin-right: 14px; color: #8adefa;margin-top: 6px "></i>
+                            <div class="flex-c-a-a"><span>KBANK, NAME: BB SAHACLINIC </span><span>, ACC NO. 133-2-98645-3 </span></div>
+                        </div>
+                        <div class="flex mt-2">
+                            <i class="fa fa-phone fa-flip-horizontal" style="margin-right: 20px; color: #8adefa; margin-top: 5px"></i>
+                            <div class="flex-c-a-a"><span>065-9459882 , 098-227684</span></div>
+                        </div>
+                        <div class="flex mt-2">
+                            <i class="fa fa-envelope" style="margin-right: 20px; color: #8adefa; margin-top: 5px "></i>
+                            <div class="flex-c-a-a"><span>sahaclinic.bb@gmail.com</span></div>
+                        </div>
+
+                    </div>*@
+
+
+                <div class="flex-c-b" style="font-size: 18px; text-align: center; margin-top: 25px; margin-bottom: 10px;">
+                    @*<img src="~/asset/img/signa.png" style="position:absolute;width:12%;top: 1285px;left:130px" />*@
+                    <div>........................................</div>
+                    <span style="font-size: 14px; position: absolute; left: 155px">@date</span>
+                    <div>(........................................)</div>
+                    <span>Sender</span>
+                </div>
+
+                <div class="flex-c-b" style="font-size: 18px; text-align: center; margin-top: 25px; margin-bottom: 10px;">
+                    @*<img src="~/asset/img/signa.png" style="position:absolute;width:20%;top: 1200px;right:120px" />*@
+                    <div>........................................</div>
+                    @*<span style="font-size: 14px; position: absolute; right: 165px">@date</span>*@
+                    <div>(........................................)</div>
+                    <span>Receiver</span>
+                </div>
+
+
+                <div class="flex-c-b" style="font-size: 18px; text-align: center; margin-top: 25px; margin-bottom: 10px;">
+                    @*<img src="~/asset/img/signa.png" style="position:absolute;width:20%;top: 1200px;right:120px" />*@
+                    <div>........................................</div>
+                    @*<span style="font-size: 14px; position: absolute; right: 165px">@date</span>*@
+                    <div>(........................................)</div>
+                    <span>
+                        Payment schedule
+                    </span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+}
+else if (ViewBag.dt_rwbcount >= 60)
+{
+
+
+}

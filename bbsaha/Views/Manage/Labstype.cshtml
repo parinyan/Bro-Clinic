@@ -1,0 +1,252 @@
+﻿@model bbsaha.Models.Account.ListUser
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Administration</title>
+
+    <style>
+        body {
+            line-height: unset;
+        }
+    </style>
+</head>
+<body>
+    <div id="_acc" style="margin: 0px 50px;">
+
+
+        @*<button type="submit">save</button>*@
+        <button type="button" data-bs-toggle="modal" data-bs-target="#_account_new" class="btn btn-primary">New</button>
+        @*<button type="button" data-bs-toggle="modal" data-bs-target="#_account_detail" v-on:click="toggleaccountdetail" class="btn btn-outline-info" :disabled="isDisabled" style="font-weight: 900;">detail</button>*@
+        @*<button type="button" class="btn btn-outline-danger" v-on:click="toggleaccountdelete" :disabled="isDisableddel" style="font-weight: 900;">delete</button>*@
+
+
+        <h3 class="p-3">TypeHealthCheck</h3>
+        <div style="overflow:auto;height:400px;width: 1200px">
+            <table class="table table-striped table-bordered" id="acc">
+                <thead>
+                    <tr style="position:sticky;top:0;background-color: #fff">
+
+                        <th>No</th>
+                        <th>TypeName</th>
+                       
+                        <th>Type</th>
+                        <th>Status</th>
+                        
+                        <th>Config</th>
+                        @*<th>Man-Power</th>
+                            <th>Time Attendance</th>
+                            <th>Administration</th>*@
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr v-for="(value,key) in getdatatymain">
+
+                        <td>{{key + 1}}</td>
+                        <td>{{value.typeName}}</td>
+                        <td>{{value.remark}}</td>
+                        <td>
+                            <template v-if="value.status == 1">
+                                <button class="btn-success bt1" v-on:click="togglestatus(value.id,0)">Online</button>
+                            </template>
+                            <template v-else>
+                                <button class="btn-danger bt2" v-on:click="togglestatus(value.id,1)">Offline</button>
+                            </template>
+                        </td>
+                        <td><button class="btn-warning" data-bs-toggle="modal" data-bs-target="#_account_detail" v-on:click="toggledataed(value.id)">Edit</button></td>
+                        @*<td>{{value.companyCode}}</td>
+            <td>{{value.companyNameTH}}</td>
+            <td>{{value.companyNameEN}}</td>
+            <td>
+                <template v-if="value.status == 1">
+                    <button class="btn-success bt1" v-on:click="togglestatus(value.id,0)">Online</button>
+
+                </template>
+                <template v-else>
+                    <button class="btn-danger bt2" v-on:click="togglestatus(value.id,1)">Offline</button>
+
+                </template>
+
+            </td>
+            <td>{{value.type}}</td>
+            <td><button class="btn-warning" data-bs-toggle="modal" data-bs-target="#_account_detail" v-on:click="toggledataed(value.id)">Edit</button></td>
+
+        <td style="text-align:center;"><input type="checkbox" v-bind:value="value.account" v-model="account" /></td>
+            <td>{{ key + 1 }}</td>
+            <td><input type="text" v-bind:value="value.account" hidden />{{value.account}}</td>
+            <td style="width:110px;text-align:center;">
+                <input type="checkbox" v-model="users[key].supUser" disabled />
+            </td>
+            <td></td>
+            <td></td>
+            <td>{{value.nickNameTH}}</td>
+        <td>
+                <input type="checkbox"  v-model="users[key].manPower"  />
+            </td>
+            <td>
+                <input type="checkbox"  v-model="users[key].timeAttendance" />
+            </td>
+            <td>
+                <input type="checkbox"  v-model="users[key].administration" />
+            </td>*@
+
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+        <div class="modal fade" id="_account_new" tabindex="-1" aria-labelledby="_account_newLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content" id="_account_input_save">
+                    @*<div class="modal-header">
+
+                        </div>*@
+                    <div class="modal-body">
+                        <h5 class="modal-title" id="exampleModalLabel">TypeHealthCheck</h5>
+
+                        <hr />
+
+                        <div class="row _account_input">
+                            <div class="col col-3">
+                                TypeName:
+                            </div>
+                            <div class="col col-9">
+                                <input type="text" class="form-control" v-model="typname" style="font-weight: 900;">
+                            </div>
+                        </div>
+                        <div class="row _account_input">
+                            <div class="col col-3">
+                                Detail:
+                            </div>
+                            <div class="col col-9">
+                                <input type="text" class="form-control" v-model="typremark" placeholder="">
+
+                            </div>
+                        </div>
+
+                        <div class="row _account_input">
+                            <div class="col col-3">
+                                Price :
+                            </div>
+                            <div class="col col-9">
+                                <input type="number" class="form-control" v-model="typpri" placeholder="">
+
+                            </div>
+                        </div>
+                        <div class="row _account_input">
+                            <div class="col col-3">
+                                Status:
+                            </div>
+                            <div class="col col-9">
+                                <select class="form-control" v-model="typstatus">
+                                    <option value="1">Open</option>
+                                    <option value="0">Close</option>
+                                </select>
+                                @*<input type="checkbox" name="name" value="" /> Super User*@
+                            </div>
+                        </div>
+
+
+                        <h5 class="modal-title" id="exampleModalLabel">Labs type</h5>
+                        <hr />
+                        <div class="row _account_input">
+                            <div class="col col-3" v-for="(value,key) in getdatatype">
+                                <input type="checkbox" :id="value.code" :value="value.id" v-model="typchklist" /> <label :for="value.code">{{value.typeName}}</label>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" v-on:click="toggletypsave">save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="_account_detail" tabindex="-1" aria-labelledby="_account_newLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content" id="_account_input_save">
+                    <div class="modal-header">
+
+                        </div>
+                    <div class="modal-body">
+                        <template>
+
+
+                            <h5 class="modal-title" id="exampleModalLabel">TypeHealthCheck</h5>
+
+                            <hr />
+
+                            <div class="row _account_input">
+                                <div class="col col-3">
+                                    TypeName:
+                                </div>
+                                <div class="col col-9">
+                                    <input type="text" class="form-control" v-model="typnameed" style="font-weight: 900;">
+                                </div>
+                            </div>
+                            <div class="row _account_input">
+                                <div class="col col-3">
+                                    Detail:
+                                </div>
+                                <div class="col col-9">
+                                    <input type="text" class="form-control" v-model="typremarked" placeholder="">
+
+                                </div>
+                            </div>
+                            <div class="row _account_input">
+                                <div class="col col-3">
+                                   Price :
+                                </div>
+                                <div class="col col-9">
+                                    <input type="number" class="form-control" v-model="typpried" placeholder="">
+
+                                </div>
+                            </div>
+                            <div class="row _account_input">
+                                <div class="col col-3">
+                                    Status:
+                                </div>
+                                <div class="col col-9">
+                                    <select class="form-control" v-model="typstatused">
+                                        <option value="1">Open</option>
+                                        <option value="0">Close</option>
+                                    </select>
+                                    @*<input type="checkbox" name="name" value="" /> Super User*@
+                                </div>
+                            </div>
+
+
+                            <h5 class="modal-title" id="exampleModalLabel">Labs type</h5>
+                            <hr />
+                            <div class="row _account_input">
+                                <div class="col col-3" v-for="(value,key) in getdatatypeed">
+                                    <input type="checkbox" :id="value.id + value.code" :value="value.id" v-model="typchklisted" /> <label :for="value.id + value.code">{{value.typeName}}</label>
+
+                                </div>
+                            </div>
+
+
+                        </template>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" v-on:click="toggletypedsave">save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+<link href="~/asset/style/_Customer.css" rel="stylesheet" asp-append-version="true" />
+@*<script src="~/asset/Manage/_Customer.js" asp-append-version="true"></script>*@
+<script src="~/asset/Manage/_setlabstype.js" asp-append-version="true"></script>

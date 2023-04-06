@@ -1,0 +1,366 @@
+﻿
+<style>
+    #_invmain {
+    font-weight: 600;
+    
+    }
+
+</style>
+<div id="_invmain" style="padding: 20px">
+    <div class="mb-2"><button class="btn btn-primary mr-4 mt-2" v-on:click="newinv" style="width: 10%; border: 1px solid #000;">New</button></div>
+    <template>
+        <div>
+            @*<select>
+                <option v-for="(value,key) in getinv">{{value.ec.invID}}</option>
+            </select>*@
+
+            <div class="row mt-4 mb-3">
+                <div class="col-2">
+                    <small class="text-primary">Company</small>
+                    <select v-on:change="changcom()" v-model="cusid" class="form-control">
+                        <option value="">Select Company</option>
+                        <option v-for="(value,key) in getinv" v-bind:value="value.id">{{value.companyNameEN}}</option>
+                    </select>
+                </div>
+                <div class="col-2" v-if="cusid != ''">
+                    <small class="text-primary">InvoiceID</small>
+                    <select v-model="invid" v-on:change="checkrw()" class="form-control">
+                        <option v-for="(value,key) in getinvid">{{value.invID}}</option>
+                    </select>
+                </div>
+                <div class="col-2" v-if="cusid != ''">
+                    <small class="text-primary">Rewite No.</small>
+                    <select v-model="invrw" v-on:change="rwchang()" class="form-control">
+                        <option v-for="(value,key) in rwAr">{{value.invrw}}</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+    </template>
+
+    <div class="row">
+        <div class="col-6">
+            <template v-if="fulldetail != '' && statusmode == false">
+                <div class="card card-inv" style="width:100%;height: 800px">
+
+                    <div style="padding: 20px">
+                        <button class="btn btn-warning mt-4" v-on:click="print()" style="border: 2px solid #000; font-weight: 700">Print Invoice</button>
+                        <button class="btn btn-warning mt-4" v-on:click="swtmodeopen()" v-if="statusmode == false" style="border: 2px solid #000;background-color: #b1b1b1;font-weight: 700">Edit Invoice</button>
+                     
+                        <div class="row mt-4 mb-4" style="text-align:center;">
+                            <div class="col-12"><h1>INVOICE / BILLING</h1></div>
+
+                        </div>
+                        <div style="margin-top: 40px;">
+                            <div class="row" style="padding: 20px; " v-for="(value,key) in fulldetail">
+                                <div class="col-6">
+                                    <div class="row space-text">
+                                        <div class="col-3">Customer</div>
+                                        <div class="col-6">
+                                            {{value.cusname}}
+
+                                        </div>
+                                    </div>
+                                    <div class="row space-text">
+                                        <div class="col-3">Address</div>
+                                        <div class="col-6">
+                                            {{value.address}}
+
+                                        </div>
+                                    </div>
+                                    <div class="row space-text">
+                                        <div class="col-3">Tax ID</div>
+                                        <div class="col-6">
+                                            {{value.taxID}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="row space-text">
+                                        <div class="col-3">No</div>
+                                        <div class="col-6">
+
+                                            {{value.invID}}
+                                        </div>
+                                    </div>
+                                    <div class="row space-text">
+                                        <div class="col-3">Date</div>
+                                        <div class="col-6">
+                                            {{value.invDate}}
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                            <div style="height: 300px;overflow:auto">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        
+                                        <th>No</th>
+                                        <th>Date</th>
+                                        <th>Name-Surname</th>
+                                        <th>Service</th>
+                                        <th>Company</th>
+                                        <th>Amount(Baht)</th>
+                                    </tr>
+                                    <tr v-for="(value,key) in fdetail">
+                                        
+                                        <td>{{key+ 1}}</td>
+                                        <td>{{value.date}}</td>
+                                        <td>{{value.firstnameTH}} {{value.lastNameTH}}</td>
+                                        <td>{{value.service}}</td>
+                                        <td>{{value.cusName}}</td>
+                                        <td>{{value.amount}}</td>
+
+                                    </tr>
+                                </table>
+                            </div>
+                            <div style="text-align:right;margin-top:20px">
+                                <span>TotalPrice: {{total}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+
+
+
+        </div>
+        <div class="col-6">
+            <template v-if="fulldetail != '' && statusmode == false">
+                <div class="card card-inv" style="width:100%;height: 800px">
+
+                    <div style="padding: 20px">
+                        <button class="btn btn-warning mt-4" v-on:click="printrec()" style="border: 2px solid #000; font-weight: 700">Print Receipt</button>
+
+                        <div class="row mt-4 mb-4" style="text-align:center;">
+                            <div class="col-12"><h1>RECEIPT / TAX INVOICE</h1></div>
+
+                        </div>
+                        <div style="margin-top: 40px;">
+                            <div class="row" style="padding: 20px; " v-for="(value,key) in fulldetail">
+                                <div class="col-6">
+                                    <div class="row space-text">
+                                        <div class="col-3">Customer</div>
+                                        <div class="col-6">
+                                            {{value.cusname}}
+
+                                        </div>
+                                    </div>
+                                    <div class="row space-text">
+                                        <div class="col-3">Address</div>
+                                        <div class="col-6">
+                                            {{value.address}}
+
+                                        </div>
+                                    </div>
+                                    <div class="row space-text">
+                                        <div class="col-3">Tax ID</div>
+                                        <div class="col-6">
+                                            {{value.taxID}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="row space-text">
+                                        <div class="col-3">No</div>
+                                        <div class="col-6">
+
+                                            {{value.invID}}
+                                        </div>
+                                    </div>
+                                    <div class="row space-text">
+                                        <div class="col-3">Date</div>
+                                        <div class="col-6">
+                                            <input type="date" v-model="daterecive" class="form-control" /> <button class="btn btn-success mt-4" v-on:click="savedatere()">Save Date</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                            <div style="height: 300px;overflow:auto">
+                                <table class="table table-bordered">
+                                    <tr>
+                                      
+                                        <th>No</th>
+                                        <th>Date</th>
+                                        <th>Service</th>
+                                        <th>Amount(Baht)</th>
+
+                                    </tr>
+                                    <tr v-for="(value,key) in fulldetail">
+                                      
+                                        <td>{{key+ 1}}</td>
+                                        <td>{{value.invDate}}</td>
+
+                                        <td></td>
+
+                                        <td>{{total}}</td>
+
+                                    </tr>
+                                </table>
+                            </div>
+                            <div style="text-align:right">
+                                <span>TotalPrice: {{total}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+        </div>
+
+    </div>
+    <template v-if="statusmode == true">
+        <div class="row">
+            <div class="card card-inv" style="width:100%;height: 850px">
+
+                <div style="padding: 20px">
+                    <button class="btn btn-warning mt-4" v-on:click="swtmodeclose()" style="border: 2px solid #000; font-weight: 700; background-color: #b1b1b1 ">back</button>
+                    <button class="btn btn-success mt-4" v-on:click="saveE()" style="border: 2px solid #000; font-weight: 700">Save</button>
+                    <div class="row mt-4 mb-4" style="text-align:center;">
+                        <div class="col-12"><h1>INVOICE / BILLING</h1></div>
+
+                    </div>
+                    <div style="margin-top: 40px;">
+                        <div class="row" style="padding: 20px; " v-for="(value,key) in fulldetail">
+                            <div class="col-6">
+                                <div class="row space-text">
+                                    <div class="col-3">Customer</div>
+                                    <div class="col-6">
+                                        @*<input type="text" name="name" v-model=""/>*@
+                                        {{value.cusname}}
+
+                                    </div>
+                                </div>
+                                <div class="row space-text mt-2">
+                                    <div class="col-3">Address</div>
+                                    <div class="col-6">
+                                        <textarea class="form-control" v-model="Address">
+</textarea>
+
+                                    </div>
+                                </div>
+                                <div class="row space-text mt-2">
+                                    <div class="col-3">Tax ID</div>
+                                    <div class="col-6">
+                                        <input type="text" class="form-control" v-model="Tax" />
+                                        @*{{value.taxID}}*@
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="row space-text">
+                                    <div class="col-3">No</div>
+                                    <div class="col-6">
+                                        @*<input type="text" name="name" v-model="" />*@
+                                        {{value.invID}}
+                                    </div>
+                                </div>
+                                <div class="row space-text">
+                                    <div class="col-3">Date</div>
+                                    <div class="col-6">
+                                        @*<input type="text" name="name" v-model="" />*@
+                                        {{value.invDate}}
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        <button v-on:click="addExperience()" type="button" class="btn btn-primary mt-4" style="margin: 0px 20px;">เพิ่มรายการ</button>
+                        <button v-on:click="popExperience()" type="button" class="btn btn-danger mt-4">ลดรายการ</button>
+                        <div style="height: 300px;overflow:auto;margin-top: 20px">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th style="width: 40px"></th>
+                                    <th style="text-align:center">No</th>
+                                    <th>Date</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Service</th>
+                                    <th>Company</th>
+                                    <th>Amount(Baht)</th>
+                                </tr>
+                                <tr v-for="(value,key) in fulledit">
+                                    <td><button class="btn-danger" v-on:click="delper(key)">Delete</button></td>
+                                    <td style="text-align:center">{{key+ 1}}</td>
+                                    <td><input type="date" class="form-control" v-model="dateE[key]" /> </td>
+                                    <td><input type="text" class="form-control" v-model="firstnameTH[key]" /> </td>
+                                    <td><input type="text" class="form-control" v-model="lastNameTH[key]" /> </td>
+                                    <td><input type="text" class="form-control" v-model="service[key]" /> </td>
+                                    <td>
+                                        <select class="form-control" v-model="cusName[key]">
+                                            <option v-for="(value,key) in com" v-bind:value="value.nameSimple">{{value.nameSimple}}</option>
+                                        </select>
+                                  
+                                    <td><input type="text" class="form-control" v-model="amount[key]" /> </td>
+
+                                </tr>
+                            </table>
+                        </div>
+                        <div style="text-align:right;margin-top:20px">
+                            <span>TotalPrice: {{total}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </template>
+
+
+</div>
+<style>
+    .modal {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+</style>
+<div class="modal" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" style="display:none;">
+    <div class="modal-dialog" style="  position: absolute;top:0;bottom: 0 ; left:0;right:0;  border:none; display:flex;flex-wrap:wrap;align-items:center;justify-content:center;">
+        <div class="modal-content" style="background-color:transparent;border:none;">
+            <div class="row justify-content-center">
+
+                <span style="color: #ffffff;">กำลังบันทึก</span>
+            </div>
+            <div class="row justify-content-center">
+                <div class="d-flex justify-content-center " style="background-color:transparent;border:none;">
+
+                    <div class="spinner-grow text-primary" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <div class="spinner-grow text-secondary" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <div class="spinner-grow text-success" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <div class="spinner-grow text-danger" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <div class="spinner-grow text-warning" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <div class="spinner-grow text-info" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <div class="spinner-grow text-light" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <div class="spinner-grow text-dark" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/asset/invoice/_invmain.js"></script>

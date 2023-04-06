@@ -1,0 +1,134 @@
+﻿<style>
+    .display-flex {
+        display: flex;
+        display: -webkit-box;
+        margin-top: 10px
+    }
+
+    .row-card {
+        height: 100px;
+    }
+
+    .tr-a {
+        height: 20px;
+    }
+
+    body, button, h1, h2, h3, h4, h5, input, option {
+        font-family: 'Sarabun', sans-serif !important;
+        /*font-weight: 800 !important;*/
+        /*font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;*/
+    }
+
+    .table td {
+        padding: 5px !important;
+        border: 1px solid #000;
+        font-weight: 600
+    }
+
+    /*.micoE {
+        width: 100px;
+    }*/
+
+    .micoC {
+        width: 80px;
+    }
+
+    .fix-a {
+        width: 20%;
+        height: auto;
+    }
+
+    .fix-b {
+        width: 20%;
+        height: auto;
+    }
+
+    .bt-a {
+        text-align: left !important;
+    }
+
+    .text-a {
+        padding-left: 10px;
+    }
+
+    .table thead tr th {
+        padding: 10px !important;
+        border: 1px solid #000;
+    }
+</style>
+
+<div id="_pay">
+    <template>
+        <div class="container-fluid">
+            <div class="card" style="padding: 40px">
+                <h2>Cash Clear Report</h2>
+                <div class="display-flex mb-4">
+                    <div class="fix-a">
+                        <div> <small class="text-primary">Period :</small> </div>
+                        <div>
+                            <input type="date" v-on:change="Getdatasum" v-model="startdate" class="selectpop form-control" />
+                        </div>
+                    </div>
+
+                    <div class="fix-b ml-2">
+                        <div> <small class="text-primary"></small> </div><br />
+                        <div>
+                            <input type="date" v-on:change="Getdatasum" v-model="enddate" class="selectpop form-control" />
+                        </div>
+                    </div>
+                    <div class="fix-b ml-2">
+                        <div> <small class="text-primary"></small> </div><br />
+                        <div>
+                            <button class="btn btn-primary" v-on:click="check">Search</button>
+                            <button class="btn btn-warning mr-2" v-on:click="autofildata">Confirm</button>|
+                            <button class="btn btn-success ml-2" v-on:click="savedat" >Save</button>
+
+                        </div>
+                    </div>
+                   
+                </div>
+                <div style="overflow: auto; height: 600px; width: 1050px;">
+                    <table class="table table-borderless mt-4" style="text-align:center">
+                        <thead style="position: sticky; top: 0;">
+                           
+                            <tr style="background-color: #6f6f6f;color: #fff">
+
+                                <th>DATE</th>
+                                <th>AMOUNT(baht)</th>
+                                <th>CLEAR</th>
+                                <th>BALANCE</th>
+                                <th>COMMENT</th>
+    
+                            </tr>
+                          
+                        </thead>
+
+                        <tr v-for="(value,key) in dateper" style="text-align: center">
+                            <td style="text-align:left !important">{{dateper[key].date}}</td>
+                           
+                            <td style="">
+                                <template v-for="(value2,key2) in getdatacasharr" v-if="dateper[key].date == value2.customer">
+                                    {{value2.scash}}
+                                </template>
+                             
+                            </td>
+                               
+                                                
+                            <td style=""><input type="text" v-model="dateper[key].sper"/></td>
+                            <td style="">
+                                <template v-for="(value3,key3) in getdatacasharr" v-if="dateper[key].date == value3.customer">
+                                    {{value3.sbank}}
+                                </template>
+                                
+                            </td>
+                            <td style=""><input type="text" v-model="dateper[key].cper" style="color: red"/></td>
+                         
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </template>
+</div>
+<script src="~/asset/payment/_paycash.js" asp-append-version="true"></script>

@@ -1,0 +1,168 @@
+﻿
+<style>
+    .a-col {
+        background-color: aquamarine
+    }
+
+    .b-col {
+        background-color: aqua
+    }
+
+    .space-text {
+        margin-bottom: 10px;
+    }
+</style>
+
+
+
+<div id="_cardform" style="padding: 40px">
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+
+                <div class="card card-inv" style="width: 100%; ">
+                    <div style="padding: 20px">
+                        <div class="row mt-4 mb-4" style="text-align:center;">
+                            <div class="col-12"><h1>INVOICE / BILLING</h1></div>
+
+                        </div>
+
+                        <div class="row" style="padding: 0px; margin-left: 40px;">
+                            <div class="col-6">
+                                <div class="row space-text">
+                                    <div class="col-3">Customer</div>
+                                    <div class="col-6">
+                                        <select class="form-control" v-on:change="togglecom()" v-model="choicecom">
+                                            <option v-bind:value="{id:0,idcode:0}">SelectCompany</option>
+                                            <option v-for="(value,key) in com" v-bind:value="{id:value.id,idcode:value.companyCode}">{{value.nameSimple}}</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="row space-text">
+                                    <div class="col-3">Address</div>
+                                    <div class="col-6">
+                                        <textarea class="form-control" v-model="address"></textarea>
+
+                                    </div>
+                                </div>
+                                <div class="row space-text">
+                                    <div class="col-3">Tax ID</div>
+                                    <div class="col-6"><input type="text" class="form-control" v-model="taxID" /></div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="row space-text">
+                                    <div class="col-3">No</div>
+                                    <div class="col-6">
+                                        {{No}}
+                                        @*<input type="text" class="form-control" v-model="taxID" />*@
+                                    </div>
+                                </div>
+                                <div class="row space-text">
+                                    <div class="col-3">Date</div>
+                                    <div class="col-6"><input type="date" class="form-control" id="invdate" v-model="Datesel" /></div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        <button v-on:click="addExperience()" type="button" class="btn btn-primary mt-4" style="margin: 0px 20px;">เพิ่มรายการ</button>
+                        <button v-on:click="popExperience()" type="button" class="btn btn-danger mt-4">ลดรายการ</button>
+                        <div class="mt-4" style="height: 300px; overflow: auto;">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>NO</th>
+                                    <th>Date</th>
+                                    <th>FirstName</th>
+                                    <th>LastName</th>
+                                    <th>Service</th>
+                                    <th>Company</th>
+                                    <th>Amount (Baht)</th>
+                                </tr>
+                                <tr v-for="(value,key) in dataformde">
+                                    <td>{{key + 1}}</td>
+                                    <td><input type="date" class="form-control" v-model="date[key]" /></td>
+                                    <td><input type="text" class="form-control" v-model="Name[key]" /></td>
+                                    <td><input type="text" class="form-control" v-model="Namel[key]" /></td>
+                                    <td>
+                                        <input type="text"  list="browsers" name="browser" id="browser" class="form-control" v-model="Service[key]" />
+                                        <datalist id="browsers">
+                                            <option value="ตรวจสุขภาพก่อนเริ่มงาน">ตรวจสุขภาพก่อนเริ่มงาน</option>
+                                            <option value="ATK">ATK</option>
+                                            <option value="ตรวจสุขภาพพนักงานประจำปี">ตรวจสุขภาพพนักงานประจำปี</option>
+                                            <option value="ตรวจทั่วไป">ตรวจทั่วไป</option>
+                                            
+                                        </datalist>
+                                    </td>
+                                    <td>
+                                        <select class="form-control" v-model="Company[key]">
+                                            <option value="value">Select Company</option>
+                                            <option v-for="(value,key) in com" v-bind:value="value.nameSimple">{{value.nameSimple}}</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="text" class="form-control" v-model="Amount[key]" /></td>
+                                </tr>
+                            </table>
+
+                        </div>
+                        <button v-on:click="saveexp()" type="button" class="btn btn-success mt-2 mb-4" style="margin: 0px 40px;">บันทีก</button>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+</div>
+<style>
+    .modal {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+</style>
+<div class="modal" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" style="display:none;">
+    <div class="modal-dialog" style="  position: absolute;top:0;bottom: 0 ; left:0;right:0;  border:none; display:flex;flex-wrap:wrap;align-items:center;justify-content:center;">
+        <div class="modal-content" style="background-color:transparent;border:none;">
+            <div class="row justify-content-center">
+
+                <span style="color: #ffffff;">กำลังบันทึก</span>
+            </div>
+            <div class="row justify-content-center">
+                <div class="d-flex justify-content-center " style="background-color:transparent;border:none;">
+
+                    <div class="spinner-grow text-primary" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <div class="spinner-grow text-secondary" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <div class="spinner-grow text-success" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <div class="spinner-grow text-danger" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <div class="spinner-grow text-warning" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <div class="spinner-grow text-info" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <div class="spinner-grow text-light" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <div class="spinner-grow text-dark" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/asset/invoice/_inv.js"></script>

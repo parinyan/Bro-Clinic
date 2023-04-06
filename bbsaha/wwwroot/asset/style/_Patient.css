@@ -1,0 +1,43 @@
+﻿.btn-manage {
+    border: 0px solid #000;
+    width:90px
+    
+
+}
+
+.btn-med {
+   /* background-color: cadetblue;*/
+    color: #fff;
+}
+
+.tta {
+    border-radius: 10px;
+    background-color: #fffdfd;
+    border: 1px solid #727272 !important;
+}
+
+.ffa {
+    border-radius: 10px;
+    background-color: #fffdfd;
+    border: 1px solid #727272 !important;
+}
+
+.tab {
+    overflow: hidden;
+     border: 0px solid !important; 
+    background-color: #fff !important;
+   /* margin-bottom: 20px;*/
+   /*border-bottom: 1px solid #727272 !important*/
+}
+
+    .tab button.active {
+        color: #fff;
+        background-color: #0a1e7e;
+        border-radius: 5px;
+    }
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #fff !important;
+    background-color: #0a1e7e !important;
+   
+}

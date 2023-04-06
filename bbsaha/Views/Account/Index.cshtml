@@ -1,0 +1,155 @@
+﻿@{
+    Layout = "";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login V1</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+
+    <link href="~/css/main.css" rel="stylesheet" asp-append-version="true"/>
+    <link href="~/css/util.css" rel="stylesheet" asp-append-version="true"/>
+    
+  
+    <style>
+        body {
+
+           /* font-family: 'Sarabun', sans-serif !important;*/
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+    </style>
+   
+</head>
+<body>
+   
+
+        <div class="limiter">
+            <div class="container-login100">
+                <div class="wrap-login100">
+                    
+                        <!--<div class="login100-pic js-tilt" data-tilt>-->
+                        @*<img src="~/Image/Loginpage/bt-01.png" style="width: 385px; margin-top: 90px;" />*@
+                        @*<div style=" text-align: center;">
+            <span style=" font-size: 70px; text-align: center; ">BBT GATE</span>
+        </div>*@
+                        @*<img src="~/asset/image/BTTLAST2.png" style="width: 385px;" />*@
+                        <!--</div>-->
+
+                    <div class="login100-form validate-form" id="_account_login_form">
+                        <span class="login100-form-title">
+                            Member Login
+                        </span>
+
+                        <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                            <input class="input100" type="text" name="username" placeholder="Username" v-model="username" id="username">
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            </span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input" data-validate="Password is required">
+                            <input class="input100" type="password" name="password" placeholder="Password" v-model="password" id="password">
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-lock" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <template>
+                            <p id="_valid_msg_login">{{validationms}}</p>
+                        </template>
+                            <div class="container-login100-form-btn">
+                                <button class="login100-form-btn" v-on:click="togglelogin" id="_butsub">
+                                    Login
+                                </button>
+                            </div>
+
+                            <div class="text-center p-t-12">
+
+                            </div>
+
+                            <div class="text-center p-t-136">
+
+                            </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+    <script src="https://unpkg.com/vuejs-datepicker"></script>
+    <script src="~/asset/script/thaibath.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vee-validate@@<3.0.0/dist/vee-validate.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@100&display=swap" rel="stylesheet">
+    <!-- unpkg -->
+    <script src="https://unpkg.com/vee-validate@@<3.0.0"></script>
+    <style>
+        #_valid_msg_login {
+            color: red;
+        }
+        .wrap-login100 {
+            width: unset !important;
+        }
+    </style>
+
+    <script>
+        new Vue({
+            el: "#_account_login_form",
+            data: function () {
+                return {
+                    username: null,
+                    password: null,
+                    validationms: null
+                }
+            },
+            methods: {
+                togglelogin: function () {
+                    this.validationms = null;
+                    const formData = new FormData();
+                    formData.append('username', this.username);
+                    formData.append('password', this.password);
+
+                    axios
+                        .post("/Account/login", formData)
+                        .then(res => {
+
+                            if (res.data == "success") {
+                                this.validationms = null; window.location.href = '/Patient/Patient';
+                            } else {
+                                this.validationms = res.data;
+                            }
+                        })
+                        .catch(err => {
+
+                            console.log(err);
+                        });
+                }
+
+            }
+        })
+
+
+        var input = document.getElementById("password");
+        input.addEventListener("keyup", function (event) {
+            if (event.keyCode === 13) {              
+                event.preventDefault();
+                document.getElementById("_butsub").click();
+            }
+        });
+    </script>
+
+</body>
+</html>
+

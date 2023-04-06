@@ -1,0 +1,254 @@
+﻿@model bbsaha.Models.Account.ListUser
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Administration</title>
+
+    <style>
+        body {
+            line-height: unset;
+        }
+    </style>
+</head>
+<body>
+    <div id="_acc" style="margin: 0px 50px;">
+
+
+        @*<button type="submit">save</button>*@
+        <button type="button" data-bs-toggle="modal" data-bs-target="#_account_new" class="btn btn-primary">New</button>
+        <button type="button" data-bs-toggle="modal" data-bs-target="#_account_detail" v-on:click="toggleaccountdetail" class="btn btn-outline-info" :disabled="isDisabled" style="font-weight: 900;">detail</button>
+        <button type="button" class="btn btn-outline-danger" v-on:click="toggleaccountdelete" :disabled="isDisableddel" style="font-weight: 900;">delete</button>
+
+
+        <h3 class="p-3 text-center">Account</h3>
+        <table class="table table-striped table-bordered" id="acc">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>No</th>
+                    <th>Account</th>
+                    <th>SuperUser</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>NickName</th>
+                    @*<th>Man-Power</th>
+                        <th>Time Attendance</th>
+                        <th>Administration</th>*@
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr v-for="(value,key,index) in users">
+
+
+                    <td style="text-align:center;"><input type="checkbox" v-bind:value="value.account" v-model="account" /></td>
+                    <td>{{ key + 1 }}</td>
+                    <td><input type="text" v-bind:value="value.account" hidden />{{value.account}}</td>
+                    <td style="width:110px;text-align:center;">
+                        <input type="checkbox" v-model="users[key].supUser" disabled />
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td>{{value.nickNameTH}}</td>
+                    @*<td>
+                            <input type="checkbox"  v-model="users[key].manPower"  />
+                        </td>
+                        <td>
+                            <input type="checkbox"  v-model="users[key].timeAttendance" />
+                        </td>
+                        <td>
+                            <input type="checkbox"  v-model="users[key].administration" />
+                        </td>*@
+
+                </tr>
+
+            </tbody>
+        </table>
+
+
+        <div class="modal fade" id="_account_new" tabindex="-1" aria-labelledby="_account_newLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content" id="_account_input_save">
+                    @*<div class="modal-header">
+
+                        </div>*@
+                    <div class="modal-body">
+                        <h5 class="modal-title" id="exampleModalLabel">Account</h5>
+
+                        <hr />
+                        <form>
+                            <div class="row _account_input">
+                                <div class="col col-3">
+                                    Account:
+                                </div>
+                                <div class="col col-9">
+                                    <input type="text" class="form-control" v-model="username" style="font-weight: 900;">
+                                </div>
+                            </div>
+                            <div class="row _account_input">
+                                <div class="col col-3">
+                                    Password:
+                                </div>
+                                <div class="col col-9">
+                                    <input v-validate="'required'" type="password" name="password" class="form-control" v-model="password" placeholder="Password" ref="password">
+
+                                </div>
+                            </div>
+                            <div class="row _account_input">
+                                <div class="col col-3">
+                                    Confirm Password:
+                                </div>
+                                <div class="col col-9">
+                                    <input v-validate="'required|confirmed:password'" name="password_confirmation" type="password" class="form-control" v-model="confirmpassword" placeholder="Password, Again" data-vv-as="password">
+
+                                </div>
+                            </div>
+
+                            <div class="row _account_input">
+                                <div class="col col-3">
+
+                                </div>
+                                <div class="col col-9">
+                                    <div class="alert" v-show="errors.any()">
+                                        <div v-if="errors.has('password')">
+                                            {{ errors.first('password') }}
+                                        </div>
+                                        <div v-if="errors.has('password_confirmation')">
+                                            {{ errors.first('password_confirmation') }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="row _account_input">
+                                <div class="col col-3">
+
+                                </div>
+                                <div class="col col-9">
+                                    <input type="checkbox" name="name" value="" v-model="superuser" /> Super User
+                                </div>
+                            </div>
+
+                        </form>
+                        <h5 class="modal-title" id="exampleModalLabel">Access Mode</h5>
+                        <hr />
+                        <div class="row _account_input">
+                            <div class="col col-3">
+
+                            </div>
+                            <div class="col col-9">
+                                <input type="checkbox" name="name" value="" v-model="manpower" /> Man-power
+                            </div>
+                        </div>
+                        <div class="row _account_input">
+                            <div class="col col-3">
+
+                            </div>
+                            <div class="col col-9">
+                                <input type="checkbox" name="name" value="" v-model="timeattendance" /> Time Attendance
+                            </div>
+                        </div>
+                        <div class="row _account_input">
+                            <div class="col col-3">
+
+                            </div>
+                            <div class="col col-9">
+                                <input type="checkbox" name="name" value="" v-model="administration" /> Administration
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" v-on:click="toggleaccountsave">save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="_account_detail" tabindex="-1" aria-labelledby="_account_newLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content" id="_account_input_edit" v-for="(value,key) in accs">
+                    <div class="modal-body">
+                        <h5 class="modal-title" id="exampleModalLabel">Account</h5>
+
+                        <hr />
+                        <form>
+                            <div class="row _account_input">
+                                <div class="col col-3">
+                                    Account:
+                                </div>
+                                <div class="col col-9">
+                                    <input type="text" class="form-control" v-model:value="value.account">
+
+                                </div>
+                            </div>
+                            <div class="row _account_input">
+                                <div class="col col-3">
+                                    Password:
+                                </div>
+                                <div class="col col-9">
+                                    <input type="text" class="form-control" v-model="password">
+                                </div>
+                            </div>
+                            <div class="row _account_input">
+                                <div class="col col-3">
+                                    Confirm Password:
+                                </div>
+                                <div class="col col-9">
+                                    <input type="text" class="form-control" v-model="confirmpassword">
+                                </div>
+                            </div>
+                            <div class="row _account_input">
+                                <div class="col col-3">
+
+                                </div>
+                                <div class="col col-9">
+                                    <input type="checkbox" name="name" value="" v-model="accs[key].supUser" /> Super User
+                                </div>
+                            </div>
+
+                        </form>
+                        <h5 class="modal-title" id="exampleModalLabel">Access Mode</h5>
+                        <hr />
+                        <div class="row _account_input">
+                            <div class="col col-3">
+
+                            </div>
+                            <div class="col col-9">
+                                <input type="checkbox" name="name" value="" v-model="accs[key].manPower" /> Man-power
+                            </div>
+                        </div>
+                        <div class="row _account_input">
+                            <div class="col col-3">
+
+                            </div>
+                            <div class="col col-9">
+                                <input type="checkbox" name="name" value="" v-model="accs[key].timeAttendance" /> Time Attendance
+                            </div>
+                        </div>
+                        <div class="row _account_input">
+                            <div class="col col-3">
+
+                            </div>
+                            <div class="col col-9">
+                                <input type="checkbox" name="name" value="" v-model="accs[key].administration" /> Administration
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" v-on:click="toggleeditsave(accs[key])">save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<link href="~/asset/style/_account_users.css" rel="stylesheet" />
+
+<script src="~/asset/Account/_account_users.js"></script>

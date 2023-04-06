@@ -1,0 +1,65 @@
+﻿
+
+
+<style>
+    #auw {
+        color: #000
+    }
+
+        #auw.hover {
+            color: #ff0000 !important
+        }
+    .table td{
+        padding: 5px;
+        vertical-align: top;
+        border-top: 1px solid #dee2e6;
+    }
+    .table th {
+        padding: 10px;
+    }
+</style>
+<div id="_mertable">
+    <div class="container">
+        <div class="flex mb-2" style="display: flex; display: -webkit-box; ">
+            <div style="width: 50%">
+                <span style="font-size: 34px">Stock</span><br />
+                <input type="text" v-model="searchhc" class="form-control" placeholder="Search" v-on:keyup="searchpatirnt" />
+            </div>
+            <div style="width: 50%"><span style="color: red">{{refnosel}}&nbsp;&nbsp;{{namesel}}</span></div>
+
+        </div>
+        <div style="overflow: auto; max-height: 230px;  width: 100%; ">
+            <template>
+
+                <table class="table table-bordered mt-4 ">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center">ListName</th>
+                            <th>Amount</th>
+                            <th>balance</th>
+                            <th>widen/เบิก</th>
+                            @*<th>FirstName</th>
+                            <th>LastName</th>
+                            <th>Config</th>*@
+                        </tr>
+                    </thead>
+                    <tr style="color: #000">
+
+                        <td style="text-align:center">Needle NO. 21</td>
+                        <td>100/BOX</td>
+                        <td>300/PCS</td>
+                        <td></td>
+                        @*<td>{{value.lname}}</td>*@
+                        @*<td>{{value.tel}}</td>*@
+                        @*<td>
+                            <button class="btn btn-success mr-2" v-on:click="setrefno(value.id)" style="height:35px;">select</button>
+
+                        </td>*@
+                    </tr>
+                </table>
+
+            </template>
+        </div>
+    </div>
+</div>
+<script src="~/asset/med/_medcer.js" asp-append-version="true"></script>

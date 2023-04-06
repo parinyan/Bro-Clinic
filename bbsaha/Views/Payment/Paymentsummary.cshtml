@@ -1,0 +1,150 @@
+﻿
+
+<style>
+    .display-flex {
+        display: flex;
+        display: -webkit-box;
+        margin-top: 10px
+    }
+
+    .row-card {
+        height: 100px;
+    }
+
+    .tr-a {
+        height: 20px;
+    }
+
+    body, button, h1, h2, h3, h4, h5, input, option {
+        font-family: 'Sarabun', sans-serif !important;
+        /*font-weight: 800 !important;*/
+        /*font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;*/
+    }
+
+    .table td {
+        padding: 5px !important;
+        border: 1px solid #000;
+        font-weight: 600
+    }
+
+    /*.micoE {
+        width: 100px;
+    }*/
+
+    .micoC {
+        width: 80px;
+    }
+
+    .fix-a {
+        width: 20%;
+        height: auto;
+    }
+
+    .fix-b {
+        width: 20%;
+        height: auto;
+    }
+
+    .bt-a {
+        text-align: left !important;
+    }
+
+    .text-a {
+        padding-left: 10px;
+    }
+    .table thead tr th {
+        padding: 10px !important;
+        border: 1px solid #000;
+    }
+</style>
+
+<div id="_pay">
+    <template>
+        <div class="container-fluid">
+            <div class="card" style="padding: 40px">
+                <h2>Payment Summary</h2>
+                <div class="display-flex mb-4">
+                    <div class="fix-a">
+                        <div> <small class="text-primary">Period :</small> </div>
+                        <div>
+                            <input type="date" v-model="startdate" class="selectpop form-control" />
+                        </div>
+                    </div>
+
+                    <div class="fix-b ml-2">
+                        <div> <small class="text-primary"></small> </div><br />
+                        <div>
+                            <input type="date" v-model="enddate" class="selectpop form-control" />
+                        </div>
+                    </div>
+                    <div class="fix-b ml-2">
+                        <div> <small class="text-primary"></small> </div><br />
+                        <div>
+                            <button class="btn btn-primary" v-on:click="Getdatasum">Search</button>
+                             <button class="btn btn-success" v-on:click="Getdataexport">Export</button>
+                        </div>
+                      
+                    </div>
+                   
+                </div>
+                <div style="overflow:auto;height:600px">
+                    <table class="table table-borderless mt-4" style="text-align:center">
+                        <thead style="position: sticky; top: 0;">
+                            <tr style="background-color: #6f6f6f;color: #fff">
+                                <th style="text-align:left;" rowspan="2">Customer</th>
+                                <th colspan="2">Cash</th>
+
+                                <th colspan="2">Bank Tranfer</th>
+
+                                <th colspan="2">Invoice</th>
+
+                                <th colspan="2">Total</th>
+
+                            </tr>
+                            <tr style="background-color: #6f6f6f;color: #fff">
+
+                                <th>Count of Person</th>
+                                <th>Count of Amount</th>
+                                <th>Count of Person</th>
+                                <th>Count of Amount</th>
+                                <th>Count of Person</th>
+                                <th>Count of Amount</th>
+                                <th>Total of Person</th>
+                                <th>Total of Amount</th>
+                            </tr>
+                            <tr style="background-color: #ff9494; font-weight: 800;">
+                                <td style="text-align:left">SUMMARY</td>
+                                <td>{{totaccash}}</td>
+                                <td>{{totascash.toLocaleString(undefined, {minimumFractionDigits: 2})}}</td>
+                                <td>{{totacbank}}</td>
+                                <td>{{totasbank.toLocaleString(undefined, {minimumFractionDigits: 2})}}</td>
+                                <td>{{totacinvoice}}</td>
+                                <td>{{totasinvoice.toLocaleString(undefined, {minimumFractionDigits: 2})}}</td>
+                                <td>{{totacper}}</td>
+                                <td>{{totasper.toLocaleString(undefined, {minimumFractionDigits: 2})}}</td>
+                            </tr>
+                        </thead>
+                       
+                        <tr v-for="(value1,key1) in getdatacompany">
+                            <td style="text-align:left !important">{{value1.customer}}</td>
+                            <template v-for="(value2,key2) in getdatasummary">
+                                <td v-if="value2.customer == value1.customer">{{value2.ccash}}</td>
+                                <td v-if="value2.customer == value1.customer">{{value2.scash.toLocaleString(undefined, {minimumFractionDigits: 2})}}</td>
+                                <td v-if="value2.customer == value1.customer">{{value2.cbank}}</td>
+                                <td v-if="value2.customer == value1.customer">{{value2.sbank.toLocaleString(undefined, {minimumFractionDigits: 2})}}</td>
+                                <td v-if="value2.customer == value1.customer">{{value2.cinvoice}}</td>
+                                <td v-if="value2.customer == value1.customer">{{value2.sinvoice.toLocaleString(undefined, {minimumFractionDigits: 2})}}</td>
+                                <td v-if="value2.customer == value1.customer">{{value2.cper}}</td>
+                                <td v-if="value2.customer == value1.customer">{{value2.sper.toLocaleString(undefined, {minimumFractionDigits: 2})}}</td>
+
+                            </template>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </template>
+</div>
+
+<script src="~/asset/payment/_paysum.js" asp-append-version="true"></script>

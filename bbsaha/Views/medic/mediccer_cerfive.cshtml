@@ -1,0 +1,523 @@
+﻿@{
+    Layout = "";
+
+}
+
+@using System.Globalization;
+
+@using bbsaha.Models.Certificate
+<link href="~/css/sb-admin-2.css" rel="stylesheet" asp-append-version="true" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+<link href="~/css/fontawesome-free/css/all.css" rel="stylesheet" />
+
+<script src="~/js/jquery.min.js" asp-append-version="true"></script>
+<script src="~/js/jquery-3.5.1.js" asp-append-version="true"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/Scripts/umd/popper.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<script src="~/Scripts/vendor/chart.js/Chart.min.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4-4.6.0/jszip-2.5.0/dt-1.10.25/af-2.3.7/b-1.7.1/b-colvis-1.7.1/b-html5-1.7.1/b-print-1.7.1/cr-1.5.4/date-1.1.0/fc-3.3.3/fh-3.1.9/kt-2.6.2/r-2.2.9/rg-1.1.3/rr-1.2.8/sc-2.0.4/sb-1.1.0/sp-1.3.0/sl-1.3.3/datatables.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" asp-append-version="true" />
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4-4.6.0/jszip-2.5.0/dt-1.10.25/af-2.3.7/b-1.7.1/b-colvis-1.7.1/b-html5-1.7.1/b-print-1.7.1/cr-1.5.4/date-1.1.0/fc-3.3.3/fh-3.1.9/kt-2.6.2/r-2.2.9/rg-1.1.3/rr-1.2.8/sc-2.0.4/sb-1.1.0/sp-1.3.0/sl-1.3.3/datatables.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun&display=swap" rel="stylesheet">
+<style>
+    .display-flex {
+        display: flex;
+        display: -webkit-box;
+        margin-top: 10px
+    }
+
+    .flex-a {
+        width: 35%;
+    }
+
+    .flex-b {
+        width: 65%
+    }
+
+    .flex-in-a {
+        width: 30%;
+    }
+
+    .flex-in-b {
+        width: 70%
+    }
+
+    body, button, h1, h2, h3, h4, h5, input, option {
+        font-family: 'Sarabun', sans-serif !important;
+        /*font-weight: 800 !important;*/
+        /*font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;*/
+    }
+</style>
+
+
+<div style="width: 100%;height: 140px;border-bottom: 2px solid #000">
+    <div class="display-flex">
+        <div class="flex-a">
+            @*<img src="~/asset/img/2022-09-28_13-38-51.png" style="width:90%;margin-top: 10px" />*@
+            <img src="~/asset/img/logobbnew.png" style="width:90%;margin-top: 10px" />
+        </div>
+        <div class="flex-b">
+            <span style="white-space:pre-line;text-align:center">
+                บีบี สหคลินิก คลินิกเวชกรรม (BB SahaClinic)
+                556/29‐30 หมู่บ้านบ่อวินนคร 2 ม.3 ต.บ่อวิน อ.ศรีราชา จ.ชลบุรี 20230
+                @*556/29‐30 Bowin Nakorn 2 Village Moo 3 , Bowin Sub‐district, Si racha District, Chonburi Province 20230*@
+                Tel. 065‐9459882 , 098‐227684 Email: sahaclinic.bb@gmail.com
+                Tax ID 0‐2055‐64001‐73‐5
+            </span>
+        </div>
+
+    </div>
+
+
+</div>
+@foreach (View_Datacer dat in ViewBag.data)
+{
+
+    <div style="width: 100%; height: auto; padding: 0px 40px;margin-top: 15px;font-size: 17px;">
+        <div style="text-align:right">เลขที่ @dat.cerid - @dat.runnumber</div>
+        <div style="width: 100%;text-align:center">
+            <h4>ใบรับรองแพทย์</h4>
+        </div>
+
+        <div style="text-align:right">สถานที่ตรวจ บีบีสหคลินิก </div>
+
+
+        <div class="display-flex">
+
+            <div class="flex-in-a" style="width: 65%;">
+
+            </div>
+            <div class="flex-in-b" style="width: 5%;margin-left:2px">
+                วันที่
+            </div>
+            <div class="flex-in-b" style="width: 5%;">
+                <div style="border-bottom: 1px dashed #000; width: 100%; height: 22px; text-align: center">@dat.CerDate.ToString("dd")</div>
+            </div>
+            <div class="flex-in-b" style="width: 5%;">
+                เดือน
+            </div>
+            <div class="flex-in-b" style="width: 10%;">
+                <div style="border-bottom: 1px dashed #000; width: 100%; height: 22px; text-align: center">@dat.CerDate.ToString("MMMM", CultureInfo.CreateSpecificCulture("th"))</div>
+            </div>
+            <div class="flex-in-b" style="width: 5%;">
+                พ.ศ.
+            </div>
+            <div class="flex-in-b" style="width: 5%;">
+                <div style="border-bottom: 1px dashed #000; width: 100%; height: 22px; text-align: center">@(Convert.ToInt32(dat.CerDate.ToString("yyyy")) + 543)</div>
+            </div>
+        </div>
+
+        <div style="text-align:right;width: 800px;background-color: red"></div>
+
+        <div style="font-size: 16px;margin-top: 80px">
+            @*<div class="display-flex">
+
+            <div class="flex-in-a" style="font-size: 18px; font-weight: 900">
+                ส่วนที่ 1 ของผู้ขอรับรองสุขภาพ
+            </div>
+            <div class="flex-in-b">
+
+            </div>
+
+        </div>*@
+            <div class="display-flex">
+                <div class="flex-in-b" style="width: 10%;">
+
+                </div>
+                <div class="flex-in-a" style="width: 23%;">
+                    ข้าพเจ้า นายแพทย์/<s>แพทย์หญิง</s>
+                </div>
+                <div class="flex-in-b" style="width: 67%;">
+                    <div style="border-bottom: 1px dashed #000; width: 100%;text-align: center;">@dat.FnameCom&nbsp;@dat.LnameCom</div>
+                </div>
+
+            </div>
+            <div class="display-flex">
+
+                <div class="flex-in-a" style="width: 52%;">
+                    ใบอนุญาตประกอบวิชาชีพเวชกรรม หรือสถานที่ปฎิบัติงานประจำหรืออยู่ที่
+                </div>
+                <div class="flex-in-b" style="width: 48%;">
+                    <div style="border-bottom: 1px dashed #000; width: 100%;">&nbsp;@dat.NameClinic</div>
+                </div>
+
+            </div>
+            <div class="display-flex">
+
+                <div class="flex-in-a" style="width: 12%;">
+                    ใบอนุญาตเลขที่
+                </div>
+                <div class="flex-in-b" style="width: 12%; text-align: center">
+                    <div style="border-bottom: 1px dashed #000; width: 100%;">&nbsp;20110000965</div>
+                </div>
+                <div class="flex-in-b" style="width: 6%;">
+                    ตั้งอยู่ที่
+                </div>
+                <div class="flex-in-b" style="width: 12%; text-align: center">
+                    <div style="border-bottom: 1px dashed #000; width: 100%;">556/29-30</div>
+                </div>
+                <div class="flex-in-b" style="width: 4%;">
+                    หมู่ที่
+                </div>
+                <div class="flex-in-b" style="width: 5%; text-align: center">
+                    <div style="border-bottom: 1px dashed #000; width: 100%;">3</div>
+                </div>
+                <div class="flex-in-b" style="width: 5%;">
+                    ตำบล
+                </div>
+                <div class="flex-in-b" style="width: 8%; text-align: center">
+                    <div style="border-bottom: 1px dashed #000; width: 100%;">บ่อวิน</div>
+                </div>
+                <div class="flex-in-b" style="width: 5%;">
+                    อำเภอ
+                </div>
+                <div class="flex-in-b" style="width: 10%; text-align: center">
+                    <div style="border-bottom: 1px dashed #000; width: 100%;">ศรีราชา</div>
+                </div>
+                <div class="flex-in-b" style="width: 5%;">
+                    จังหวัด
+                </div>
+                <div class="flex-in-b" style="width: 16%;text-align:center">
+                    <div style="border-bottom: 1px dashed #000; width: 100%;">ชลบุรี &nbsp;20230</div>
+                </div>
+            </div>
+
+            <div class="display-flex">
+
+                <div class="flex-in-a" style="width: 28%;">
+                    ได้ตรวจร่างกาย @if (dat.NametitleCus == "นาย")
+                    {
+                        <span>นาย</span>
+                    }
+                    else
+                    { <s>นาย</s>
+
+                    }/
+                    @if (dat.NametitleCus == "นาง")
+                    {
+                        <span>นาง</span>
+                    }
+                    else
+                    { <s>นาง</s>
+
+                    }/
+                    @if (dat.NametitleCus == "นางสาว")
+                    {
+                        <span>นางสาว</span>
+                    }
+                    else
+                    { <s>นางสาว</s>
+
+                    }
+                </div>
+                <div class="flex-in-b" style="width: 72%;">
+                    <div style="border-bottom: 1px dashed #000; width: 100%;text-align: center;">@dat.FirstNameCus&nbsp;@dat.lastNameCus</div>
+                </div>
+
+            </div>
+
+            <div class="display-flex">
+
+                <div class="flex-in-a" style="width: 18%;">
+                    หมายเลขบัตรประชาชน
+                </div>
+                <div class="flex-in-b" style="width: 25% !important;">
+                    <div style="border-bottom: 1px dashed #000; width: 100%;height: 22px;text-align:center">@dat.IdcardCus </div>
+                </div>
+                <div class="flex-in-b" style="width: 21% !important;margin-left:5px">
+                    ที่อยู่ที่สามารถติดต่อได้ เลขที่
+                </div>
+                @*<div class="flex-in-b" style="width: 35%;">
+                    <div style="border-bottom: 1px dashed #000; width: 100%;text-align: center;">@dat.AddressCus</div>
+                </div>*@
+               
+            </div>
+
+            <div class="display-flex" style="margin-top: 20px">
+
+              
+                <div class="flex-in-b" style="width: 100%;">
+                    <div style="border-bottom: 1px dashed #000; width: 100%;text-align: center;">&nbsp;@dat.AddressCus</div>
+                </div>
+            </div>
+
+            <div class="display-flex">
+
+                <div class="flex-in-a" style="width: 10%;">
+                    แล้วเมื่อวันที่
+                </div>
+                <div class="flex-in-b" style="width: 6% !important;">
+                    <div style="border-bottom: 1px dashed #000; width: 100%;height: 22px;text-align:center">@dat.CerDate.ToString("dd")</div>
+                </div>
+                <div class="flex-in-b" style="width: 5% !important;margin-left:5px">
+                    เดือน
+                </div>
+                <div class="flex-in-b" style="width: 20%;">
+                    <div style="border-bottom: 1px dashed #000; width: 100%; height: 22px; text-align: center;">@dat.CerDate.ToString("MMMM", CultureInfo.CreateSpecificCulture("th"))</div>
+                </div>
+                <div class="flex-in-b" style="width: 4% !important;margin-left:5px">
+                    พ.ศ.
+                </div>
+                <div class="flex-in-b" style="width: 10%;">
+                    <div style="border-bottom: 1px dashed #000; height: 22px; width: 100%; text-align: center;">@(Convert.ToInt32(dat.CerDate.ToString("yyyy")) + 543)</div>
+                </div>
+                ขอรับรองว่า
+            </div>
+
+
+            <div class="display-flex">
+
+                <div class="flex-in-a" style="width: 16%;">
+                    @if (dat.NametitleCus == "นาย")
+                    {
+                        <span>นาย</span>
+                    }
+                    else
+                    { <s>นาย</s>
+
+                    }/
+                    @if (dat.NametitleCus == "นาง")
+                    {
+                        <span>นาง</span>
+                    }
+                    else
+                    { <s>นาง</s>
+
+                    }/
+                    @if (dat.NametitleCus == "นางสาว")
+                    {
+                        <span>นางสาว</span>
+                    }
+                    else
+                    { <s>นางสาว</s>
+
+                    }
+                </div>
+                <div class="flex-in-b" style="width: 60%;">
+                    <div style="border-bottom: 1px dashed #000; width: 100%;text-align: center;">@dat.FirstNameCus&nbsp;@dat.lastNameCus</div>
+                </div>
+                ไม่เป็นโรคดังต่อไปนี้
+            </div>
+
+
+            <div class="display-flex">
+                <div class="flex-in-b" style="width: 20%">
+
+                </div>
+                <div class="flex-in-a" style="width: 80%">
+                    1 ) วัณโรคในระยะแพร่กระจายเชื้อ
+                </div>
+
+
+            </div>
+
+            <div class="display-flex">
+                <div class="flex-in-b" style="width: 20%">
+
+                </div>
+                <div class="flex-in-a" style="width: 80%">
+                    2 ) โรคเท้าช้างในระยะที่ปรากฎอาการเป็นที่รังเกียจแก่สังคม
+                </div>
+
+
+            </div>
+
+            <div class="display-flex">
+
+                <div class="flex-in-b" style="width: 20%">
+
+                </div>
+                <div class="flex-in-a" style="width: 80%">
+                    3 ) โรคติดยาเสพติดให้โทษ
+                </div>
+
+
+
+            </div>
+
+            <div class="display-flex">
+
+                <div class="flex-in-b" style="width: 20%">
+
+                </div>
+                <div class="flex-in-a" style="width: 80%">
+                    4 ) โรคพิษสุราเรื้อรัง
+                </div>
+
+
+
+            </div>
+
+            <div class="display-flex">
+
+                <div class="flex-in-b" style="width: 20%">
+
+                </div>
+                <div class="flex-in-a" style="width: 75%">
+                    5 ) โรคติดต่อร้ายแรงหรือโรคเรื้อรังที่ปรากฏอาการเด่นชัดหรือรุนแรงและเป็นอุปสรรคต่อการปฏิบัติหน้าที่ตาม ก.พ. ข้อกำหนด
+                </div>
+
+
+
+            </div>
+
+            @*<div class="display-flex">
+
+            <div class="flex-in-b" style="width: 20%">
+
+            </div>
+            <div class="flex-in-b" style="width: 3%">
+                6 )
+            </div>
+            <div class="flex-in-a" style="width: 77%">
+                <div style="border-bottom: 1px dashed #000; width: 100%; text-align: center; height: 20px;"></div>
+            </div>
+
+        </div>*@
+
+            <div class="display-flex" style="height: 110px">
+
+                @*<div class="flex-in-b" style="width: 20%">
+
+            </div>
+
+            <div class="flex-in-a" style="width: 4%">
+                <div style="border-bottom: 1px dashed #000; height: 20px; width: 100%; text-align: center;"></div>
+            </div>
+            <div class="flex-in-a" style="width: 48%">
+                <span style="font-size: 12px">(ถ้าหากจำเป็นต้องตรวจหาโรคที่เกี่ยวข้องกับการปฎิบัติงานของผู้รับรองการตรวจให้ระบุข้อนี้)</span>
+            </div>
+            <div class="flex-in-a" style="width: 28%">
+                <div style="border-bottom: 1px dashed #000; height: 20px; width: 100%; text-align: center;"></div>
+            </div>*@
+
+            </div>
+
+            @*<div class="display-flex">
+
+            <div class="flex-in-b" style="width: 20%">
+
+            </div>
+
+            <div class="flex-in-a" style="width: 80%">
+                <div style="border-bottom: 1px dashed #000; width: 100%; text-align: center; height: 20px;"></div>
+            </div>
+
+        </div>*@
+
+            @*<div class="display-flex">
+
+            <div class="flex-in-b" style="width: 20%">
+
+            </div>
+
+            <div class="flex-in-a" style="width: 80%">
+                <div style="border-bottom: 1px dashed #000; width: 100%; text-align: center; height: 20px;"></div>
+            </div>
+
+        </div>*@
+
+            <div class="display-flex">
+
+                <div class="flex-in-b" style="width: 22%">
+                    สรุปความเห็นของแพทย์
+                </div>
+                <div class="flex-in-a" style="width: 78%">
+
+                </div>
+
+
+            </div>
+            <div class="display-flex">
+
+
+
+                <div class="flex-in-a" style="width: 100%">
+                    <div style="border-bottom: 1px dashed #000; width: 100%; text-align: center; height: 20px;">@dat.CommentCom</div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="display-flex" style="margin-top:40px;text-align:right">
+
+            <div class="flex-in-b" style="width: 55%">
+
+            </div>
+            <div class="flex-in-a" style="width: 4%">
+                ลงชื่อ
+            </div>
+            <div class="flex-in-a" style="width: 25%;text-align:left !important;">
+                <div style="border-bottom: 1px dashed #000; width: 100%; height: 22px;margin-bottom: 15px">
+                    <img src="~/asset/img/chonlapark.png" style="position: absolute;width: 10%;bottom: 395px;right: 280px" />
+                </div>
+                (@dat.titleCom&nbsp;@dat.FnameCom&nbsp;@dat.LnameCom)
+            </div>
+            <div class="flex-in-a" style="width: 16%;">
+                แพทย์ผู้ตรวจร่างกาย
+            </div>
+
+        </div>
+
+
+        <div class="display-flex" style="margin-top: 40px">
+
+            <div class="flex-in-a" style="width: 65%;">
+
+            </div>
+            <div class="flex-in-b" style="width: 5%;margin-left:2px">
+                วันที่
+            </div>
+            <div class="flex-in-b" style="width: 5%;">
+                <div style="border-bottom: 1px dashed #000; width: 100%; height: 22px; text-align: center">@dat.CerDate.ToString("dd")</div>
+            </div>
+            <div class="flex-in-b" style="width: 5%;">
+                เดือน
+            </div>
+            <div class="flex-in-b" style="width: 10%;">
+                <div style="border-bottom: 1px dashed #000; width: 100%; height: 22px; text-align: center">@dat.CerDate.ToString("MMMM", CultureInfo.CreateSpecificCulture("th"))</div>
+            </div>
+            <div class="flex-in-b" style="width: 5%;">
+                พ.ศ.
+            </div>
+            <div class="flex-in-b" style="width: 5%;">
+                <div style="border-bottom: 1px dashed #000; width: 100%; height: 22px; text-align: center">@(Convert.ToInt32(dat.CerDate.ToString("yyyy")) + 543)</div>
+            </div>
+        </div>
+
+        <div class="display-flex" style="margin-top: 60px">
+            <div class="flex-in-a" style="width: 8%">
+                หมายเหตุ
+            </div>
+            <div class="flex-in-a" style="width: 90%">
+                (1)&nbsp;ต้องเป็นแพทย์ซึ่งได้ขึ้นทะเบียนรับใบอนุญาตประกอบวิชาชีพเวชกรรม
+            </div>
+
+        </div>
+
+        <div class="display-flex">
+            <div class="flex-in-a" style="width: 8%">
+
+            </div>
+            <div class="flex-in-a" style="width: 90%">
+                (2)&nbsp;ให้แสดงว่าเป็นผู้มีร่างกายสมบูรณ์เพียงใด ใบรับรองแพทย์ฉบับนี้ใช้ได้ 1 เดือนนับแต่วันตรวจร่างกาย
+            </div>
+
+        </div>
+
+    </div>
+
+}

@@ -1254,7 +1254,13 @@
                                                 <div class="col-3">
                                                     <span>X-Ray</span>
                                                     <br />
-                                                    <input type="text" v-model="DE_xraye" class="form-control" />
+                                                    @*<input type="text" v-model="DE_xraye" class="form-control" />*@
+                                                    <select v-model="DE_xraye" class="form-control">
+                                                        <option value=""></option>
+                                                        <option value="ผลปกติ">ผลปกติ</option>
+                                                        <option value="ผิดปกติ">ผิดปกติ</option>
+
+                                                    </select>
                                                 </div>
                                                 <div class="col-3">
                                                     <span>การได้ยิน</span>
@@ -2155,7 +2161,6 @@
                                         </td>
                                     </tr>
                                 </table>
-
                             </template>
                         </div>
                     </div>
@@ -2165,7 +2170,6 @@
                         <div class="flex" style="display: flex; display: -webkit-box;">
                             <div style="width: 50%">
                                 <span style="font-size: 34px">HealthCheck</span>
-
                             </div>
                             <div style="width: 50%"><span style="color: red">{{refnosel}}&nbsp;&nbsp;{{namesel}}</span></div>
 
@@ -2180,9 +2184,6 @@
                                             <th style="text-align:center">Timeincome</th>
                                             <th style="text-align:center">Print</th>
                                             <th style="text-align:center">Edit</th>
-                                            @*<th style="text-align:center">Company</th>*@
-
-                                            @*<th>Config</th>*@
 
                                         </tr>
                                     </thead>
@@ -2208,6 +2209,7 @@
 
                                     </td>
                                     <td>
+                                        
                                         <template v-if="(value.y != null ? value.y.type : 0 ) != '2'">
                                             <button class="btn btn-warning btn-manage" v-on:click="Getdataeditdetail(value.x.id)" style="height:35px;">Laps</button>
                                         </template>

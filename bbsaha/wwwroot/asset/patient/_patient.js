@@ -407,7 +407,7 @@
                     }
                 })
                 .then(res => {
-
+                    var da = new Date(res.data.cerDate)
                    /* const myArray = res.data[0].bpm.split("/")*/
                     /* this.getdatadetail = res.data*/
                    /* this.DE_datee = res.data[0].labinves*/
@@ -435,6 +435,7 @@
                         this.pulsemd = res.data.pulseCus
                         this.ch6md = (res.data.body_healthStatusCus == true ? "Two" : "One")
                         this.commentmd = res.data.commentCom
+                        this.DateCusmd = new Date(da.setDate(da.getDate() + 1)).toISOString().slice(0, 10)
 
                     } else if (res.data.type == 2) {
                         this.fnamemd = res.data.firstNameCus
@@ -459,7 +460,7 @@
                         this.pulsemd = res.data.pulseCus
                         this.ch6md = (res.data.body_healthStatusCus == true ? "Two" : "One")
                         this.commentmd = res.data.commentCom
-
+                        this.DateCusmd = new Date(da.setDate(da.getDate() + 1)).toISOString().slice(0, 10)
 
                     } else if (res.data.type == 3) {
 
@@ -476,7 +477,7 @@
                         //this.tex2md = res.data.detail_2
                         //this.tex3md = res.data.detail_3
                         //this.tex4md = res.data.detail_4
-
+                        this.DateCusmd = new Date(da.setDate(da.getDate() + 1)).toISOString().slice(0, 10)
                         this.tex5md = res.data.detail_5
                         //this.weightmd = res.data.weightCus
                         //this.heightmd = res.data.heightCus
@@ -494,7 +495,8 @@
                    
                     this.chkmededit = true
                     /* console.log(this.DE_customere)*/
-                    //console.log(res.data[0].labinves);
+                    //console.log(res.data);
+                    //console.log(new Date(da.setDate(da.getDate() + 1)).toISOString());
                     //console.log(this.DE_numbere)
 
                     /*this.getdatachktype()*/

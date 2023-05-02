@@ -776,7 +776,7 @@ namespace bbsaha.Controllers
             _dataedit.FirstNameCus = model[0].fname;
             _dataedit.lastNameCus = model[0].lname;
             _dataedit.AddressCus = model[0].adr;
-
+            _dataedit.CerDate = model[0].DateCus;
             _dataedit.IdcardCus = model[0].idcard;
             _dataedit.Detail_5 = model[0].tex5;
             _dataedit.Body_healthStatusCus = (model[0].ch6 == "One" ? false : true);
@@ -856,6 +856,7 @@ namespace bbsaha.Controllers
             _dataedit.PulseCus = (model[0].pulse != "" ? Convert.ToInt32(model[0].pulse) : 0);
             _dataedit.Body_healthStatusCus = (model[0].ch6 == "One" ? false : true);
             _dataedit.Body_healthDetailCus = model[0].tex6;
+            _dataedit.CerDate = model[0].DateCus;
             //CreateDate = DateTime.Now,
             _dataedit.UpdateDate = DateTime.Now;
             //RecordBy = User.Identity.Name,
@@ -911,6 +912,7 @@ namespace bbsaha.Controllers
             _dataedit.UpdateDate = DateTime.Now;
             _dataedit.RecordBy = User.Identity.Name;
             _dataedit.Status = "1";
+            _dataedit.CerDate = model[0].DateCus;
             //_dataedit.Runnumber = num.Count() + 1;
             _dataedit.NameComId = 1;
             _dataedit.NametitleCus = model[0].titlen;

@@ -1286,8 +1286,23 @@
                                                 </div>
                                             </div>
                                             <div class="row mt-1 mb-4">
-                                                <div class="col-3">
+                                                @*<div class="col-3">
                                                     <span>เคยเป็นโรคที่เกิดจากการทำงาน</span>
+                                                    <br />
+                                                    <input type="text" v-model="DE_hissickworke" class="form-control" />
+                                                </div>*@
+                                                <div class="col-3">
+                                                    @*<span>เคยเป็นโรคที่เกิดจากการทำงาน</span>*@
+                                                    <div class="col-6">
+                                                        <span>ผลการตรวจโควิด(Covid Test)</span>
+                                                        <br />
+                                                        <input type="text" v-model="DE_hissickworke" class="form-control" />
+                                                        <select v-model="DE_hissickworke" style="width: 100%" class="form-control">
+                                                            <option value="null">รอผลการตรวจ</option>
+                                                            <option value="ผิดปกติ">-Positive</option>
+                                                            <option value="ปกติ">-Negative</option>
+                                                        </select>>
+                                                    </div>
                                                     <br />
                                                     <input type="text" v-model="DE_hissickworke" class="form-control" />
                                                 </div>

@@ -4,6 +4,8 @@
 }
 
 @using bbsaha.Models.patient
+
+
 <link href="~/css/sb-admin-2.css" rel="stylesheet" asp-append-version="true" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 <link href="~/css/fontawesome-free/css/all.css" rel="stylesheet" />
@@ -95,10 +97,14 @@
         <img src="~/asset/img/logobbnew.png" style="width:100%;margin-top: 18px" />
     </div>
     <div class="fix-b" style="vertical-align : middle;font-size: 14px;margin-top: 30px;">
+
         @foreach (View_report dat in ViewBag.data)
         {
-        <span style="position: absolute;left: 900px;top: 10px;font-size:12px">@dat.refno</span>
+        <span style="position: absolute;left: 850px;top: 10px;font-size:12px">by : </span>
+        <span style="position: absolute;left: 900px;top: 10px;font-size:12px">@dat.CreateBy</span>
         }
+
+       
         <span>บีบี สหคลินิก 556/29-30 หมู่ที่ 3 ตำบลบ่อวิน อำเภอศรีราชา จังหวัดชลบุรี 20230 โทร 098-2276784<br />เลขที่เสียภาษี&nbsp; 0205564001735&nbsp;&nbsp; เลขที่ใบอนุญาติที่&nbsp; 20110000965</span>
     </div>
 
@@ -695,7 +701,6 @@
 
 
     </tr>
-
 
 </table>
 }

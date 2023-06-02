@@ -112,10 +112,8 @@ namespace bbsaha.Models.patient
             public string mcv { get; set; }
             public string mch { get; set; }
             public string mchc { get; set; }
-
-
-
-
-
+            public DateTime CreateDate { get; set; }
+            public DateTime UpdateDate { get; set; }
+            public string CreateBy { get; set; }
     }
 }

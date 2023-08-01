@@ -167,8 +167,10 @@
                             <div class="col-3">
                                 <span>อายุ</span>
                                 <br />
-                                <input type="text" value="" v-model="age" readonly class="form-control" />
+                                <input type="text" value="" v-model="age" class="form-control" />
                             </div>
+
+
 
                             @*<div class="col-6">
                                     <br />
@@ -193,16 +195,19 @@
                             </div>
 
                         </div>
+                        
 
                         <div class="row mt-2">
                             <div class="col-6">
                                 <span>จังหวัด:</span>
                                 <br />
-
+                                @*
                                 <select v-model="province" v-on:change="getdis()" style="width: 100%" class="form-control">
                                     <option>เลือกจังหวัด</option>
                                     <option v-for="(value,key) in getprovince" :value="value.provinceID"> {{value.provinceTH}}</option>
                                 </select>
+                                *@
+                                <input type="text" value="" v-model="province" class="form-control" />
 
                             </div>
 
@@ -210,11 +215,13 @@
                                 <span>อำเภอ:</span>
                                 <br />
 
-
+                                @*
                                 <select v-model="ampur" v-on:change="getsubdis()" style="width: 100%" class="form-control">
                                     <option>เลือกอำเภอ</option>
                                     <option v-for="(value,key) in getdistrict" :value="value.districtID"> {{value.districtTH}}</option>
                                 </select>
+                                *@
+                                <input type="text" value="" v-model="ampur" class="form-control" />
 
                             </div>
                         </div>
@@ -224,22 +231,26 @@
                             <div class="col-6">
                                 <span>ตำบล:</span>
                                 <br />
-
+                                @*
                                 <select v-model="tambon" style="width: 100%" class="form-control">
                                     <option>เลือกตำบล</option>
                                     <option v-for="(value,key) in getsubdistrict" :value="value.subDistrictID"> {{value.subDistrictTH}}</option>
                                 </select>
+                                *@
+                                <input type="text" value="" v-model="tambon" class="form-control" />
                             </div>
 
                             <div class="col-6">
                                 <span>รหัสไปรษณีย์:</span>
                                 <br />
 
-
+                                @*
                                 <select v-model="postcode" style="width: 100%" class="form-control">
                                     <option>เลือกรหัสไปรษณีย์</option>
                                     <option v-for="(value,key) in getpostcode" :value="value.postCode"> {{value.postCode}}</option>
                                 </select>
+                                *@
+                                <input type="text" value="" v-model="postcode" class="form-control" />
                             </div>
                         </div>
 

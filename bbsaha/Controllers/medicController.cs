@@ -224,7 +224,7 @@ namespace bbsaha.Controllers
             }
             else if (_chk.type == "4")
             {
-                url = $"{this.Request.Scheme}://{this.Request.Host}" + Url.Action("mediccer_general_forient", "medic", new { id = id });
+                url = $"{this.Request.Scheme}://{this.Request.Host}" + Url.Action("mediccer_generalfor", "medic", new { id = id });
             }
 
             //var globalSettings = new GlobalSettings()
@@ -444,7 +444,7 @@ namespace bbsaha.Controllers
 
 
 
-        public IActionResult mediccer_general_for(int id)
+        public IActionResult mediccer_generalfor(int id)
         {
             var _datache = _mysqlbro.CER_Medical.Where(x => x.ID == id).ToList();
             var _datahea = _mysqlbro.CER_Header.ToList();

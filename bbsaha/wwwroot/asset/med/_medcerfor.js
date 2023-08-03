@@ -4,7 +4,7 @@
         return {
             formsubmit: [{}],
             formsubmitE: [{}],
-             fname: "",
+            fname: "",
             lname: "",
             adr: "",
             idcard: "",

@@ -441,7 +441,7 @@ namespace bbsaha.Controllers
             ViewBag.data = listA.ToArray();
             return View();
         }
-
+        
 
 
         public IActionResult mediccer_generalfor(int id)

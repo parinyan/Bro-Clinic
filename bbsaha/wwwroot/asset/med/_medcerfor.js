@@ -105,7 +105,7 @@
         }, printcer(id) {
 
            /* alert(id)*/
-            window.open(window.location.origin + "/medic/GetPrintcertificate?id=" + id , "'_blank'");
+            window.open(window.location.origin + "/medic/GetPrintcertificatefor?id=" + id , "'_blank'");
 
         },
         toggleaccountdetail: function (id) {

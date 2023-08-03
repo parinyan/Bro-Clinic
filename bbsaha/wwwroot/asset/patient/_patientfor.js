@@ -1,5 +1,5 @@
 ﻿new Vue({
-    el: "#_patient",
+    el: "#_patientfor",
     data: function () {
         return {
             cncode: "",

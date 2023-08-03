@@ -285,6 +285,111 @@ namespace bbsaha.Controllers
             return fileStreamResult;
         }
 
+
+        public IActionResult GetPrintcertificatefor(string id)
+        {
+            //var url = $"{this.Request.Scheme}://{this.Request.Host}" + Url.Action("mediccer_report", "medic", new { id = id });
+
+            //var globalSettings = new GlobalSettings()
+            //{
+            //    ColorMode = ColorMode.Color,
+            //    Orientation = Orientation.Portrait,
+            //    PaperSize = PaperKind.A4,
+            //    Margins = new MarginSettings { Top = 2, Bottom = 2, Right = 5, Left = 5 },
+            //    DocumentTitle = "Medical Certificate"
+            //};
+            //var objectSettings = new ObjectSettings()
+            //{
+            //    Page = url
+            //};
+            //var pdf = new HtmlToPdfDocument()
+            //{
+            //    GlobalSettings = globalSettings,
+            //    Objects = { objectSettings }
+            //};
+            //var file = _converter.Convert(pdf);
+
+            //return File(file, "application/pdf");
+
+            var url = $"{this.Request.Scheme}://{this.Request.Host}" + Url.Action("mediccer_report", "medic", new { id = id });
+
+            var _chk = _mysqlbro.CER_Medical.FirstOrDefault(x => x.ID == Convert.ToInt32(id));
+
+            if (_chk.type == "1")
+            {
+                url = $"{this.Request.Scheme}://{this.Request.Host}" + Url.Action("mediccer_general", "medic", new { id = id });
+            }
+            else if (_chk.type == "2")
+            {
+                url = $"{this.Request.Scheme}://{this.Request.Host}" + Url.Action("mediccer_report", "medic", new { id = id });
+            }
+            else if (_chk.type == "3")
+            {
+                url = $"{this.Request.Scheme}://{this.Request.Host}" + Url.Action("mediccer_cerfive", "medic", new { id = id });
+            }
+            else if (_chk.type == "4")
+            {
+                url = $"{this.Request.Scheme}://{this.Request.Host}" + Url.Action("mediccer_generalfor", "medic", new { id = id });
+            }
+
+            //var globalSettings = new GlobalSettings()
+            //{
+            //    ColorMode = ColorMode.Color,
+            //    Orientation = Orientation.Portrait,
+            //    PaperSize = PaperKind.A4,
+            //    Margins = new MarginSettings { Top = 1, Bottom = 1, Right = 5, Left = 5 },
+            //    DocumentTitle = "Medical Certificate"
+            //};
+            //var objectSettings = new ObjectSettings()
+            //{
+            //    Page = url
+            //};
+            //var pdf = new HtmlToPdfDocument()
+            //{
+            //    GlobalSettings = globalSettings,
+            //    Objects = { objectSettings }
+            //};
+            //var file = _converter.Convert(pdf);
+
+            //return File(file, "application/pdf");
+
+            string pdf_page_size = "A4";
+            PdfPageSize pageSize = (PdfPageSize)Enum.Parse(typeof(PdfPageSize),
+                pdf_page_size, true);
+
+            string pdf_orientation = "Portrait";
+            PdfPageOrientation pdfOrientation =
+                (PdfPageOrientation)Enum.Parse(typeof(PdfPageOrientation),
+                pdf_orientation, true);
+
+
+            HtmlToPdf converter = new HtmlToPdf();
+
+            // set converter options
+            converter.Options.PdfPageSize = pageSize;
+            converter.Options.PdfPageOrientation = pdfOrientation;
+            converter.Options.WebPageWidth = 1024;
+            converter.Options.WebPageHeight = 0;
+            converter.Options.MarginLeft = 15;
+            converter.Options.MarginRight = 15;
+            converter.Options.MarginTop = 15;
+            //converter.Options.MarginBottom = 15;
+            // create a new pdf document converting an url
+            PdfDocument doc = converter.ConvertUrl(url);
+            MemoryStream ms = new MemoryStream();
+            // save pdf document
+            doc.Save(ms);
+
+            // close pdf document
+            doc.Close();
+            ms.Position = 0;
+            FileStreamResult fileStreamResult = new FileStreamResult(ms, "application/pdf");
+            //fileStreamResult.FileDownloadName = "sample.pdf";
+
+            //return File(file, "application/pdf");
+            return fileStreamResult;
+        }
+
         public IActionResult mediccer_report(int id)
         {
             var _datache = _mysqlbro.CER_Medical.Where(x => x.ID == id).ToList();
@@ -495,7 +600,7 @@ namespace bbsaha.Controllers
             return View();
         }
 
-        public IActionResult Getdatadetailfor(int id) {
+        public IActionResult Getdatadetail(int id) {
 
 
             var _data = _mysqlbro.CER_Medical.Where(x => x.ID == id).ToList();

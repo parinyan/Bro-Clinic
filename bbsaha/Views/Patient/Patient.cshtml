@@ -2486,6 +2486,9 @@
                                         <template v-if="value.y != null">
                                             <button class="btn btn-warning btn-manage" v-on:click="Getdataemeddetail(value.y.id)" style="height:35px;">Medcert.</button>
                                         </template>
+                                        <template v-if="value.y != null">
+                                            <button class="btn btn-warning btn-manage" v-on:click="Getdataemeddetailfor(value.y.id)" style="height:35px;">Medcert.</button>
+                                        </template>
                                         <template v-if="chkselpayment[key] == '0'">
                                             <button class="btn btn-danger btn-manage" v-on:click="getdatapay(value.x.id,chkselpayment[key])" style="height:35px;">Payment</button>
                                         </template>

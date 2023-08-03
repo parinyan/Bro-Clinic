@@ -978,6 +978,11 @@
             /* alert(id)*/
             window.open(window.location.origin + "/medic/GetPrintcertificate?id=" + id, "'_blank'");
 
+        }, printcertreportfor(id) {
+
+            /* alert(id)*/
+            window.open(window.location.origin + "/medic/GetPrintcertificatefor?id=" + id, "'_blank'");
+
         },
         printmedreciept(id) {
 

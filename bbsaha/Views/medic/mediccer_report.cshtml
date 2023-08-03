@@ -122,12 +122,32 @@
                 else
                 { <s>นางสาว</s>
 
-                }
+
+                    }/
+                    @if (dat.NametitleCus == "ာMr.")
+                    {
+                        <span>Mr.</span>
+                    }
+                    else
+                    {
+                        <s>Mr.</s>
+
+                    }
+                    }/
+                    @if (dat.NametitleCus == "Ms.")
+                    {
+                        <span>Ms.</span>
+                    }
+                    else
+                    {
+                        <s>Ms.</s>
+
+                    }
 
                
             </div>
             <div class="flex-in-b">
-                <div style="border-bottom: 1px dashed #000; width: 600px;text-align: center;">@dat.FirstNameCus&nbsp;@dat.lastNameCus</div>
+                    <div style="border-bottom: 1px dashed #000; width: 600px;text-align: center;">@dat.NametitleCus&nbsp;@dat.FirstNameCus&nbsp;@dat.lastNameCus</div>
             </div>
 
         </div>
@@ -345,11 +365,31 @@
             else
             { <s>นางสาว</s>
 
-            }
+
+                }/
+                @if (dat.NametitleCus == "ာMr.")
+                {
+                    <span>Mr.</span>
+                }
+                else
+                {
+                    <s>Mr.</s>
+
+                }
+                }/
+                @if (dat.NametitleCus == "Ms.")
+                {
+                    <span>Ms.</span>
+                }
+                else
+                {
+                    <s>Ms.</s>
+
+                }
 
         </div>
         <div class="flex-in-b">
-            <div style="border-bottom: 1px dashed #000; width: 100%;text-align:center">@dat.FirstNameCus&nbsp;@dat.lastNameCus</div>
+                <div style="border-bottom: 1px dashed #000; width: 100%;text-align:center">@dat.NametitleCus&nbsp;@dat.FirstNameCus&nbsp;@dat.lastNameCus</div>
         </div>
 
     </div>

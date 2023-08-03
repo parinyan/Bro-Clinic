@@ -438,6 +438,59 @@ namespace bbsaha.Controllers
             return View();
         }
 
+
+
+        public IActionResult mediccer_general_forient(int id)
+        {
+            var _datache = _mysqlbro.CER_Medical.Where(x => x.ID == id).ToList();
+            var _datahea = _mysqlbro.CER_Header.ToList();
+
+            var _datasum = _datache.Join(_datahea, ae => ae.NameComId, ea => ea.ID, (ae, ea) => new { ae, ea }).ToList();
+
+            List<View_Datacer> listA = new List<View_Datacer>();
+
+            foreach (var dat in _datasum)
+            {
+
+                listA.Add(new View_Datacer
+                {
+                    NametitleCus = dat.ae.NametitleCus,
+                    FirstNameCus = dat.ae.FirstNameCus,
+                    lastNameCus = dat.ae.lastNameCus,
+                    AddressCus = dat.ae.AddressCus,
+                    IdcardCus = dat.ae.IdcardCus,
+                    Check_1 = dat.ae.Check_1,
+                    Check_2 = dat.ae.Check_2,
+                    Check_3 = dat.ae.Check_3,
+                    Check_4 = dat.ae.Check_4,
+                    Check_5 = dat.ae.Check_5,
+                    Detail_1 = dat.ae.Detail_1,
+                    Detail_2 = dat.ae.Detail_2,
+                    Detail_3 = dat.ae.Detail_3,
+                    Detail_4 = dat.ae.Detail_4,
+                    Detail_5 = dat.ae.Detail_5,
+                    CerDate = dat.ae.CerDate,
+                    WeightCus = dat.ae.WeightCus,
+                    HeightCus = dat.ae.HeightCus,
+                    blood_pressureCus = dat.ae.blood_pressureCus,
+                    PulseCus = dat.ae.PulseCus,
+                    Body_healthStatusCus = dat.ae.Body_healthStatusCus,
+                    Body_healthDetailCus = dat.ae.Body_healthDetailCus,
+                    CommentCom = dat.ae.CommentCom,
+                    FnameCom = dat.ea.FnameCom,
+                    LnameCom = dat.ea.LnameCom,
+                    LicenseIdCom = dat.ea.LicenseIdCom,
+                    NameClinic = dat.ea.NameClinic,
+                    titleCom = dat.ea.titleCom,
+
+                });
+
+            }
+
+            ViewBag.data = listA.ToArray();
+            return View();
+        }
+
         public IActionResult Getdatadetail(int id) {
 
 

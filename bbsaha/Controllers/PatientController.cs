@@ -1053,6 +1053,106 @@ namespace bbsaha.Controllers
         }
 
 
+        public IActionResult GetPrintrecieptfor(string id)
+        {
+            var url = $"{this.Request.Scheme}://{this.Request.Host}" + Url.Action("med_recieptfor", "Patient", new { id = id });
+
+
+            string pdf_page_size = "A4";
+            PdfPageSize pageSize = (PdfPageSize)Enum.Parse(typeof(PdfPageSize),
+                pdf_page_size, true);
+
+            string pdf_orientation = "Portrait";
+            PdfPageOrientation pdfOrientation =
+                (PdfPageOrientation)Enum.Parse(typeof(PdfPageOrientation),
+                pdf_orientation, true);
+
+
+            HtmlToPdf converter = new HtmlToPdf();
+
+            // set converter options
+            converter.Options.PdfPageSize = pageSize;
+            converter.Options.PdfPageOrientation = pdfOrientation;
+            converter.Options.WebPageWidth = 1024;
+            converter.Options.WebPageHeight = 0;
+            converter.Options.MarginLeft = 15;
+            converter.Options.MarginRight = 15;
+            converter.Options.MarginTop = 15;
+            //converter.Options.MarginBottom = 15;
+            // create a new pdf document converting an url
+            PdfDocument doc = converter.ConvertUrl(url);
+            MemoryStream ms = new MemoryStream();
+            // save pdf document
+            doc.Save(ms);
+
+            // close pdf document
+            doc.Close();
+            ms.Position = 0;
+            FileStreamResult fileStreamResult = new FileStreamResult(ms, "application/pdf");
+            //fileStreamResult.FileDownloadName = "sample.pdf";
+
+            //return File(file, "application/pdf");
+            return fileStreamResult;
+
+        }
+
+        public IActionResult med_recieptfor(int id)
+        {
+            var _datapa = _mysqlbro.CN_Patient.ToList();
+            var _datade = _mysqlbro.CN_Detail.ToList();
+            var _datase = _mysqlbro.CN_Sales.Where(x => x.ID == id).ToList();
+
+            var _datath = _mysqlbro.CEN_TypeHealthCheck.ToList();
+            var _datatp = _mysqlbro.CEN_TypePayment.ToList();
+            var _datapr = _mysqlbro.CEN_PerReceive.ToList();
+
+
+            var _data = _datase.Join(_datade, ae => ae.DetailID, ea => ea.ID, (ae, ea) => new { ae, ea })
+                .Join(_datapa, dg => dg.ea.PatientID, gd => gd.ID, (dg, gd) => new { dg, gd })
+                .Join(_datath, vb => vb.dg.ea.medtype, bv => bv.ID.ToString(), (vb, bv) => new { vb, bv })
+                .Join(_datatp, xc => xc.vb.dg.ae.TypeName, cx => cx.ID, (xc, cx) => new { xc, cx })
+                .Join(_datapr, ku => ku.xc.vb.dg.ae.PerReceiver, uk => uk.ID, (ku, uk) => new { ku, uk }).ToList();
+
+            List<View_salesreciept> listA = new List<View_salesreciept>();
+
+            foreach (var dat in _data)
+            {
+
+                //var today = DateTime.Today;
+                //int age = (int)((DateTime.Now - Convert.ToDateTime(dat.ea.birthday)).TotalDays / 365.242199);
+                //var age = today.Year - Convert.ToDateTime(dat.ea.birthday).Year;
+                var _datpro = _mysqlbro.CEN_ProvinceTH.FirstOrDefault(x => x.ProvinceID == dat.ku.xc.vb.gd.Province);
+                var _datdis = _mysqlbro.CEN_DistrictTH.FirstOrDefault(x => x.DistrictID == dat.ku.xc.vb.gd.District);
+                var _datsub = _mysqlbro.CEN_SubDistrictTH.FirstOrDefault(x => x.SubDistrictID == dat.ku.xc.vb.gd.SubDistrict);
+                var _datpost = _mysqlbro.CEN_Postcode.FirstOrDefault(x => x.PostCode == dat.ku.xc.vb.gd.Postcode);
+
+                listA.Add(new View_salesreciept()
+                {
+                    fname = dat.ku.xc.vb.gd.Fname + " " + dat.ku.xc.vb.gd.Lname,
+                    adr = dat.ku.xc.vb.gd.address,
+                    Tel = dat.ku.xc.vb.gd.Tel,
+                    refno = "RE" + dat.ku.xc.vb.dg.ae.IDreciept + "-" + (dat.ku.xc.vb.dg.ae.IDrunnumber > 9 ? "00" : (dat.ku.xc.vb.dg.ae.IDrunnumber > 99 ? "0" : (dat.ku.xc.vb.dg.ae.IDrunnumber > 999 ? "" : "000"))) + dat.ku.xc.vb.dg.ae.IDrunnumber,
+                    datereg = Convert.ToDateTime(dat.ku.xc.vb.dg.ae.ReceivePayDate).ToString("dd/MM/yyyy"),
+                    detail = dat.ku.xc.bv.TypeName,
+                    price = dat.ku.xc.vb.dg.ae.Price,
+                    paytype = dat.ku.cx.ID,
+                    pro = _datpro.ProvinceTH,
+                    dis = _datdis.DistrictTH,
+                    subdis = _datsub.SubDistrictTH,
+                    postcode = _datpost.PostCode
+
+
+
+                });
+
+
+            }
+
+            ViewBag.data = listA.ToArray();
+            return View();
+        }
+
+
 
         public IActionResult Getdatapay(int id)
         {

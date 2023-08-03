@@ -112,7 +112,7 @@
          
             const formdata = new FormData();
             formdata.append('id', id);
-            axios.post("/medic/Getdatadetail", formdata)
+            axios.post("/medic/Getdatadetailfor", formdata)
                 .then(res => {
 
                     this.datadetail = res.data

@@ -13,11 +13,11 @@ using WkHtmlToPdfDotNet.Contracts;
 
 namespace bbsaha.Controllers
 {
-    public class medicController : Controller
+    public class medicforController : Controller
     {
         private IConverter _converter;
         private readonly MysqlDBDataContext _mysqlbro;
-        public medicController(MysqlDBDataContext newbrother, IConverter converter)
+        public medicforController(MysqlDBDataContext newbrother, IConverter converter)
         {
             //_context = context;
             //_converter = converter;
@@ -181,7 +181,7 @@ namespace bbsaha.Controllers
         
         }
 
-        public IActionResult GetPrintcertificate(string id)
+        public IActionResult GetPrintcertificatefor(string id)
         {
             //var url = $"{this.Request.Scheme}://{this.Request.Host}" + Url.Action("mediccer_report", "medic", new { id = id });
 

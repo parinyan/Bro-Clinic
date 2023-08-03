@@ -222,29 +222,33 @@ namespace bbsaha.Controllers
             {
                 url = $"{this.Request.Scheme}://{this.Request.Host}" + Url.Action("mediccer_cerfive", "medic", new { id = id });
             }
+            else if (_chk.type == "4")
+            {
+                url = $"{this.Request.Scheme}://{this.Request.Host}" + Url.Action("mediccer_general_forient", "medic", new { id = id });
+            }
 
-                //var globalSettings = new GlobalSettings()
-                //{
-                //    ColorMode = ColorMode.Color,
-                //    Orientation = Orientation.Portrait,
-                //    PaperSize = PaperKind.A4,
-                //    Margins = new MarginSettings { Top = 1, Bottom = 1, Right = 5, Left = 5 },
-                //    DocumentTitle = "Medical Certificate"
-                //};
-                //var objectSettings = new ObjectSettings()
-                //{
-                //    Page = url
-                //};
-                //var pdf = new HtmlToPdfDocument()
-                //{
-                //    GlobalSettings = globalSettings,
-                //    Objects = { objectSettings }
-                //};
-                //var file = _converter.Convert(pdf);
+            //var globalSettings = new GlobalSettings()
+            //{
+            //    ColorMode = ColorMode.Color,
+            //    Orientation = Orientation.Portrait,
+            //    PaperSize = PaperKind.A4,
+            //    Margins = new MarginSettings { Top = 1, Bottom = 1, Right = 5, Left = 5 },
+            //    DocumentTitle = "Medical Certificate"
+            //};
+            //var objectSettings = new ObjectSettings()
+            //{
+            //    Page = url
+            //};
+            //var pdf = new HtmlToPdfDocument()
+            //{
+            //    GlobalSettings = globalSettings,
+            //    Objects = { objectSettings }
+            //};
+            //var file = _converter.Convert(pdf);
 
-                //return File(file, "application/pdf");
+            //return File(file, "application/pdf");
 
-                string pdf_page_size = "A4";
+            string pdf_page_size = "A4";
             PdfPageSize pageSize = (PdfPageSize)Enum.Parse(typeof(PdfPageSize),
                 pdf_page_size, true);
 
@@ -440,7 +444,7 @@ namespace bbsaha.Controllers
 
 
 
-        public IActionResult mediccer_general_forient(int id)
+        public IActionResult mediccer_general_for(int id)
         {
             var _datache = _mysqlbro.CER_Medical.Where(x => x.ID == id).ToList();
             var _datahea = _mysqlbro.CER_Header.ToList();

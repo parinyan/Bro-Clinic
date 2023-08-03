@@ -1,6 +1,6 @@
 ﻿
-
 <link href="~/asset/style/_tab.css" rel="stylesheet" asp-append-version="true" />
+
 <style>
     #auw {
         color: #000
@@ -23,7 +23,7 @@
     .tta {
         position: fixed;
         /*bottom: 0.5rem;
-        right: 0.5rem;*/
+            right: 0.5rem;*/
     }
 </style>
 
@@ -32,6 +32,7 @@
         background-color: rgba(0, 0, 0, 0.7);
     }
 </style>
+
 <div class="modal" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" style="display:none;">
     <div class="modal-dialog" style="  position: absolute;top:0;bottom: 0 ; left:0;right:0;  border:none; display:flex;flex-wrap:wrap;align-items:center;justify-content:center;">
         <div class="modal-content" style="background-color:transparent;border:none;">
@@ -72,17 +73,16 @@
         </div>
     </div>
 </div>
+
 <div id="_patient" class="tt-bc" style="overflow: hidden">
     <div style="padding: 0px 100px">
-
-
 
         <div class="tab">
             <button class="tablinks active" onclick="openCity(event, 'diagnose')" v-on:click="getdatadig(CheckHis)">Diagnose</button>
             <button class="tablinks" onclick="openCity(event, 'Health')">HealthCheck</button>
             @*<button class="tablinks" onclick="openCity(event, 'Health')">Medical Certificate</button>*@
             @*<button class="tablinks" onclick="openCity(event, 'HealthCheck')" v-on:click="getdatadet(CheckHis)">HealthCheck history</button>
-                <button class="tablinks" onclick="openCity(event, 'payment')">Payment</button>*@
+            <button class="tablinks" onclick="openCity(event, 'payment')">Payment</button>*@
         </div>
 
 
@@ -107,10 +107,12 @@
                                 <input type="text" value="" v-model="idpart" class="form-control" />
 
                             </div>
+
                             <div class="col-4">
                                 <br />
                                 <button v-on:click="getdataCN()" style="margin-left: 10px" class="btn btn-primary">Check</button>
                             </div>
+
                         </div>
 
                         <div class="row mt-2">
@@ -167,23 +169,21 @@
                             <div class="col-3">
                                 <span>อายุ</span>
                                 <br />
-                                <input type="text" value="" v-model="age" class="form-control" />
+                                <input type="text" value="" v-model="age" readonly class="form-control" />
                             </div>
 
-
-
                             @*<div class="col-6">
-                                    <br />
-                                    <span>ปี:</span>
-                                    <input type="text" v-model="yearV" style="width: 50px" readonly />
+                            <br />
+                            <span>ปี:</span>
+                            <input type="text" v-model="yearV" style="width: 50px" readonly />
 
-                                    <span>เดือน:</span>
-                                    <input type="text" v-model="monthV" style="width: 50px" readonly />
+                            <span>เดือน:</span>
+                            <input type="text" v-model="monthV" style="width: 50px" readonly />
 
-                                    <span>วัน:</span>
-                                    <input type="text" v-model="dayV" style="width: 50px" readonly />
+                            <span>วัน:</span>
+                            <input type="text" v-model="dayV" style="width: 50px" readonly />
 
-                                </div>*@
+                            </div>*@
                         </div>
 
                         <div class="row mt-2">
@@ -195,19 +195,16 @@
                             </div>
 
                         </div>
-                        
 
                         <div class="row mt-2">
                             <div class="col-6">
                                 <span>จังหวัด:</span>
                                 <br />
-                                @*
+
                                 <select v-model="province" v-on:change="getdis()" style="width: 100%" class="form-control">
                                     <option>เลือกจังหวัด</option>
                                     <option v-for="(value,key) in getprovince" :value="value.provinceID"> {{value.provinceTH}}</option>
                                 </select>
-                                *@
-                                <input type="text" value="" v-model="province" class="form-control" />
 
                             </div>
 
@@ -215,13 +212,11 @@
                                 <span>อำเภอ:</span>
                                 <br />
 
-                                @*
+
                                 <select v-model="ampur" v-on:change="getsubdis()" style="width: 100%" class="form-control">
                                     <option>เลือกอำเภอ</option>
                                     <option v-for="(value,key) in getdistrict" :value="value.districtID"> {{value.districtTH}}</option>
                                 </select>
-                                *@
-                                <input type="text" value="" v-model="ampur" class="form-control" />
 
                             </div>
                         </div>
@@ -231,36 +226,32 @@
                             <div class="col-6">
                                 <span>ตำบล:</span>
                                 <br />
-                                @*
+
                                 <select v-model="tambon" style="width: 100%" class="form-control">
                                     <option>เลือกตำบล</option>
                                     <option v-for="(value,key) in getsubdistrict" :value="value.subDistrictID"> {{value.subDistrictTH}}</option>
                                 </select>
-                                *@
-                                <input type="text" value="" v-model="tambon" class="form-control" />
                             </div>
 
                             <div class="col-6">
                                 <span>รหัสไปรษณีย์:</span>
                                 <br />
 
-                                @*
+
                                 <select v-model="postcode" style="width: 100%" class="form-control">
                                     <option>เลือกรหัสไปรษณีย์</option>
                                     <option v-for="(value,key) in getpostcode" :value="value.postCode"> {{value.postCode}}</option>
                                 </select>
-                                *@
-                                <input type="text" value="" v-model="postcode" class="form-control" />
                             </div>
                         </div>
 
                         <div class="row mt-2">
                             @*<div class="col-6">
-                                    <span>อาชีพ:</span>
-                                    <br />
+                            <span>อาชีพ:</span>
+                            <br />
 
-                                    <input type="text" v-model="career" style="width: 100%" />
-                                </div>*@
+                            <input type="text" v-model="career" style="width: 100%" />
+                            </div>*@
                             <div class="col-6">
                                 <span>โทรศัพท์:</span>
                                 <br />
@@ -282,7 +273,7 @@
 
 
                 </div>
-                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 ffa" style="border: 1px solid #000; padding: 20px;" >
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 ffa" style="border: 1px solid #000; padding: 20px;">
                     <span style="font-size: 30px">Patient</span>
                     <template>
                         <div style="width: 50%">
@@ -403,7 +394,7 @@
                                         <div class="col-6">
 
                                             <br />
- 
+
                                             <input type="text" v-model="DE_customere2" class="form-control" />
 
 
@@ -448,6 +439,7 @@
 
 
                                     </div>
+
 
                                     <div class="row mt-2 mb-4" style=" border-bottom: 1px solid; padding-bottom: 40px;">
 
@@ -916,7 +908,7 @@
                                             </div>
                                         </template>
 
-                                        
+
 
                                         <template v-if="value.detailID == 13">
 
@@ -990,12 +982,12 @@
                                                         <option value="TD">Traditional day</option>*@
                                                     </datalist>
                                                     <!--<select v-model="DE_phe" style="width: 80%" class="form-control">
-    <option value=""></option>
-    <option value="5">5</option>
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9">9</option>-->
+                                                    <option value=""></option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7">7</option>
+                                                    <option value="8">8</option>
+                                                    <option value="9">9</option>-->
                                                     @*<option value="นางสาว">นางสาว</option>*@
                                                     <!--</select>-->
                                                 </div>
@@ -1012,16 +1004,16 @@
                                                         <option value="+++ 300 mg/dl">+++ 300 mg/dl</option>
                                                         <option value="++++ 1000 mg/dl">++++ 1000 mg/dl</option>
                                                         @*<option value="H">Holiday</option>
-            <option value="TD">Traditional day</option>*@
+                                                        <option value="TD">Traditional day</option>*@
                                                     </datalist>
                                                     <!--<select v-model="DE_protiene" style="width: 80%" class="form-control">
-    <option value=""></option>
-    <option value="Negative">Negative</option>
-    <option value="Trace">Trace</option>
-    <option value="1+">1+</option>
-    <option value="2+">2+</option>
-    <option value="3+">3+</option>
-    <option value="4+">4+</option>-->
+                                                    <option value=""></option>
+                                                    <option value="Negative">Negative</option>
+                                                    <option value="Trace">Trace</option>
+                                                    <option value="1+">1+</option>
+                                                    <option value="2+">2+</option>
+                                                    <option value="3+">3+</option>
+                                                    <option value="4+">4+</option>-->
                                                     @*<option value="นางสาว">นางสาว</option>*@
                                                     <!--</select>-->
                                                 </div>
@@ -1039,16 +1031,16 @@
                                                         <option value="1.025">1.025</option>
                                                         <option value="1.030">1.030</option>
                                                         @*<option value="H">Holiday</option>
-            <option value="TD">Traditional day</option>*@
+                                                        <option value="TD">Traditional day</option>*@
                                                     </datalist>
                                                     <!--<select v-model="DE_sg" style="width: 80%" class="form-control">
-    <option value=""></option>
-    <option value="Negative">Negative</option>
-    <option value="Trace">Trace</option>
-    <option value="1+">1+</option>
-    <option value="2+">2+</option>
-    <option value="3+">3+</option>
-    <option value="4+">4+</option>-->
+                                                    <option value=""></option>
+                                                    <option value="Negative">Negative</option>
+                                                    <option value="Trace">Trace</option>
+                                                    <option value="1+">1+</option>
+                                                    <option value="2+">2+</option>
+                                                    <option value="3+">3+</option>
+                                                    <option value="4+">4+</option>-->
                                                     @*<option value="นางสาว">นางสาว</option>*@
                                                     <!--</select>-->
                                                 </div>
@@ -1065,19 +1057,19 @@
                                                         <option value="± 250 mg/dl">± 250 mg/dl</option>
                                                         <option value="500 mg/dl">500 mg/dl</option>
                                                         <option value="1000 mg/dl">1000 mg/dl</option>
-                                                        
+
                                                         @*<option value="H">Holiday</option>
-            <option value="TD">Traditional day</option>*@
+                                                        <option value="TD">Traditional day</option>*@
                                                     </datalist>
                                                     @*<select v-model="DE_glucosee" style="width: 80%" class="form-control">
-            <option value=""></option>
-            <option value="Negative">Negative</option>
-            <option value="Trace">Trace</option>
-            <option value="1+">1+</option>
-            <option value="2+">2+</option>
-            <option value="3+">3+</option>
-            <option value="4+">4+</option>
-        </select>*@
+                                                    <option value=""></option>
+                                                    <option value="Negative">Negative</option>
+                                                    <option value="Trace">Trace</option>
+                                                    <option value="1+">1+</option>
+                                                    <option value="2+">2+</option>
+                                                    <option value="3+">3+</option>
+                                                    <option value="4+">4+</option>
+                                                    </select>*@
                                                 </div>
                                                 <div class="col-3">
                                                     <span>Ketone</span>
@@ -1092,17 +1084,17 @@
                                                         <option value="100 mg/dl">100 mg/dl</option>
 
                                                         @*<option value="H">Holiday</option>
-            <option value="TD">Traditional day</option>*@
+                                                        <option value="TD">Traditional day</option>*@
                                                     </datalist>
                                                     @*<select v-model="DE_ketonee" style="width: 80%" class="form-control">
-            <option value=""></option>
-            <option value="Negative">Negative</option>
-            <option value="Trace">Trace</option>
-            <option value="1+">1+</option>
-            <option value="2+">2+</option>
-            <option value="3+">3+</option>
-            <option value="4+">4+</option>
-        </select>*@
+                                                    <option value=""></option>
+                                                    <option value="Negative">Negative</option>
+                                                    <option value="Trace">Trace</option>
+                                                    <option value="1+">1+</option>
+                                                    <option value="2+">2+</option>
+                                                    <option value="3+">3+</option>
+                                                    <option value="4+">4+</option>
+                                                    </select>*@
                                                 </div>
 
                                                 <div class="col-3">
@@ -1115,19 +1107,19 @@
                                                         <option value="+">+</option>
                                                         <option value="++">++</option>
                                                         <option value="+++">+++</option>
-                                                     
+
 
                                                         @*<option value="H">Holiday</option>
-            <option value="TD">Traditional day</option>*@
+                                                        <option value="TD">Traditional day</option>*@
                                                     </datalist>
                                                     @*<select v-model="DE_bilirubine" style="width: 80%" class="form-control">
-            <option value=""></option>
-            <option value="Negative">Negative</option>
-            <option value="1+">1+</option>
-            <option value="2+">2+</option>
-            <option value="3+">3+</option>
-            <option value="4+">4+</option>
-        </select>*@
+                                                    <option value=""></option>
+                                                    <option value="Negative">Negative</option>
+                                                    <option value="1+">1+</option>
+                                                    <option value="2+">2+</option>
+                                                    <option value="3+">3+</option>
+                                                    <option value="4+">4+</option>
+                                                    </select>*@
                                                 </div>
                                                 <div class="col-3">
                                                     <span>Urobilinogen</span>
@@ -1141,16 +1133,16 @@
                                                         <option value="8 mg/dl">8 mg/dl</option>
 
                                                         @*<option value="H">Holiday</option>
-            <option value="TD">Traditional day</option>*@
+                                                        <option value="TD">Traditional day</option>*@
                                                     </datalist>
                                                     @*<select v-model="DE_urobilinogene" style="width: 80%" class="form-control">
-            <option value=""></option>
-            <option value="Negative">Negative</option>
-            <option value="1+">1+</option>
-            <option value="2+">2+</option>
-            <option value="3+">3+</option>
-            <option value="4+">4+</option>
-        </select>*@
+                                                    <option value=""></option>
+                                                    <option value="Negative">Negative</option>
+                                                    <option value="1+">1+</option>
+                                                    <option value="2+">2+</option>
+                                                    <option value="3+">3+</option>
+                                                    <option value="4+">4+</option>
+                                                    </select>*@
                                                 </div>
 
                                             </div>
@@ -1169,16 +1161,16 @@
                                                         <option value="Non Hemolysis ++">Non Hemolysis ++</option>
 
                                                         @*<option value="H">Holiday</option>
-            <option value="TD">Traditional day</option>*@
+                                                        <option value="TD">Traditional day</option>*@
                                                     </datalist>
                                                     @*<select v-model="DE_bloode" style="width: 80%" class="form-control">
-            <option value=""></option>
-            <option value="Negative">Negative</option>
-            <option value="1+">1+</option>
-            <option value="2+">2+</option>
-            <option value="3+">3+</option>
-            <option value="4+">4+</option>
-        </select>*@
+                                                    <option value=""></option>
+                                                    <option value="Negative">Negative</option>
+                                                    <option value="1+">1+</option>
+                                                    <option value="2+">2+</option>
+                                                    <option value="3+">3+</option>
+                                                    <option value="4+">4+</option>
+                                                    </select>*@
                                                 </div>
                                                 <div class="col-3">
                                                     <span>Leukocyte</span>
@@ -1188,18 +1180,18 @@
                                                     <datalist id="browsers9">
                                                         <option value="Negative">Negative</option>
                                                         <option value="+25 WBC/uL">+25 WBC/uL</option>
-                                                        
+
                                                         @*<option value="H">Holiday</option>
-            <option value="TD">Traditional day</option>*@
+                                                        <option value="TD">Traditional day</option>*@
                                                     </datalist>
                                                     @*<select v-model="DE_leukocytee" style="width: 80%" class="form-control">
-            <option value=""></option>
-            <option value="Negative">Negative</option>
-            <option value="1+">1+</option>
-            <option value="2+">2+</option>
-            <option value="3+">3+</option>
-            <option value="4+">4+</option>
-        </select>*@
+                                                    <option value=""></option>
+                                                    <option value="Negative">Negative</option>
+                                                    <option value="1+">1+</option>
+                                                    <option value="2+">2+</option>
+                                                    <option value="3+">3+</option>
+                                                    <option value="4+">4+</option>
+                                                    </select>*@
                                                 </div>
 
                                                 <div class="col-3">
@@ -1214,11 +1206,11 @@
 
                                                     </datalist>
                                                     @*<select v-model="DE_nitritee" style="width: 80%" class="form-control">
-            <option value=""></option>
-            <option value="Negative">Negative</option>
-            <option value="Positive">Positive</option>
+                                                    <option value=""></option>
+                                                    <option value="Negative">Negative</option>
+                                                    <option value="Positive">Positive</option>
 
-        </select>*@
+                                                    </select>*@
                                                 </div>
                                                 <div class="col-3">
                                                     <span>Ascorbic acid</span>
@@ -1232,13 +1224,13 @@
 
                                                     </datalist>
                                                     @*<select v-model="DE_ascorbice" style="width: 80%" class="form-control">
-            <option value=""></option>
-            <option value="Negative">Negative</option>
-            <option value="1+">10mg/100ml</option>
-            <option value="2+">25mg/100ml</option>
-            <option value="3+">50mg/100ml</option>
+                                                    <option value=""></option>
+                                                    <option value="Negative">Negative</option>
+                                                    <option value="1+">10mg/100ml</option>
+                                                    <option value="2+">25mg/100ml</option>
+                                                    <option value="3+">50mg/100ml</option>
 
-        </select>*@
+                                                    </select>*@
                                                 </div>
 
                                             </div>
@@ -1285,64 +1277,56 @@
                                                     </select>
                                                 </div>
                                                 <div class="col-3">
-                                                    <span>แพ้ยา</span>
+                                                    <span>การทดสอบสมรรถภาพปอด</span>
                                                     <br />
-                                                    <input type="text" v-model="DE_hisfoode" class="form-control" />
-                                                    @*<select v-model="DE_hisfoode" class="form-control">
-                        <option value=""></option>
-                        <option value="ผลปกติ">ผลปกติ</option>
-                        <option value="ผิดปกติ">ผิดปกติ</option>
+                                                    @*<input type="text" v-model="DE_hisfoode" class="form-control" />*@
+                                                    <select v-model="DE_hisfoode" class="form-control">
+                                                        <option value=""></option>
+                                                        <option value="ผลปกติ">ผลปกติ</option>
+                                                        <option value="ผิดปกติ">ผิดปกติ</option>
 
-                    </select>*@
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="row mt-1 mb-4">
-                                                @*<div class="col-3">
-            <span>เคยเป็นโรคที่เกิดจากการทำงาน</span>
-            <br />
-            <input type="text" v-model="DE_hissickworke" class="form-control" />
-        </div>*@
                                                 <div class="col-3">
-                                                    @*<span>เคยเป็นโรคที่เกิดจากการทำงาน</span>*@
-                                                    <span>ผลการตรวจโควิด(Covid Test)</span>
-                                                    @*<br />
-            <input type="text" v-model="DE_hissickworke" class="form-control" />*@
-                                                    <select v-model="DE_hissickworke" style="width: 100%" class="form-control">
-                                                        <option value="null">รอผลการตรวจ</option>
-                                                        <option value="ผิดปกติ">-Positive</option>
-                                                        <option value="ปกติ">-Negative</option>
-                                                    </select>>
+                                                    <span>ผลการตรวจโควิด (Covid Test)</span>
+                                                    <br />
+                                                    <select v-model="DE_hissickworke" class="form-control">
+                                                        <option value=""></option>
+                                                        <option value="Negative">Negative</option>
+                                                        <option value="Positive">Positive</option>
+
+                                                    </select>
+                                                    @*<input type="text" v-model="DE_hissickworke" class="form-control" />*@
                                                 </div>
-                                                <br />
-                                                @*<input type="text" v-model="DE_hissickworke" class="form-control" />*@
-                </div>
-                <div class="col-3">
-                    <span>Blood Group</span>
-                    <br />
-                    <input type="text" v-model="DE_bloodgre" class="form-control" />
+                                                <div class="col-3">
+                                                    <span>Blood Group</span>
+                                                    <br />
+                                                    <input type="text" v-model="DE_bloodgre" class="form-control" />
 
 
-                </div>
-            </div>
+                                                </div>
+                                            </div>
 
-        <!--<div class="row mt-2 mb-4">
-            <div class="col-3">
-                <span>Blood Group</span>
-                <br />
-                <input type="text" v-model="DE_bloodgre" class="form-control" />-->
-                @*<select v-model="DE_bloodgre" style="width: 100%" class="form-control">
-                    <option value="null">A</option>
-                    <option value="A">A</option>
-                    <option value="B">B</option>
-                    <option value="O">O</option>
-                    <option value="AB">AB</option>
-                    <option value="Rh">Rh</option>
+                                            <!--<div class="row mt-2 mb-4">
+                                                <div class="col-3">
+                                                    <span>Blood Group</span>
+                                                    <br />
+                                                    <input type="text" v-model="DE_bloodgre" class="form-control" />-->
+                                            @*<select v-model="DE_bloodgre" style="width: 100%" class="form-control">
+                                            <option value="null">A</option>
+                                            <option value="A">A</option>
+                                            <option value="B">B</option>
+                                            <option value="O">O</option>
+                                            <option value="AB">AB</option>
+                                            <option value="Rh">Rh</option>
 
-                </select>*@
+                                            </select>*@
 
-                                                <!--</div>
-    </div>-->
-</template>
+                                            <!--</div>
+                                            </div>-->
+                                        </template>
 
                                     </template>
                                     <div style="margin-top: 30px">
@@ -1575,16 +1559,16 @@
                                     <div class="col-5">
                                         <span>Form Outsourcing Customer</span>
                                         <br />
-                                        @*<input type="date" v-model="DateCus" />*@
+                                        <input type="date" v-model="DateCus" />
                                         <input type="text" v-model="customersel" style="width: 250px" disabled class="form-control" />
                                     </div>
                                     <div class="col-7">
                                         <span>Medical Service</span>
                                         <br />
                                         @*<select v-model="medtypesel" class="form-control">
-                            <option v-for="(value,key) in getdatamedty" :value="value.id">{{value.typeName}}</option>
+                                        <option v-for="(value,key) in getdatamedty" :value="value.id">{{value.typeName}}</option>
 
-                        </select>*@
+                                        </select>*@
                                         <input type="text" v-model="medtypesel" class="form-control" disabled />
                                     </div>
 
@@ -1631,10 +1615,10 @@
                                     </div>
 
                                     @*<div class="col-3">
-                        <span>Deduct Salary Date</span>
-                        <br />
-                        <input type="date" v-model="rededatesel" class="form-control" />
-                    </div>*@
+                                    <span>Deduct Salary Date</span>
+                                    <br />
+                                    <input type="date" v-model="rededatesel" class="form-control" />
+                                    </div>*@
 
 
                                     <div class="col-3">
@@ -1674,9 +1658,432 @@
                                         <option value="1">ใบรับรองแพทย์ตรวจสุขภาพทั่วไป</option>
                                         <option value="2">ใบรับรองแพทย์ขอใบขับขี่</option>
                                         <option value="3">ใบรับรองแพทย์ 5 โรค</option>
+                                        <option value="4">ใบรับรองแพทย์ตรวจสุขภาพแรงงานต่างด้าว</option>
                                     </select>
+
                                     @*Create Medic*@
-                                <template v-if="typemedcer == 1">
+                                    <template v-if="typemedcer == 1">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <span>Date:</span>
+                                                <br />
+                                                <input type="date" class="form-control" v-model="DateCusmd" />
+                                            </div>
+                                            <div class="col-6">
+                                                <span>เวลาที่รับการตรวจ</span>
+                                                <br />
+                                                <input type="text" value="" v-model="timemd" style="width: 100%" class="form-control" />
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="row mt-2">
+                                            <div class="col-4">
+                                                <span>คำนำหน้า:</span>
+                                                <br />
+                                                <select v-model="titlenmd" class="form-control">
+                                                    <option value="นาย">นาย</option>
+                                                    <option value="นาง">นาง</option>
+                                                    <option value="นางสาว">นางสาว</option>
+                                                    <option value="Mr.">Mr.</option>
+                                                    <option value="Ms.">Ms.</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="col-4">
+                                                <span>ชื่อ:</span>
+                                                <br />
+                                                <input type="text" v-model="fnamemd" class="form-control" />
+                                            </div>
+                                            <div class="col-4">
+                                                <span>นามสกุล:</span>
+                                                <br />
+                                                <input type="text" v-model="lnamemd" class="form-control" />
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-2">
+
+                                            <div class="col-12">
+                                                <span>ที่อยู่:</span>
+                                                <br />
+                                                <textarea style="width: 550px;" v-model="adrmd" class="form-control"></textarea>
+                                            </div>
+
+                                        </div>
+                                        <div class="row mt-2">
+                                            <div class="col-2">
+                                                <span>น้ำหนัก :</span>
+
+                                            </div>
+                                            <div class="col-3">
+                                                <input type="number" step="0.1" v-model="weightmd" class="form-control" />
+                                            </div>
+                                            <div class="col-2">
+                                                <span>ส่วนสูง :</span>
+
+                                            </div>
+                                            <div class="col-3">
+                                                <input type="number" step="0.1" v-model="heightmd" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="row mt-2">
+                                            <div class="col-2">
+                                                <span>ความดันโลหิต :</span>
+
+                                            </div>
+                                            <div class="col-3">
+                                                <input type="text" step="0.1" v-model="bloodmd" class="form-control" />
+                                            </div>
+                                            <div class="col-2">
+                                                <span>ชีพจร :</span>
+
+                                            </div>
+                                            <div class="col-3">
+                                                <input type="number" step="0.1" v-model="pulsemd" class="form-control" />
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-2">
+                                            <div class="col-4">
+                                                <span>โรคประจำตัว :</span>
+
+
+                                            </div>
+                                            <div class="col-8">
+                                                <input type="radio" id="one1" value="One" v-model="ch1md">
+                                                <label for="one1">ไม่มี</label>
+                                                <input type="radio" id="two1" value="Two" v-model="ch1md">
+                                                <label for="two1">มี(ระบุ)</label>
+                                                <input type="text" v-model="tex1md" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="row mt-2">
+                                            <div class="col-4">
+                                                <span>อุบัติเหตุ และ ผ่าตัด :</span>
+
+                                            </div>
+                                            <div class="col-8">
+                                                <input type="radio" id="one2" value="One" v-model="ch2md">
+                                                <label for="one2">ไม่มี</label>
+                                                <input type="radio" id="two2" value="Two" v-model="ch2md">
+                                                <label for="two2">มี(ระบุ)</label>
+                                                <input type="text" v-model="tex2md" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="row mt-2">
+                                            <div class="col-4">
+                                                <span>เคยเข้ารับการรักษาในโรงพยาบาล :</span>
+
+                                            </div>
+                                            <div class="col-8">
+
+                                                <input type="radio" id="one3" value="One" v-model="ch3md">
+                                                <label for="one3">ไม่มี</label>
+
+                                                <input type="radio" id="two3" value="Two" v-model="ch3md">
+                                                <label for="two3">มี(ระบุ)</label>
+                                                <input type="text" v-model="tex3md" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="row mt-2">
+                                            <div class="col-4">
+                                                <span>ประวัติอื่นที่สำคัญ :</span>
+
+                                            </div>
+                                            <div class="col-8">
+                                                <input type="text" v-model="tex5md" style="width: 300px" class="form-control" />
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-2">
+                                            <div class="col-2">
+                                                <span>น้ำหนัก :</span>
+
+                                            </div>
+                                            <div class="col-3">
+                                                <input type="number" step="0.1" v-model="weightmd" class="form-control" />
+                                            </div>
+                                            <div class="col-2">
+                                                <span>ส่วนสูง :</span>
+
+                                            </div>
+                                            <div class="col-3">
+                                                <input type="number" step="0.1" v-model="heightmd" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="row mt-2">
+                                            <div class="col-2">
+                                                <span>ความดันโลหิต :</span>
+
+                                            </div>
+                                            <div class="col-3">
+                                                <input type="text" step="0.1" v-model="bloodmd" class="form-control" />
+                                            </div>
+                                            <div class="col-2">
+                                                <span>ชีพจร :</span>
+
+                                            </div>
+                                            <div class="col-3">
+                                                <input type="number" step="0.1" v-model="pulsemd" class="form-control" />
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-2">
+                                            <div class="col-3">
+                                                <span>สภาพร่างกายทั่วไป :</span>
+                                            </div>
+                                            <div class="col-9">
+                                                <input type="radio" id="one" value="One" v-model="ch6md">
+                                                <label for="one">ไม่มี</label>
+
+                                                <input type="radio" id="two" value="Two" v-model="ch6md">
+                                                <label for="two">มี(ระบุ)</label>
+
+                                                <input type="text" v-model="tex6md" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="row mt-2">
+                                            <div class="col-4">
+                                                <span>ความเห็นและข้อแนะนำของแพทย์ :</span>
+
+                                            </div>
+                                            <div class="col-8">
+                                                <input type="text" v-model="commentmd" style="width: 300px" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <template v-if="chkmededit == false">
+                                            <button class="btn btn-success mt-4" v-on:click="Createmed1()" style="width: 100%">SAVE</button>
+                                        </template>
+                                        <template v-else>
+                                            <button class="btn btn-success mt-4" v-on:click="editmed1()" style="width: 100%">EDIT SAVE</button>
+                                        </template>
+                                    </template>
+
+                                    <template v-else-if="typemedcer == 2">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <span>Date:</span>
+                                                <br />
+                                                <input type="date" class="form-control" v-model="DateCusmd" />
+                                            </div>
+                                            <div class="col-6">
+                                                <span>เวลาที่รับการตรวจ</span>
+                                                <br />
+                                                <input type="text" value="" v-model="timemd" style="width: 100%" class="form-control" />
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-2">
+                                            <div class="col-4">
+                                                <span>เลขบัตรประจำตัวประชาชน:</span>
+                                                <br />
+                                                <input type="text" value="" v-model="idcardmd" style="width: 60%" class="form-control" />
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row mt-2">
+                                            <div class="col-4">
+                                                <span>คำนำหน้า:</span>
+                                                <br />
+                                                <select v-model="titlenmd" class="form-control">
+                                                    <option value="นาย">นาย</option>
+                                                    <option value="นาง">นาง</option>
+                                                    <option value="นางสาว">นางสาว</option>
+                                                    <option value="Mr.">Mr.</option>
+                                                    <option value="Ms.">Ms.</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-4">
+                                                <span>ชื่อ:</span>
+                                                <br />
+                                                <input type="text" v-model="fnamemd" class="form-control" />
+                                            </div>
+                                            <div class="col-4">
+                                                <span>นามสกุล:</span>
+                                                <br />
+                                                <input type="text" v-model="lnamemd" class="form-control" />
+                                            </div>
+
+                                        </div>
+
+                                </div>
+
+                                <div class="row mt-2">
+                                    <div class="col-12">
+                                        <span>ที่อยู่:</span>
+                                        <br />
+                                        <textarea style="width: 550px;" v-model="adrmd" class="form-control"></textarea>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="row mt-2">
+                                    <div class="col-2">
+                                        <span>น้ำหนัก :</span>
+
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="number" step="0.1" v-model="weightmd" class="form-control" />
+                                    </div>
+                                    <div class="col-2">
+                                        <span>ส่วนสูง :</span>
+
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="number" step="0.1" v-model="heightmd" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-2">
+                                        <span>ความดันโลหิต :</span>
+
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="text" step="0.1" v-model="bloodmd" class="form-control" />
+                                    </div>
+                                    <div class="col-2">
+                                        <span>ชีพจร :</span>
+
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="number" step="0.1" v-model="pulsemd" class="form-control" />
+                                    </div>
+                                </div>
+
+                                <div class="row mt-2">
+                                    <div class="col-4">
+                                        <span>โรคประจำตัว :</span>
+
+
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="radio" id="one" value="One" v-model="ch1md">
+                                        <label for="one">ไม่มี</label>
+                                        <input type="radio" id="two" value="Two" v-model="ch1md">
+                                        <label for="two">มี(ระบุ)</label>
+                                        <input type="text" v-model="tex1md" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-4">
+                                        <span>อุบัติเหตุ และ ผ่าตัด :</span>
+
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="radio" id="one" value="One" v-model="ch2md">
+                                        <label for="one">ไม่มี</label>
+                                        <input type="radio" id="two" value="Two" v-model="ch2md">
+                                        <label for="two">มี(ระบุ)</label>
+                                        <input type="text" v-model="tex2md" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-4">
+                                        <span>เคยเข้ารับการรักษาในโรงพยาบาล :</span>
+
+                                    </div>
+                                    <div class="col-8">
+
+                                        <input type="radio" id="one" value="One" v-model="ch3md">
+                                        <label for="one">ไม่มี</label>
+
+                                        <input type="radio" id="two" value="Two" v-model="ch3md">
+                                        <label for="two">มี(ระบุ)</label>
+                                        <input type="text" v-model="tex3md" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-4">
+                                        <span>โรคลมชัก :</span>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="radio" id="one" value="One" v-model="ch4md">
+                                        <label for="one">ไม่มี</label>
+
+                                        <input type="radio" id="two" value="Two" v-model="ch4md">
+                                        <label for="two">มี(ระบุ)</label>
+                                        <input type="text" v-model="tex4md" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-4">
+                                        <span>ประวัติอื่นที่สำคัญ :</span>
+
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" v-model="tex5md" style="width: 300px" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-2">
+                                        <span>น้ำหนัก :</span>
+
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="number" step="0.1" v-model="weightmd" class="form-control" />
+                                    </div>
+                                    <div class="col-2">
+                                        <span>ส่วนสูง :</span>
+
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="number" step="0.1" v-model="heightmd" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-2">
+                                        <span>ความดันโลหิต :</span>
+
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="text" step="0.1" v-model="bloodmd" class="form-control" />
+                                    </div>
+                                    <div class="col-2">
+                                        <span>ชีพจร :</span>
+
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="number" step="0.1" v-model="pulsemd" class="form-control" />
+                                    </div>
+                                </div>
+
+                                <div class="row mt-2">
+                                    <div class="col-3">
+                                        <span>สภาพร่างกายทั่วไป :</span>
+                                    </div>
+                                    <div class="col-9">
+                                        <input type="radio" id="one" value="One" v-model="ch6md">
+                                        <label for="one">ไม่มี</label>
+
+                                        <input type="radio" id="two" value="Two" v-model="ch6md">
+                                        <label for="two">มี(ระบุ)</label>
+
+                                        <input type="text" v-model="tex6md" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-4">
+                                        <span>ความเห็นและข้อแนะนำของแพทย์ :</span>
+
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" v-model="commentmd" style="width: 300px" class="form-control" />
+                                    </div>
+                                </div>
+                                <template v-if="chkmededit == false">
+                                    <button class="btn btn-success mt-4" v-on:click="Createmed2()" style="width: 100%">SAVE</button>
+                                </template>
+                                <template v-else>
+                                    <button class="btn btn-success mt-4" v-on:click="editmed2()" style="width: 100%">EDIT SAVE</button>
+                                </template>
+
+                                </template>
+
+                                <template v-else-if="typemedcer == 3">
                                     <div class="row">
                                         <div class="col-6">
                                             <span>Date:</span>
@@ -1724,13 +2131,134 @@
 
                                     </div>
 
+
+
                                     <div class="row mt-2">
-                                        <div class="col-12">
-                                            <span>เลขบัตรประจำตัวประชาชน:</span>
+                                        <div class="col-4">
+                                            <span>ประวัติอื่นที่สำคัญ :</span>
+
+                                        </div>
+                                        <div class="col-8">
+                                            <input type="text" v-model="tex5md" style="width: 300px" class="form-control" />
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-2">
+                                        <div class="col-3">
+                                            <span>สภาพร่างกายทั่วไป :</span>
+                                        </div>
+                                        <div class="col-9">
+                                            <input type="radio" id="one" value="One" v-model="ch6md">
+                                            <label for="one">ไม่มี</label>
+
+                                            <input type="radio" id="two" value="Two" v-model="ch6md">
+                                            <label for="two">มี(ระบุ)</label>
+
+                                            <input type="text" v-model="tex6md" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-4">
+                                            <span>ความเห็นและข้อแนะนำของแพทย์ :</span>
+
+                                        </div>
+                                        <div class="col-8">
+                                            <input type="text" v-model="commentmd" style="width: 300px" class="form-control" />
+                                        </div>
+                                    </div>
+
+                                    <template v-if="chkmededit == false">
+                                        <button class="btn btn-success mt-4" v-on:click="Createmed3()" style="width: 100%">SAVE</button>
+                                    </template>
+                                    <template v-else>
+                                        <button class="btn btn-success mt-4" v-on:click="editmed3()" style="width: 100%">EDIT SAVE</button>
+                                    </template>
+
+                                </template>
+                                @*<button class="btn btn-primary mt-4" v-on:click="CreateCer()">SAVE</button>*@
+
+                                @*Create Medic*@
+                                <template v-if="typemedcer == 4">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <span>Date:</span>
                                             <br />
-                                            <input type="text" value="" v-model="idcardmd" class="form-control" />
+                                            <input type="date" class="form-control" v-model="DateCusmd" />
+                                        </div>
+                                        <div class="col-6">
+                                            <span>เวลาที่รับการตรวจ</span>
+                                            <br />
+                                            <input type="text" value="" v-model="timemd" style="width: 100%" class="form-control" />
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="row mt-2">
+                                        <div class="col-4">
+                                            <span>คำนำหน้า:</span>
+                                            <br />
+                                            <select v-model="titlenmd" class="form-control">
+                                                <option value="นาย">นาย</option>
+                                                <option value="นาง">นาง</option>
+                                                <option value="นางสาว">นางสาว</option>
+                                                <option value="Mr.">Mr.</option>
+                                                <option value="Ms.">Ms.</option>
+                                            </select>
                                         </div>
 
+                                        <div class="col-4">
+                                            <span>ชื่อ:</span>
+                                            <br />
+                                            <input type="text" v-model="fnamemd" class="form-control" />
+                                        </div>
+                                        <div class="col-4">
+                                            <span>นามสกุล:</span>
+                                            <br />
+                                            <input type="text" v-model="lnamemd" class="form-control" />
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-2">
+
+                                        <div class="col-12">
+                                            <span>ที่อยู่:</span>
+                                            <br />
+                                            <textarea style="width: 550px;" v-model="adrmd" class="form-control"></textarea>
+                                        </div>
+
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-2">
+                                            <span>น้ำหนัก :</span>
+
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="number" step="0.1" v-model="weightmd" class="form-control" />
+                                        </div>
+                                        <div class="col-2">
+                                            <span>ส่วนสูง :</span>
+
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="number" step="0.1" v-model="heightmd" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-2">
+                                            <span>ความดันโลหิต :</span>
+
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="text" step="0.1" v-model="bloodmd" class="form-control" />
+                                        </div>
+                                        <div class="col-2">
+                                            <span>ชีพจร :</span>
+
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="number" step="0.1" v-model="pulsemd" class="form-control" />
+                                        </div>
                                     </div>
 
                                     <div class="row mt-2">
@@ -1784,6 +2312,7 @@
                                             <input type="text" v-model="tex5md" style="width: 300px" class="form-control" />
                                         </div>
                                     </div>
+
                                     <div class="row mt-2">
                                         <div class="col-2">
                                             <span>น้ำหนัก :</span>
@@ -1848,376 +2377,89 @@
                                     </template>
                                 </template>
 
-                                    <template v-else-if="typemedcer == 2">
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <span>Date:</span>
-                                                <br />
-                                                <input type="date" class="form-control" v-model="DateCusmd" />
-                                            </div>
-                                            <div class="col-6">
-                                                <span>เวลาที่รับการตรวจ</span>
-                                                <br />
-                                                <input type="text" value="" v-model="timemd" style="width: 100%" class="form-control" />
-                                            </div>
-                                        </div>
-
-                                        <div class="row mt-2">
-                                            <div class="col-4">
-                                                <span>คำนำหน้า:</span>
-                                                <br />
-                                                <select v-model="titlenmd" class="form-control">
-                                                    <option value="นาย">นาย</option>
-                                                    <option value="นาง">นาง</option>
-                                                    <option value="นางสาว">นางสาว</option>
-                                                    <option value="Mr.">Mr.</option>
-                                                    <option value="Ms.">Ms.</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-4">
-                                                <span>ชื่อ:</span>
-                                                <br />
-                                                <input type="text" v-model="fnamemd" class="form-control" />
-                                            </div>
-                                            <div class="col-4">
-                                                <span>นามสกุล:</span>
-                                                <br />
-                                                <input type="text" v-model="lnamemd" class="form-control" />
-                                            </div>
-
-                                        </div>
-
-                                        <div class="row mt-2">
-                                            <div class="col-12">
-                                                <span>ที่อยู่:</span>
-                                                <br />
-                                                <textarea style="width: 550px;" v-model="adrmd" class="form-control"></textarea>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="row mt-2">
-                                            <div class="col-12">
-                                                <span>เลขบัตรประจำตัวประชาชน:</span>
-                                                <br />
-                                                <input type="text" value="" v-model="idcardmd" class="form-control" />
-                                            </div>
-
-                                        </div>
-
-                                        <div class="row mt-2">
-                                            <div class="col-4">
-                                                <span>โรคประจำตัว :</span>
-
-
-                                            </div>
-                                            <div class="col-8">
-                                                <input type="radio" id="one" value="One" v-model="ch1md">
-                                                <label for="one">ไม่มี</label>
-                                                <input type="radio" id="two" value="Two" v-model="ch1md">
-                                                <label for="two">มี(ระบุ)</label>
-                                                <input type="text" v-model="tex1md" class="form-control" />
-                                            </div>
-                                        </div>
-                                        <div class="row mt-2">
-                                            <div class="col-4">
-                                                <span>อุบัติเหตุ และ ผ่าตัด :</span>
-
-                                            </div>
-                                            <div class="col-8">
-                                                <input type="radio" id="one" value="One" v-model="ch2md">
-                                                <label for="one">ไม่มี</label>
-                                                <input type="radio" id="two" value="Two" v-model="ch2md">
-                                                <label for="two">มี(ระบุ)</label>
-                                                <input type="text" v-model="tex2md" class="form-control" />
-                                            </div>
-                                        </div>
-                                        <div class="row mt-2">
-                                            <div class="col-4">
-                                                <span>เคยเข้ารับการรักษาในโรงพยาบาล :</span>
-
-                                            </div>
-                                            <div class="col-8">
-
-                                                <input type="radio" id="one" value="One" v-model="ch3md">
-                                                <label for="one">ไม่มี</label>
-
-                                                <input type="radio" id="two" value="Two" v-model="ch3md">
-                                                <label for="two">มี(ระบุ)</label>
-                                                <input type="text" v-model="tex3md" class="form-control" />
-                                            </div>
-                                        </div>
-                                        <div class="row mt-2">
-                                            <div class="col-4">
-                                                <span>โรคลมชัก :</span>
-                                            </div>
-                                            <div class="col-8">
-                                                <input type="radio" id="one" value="One" v-model="ch4md">
-                                                <label for="one">ไม่มี</label>
-
-                                                <input type="radio" id="two" value="Two" v-model="ch4md">
-                                                <label for="two">มี(ระบุ)</label>
-                                                <input type="text" v-model="tex4md" class="form-control" />
-                                            </div>
-                                        </div>
-                                        <div class="row mt-2">
-                                            <div class="col-4">
-                                                <span>ประวัติอื่นที่สำคัญ :</span>
-
-                                            </div>
-                                            <div class="col-8">
-                                                <input type="text" v-model="tex5md" style="width: 300px" class="form-control" />
-                                            </div>
-                                        </div>
-                                        <div class="row mt-2">
-                                            <div class="col-2">
-                                                <span>น้ำหนัก :</span>
-
-                                            </div>
-                                            <div class="col-3">
-                                                <input type="number" step="0.1" v-model="weightmd" class="form-control" />
-                                            </div>
-                                            <div class="col-2">
-                                                <span>ส่วนสูง :</span>
-
-                                            </div>
-                                            <div class="col-3">
-                                                <input type="number" step="0.1" v-model="heightmd" class="form-control" />
-                                            </div>
-                                        </div>
-                                        <div class="row mt-2">
-                                            <div class="col-2">
-                                                <span>ความดันโลหิต :</span>
-
-                                            </div>
-                                            <div class="col-3">
-                                                <input type="text" step="0.1" v-model="bloodmd" class="form-control" />
-                                            </div>
-                                            <div class="col-2">
-                                                <span>ชีพจร :</span>
-
-                                            </div>
-                                            <div class="col-3">
-                                                <input type="number" step="0.1" v-model="pulsemd" class="form-control" />
-                                            </div>
-                                        </div> 
-
-                                        <div class="row mt-2">
-                                            <div class="col-3">
-                                                <span>สภาพร่างกายทั่วไป :</span>
-                                            </div>
-                                            <div class="col-9">
-                                                <input type="radio" id="one" value="One" v-model="ch6md">
-                                                <label for="one">ไม่มี</label>
-
-                                                <input type="radio" id="two" value="Two" v-model="ch6md">
-                                                <label for="two">มี(ระบุ)</label>
-
-                                                <input type="text" v-model="tex6md" class="form-control" />
-                                            </div>
-                                        </div>
-                                        <div class="row mt-2">
-                                            <div class="col-4">
-                                                <span>ความเห็นและข้อแนะนำของแพทย์ :</span>
-
-                                            </div>
-                                            <div class="col-8">
-                                                <input type="text" v-model="commentmd" style="width: 300px" class="form-control" />
-                                            </div>
-                                        </div>
-                                        <template v-if="chkmededit == false">
-                                            <button class="btn btn-success mt-4" v-on:click="Createmed2()" style="width: 100%">SAVE</button>
-                                        </template>
-                                        <template v-else>
-                                            <button class="btn btn-success mt-4" v-on:click="editmed2()" style="width: 100%">EDIT SAVE</button>
-                                        </template>
-
-                                    </template>
-                                    <template v-else-if="typemedcer == 3">
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <span>Date:</span>
-                                                <br />
-                                                <input type="date" class="form-control" v-model="DateCusmd" />
-                                            </div>
-                                            <div class="col-6">
-                                                <span>เวลาที่รับการตรวจ</span>
-                                                <br />
-                                                <input type="text" value="" v-model="timemd" style="width: 100%" class="form-control" />
-                                            </div>
-                                        </div>
-
-                                        <div class="row mt-2">
-                                            <div class="col-4">
-                                                <span>คำนำหน้า:</span>
-                                                <br />
-                                                <select v-model="titlenmd" class="form-control">
-                                                    <option value="นาย">นาย</option>
-                                                    <option value="นาง">นาง</option>
-                                                    <option value="นางสาว">นางสาว</option>
-                                                    <option value="Mr.">Mr.</option>
-                                                    <option value="Ms.">Ms.</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-4">
-                                                <span>ชื่อ:</span>
-                                                <br />
-                                                <input type="text" v-model="fnamemd" class="form-control" />
-                                            </div>
-                                            <div class="col-4">
-                                                <span>นามสกุล:</span>
-                                                <br />
-                                                <input type="text" v-model="lnamemd" class="form-control" />
-                                            </div>
-
-                                        </div>
-
-                                        <div class="row mt-2">
-                                            <div class="col-12">
-                                                <span>ที่อยู่:</span>
-                                                <br />
-                                                <textarea style="width: 550px;" v-model="adrmd" class="form-control"></textarea>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="row mt-2">
-                                            <div class="col-12">
-                                                <span>เลขบัตรประจำตัวประชาชน:</span>
-                                                <br />
-                                                <input type="text" value="" v-model="idcardmd" class="form-control" />
-                                            </div>
-
-                                        </div>
-
-
-                                        <div class="row mt-2">
-                                            <div class="col-4">
-                                                <span>ประวัติอื่นที่สำคัญ :</span>
-
-                                            </div>
-                                            <div class="col-8">
-                                                <input type="text" v-model="tex5md" style="width: 300px" class="form-control" />
-                                            </div>
-                                        </div>
-
-                                        <div class="row mt-2">
-                                            <div class="col-3">
-                                                <span>สภาพร่างกายทั่วไป :</span>
-                                            </div>
-                                            <div class="col-9">
-                                                <input type="radio" id="one" value="One" v-model="ch6md">
-                                                <label for="one">ไม่มี</label>
-
-                                                <input type="radio" id="two" value="Two" v-model="ch6md">
-                                                <label for="two">มี(ระบุ)</label>
-
-                                                <input type="text" v-model="tex6md" class="form-control" />
-                                            </div>
-                                        </div>
-                                        <div class="row mt-2">
-                                            <div class="col-4">
-                                                <span>ความเห็นและข้อแนะนำของแพทย์ :</span>
-
-                                            </div>
-                                            <div class="col-8">
-                                                <input type="text" v-model="commentmd" style="width: 300px" class="form-control" />
-                                            </div>
-                                        </div>
-                                    
-                                            <template v-if="chkmededit == false">
-                                                <button class="btn btn-success mt-4" v-on:click="Createmed3()" style="width: 100%">SAVE</button>
-                                            </template>
-                                            <template v-else>
-                                                <button class="btn btn-success mt-4" v-on:click="editmed3()" style="width: 100%">EDIT SAVE</button>
-                                            </template>
-                                       
-                                    </template>
-                                    @*<button class="btn btn-primary mt-4" v-on:click="CreateCer()">SAVE</button>*@
-
-
-                                </div>
-                               
 
                             </div>
+
+
                         </div>
                     </div>
-
-
                 </div>
 
-                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6">
 
-                    <div style="width: 860px; height: 350px; border: 1px solid #000; padding: 20px;" class="tta">
+            </div>
 
-                        <div class="flex mb-2" style="display: flex; display: -webkit-box; ">
-                            <div style="width: 50%">
-                                <span style="font-size: 34px">Patient</span><br />
-                                <input type="text" v-model="searchhc" class="form-control" placeholder="Search" v-on:keyup="searchpatirnt" />
-                            </div>
-                            <div style="width: 50%"><span style="color: red">{{refnosel}}&nbsp;&nbsp;{{namesel}}</span></div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6">
 
+                <div style="width: 860px; height: 350px; border: 1px solid #000; padding: 20px;" class="tta">
+
+                    <div class="flex mb-2" style="display: flex; display: -webkit-box; ">
+                        <div style="width: 50%">
+                            <span style="font-size: 34px">Patient</span><br />
+                            <input type="text" v-model="searchhc" class="form-control" placeholder="Search" v-on:keyup="searchpatirnt" />
                         </div>
-                        <div style="overflow: auto; max-height: 230px;  width: 100%; ">
-                            <template>
+                        <div style="width: 50%"><span style="color: red">{{refnosel}}&nbsp;&nbsp;{{namesel}}</span></div>
 
-                                <table class="table table-bordered mt-4 ">
-                                    <thead>
-                                        <tr>
-                                            <th style="text-align:center">PatientID</th>
-                                            <th>IDCard</th>
-                                            <th>TitleName</th>
-                                            <th>FirstName</th>
-                                            <th>LastName</th>
-                                            <th>Config</th>
-                                        </tr>
-                                    </thead>
-                                    <tr v-for="(value,key) in getdatapatirnt" style="color: #000">
-
-                                        <td style="text-align:center">BB-{{value.idPatient}}{{(value.iDrunnumber > 9 ? "-00":(value.iDrunnumber > 99 ? "-0": (value.iDrunnumber > 999 ? "-": "-000"))) + value.iDrunnumber}}</td>
-                                        <td>{{value.idCard}}</td>
-                                        <td>{{value.titlename}}</td>
-                                        <td>{{value.fname}}</td>
-                                        <td>{{value.lname}}</td>
-                                        @*<td>{{value.tel}}</td>*@
-                                        <td>
-                                            <button class="btn btn-success mr-2" v-on:click="setrefno(value.id)" style="height:35px;">select</button>
-
-                                        </td>
-                                    </tr>
-                                </table>
-                            </template>
-                        </div>
                     </div>
+                    <div style="overflow: auto; max-height: 230px;  width: 100%; ">
+                        <template>
+
+                            <table class="table table-bordered mt-4 ">
+                                <thead>
+                                    <tr>
+                                        <th style="text-align:center">PatientID</th>
+                                        <th>IDCard</th>
+                                        <th>TitleName</th>
+                                        <th>FirstName</th>
+                                        <th>LastName</th>
+                                        <th>Config</th>
+                                    </tr>
+                                </thead>
+                                <tr v-for="(value,key) in getdatapatirnt" style="color: #000">
+
+                                    <td style="text-align:center">BB-{{value.idPatient}}{{(value.iDrunnumber > 9 ? "-00":(value.iDrunnumber > 99 ? "-0": (value.iDrunnumber > 999 ? "-": "-000"))) + value.iDrunnumber}}</td>
+                                    <td>{{value.idCard}}</td>
+                                    <td>{{value.titlename}}</td>
+                                    <td>{{value.fname}}</td>
+                                    <td>{{value.lname}}</td>
+                                    @*<td>{{value.tel}}</td>*@
+                                    <td>
+                                        <button class="btn btn-success mr-2" v-on:click="setrefno(value.id)" style="height:35px;">select</button>
+
+                                    </td>
+                                </tr>
+                            </table>
+                        </template>
+                    </div>
+                </div>
 
 
-                    <div style="width: 860px; height: 350px; border: 1px solid #000; padding: 20px; top: 500px;" class="tta">
-                        <div class="flex" style="display: flex; display: -webkit-box;">
-                            <div style="width: 50%">
-                                <span style="font-size: 34px">HealthCheck</span>
-                            </div>
-                            <div style="width: 50%"><span style="color: red">{{refnosel}}&nbsp;&nbsp;{{namesel}}</span></div>
-
+                <div style="width: 860px; height: 350px; border: 1px solid #000; padding: 20px; top: 500px;" class="tta">
+                    <div class="flex" style="display: flex; display: -webkit-box;">
+                        <div style="width: 50%">
+                            <span style="font-size: 34px">HealthCheck</span>
                         </div>
-                        <div style="overflow: auto; max-height: 250px;  width: 100%; ">
-                            <template>
-                                <table class="table table-bordered mt-4" style="">
-                                    <thead>
-                                        <tr>
-                                            <th style="text-align:center">MedicalID</th>
-                                            <th style="text-align:center">Dateincome</th>
-                                            <th style="text-align:center">Timeincome</th>
-                                            <th style="text-align:center">Print</th>
-                                            <th style="text-align:center">Edit</th>
+                        <div style="width: 50%"><span style="color: red">{{refnosel}}&nbsp;&nbsp;{{namesel}}</span></div>
 
-                                        </tr>
-                                    </thead>
-                                    <tr v-for="(value,key) in getdatadetail" style="color: #000;text-align:center;">
-                                        @*<td style="text-align:center">B-{{value.idPatient}}-{{value.iDrunnumber}}</td>*@
-                                        <td>{{value.x.iDdate}}-{{value.x.iDrunnumber}}</td>
-                                        <td>{{value.x.direct}}</td>
-                                        <td>{{value.x.time}}</td>
-                                        @*<td>{{value.customer}}</td>*@
+                    </div>
+                    <div style="overflow: auto; max-height: 250px;  width: 100%; ">
+                        <template>
+                            <table class="table table-bordered mt-4" style="">
+                                <thead>
+                                    <tr>
+                                        <th style="text-align:center">MedicalID</th>
+                                        <th style="text-align:center">Dateincome</th>
+                                        <th style="text-align:center">Timeincome</th>
+                                        <th style="text-align:center">Print</th>
+                                        <th style="text-align:center">Edit</th>
+
+                                    </tr>
+                                </thead>
+                                <tr v-for="(value,key) in getdatadetail" style="color: #000;text-align:center;">
+                                    @*<td style="text-align:center">B-{{value.idPatient}}-{{value.iDrunnumber}}</td>*@
+                                    <td>{{value.x.iDdate}}-{{value.x.iDrunnumber}}</td>
+                                    <td>{{value.x.direct}}</td>
+                                    <td>{{value.x.time}}</td>
+                                    @*<td>{{value.customer}}</td>*@
 
                                     <td>
                                         <template v-if="(value.y != null ? value.y.type : 0 ) != '2'">
@@ -2234,7 +2476,7 @@
 
                                     </td>
                                     <td>
-                                        
+
                                         <template v-if="(value.y != null ? value.y.type : 0 ) != '2'">
                                             <button class="btn btn-warning btn-manage" v-on:click="Getdataeditdetail(value.x.id)" style="height:35px;">Laps</button>
                                         </template>
@@ -2248,7 +2490,7 @@
                                             <button class="btn btn-success btn-manage" v-on:click="getdatapay(value.x.id,chkselpayment[key])" style="height:35px;">Payment</button>
                                         </template>
                                         <template>
-                                            
+
                                             <div class="btn-group">
                                                 <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     Delete
@@ -2258,437 +2500,436 @@
                                                     <template v-if="chkselpayment[key] != '0'">
                                                         <a class="dropdown-item" href="#" v-on:click="delpay(idpayment[key])">Del payment</a>
                                                     </template>
-                                                   
+
                                                 </div>
                                             </div>
-                                          
+
                                         </template>
 
                                     </td>
-                                    </tr>
-                                </table>
-                            </template>
-                        </div>
+                                </tr>
+                            </table>
+                        </template>
                     </div>
                 </div>
-
             </div>
+
         </div>
-
-
-        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content" style="padding: 40px; font-size: 14px">
-                    <div>
-
-                        <h4>ลงทะเบียน</h4>
-
-                        <div class="row mt-2">
-
-                            <div class="col-4">
-                                <span>เลขบัตรประจำตัวประชาชน:</span>
-                                <br />
-                                <input type="number" value="" v-model="idcard" style="width: 100%" />
-                            </div>
-
-                            <div class="col-6">
-                                <span>เลขพาสปอร์ต:</span>
-                                <br />
-                                <input type="text" value="" v-model="idpart" />
-                                <button v-on:click="getdataCN()" style="margin-left: 10px">Check</button>
-                            </div>
-                        </div>
-
-                        <div class="row mt-2">
-                            <div class="col-6">
-                                <span>CN:&nbsp;</span>
-
-                                @*<input type="date" v-model="DateCus" />*@
-                                <input type="text" v-model="cncode" readonly />
-
-
-                            </div>
-
-                        </div>
-
-                        <div class="row mt-2">
-                            <div class="col-2">
-                                <span>คำนำหน้า:</span>
-                                <br />
-                                <select v-model="titlen">
-                                    <option value="นาย">นาย</option>
-                                    <option value="นาง">นาง</option>
-                                    <option value="นางสาว">นางสาว</option>
-                                    <option value="Mr.">Mr.</option>
-                                    <option value="Ms.">Ms.</option>
-                                </select>
-                            </div>
-                            <div class="col-3">
-                                <span>ชื่อ:</span>
-                                <br />
-                                <input type="text" v-model="fname" />
-                            </div>
-                            <div class="col-3">
-                                <span>นามสกุล:</span>
-                                <br />
-                                <input type="text" v-model="lname" />
-                            </div>
-                            <div class="col-4">
-                                <span>เพศ :</span>
-                                <br />
-                                <input type="radio" v-model="gender" value="1" /> ชาย
-                                <input type="radio" v-model="gender" value="2" /> หญิง
-                            </div>
-
-                        </div>
-
-
-                        <div class="row mt-2">
-                            <div class="col-3">
-                                <span>วันเกิด </span>&nbsp;<span style="font-size: 12px">ex. mm/dd/yyyy</span>
-                                <br />
-                                <input type="date" v-model="birthday" v-on:change="getAge()" />
-                            </div>
-
-                            <div class="col-3">
-                                <span>อายุ</span>
-                                <br />
-                                <input type="text" value="" v-model="age" readonly />
-                            </div>
-
-                            @*<div class="col-6">
-                                    <br />
-                                    <span>ปี:</span>
-                                    <input type="text" v-model="yearV" style="width: 50px" readonly />
-
-                                    <span>เดือน:</span>
-                                    <input type="text" v-model="monthV" style="width: 50px" readonly />
-
-                                    <span>วัน:</span>
-                                    <input type="text" v-model="dayV" style="width: 50px" readonly />
-
-                                </div>*@
-                        </div>
-
-                        <div class="row mt-2">
-                            <div class="col-12">
-                                <span>ที่อยู่:</span>
-                                <br />
-                                <textarea style="width: 100%" v-model="adr"></textarea>
-
-                            </div>
-
-                        </div>
-
-                        <div class="row mt-2">
-                            <div class="col-6">
-                                <span>จังหวัด:</span>
-                                <br />
-
-                                <select v-model="province" v-on:change="getdis()" style="width: 100%">
-                                    <option>เลือกจังหวัด</option>
-                                    <option v-for="(value,key) in getprovince" :value="value.provinceID"> {{value.provinceTH}}</option>
-                                </select>
-
-                            </div>
-
-                            <div class="col-6">
-                                <span>อำเภอ:</span>
-                                <br />
-                                @*<textarea style="width: 100%" v-model="adr"></textarea>*@
-                                @*<input type="text" v-model="ampur" style="width: 100%" />*@
-
-                                <select v-model="ampur" v-on:change="getsubdis()" style="width: 100%">
-                                    <option>เลือกอำเภอ</option>
-                                    <option v-for="(value,key) in getdistrict" :value="value.districtID"> {{value.districtTH}}</option>
-                                </select>
-
-                            </div>
-                        </div>
-
-                        <div class="row mt-2">
-
-                            <div class="col-6">
-                                <span>ตำบล:</span>
-                                <br />
-                                @*<input type="text" v-model="tambon" style="width: 100%" />*@
-                                <select v-model="tambon" style="width: 100%">
-                                    <option>เลือกตำบล</option>
-                                    <option v-for="(value,key) in getsubdistrict" :value="value.subDistrictID"> {{value.subDistrictTH}}</option>
-                                </select>
-                            </div>
-
-                            <div class="col-6">
-                                <span>รหัสไปรษณีย์:</span>
-                                <br />
-
-                                @*<input type="text" v-model="postcode" style="width: 100%" />*@
-
-                                <select v-model="postcode" style="width: 100%">
-                                    <option>เลือกรหัสไปรษณีย์</option>
-                                    <option v-for="(value,key) in getpostcode" :value="value.postCode"> {{value.postCode}}</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="row mt-2">
-                            <!--<div class="col-6">
-                                <span>อาชีพ:</span>
-                                <br />-->
-                            @*<textarea style="width: 100%" v-model="adr"></textarea>*@
-                            <!--<input type="text" v-model="career" style="width: 100%" />
-                            </div>-->
-                            <div class="col-6">
-                                <span>โทรศัพท์:</span>
-                                <br />
-                                @*<textarea style="width: 100%" v-model="adr"></textarea>*@
-                                <input type="text" v-model="tel" style="width: 100%" />
-                            </div>
-                        </div>
-
-
-
-                        <button class="btn btn-primary mt-4" v-on:click="Createpatient()">SAVE</button>
-                    </div>
-
-
-
-                </div>
-            </div>
-        </div>
-
-
-        <div class="modal fade edit" tabindex="-1" id="edit" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content" style="padding: 40px; font-size: 14px">
-
-                    <div>
-                        <h4>ลงทะเบียน</h4>
-
-                        <div class="row mt-2">
-
-                            <div class="col-4">
-                                <span>เลขบัตรประจำตัวประชาชน:</span>
-                                <br />
-                                <input type="number" value="" v-model="idcarde" style="width: 100%" :disabled="disabled == 0" />
-                            </div>
-
-                            <div class="col-6">
-                                <span>เลขพาสปอร์ต:</span>
-                                <br />
-                                <input type="text" value="" v-model="idparte" :disabled="disabled == 0" />
-
-                            </div>
-                        </div>
-
-                        <div class="row mt-4">
-                            <div class="col-6">
-                                <span>CN:&nbsp;</span>
-
-                                @*<input type="date" v-model="DateCus" />*@
-                                <input type="text" v-model="cncodee" readonly :disabled="disabled == 0" />
-
-
-                            </div>
-
-                        </div>
-
-                        <div class="row mt-2">
-                            <div class="col-2">
-                                <span>คำนำหน้า:</span>
-                                <br />
-                                <select v-model="titlene" :disabled="disabled == 0">
-                                    <option value="นาย">นาย</option>
-                                    <option value="นาง">นาง</option>
-                                    <option value="นางสาว">นางสาว</option>
-                                    <option value="Mr.">Mr.</option>
-                                    <option value="Ms.">Ms.</option>
-                                </select>
-                            </div>
-                            <div class="col-3">
-                                <span>ชื่อ:</span>
-                                <br />
-                                <input type="text" v-model="fnamee" :disabled="disabled == 0" />
-                            </div>
-                            <div class="col-3">
-                                <span>นามสกุล:</span>
-                                <br />
-                                <input type="text" v-model="lnamee" :disabled="disabled == 0" />
-                            </div>
-                            <div class="col-4">
-                                <span>เพศ :</span>
-                                <br />
-                                <input type="radio" v-model="gendere" value="1" :disabled="disabled == 0" /> ชาย
-                                <input type="radio" v-model="gendere" value="2" :disabled="disabled == 0" /> หญิง
-                            </div>
-
-                        </div>
-
-                        <div class="row mt-2">
-
-                        </div>
-
-                        <div class="row mt-2">
-                            <div class="col-3">
-                                <span>วันเกิด </span>&nbsp;<span style="font-size: 12px">ex. mm/dd/yyyy</span>
-                                <br />
-                                <input type="date" v-model="birthdaye" v-on:change="getAge(2)" :disabled="disabled == 0" />
-                            </div>
-
-                            <div class="col-3">
-                                <span>อายุ</span>
-                                <br />
-                                <input type="text" value="" v-model="agee" readonly :disabled="disabled == 0" />
-                            </div>
-
-                            @*<div class="col-6">
-                                    <br />
-                                    <span>ปี:</span>
-                                    <input type="text" v-model="yearVe" style="width: 50px" readonly :disabled="disabled == 0" />
-
-                                    <span>เดือน:</span>
-                                    <input type="text" v-model="monthVe" style="width: 50px" readonly :disabled="disabled == 0 " />
-
-                                    <span>วัน:</span>
-                                    <input type="text" v-model="dayVe" style="width: 50px" readonly :disabled="disabled == 0" />
-
-                                </div>*@
-                        </div>
-
-                        <div class="row mt-2">
-                            <div class="col-12">
-                                <span>ที่อยู่:</span>
-                                <br />
-                                <textarea style="width: 100%" v-model="adre" :disabled="disabled == 0"></textarea>
-
-                            </div>
-
-                        </div>
-
-                        <div class="row mt-2">
-                            <div class="col-6">
-                                <span>จังหวัด:</span>
-                                <br />
-
-                                <select v-model="provincee" v-on:change="getdis(2)" style="width: 100%" :disabled="disabled == 0">
-                                    <option>เลือกจังหวัด</option>
-                                    <option v-for="(value,key) in getprovince" :value="value.provinceID"> {{value.provinceTH}}</option>
-                                </select>
-
-                            </div>
-
-                            <div class="col-6">
-                                <span>อำเภอ:</span>
-                                <br />
-                                @*<textarea style="width: 100%" v-model="adr"></textarea>*@
-                                @*<input type="text" v-model="ampur" style="width: 100%" />*@
-
-                                <select v-model="ampure" v-on:change="getsubdis(2)" style="width: 100%" :disabled="disabled  == 0">
-                                    <option>เลือกอำเภอ</option>
-                                    <option v-for="(value,key) in getdistrict" :value="value.districtID"> {{value.districtTH}}</option>
-                                </select>
-
-                            </div>
-                        </div>
-
-                        <div class="row mt-2">
-
-                            <div class="col-6">
-                                <span>ตำบล:</span>
-                                <br />
-                                @*<input type="text" v-model="tambon" style="width: 100%" />*@
-                                <select v-model="tambone" style="width: 100%" :disabled="disabled == 0">
-                                    <option>เลือกตำบล</option>
-                                    <option v-for="(value,key) in getsubdistrict" :value="value.subDistrictID"> {{value.subDistrictTH}}</option>
-                                </select>
-                            </div>
-
-                            <div class="col-6">
-                                <span>รหัสไปรษณีย์:</span>
-                                <br />
-
-                                @*<input type="text" v-model="postcode" style="width: 100%" />*@
-
-                                <select v-model="postcodee" style="width: 100%" :disabled="disabled  == 0">
-                                    <option>เลือกรหัสไปรษณีย์</option>
-                                    <option v-for="(value,key) in getpostcode" :value="value.postCode"> {{value.postCode}}</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="row mt-2">
-                            <!--<div class="col-6">
-                                <span>อาชีพ:</span>
-                                <br />-->
-                            @*<textarea style="width: 100%" v-model="adr"></textarea>*@
-                            <!--<input type="text" v-model="careere" style="width: 100%" :disabled="disabled  == 0" />
-                            </div>-->
-                            <div class="col-6">
-                                <span>โทรศัพท์:</span>
-                                <br />
-                                @*<textarea style="width: 100%" v-model="adr"></textarea>*@
-                                <input type="text" v-model="tele" style="width: 100%" :disabled="disabled == 0" />
-                            </div>
-                        </div>
-
-
-                        <button class="btn btn-primary mt-4" v-on:click="disabled = (disabled + 1) % 2">EDIT</button>
-                        <button class="btn btn-primary mt-4" v-on:click="editpatient(idpae)" :disabled="disabled == 0">SAVE</button>
-                    </div>
-
-
-
-
-                </div>
-            </div>
-        </div>
-
-
-
-
-        <div class="modal fade sumresult" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content" style="padding: 40px; font-size: 14px">
-
-                    <table class="table table-bordered mt-4">
-                        <thead>
-                            <tr>
-                                <th style="text-align:center">MedicalID</th>
-                                <th style="text-align:center">Dateincome</th>
-                                <th style="text-align:center">Timeincome</th>
-                                <th style="text-align:center">Company</th>
-
-                                <th>Config</th>
-
-                            </tr>
-                        </thead>
-                        <tr v-for="(value,key) in getdatadetail" style="color: #000;text-align:center;">
-                            @*<td style="text-align:center">B-{{value.idPatient}}-{{value.iDrunnumber}}</td>*@
-                            <td>{{value.iDdate}}-{{value.iDrunnumber}}</td>
-                            <td>{{value.direct}}</td>
-                            <td>{{value.time}}</td>
-                            <td>{{value.customer}}</td>
-
-                            <td>
-                                <button class="btn btn-success mr-2" v-on:click="printmedreport(value.id)" style="height:35px;">View/Print</button> |
-                                <button class="btn btn-warning mr-2" v-on:click="printmedreport(value.id)" style="height:35px;">Edit</button>
-                            </td>
-                        </tr>
-                    </table>
-
-
-
-                    @*<button class="btn btn-primary mt-4" v-on:click="Createdetail()">SAVE</button>*@
-
-                </div>
-            </div>
-        </div>
-
-
     </div>
+
+
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content" style="padding: 40px; font-size: 14px">
+                <div>
+
+                    <h4>ลงทะเบียน</h4>
+
+                    <div class="row mt-2">
+
+                        <div class="col-4">
+                            <span>เลขบัตรประจำตัวประชาชน:</span>
+                            <br />
+                            <input type="number" value="" v-model="idcard" style="width: 100%" />
+                        </div>
+
+                        <div class="col-6">
+                            <span>เลขพาสปอร์ต:</span>
+                            <br />
+                            <input type="text" value="" v-model="idpart" />
+                            <button v-on:click="getdataCN()" style="margin-left: 10px">Check</button>
+                        </div>
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-6">
+                            <span>CN:&nbsp;</span>
+
+                            @*<input type="date" v-model="DateCus" />*@
+                            <input type="text" v-model="cncode" readonly />
+
+
+                        </div>
+
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-2">
+                            <span>คำนำหน้า:</span>
+                            <br />
+                            <select v-model="titlen">
+                                <option value="นาย">นาย</option>
+                                <option value="นาง">นาง</option>
+                                <option value="นางสาว">นางสาว</option>
+                                <option value="Mr.">Mr.</option>
+                                <option value="Ms.">Ms.</option>
+                            </select>
+                        </div>
+                        <div class="col-3">
+                            <span>ชื่อ:</span>
+                            <br />
+                            <input type="text" v-model="fname" />
+                        </div>
+                        <div class="col-3">
+                            <span>นามสกุล:</span>
+                            <br />
+                            <input type="text" v-model="lname" />
+                        </div>
+                        <div class="col-4">
+                            <span>เพศ :</span>
+                            <br />
+                            <input type="radio" v-model="gender" value="1" /> ชาย
+                            <input type="radio" v-model="gender" value="2" /> หญิง
+                        </div>
+
+                    </div>
+
+
+                    <div class="row mt-2">
+                        <div class="col-3">
+                            <span>วันเกิด </span>&nbsp;<span style="font-size: 12px">ex. mm/dd/yyyy</span>
+                            <br />
+                            <input type="date" v-model="birthday" v-on:change="getAge()" />
+                        </div>
+
+                        <div class="col-3">
+                            <span>อายุ</span>
+                            <br />
+                            <input type="text" value="" v-model="age" readonly />
+                        </div>
+
+                        @*<div class="col-6">
+                        <br />
+                        <span>ปี:</span>
+                        <input type="text" v-model="yearV" style="width: 50px" readonly />
+
+                        <span>เดือน:</span>
+                        <input type="text" v-model="monthV" style="width: 50px" readonly />
+
+                        <span>วัน:</span>
+                        <input type="text" v-model="dayV" style="width: 50px" readonly />
+
+                        </div>*@
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-12">
+                            <span>ที่อยู่:</span>
+                            <br />
+                            <textarea style="width: 100%" v-model="adr"></textarea>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-6">
+                            <span>จังหวัด:</span>
+                            <br />
+
+                            <select v-model="province" v-on:change="getdis()" style="width: 100%">
+                                <option>เลือกจังหวัด</option>
+                                <option v-for="(value,key) in getprovince" :value="value.provinceID"> {{value.provinceTH}}</option>
+                            </select>
+
+                        </div>
+
+                        <div class="col-6">
+                            <span>อำเภอ:</span>
+                            <br />
+                            @*<textarea style="width: 100%" v-model="adr"></textarea>*@
+                            @*<input type="text" v-model="ampur" style="width: 100%" />*@
+
+                            <select v-model="ampur" v-on:change="getsubdis()" style="width: 100%">
+                                <option>เลือกอำเภอ</option>
+                                <option v-for="(value,key) in getdistrict" :value="value.districtID"> {{value.districtTH}}</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <div class="row mt-2">
+
+                        <div class="col-6">
+                            <span>ตำบล:</span>
+                            <br />
+                            @*<input type="text" v-model="tambon" style="width: 100%" />*@
+                            <select v-model="tambon" style="width: 100%">
+                                <option>เลือกตำบล</option>
+                                <option v-for="(value,key) in getsubdistrict" :value="value.subDistrictID"> {{value.subDistrictTH}}</option>
+                            </select>
+                        </div>
+
+                        <div class="col-6">
+                            <span>รหัสไปรษณีย์:</span>
+                            <br />
+
+                            @*<input type="text" v-model="postcode" style="width: 100%" />*@
+
+                            <select v-model="postcode" style="width: 100%">
+                                <option>เลือกรหัสไปรษณีย์</option>
+                                <option v-for="(value,key) in getpostcode" :value="value.postCode"> {{value.postCode}}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mt-2">
+                        <!--<div class="col-6">
+                            <span>อาชีพ:</span>
+                            <br />-->
+                        @*<textarea style="width: 100%" v-model="adr"></textarea>*@
+                        <!--<input type="text" v-model="career" style="width: 100%" />
+                        </div>-->
+                        <div class="col-6">
+                            <span>โทรศัพท์:</span>
+                            <br />
+                            @*<textarea style="width: 100%" v-model="adr"></textarea>*@
+                            <input type="text" v-model="tel" style="width: 100%" />
+                        </div>
+                    </div>
+
+
+
+                    <button class="btn btn-primary mt-4" v-on:click="Createpatient()">SAVE</button>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade edit" tabindex="-1" id="edit" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content" style="padding: 40px; font-size: 14px">
+
+                <div>
+                    <h4>ลงทะเบียน</h4>
+
+                    <div class="row mt-2">
+                        <div class="col-4">
+                            <span>เลขบัตรประจำตัวประชาชน:</span>
+                            <br />
+                            <input type="number" value="" v-model="idcarde" style="width: 100%" :disabled="disabled == 0" />
+                        </div>
+
+                        <div class="col-6">
+                            <span>เลขพาสปอร์ต:</span>
+                            <br />
+                            <input type="text" value="" v-model="idparte" :disabled="disabled == 0" />
+
+                        </div>
+                    </div>
+
+                    <div class="row mt-4">
+                        <div class="col-6">
+                            <span>CN:&nbsp;</span>
+
+                            @*<input type="date" v-model="DateCus" />*@
+                            <input type="text" v-model="cncodee" readonly :disabled="disabled == 0" />
+
+
+                        </div>
+
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-2">
+                            <span>คำนำหน้า:</span>
+                            <br />
+                            <select v-model="titlene" :disabled="disabled == 0">
+                                <option value="นาย">นาย</option>
+                                <option value="นาง">นาง</option>
+                                <option value="นางสาว">นางสาว</option>
+                                <option value="Mr.">Mr.</option>
+                                <option value="Ms.">Ms.</option>
+                            </select>
+                        </div>
+                        <div class="col-3">
+                            <span>ชื่อ:</span>
+                            <br />
+                            <input type="text" v-model="fnamee" :disabled="disabled == 0" />
+                        </div>
+                        <div class="col-3">
+                            <span>นามสกุล:</span>
+                            <br />
+                            <input type="text" v-model="lnamee" :disabled="disabled == 0" />
+                        </div>
+                        <div class="col-4">
+                            <span>เพศ :</span>
+                            <br />
+                            <input type="radio" v-model="gendere" value="1" :disabled="disabled == 0" /> ชาย
+                            <input type="radio" v-model="gendere" value="2" :disabled="disabled == 0" /> หญิง
+                        </div>
+
+                    </div>
+
+                    <div class="row mt-2">
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-3">
+                            <span>วันเกิด </span>&nbsp;<span style="font-size: 12px">ex. mm/dd/yyyy</span>
+                            <br />
+                            <input type="date" v-model="birthdaye" v-on:change="getAge(2)" :disabled="disabled == 0" />
+                        </div>
+
+                        <div class="col-3">
+                            <span>อายุ</span>
+                            <br />
+                            <input type="text" value="" v-model="agee" readonly :disabled="disabled == 0" />
+                        </div>
+
+                        @*<div class="col-6">
+                        <br />
+                        <span>ปี:</span>
+                        <input type="text" v-model="yearVe" style="width: 50px" readonly :disabled="disabled == 0" />
+
+                        <span>เดือน:</span>
+                        <input type="text" v-model="monthVe" style="width: 50px" readonly :disabled="disabled == 0 " />
+
+                        <span>วัน:</span>
+                        <input type="text" v-model="dayVe" style="width: 50px" readonly :disabled="disabled == 0" />
+
+                        </div>*@
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-12">
+                            <span>ที่อยู่:</span>
+                            <br />
+                            <textarea style="width: 100%" v-model="adre" :disabled="disabled == 0"></textarea>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-6">
+                            <span>จังหวัด:</span>
+                            <br />
+
+                            <select v-model="provincee" v-on:change="getdis(2)" style="width: 100%" :disabled="disabled == 0">
+                                <option>เลือกจังหวัด</option>
+                                <option v-for="(value,key) in getprovince" :value="value.provinceID"> {{value.provinceTH}}</option>
+                            </select>
+
+                        </div>
+
+                        <div class="col-6">
+                            <span>อำเภอ:</span>
+                            <br />
+                            @*<textarea style="width: 100%" v-model="adr"></textarea>*@
+                            @*<input type="text" v-model="ampur" style="width: 100%" />*@
+
+                            <select v-model="ampure" v-on:change="getsubdis(2)" style="width: 100%" :disabled="disabled  == 0">
+                                <option>เลือกอำเภอ</option>
+                                <option v-for="(value,key) in getdistrict" :value="value.districtID"> {{value.districtTH}}</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <div class="row mt-2">
+
+                        <div class="col-6">
+                            <span>ตำบล:</span>
+                            <br />
+                            @*<input type="text" v-model="tambon" style="width: 100%" />*@
+                            <select v-model="tambone" style="width: 100%" :disabled="disabled == 0">
+                                <option>เลือกตำบล</option>
+                                <option v-for="(value,key) in getsubdistrict" :value="value.subDistrictID"> {{value.subDistrictTH}}</option>
+                            </select>
+                        </div>
+
+                        <div class="col-6">
+                            <span>รหัสไปรษณีย์:</span>
+                            <br />
+
+                            @*<input type="text" v-model="postcode" style="width: 100%" />*@
+
+                            <select v-model="postcodee" style="width: 100%" :disabled="disabled  == 0">
+                                <option>เลือกรหัสไปรษณีย์</option>
+                                <option v-for="(value,key) in getpostcode" :value="value.postCode"> {{value.postCode}}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mt-2">
+                        <!--<div class="col-6">
+                            <span>อาชีพ:</span>
+                            <br />-->
+                        @*<textarea style="width: 100%" v-model="adr"></textarea>*@
+                        <!--<input type="text" v-model="careere" style="width: 100%" :disabled="disabled  == 0" />
+                        </div>-->
+                        <div class="col-6">
+                            <span>โทรศัพท์:</span>
+                            <br />
+                            @*<textarea style="width: 100%" v-model="adr"></textarea>*@
+                            <input type="text" v-model="tele" style="width: 100%" :disabled="disabled == 0" />
+                        </div>
+                    </div>
+
+
+
+                    <button class="btn btn-primary mt-4" v-on:click="disabled = (disabled + 1) % 2">EDIT</button>
+                    <button class="btn btn-primary mt-4" v-on:click="editpatient(idpae)" :disabled="disabled == 0">SAVE</button>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="modal fade sumresult" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content" style="padding: 40px; font-size: 14px">
+
+                <table class="table table-bordered mt-4">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center">MedicalID</th>
+                            <th style="text-align:center">Dateincome</th>
+                            <th style="text-align:center">Timeincome</th>
+                            <th style="text-align:center">Company</th>
+
+                            <th>Config</th>
+
+                        </tr>
+                    </thead>
+                    <tr v-for="(value,key) in getdatadetail" style="color: #000;text-align:center;">
+                        @*<td style="text-align:center">B-{{value.idPatient}}-{{value.iDrunnumber}}</td>*@
+                        <td>{{value.iDdate}}-{{value.iDrunnumber}}</td>
+                        <td>{{value.direct}}</td>
+                        <td>{{value.time}}</td>
+                        <td>{{value.customer}}</td>
+
+                        <td>
+                            <button class="btn btn-success mr-2" v-on:click="printmedreport(value.id)" style="height:35px;">View/Print</button> |
+                            <button class="btn btn-warning mr-2" v-on:click="printmedreport(value.id)" style="height:35px;">Edit</button>
+                        </td>
+                    </tr>
+                </table>
+
+
+
+                @*<button class="btn btn-primary mt-4" v-on:click="Createdetail()">SAVE</button>*@
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
 </div>
 
-<link href="~/asset/style/_Patient.css" rel="stylesheet" asp-append-version="true"/>
+<link href="~/asset/style/_Patient.css" rel="stylesheet" asp-append-version="true" />
 <script src="~/asset/patient/_patient.js" asp-append-version="true"></script>
 
 <script>

@@ -1213,6 +1213,12 @@
             })
                 .then(res => {
                     console.log(res)
+
+                    //console.log(res.data);
+                    ageString = "Oops! ต้องการยืนยันการบันทึกข้อมูล!";
+                    alert(ageString)
+                    //---show already has data
+
                     if (res.data == "suc") {
                         alert("บันทึกข้อมูลสำเร็จ")
                         /*  $("#staticBackdrop").hide();*/
@@ -1221,26 +1227,38 @@
                         this.cnsel = [];
                         this.mednosel = [];
                         this.fnamesel = []
-                        this.lnamesel = []                        
+                        this.lnamesel = []
                         this.titlesel = []
                         this.customersel = []
                         this.idsel = []
                         this.prisel = []
                         this.medtypesel = []
                         this.paymentsel = []
-                        this.moneyresel = []                                               
+                        this.moneyresel = []
                         this.reccomsel = []
-                        
-                        
+
+
 
                         $("#staticBackdrop").hide();
                     } else {
                         alert(res)
                     }
                     this.getpatient()
+
                 })
                 .catch(err => {
                     console.log(err);
+
+                    //console.log(res.data);
+                    if (res.data.cncode == "") { 
+                    ageString = "Oops! ยังไม่ได้ขอรหัส CN จากระบบ!";
+                    alert(ageString)
+                    }else{
+                    //---show already has data
+                        ageString = "Oops! ยังไม่ได้ขอรหัส CN จากระบบ!";
+                        alert(ageString)
+                     }
+
                 })
 
 
@@ -1326,8 +1344,7 @@
                 })
 
 
-        },
-        getdataCN() {
+        }, getdataCNcheck() {
 
             axios.get("/Patient/GetdataCN", {
                 params: {
@@ -1358,7 +1375,7 @@
                         this.tel = ""
                         this.career = ""
                         this.birthday = ""
-                       
+
                         this.yearV = ""
                         this.monthV = ""
                         this.dayV = ""
@@ -1366,7 +1383,7 @@
 
                         this.getdis()
                         this.getsubdis()
-                     
+
                         this.chkdupil = false
                         /*  console.log(res.address)*/
 
@@ -1387,7 +1404,7 @@
                         this.career = res.data.career
                         this.birthday = res.data.birthday
                         this.cncode = "BB-" + res.data.idPatient + (res.data.iDrunnumber > 9 ? "-00" : (res.data.iDrunnumber > 99 ? "-0" : (res.data.iDrunnumber >= 999 ? "-" : "-000"))) + res.data.iDrunnumber
-                        
+
 
                         this.getdis()
                         this.getsubdis()
@@ -1400,6 +1417,116 @@
 
                 }).catch(err => {
                     console.log(err);
+                })
+
+
+        },
+        getdataCN() {
+
+            axios.get("/Patient/GetdataCN", {
+                params: {
+                    id: (this.idcard != "" && this.idcard != null ? this.idcard : this.idpart),
+
+                }
+            })
+                .then(res => {
+
+                    try {
+                        var a = res.data.split("/");
+
+                        //check cn id in case dupplicate
+                        //this.cncode = "BB-" + a[0] + (a[1] > 9 ? "-00" : (a[1] > 99 ? "-0" : (a[1] >= 999 ? "-" : "-000"))) + parseInt(a[1])
+                        if (this.cncode != "") { this.cncode = "BB-" + a[0] + (a[1] > 9 ? "-00" : (a[1] > 99 ? "-0" : (a[1] >= 999 ? "-" : "-000"))) + parseInt(a[1]) + 1 } else { this.cncode = "BB-" + a[0] + (a[1] > 9 ? "-00" : (a[1] > 99 ? "-0" : (a[1] >= 999 ? "-" : "-000"))) + parseInt(a[1]) }
+
+                        this.idpat = a[0]
+                        this.idrun = a[1]
+
+                        this.adr = ""
+                        this.fname = ""
+                        this.lname = ""
+                        this.titlen = ""
+                        this.gender = ""
+                        this.tanon = ""
+                        this.province = ""
+                        this.ampur = ""
+                        this.tambon = ""
+                        this.postcode = ""
+                        this.tel = ""
+                        this.career = ""
+                        this.birthday = ""
+                       
+                        this.yearV = ""
+                        this.monthV = ""
+                        this.dayV = ""
+                        this.age = ""
+
+                        this.getdis()
+                        this.getsubdis()
+
+                        //stand by for save data
+                        this.chkdupil = false
+
+                        /*  console.log(res.address)*/
+
+
+                    } catch {
+                        console.log(res.data);
+
+                        //console.log(res.data);
+                        if (this.idcard == "" ) {
+                            ageString = "Oops! ใส่รหัสบัตรประจำตัวประชาชน!";
+                            alert(ageString)
+                        } else {
+                            //---show already has data
+                            //ageString = "Oops! ยังไม่ได้ขอรหัส CN จากระบบ!";
+                            //alert(ageString)
+                        //}
+
+
+                        ageString = "Oops! เคยลงทะเบียนเรียบร้อย!";
+                        alert(ageString)
+
+                            //---show already has data
+                        this.idcardCus = res.data.idcardCus
+                        this.adr = res.data.address
+                        this.fname = res.data.fname
+                        this.lname = res.data.lname
+                        this.titlen = res.data.titlename
+                        this.gender = (res.data.gender == "ชาย" ? 1 : 2)
+                        this.DateCus = res.data.DateCus //date of birth
+                        this.weightCus = res.data.weightCus
+                        this.tanon = res.data.address
+                        this.province = res.data.province
+                        this.ampur = res.data.district
+                        this.tambon = res.data.subDistrict
+                        this.postcode = res.data.postcode
+                        this.tel = res.data.tel
+                        this.career = res.data.career
+                        this.birthday = res.data.birthday
+                        this.cncode = "BB-" + res.data.idPatient + (res.data.iDrunnumber > 9 ? "-00" : (res.data.iDrunnumber > 99 ? "-0" : (res.data.iDrunnumber >= 999 ? "-" : "-000"))) + res.data.iDrunnumber
+                        
+                        this.getdis()
+                        this.getsubdis()
+                        this.getAge()
+
+                        //control save button
+                        this.chkdupil = true 
+
+                       }//end for get data
+
+                    }
+
+
+
+                }).catch(err => {
+                    console.log(err);
+
+                    //check cn id in case dupplicate
+                    //this.cncode = "BB-" + a[0] + (a[1] > 9 ? "-00" : (a[1] > 99 ? "-0" : (a[1] >= 999 ? "-" : "-000"))) + parseInt(a[1])
+                    this.idcard = ""
+
+                    if (this.cncode != "") { this.cncode = "BB-" + a[0] + (a[1] > 9 ? "-00" : (a[1] > 99 ? "-0" : (a[1] >= 999 ? "-" : "-000"))) + parseInt(a[1]) + 1 } else { this.cncode = "BB-" + a[0] + (a[1] > 9 ? "-00" : (a[1] > 99 ? "-0" : (a[1] >= 999 ? "-" : "-000"))) + parseInt(a[1]) }
+
                 })
 
 

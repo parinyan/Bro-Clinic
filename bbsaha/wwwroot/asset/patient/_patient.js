@@ -858,6 +858,8 @@
                         /*  $("#staticBackdrop").hide();*/
                         this.getdatadet(this.DE_number)
                         this.chkselectpatient = 0
+
+                        $("#staticBackdrop").hide();
                     } else {
                         alert(res)
                     }                   /* this.company = res.data*/
@@ -902,7 +904,9 @@
                        
                         alert("บันทึกข้อมูลสำเร็จ")
                         this.getpatient()
-                       /* $("#edit").modal("hide");*/
+                        /* $("#edit").modal("hide");*/
+
+                        $("#staticBackdrop").hide();
                        
                     } else {
                         alert("บันทึกข้อมูลไม่สำเร็จ !!!")
@@ -1017,12 +1021,17 @@
         },
         Createdetail() {
             $("#staticBackdrop").show();
+
+            //check and alert before save information
+
         
             this.DEformsubmitE[0].number = this.DE_number
             this.DEformsubmitE[0].date = this.DE_datee
             this.DEformsubmitE[0].time = this.DE_timee
             /*this.DEformsubmitE[0].number = this.DE_numbere*/
-            this.DEformsubmitE[0].company = (this.DE_customere2 != "" && this.DE_customere2 != null && this.DE_customere2 != "-"? this.DE_customere2 : this.DE_customere.comname)
+            this.DEformsubmitE[0].company = (this.DE_customere2 != "" && this.DE_customere2 != null && this.DE_customere2 != "-" ? this.DE_customere2 : this.DE_customere.comname)
+
+            //body detail
             this.DEformsubmitE[0].height = String(this.DE_heighte)
             this.DEformsubmitE[0].weight = String(this.DE_weighte)
             this.DEformsubmitE[0].bloodgr = (this.DE_bloodgre == "null" ? "" : this.DE_bloodgre)
@@ -1112,32 +1121,51 @@
             this.DEformsubmitE[0].clarity = this.DE_dif5e
             this.DEformsubmitE[0].stoolex = this.DE_stoolexe
             this.DEformsubmitE[0].stoolcul = this.DE_stoolcue
+
             if (this.iddetaile != "" && this.iddetaile != null)
                 this.DEformsubmitE[0].id = this.iddetaile
-            this.DEformsubmitE[0].medtype = this.medtypewalk
+                this.DEformsubmitE[0].medtype = this.medtypewalk
 
             console.log(this.DEformsubmitE)
 
-            axios({
-                method: 'post',
-                url: '/patient/savedatadetail',
-                data: this.DEformsubmitE
-            })
-                .then(res => {
-                   /* console.log(res)*/
+            //cncode for check CN number before save
 
-                    if (res.data == "suc") {
-                        alert("บันทึกข้อมูลสำเร็จ")
-                        $("#staticBackdrop").hide();
-                        this.getdatadet(this.DE_number)
-                        this.chkselectpatient = 0
-                    } else {
-                        alert(res)
-                    }                   /* this.company = res.data*/
+            //console.log(res.data);
+            if (this.cncode == "") {
+                ageString = "Oops! ยังไม่ได้ขอรหัส CN !";
+                alert(ageString)
+                //this.idcard.setFocus();
+
+            } else {
+                //---show already has data
+                //ageString = "Oops! ยังไม่ได้ขอรหัส CN จากระบบ!";
+                //alert(ageString)
+                //}
+
+                axios({
+                    method: 'post',
+                    url: '/patient/savedatadetail',
+                    data: this.DEformsubmitE
                 })
-                .catch(err => {
-                    console.log(err);
-                })
+                    .then(res => {
+                        /* console.log(res)*/
+
+                        if (res.data == "suc") {
+                            alert("บันทึกข้อมูลสำเร็จ")
+                            $("#staticBackdrop").hide();
+                            this.getdatadet(this.DE_number)
+                            this.chkselectpatient = 0
+
+                            $("#staticBackdrop").hide();
+                        } else {
+                            alert(res)
+                        }                   /* this.company = res.data*/
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    })
+
+            }// end check
 
         },
         Createpatient() {
@@ -1164,28 +1192,53 @@
           
             console.log(this.formsubmit)
             /* console.log(this.formsubmit[0].fname)*/
-            axios({
-                method: 'post',
-                url: '/patient/savedata',
-                data: this.formsubmit
-            })
-                .then(res => {
-                    if (res.data == "suc") {
 
-                        alert("บันทึกข้อมูลสำเร็จ")
-                        this.getpatient()
-                        $("#staticBackdrop").hide();
-                    } else {
-                        alert("บันทึกข้อมูลไม่สำเร็จ !!!")
-                    }
 
-                   
+            //cncode for check CN number dupplicate before save
+            //console.log(res.data);
+            if (this.cncode == "") {
+                ageString = "Oops! ยังไม่ได้ขอรหัส CN จากระบบ!";
+                alert(ageString)
+                //this.idcard.setFocus();
+                $("#staticBackdrop").hide();
+
+            } else {
+                //---show already has data
+                //ageString = "Oops! ยังไม่ได้ขอรหัส CN จากระบบ!";
+                //alert(ageString)
+                //}
+
+                $("#staticBackdrop").hide();
+
+                axios({
+                    method: 'post',
+                    url: '/patient/savedata',
+                    data: this.formsubmit
                 })
-                .catch(err => {
-                    console.log(err);
-                })
-                
+                    .then(res => {
+                        if (res.data == "suc") {
 
+                            alert("บันทึกข้อมูลสำเร็จ")
+                            this.getpatient()
+
+                            //load hiden
+                            $("#staticBackdrop").hide();
+
+                        } else {
+                            alert("บันทึกข้อมูลไม่สำเร็จ !!!")
+
+                            //load hiden
+                            $("#staticBackdrop").hide();
+
+                        }
+
+
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    })
+
+            } // end check
         },
         Createsel() {
             $("#staticBackdrop").show();
@@ -1237,11 +1290,11 @@
                         this.moneyresel = []
                         this.reccomsel = []
 
-
-
                         $("#staticBackdrop").hide();
                     } else {
                         alert(res)
+
+                        $("#staticBackdrop").hide();
                     }
                     this.getpatient()
 
@@ -1252,13 +1305,19 @@
                     //console.log(res.data);
                     if (res.data.cncode == "") { 
                     ageString = "Oops! ยังไม่ได้ขอรหัส CN จากระบบ!";
-                    alert(ageString)
+                        alert(ageString)
+
+                        $("#staticBackdrop").hide();
+
                     }else{
                     //---show already has data
                         ageString = "Oops! ยังไม่ได้ขอรหัส CN จากระบบ!";
                         alert(ageString)
-                     }
 
+                       $("#staticBackdrop").hide();
+
+                     }
+                   
                 })
 
 
@@ -1281,6 +1340,7 @@
 
            /* alert(this.reccomsel)*/
             console.log(this.formsubmitsel)
+
             /* console.log(this.formsubmit[0].fname)*/
             axios({
                 method: 'post',
@@ -1293,6 +1353,8 @@
                         alert("บันทึกข้อมูลสำเร็จ")
                         /*  $("#staticBackdrop").hide();*/
                         this.getdatadet(this.DE_number)
+
+                        $("#staticBackdrop").hide();
                     } else {
                         alert(res)
                     }
@@ -1334,6 +1396,8 @@
                         alert("บันทึกข้อมูลสำเร็จ")
                         /*  $("#staticBackdrop").hide();*/
                         this.getdatadet(this.DE_number)
+
+                        $("#staticBackdrop").hide();
                     } else {
                         alert(res)
                     }
@@ -1362,55 +1426,72 @@
                         this.idpat = a[0]
                         this.idrun = a[1]
 
-                        this.adr = ""
-                        this.fname = ""
-                        this.lname = ""
-                        this.titlen = ""
-                        this.gender = ""
-                        this.tanon = ""
-                        this.province = ""
-                        this.ampur = ""
-                        this.tambon = ""
-                        this.postcode = ""
-                        this.tel = ""
-                        this.career = ""
-                        this.birthday = ""
+                        //this.adr = ""
+                        //this.fname = ""
+                        //this.lname = ""
+                        //this.titlen = ""
+                        //this.gender = ""
+                        //this.tanon = ""
+                        //this.province = ""
+                        //this.ampur = ""
+                        //this.tambon = ""
+                        //this.postcode = ""
+                        //this.tel = ""
+                        //this.career = ""
+                        //this.birthday = ""
 
-                        this.yearV = ""
-                        this.monthV = ""
-                        this.dayV = ""
-                        this.age = ""
+                        //this.yearV = ""
+                        //this.monthV = ""
+                        //this.dayV = ""
+                        //this.age = ""
 
-                        this.getdis()
-                        this.getsubdis()
+                        //this.getdis()
+                        //this.getsubdis()
 
                         this.chkdupil = false
                         /*  console.log(res.address)*/
 
 
                     } catch {
-                        console.log(res.data);
-                        this.adr = res.data.address
-                        this.fname = res.data.fname
-                        this.lname = res.data.lname
-                        this.titlen = res.data.titlename
-                        this.gender = (res.data.gender == "ชาย" ? 1 : 2)
-                        this.tanon = res.data.address
-                        this.province = res.data.province
-                        this.ampur = res.data.district
-                        this.tambon = res.data.subDistrict
-                        this.postcode = res.data.postcode
-                        this.tel = res.data.tel
-                        this.career = res.data.career
-                        this.birthday = res.data.birthday
-                        this.cncode = "BB-" + res.data.idPatient + (res.data.iDrunnumber > 9 ? "-00" : (res.data.iDrunnumber > 99 ? "-0" : (res.data.iDrunnumber >= 999 ? "-" : "-000"))) + res.data.iDrunnumber
 
 
-                        this.getdis()
-                        this.getsubdis()
-                        this.getAge()
+                        //console.log(res.data);
+                        if (this.cncode == "") {
+                            ageString = "Oops! ใส่รหัส CN!";
+                            alert(ageString)
+                            //this.idcard.setFocus();
 
-                        this.chkdupil = true
+                        } else {
+                            //---show already has data
+                            //ageString = "Oops! ยังไม่ได้ขอรหัส CN จากระบบ!";
+                            //alert(ageString)
+                            //}
+
+
+                            console.log(res.data);
+                            this.adr = res.data.address
+                            this.fname = res.data.fname
+                            this.lname = res.data.lname
+                            this.titlen = res.data.titlename
+                            this.gender = (res.data.gender == "ชาย" ? 1 : 2)
+                            this.tanon = res.data.address
+                            this.province = res.data.province
+                            this.ampur = res.data.district
+                            this.tambon = res.data.subDistrict
+                            this.postcode = res.data.postcode
+                            this.tel = res.data.tel
+                            this.career = res.data.career
+                            this.birthday = res.data.birthday
+                            this.cncode = "BB-" + res.data.idPatient + (res.data.iDrunnumber > 9 ? "-00" : (res.data.iDrunnumber > 99 ? "-0" : (res.data.iDrunnumber >= 999 ? "-" : "-000"))) + res.data.iDrunnumber
+
+
+                            this.getdis()
+                            this.getsubdis()
+                            this.getAge()
+
+                            this.chkdupil = true
+
+                        } //end check
                     }
 
 
@@ -1476,15 +1557,14 @@
                         if (this.idcard == "" ) {
                             ageString = "Oops! ใส่รหัสบัตรประจำตัวประชาชน!";
                             alert(ageString)
+                            //this.idcard.setFocus();
+
                         } else {
                             //---show already has data
                             //ageString = "Oops! ยังไม่ได้ขอรหัส CN จากระบบ!";
                             //alert(ageString)
                         //}
 
-
-                        ageString = "Oops! เคยลงทะเบียนเรียบร้อย!";
-                        alert(ageString)
 
                             //---show already has data
                         this.idcardCus = res.data.idcardCus
@@ -1512,20 +1592,27 @@
                         //control save button
                         this.chkdupil = true 
 
-                       }//end for get data
+
+                        ageString = "Oops! เคยลงทะเบียนเรียบร้อย!";
+                            alert(ageString)
+
+                            this.idcard.setFocus();
+
+                        }//end for get data
+
 
                     }
 
+                    //check cn id in case dupplicate
+                    //this.cncode = "BB-" + a[0] + (a[1] > 9 ? "-00" : (a[1] > 99 ? "-0" : (a[1] >= 999 ? "-" : "-000"))) + parseInt(a[1])
+                    //this.idcard = ""
 
+                    if (this.cncode != "") { this.cncode = "BB-" + a[0] + (a[1] > 9 ? "-00" : (a[1] > 99 ? "-0" : (a[1] >= 999 ? "-" : "-000"))) + parseInt(a[1]) + 1 } else { this.cncode = "BB-" + a[0] + (a[1] > 9 ? "-00" : (a[1] > 99 ? "-0" : (a[1] >= 999 ? "-" : "-000"))) + parseInt(a[1]) }
+                    this.idcard.setFocus();
 
                 }).catch(err => {
                     console.log(err);
 
-                    //check cn id in case dupplicate
-                    //this.cncode = "BB-" + a[0] + (a[1] > 9 ? "-00" : (a[1] > 99 ? "-0" : (a[1] >= 999 ? "-" : "-000"))) + parseInt(a[1])
-                    this.idcard = ""
-
-                    if (this.cncode != "") { this.cncode = "BB-" + a[0] + (a[1] > 9 ? "-00" : (a[1] > 99 ? "-0" : (a[1] >= 999 ? "-" : "-000"))) + parseInt(a[1]) + 1 } else { this.cncode = "BB-" + a[0] + (a[1] > 9 ? "-00" : (a[1] > 99 ? "-0" : (a[1] >= 999 ? "-" : "-000"))) + parseInt(a[1]) }
 
                 })
 

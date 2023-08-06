@@ -68,7 +68,7 @@
         </div>
         <div class="flex-b">
             <span style="white-space:pre-line;text-align:center">
-                บีบี สหคลินิก คลินิกเวชกรรม (BB SahaClinic) 
+                บีบี สหคลินิก คลินิกเวชกรรม (BB SahaClinic)
                 556/29‐30 หมู่บ้านบ่อวินนคร 2 ม.3 ต.บ่อวิน อ.ศรีราชา จ.ชลบุรี 20230
                 @*556/29‐30 Bowin Nakorn 2 Village Moo 3 , Bowin Sub‐district, Si racha District, Chonburi Province 20230*@
                 Tel. 065‐9459882 , 098‐227684 Email: sahaclinic.bb@gmail.com
@@ -95,7 +95,6 @@
         <div class="display-flex">
 
             <div class="flex-in-a" style="width: 65%;">
-
             </div>
             <div class="flex-in-b" style="width: 5%;margin-left:2px">
                 วันที่
@@ -122,17 +121,16 @@
         <div style="font-size: 16px;margin-top: 80px">
             @*<div class="display-flex">
 
-            <div class="flex-in-a" style="font-size: 18px; font-weight: 900">
-                ส่วนที่ 1 ของผู้ขอรับรองสุขภาพ
-            </div>
-            <div class="flex-in-b">
+        <div class="flex-in-a" style="font-size: 18px; font-weight: 900">
+        ส่วนที่ 1 ของผู้ขอรับรองสุขภาพ
+        </div>
+        <div class="flex-in-b">
 
-            </div>
+        </div>
 
         </div>*@
             <div class="display-flex">
                 <div class="flex-in-b" style="width: 10%;">
-
                 </div>
                 <div class="flex-in-a" style="width: 23%;">
                     ข้าพเจ้า นายแพทย์/<s>แพทย์หญิง</s>
@@ -200,7 +198,8 @@
                         <span>นาย</span>
                     }
                     else
-                    { <s>นาย</s>
+                    {
+                        <s>นาย</s>
 
                     }/
                     @if (dat.NametitleCus == "นาง")
@@ -208,7 +207,8 @@
                         <span>นาง</span>
                     }
                     else
-                    { <s>นาง</s>
+                    {
+                        <s>นาง</s>
 
                     }/
                     @if (dat.NametitleCus == "นางสาว")
@@ -216,31 +216,13 @@
                         <span>นางสาว</span>
                     }
                     else
-                    { <s>นางสาว</s>
-
-                    }/
-                    @if (dat.NametitleCus == "ာMr.")
                     {
-                        <span>Mr.</span>
-                    }
-                    else
-                    {
-                        <s>Mr.</s>
-
-                    }
-                    }/
-                    @if (dat.NametitleCus == "Ms.")
-                    {
-                        <span>Ms.</span>
-                    }
-                    else
-                    {
-                        <s>Ms.</s>
+                        <s>นางสาว</s>
 
                     }
                 </div>
                 <div class="flex-in-b" style="width: 72%;">
-                    <div style="border-bottom: 1px dashed #000; width: 100%;text-align: center;">@dat.NametitleCus&nbsp;@dat.FirstNameCus&nbsp;@dat.lastNameCus</div>
+                    <div style="border-bottom: 1px dashed #000; width: 100%;text-align: center;">@dat.FirstNameCus&nbsp;@dat.lastNameCus</div>
                 </div>
 
             </div>
@@ -257,14 +239,14 @@
                     ที่อยู่ที่สามารถติดต่อได้ เลขที่
                 </div>
                 @*<div class="flex-in-b" style="width: 35%;">
-                    <div style="border-bottom: 1px dashed #000; width: 100%;text-align: center;">@dat.AddressCus</div>
-                </div>*@
-               
+            <div style="border-bottom: 1px dashed #000; width: 100%;text-align: center;">@dat.AddressCus</div>
+            </div>*@
+
             </div>
 
             <div class="display-flex" style="margin-top: 20px">
 
-              
+
                 <div class="flex-in-b" style="width: 100%;">
                     <div style="border-bottom: 1px dashed #000; width: 100%;text-align: center;">&nbsp;@dat.AddressCus</div>
                 </div>
@@ -302,7 +284,8 @@
                         <span>นาย</span>
                     }
                     else
-                    { <s>นาย</s>
+                    {
+                        <s>นาย</s>
 
                     }/
                     @if (dat.NametitleCus == "นาง")
@@ -310,7 +293,8 @@
                         <span>นาง</span>
                     }
                     else
-                    { <s>นาง</s>
+                    {
+                        <s>นาง</s>
 
                     }/
                     @if (dat.NametitleCus == "นางสาว")
@@ -318,32 +302,13 @@
                         <span>นางสาว</span>
                     }
                     else
-                    { <s>นางสาว</s>
-
-
-                    }/
-                    @if (dat.NametitleCus == "ာMr.")
                     {
-                        <span>Mr.</span>
-                    }
-                    else
-                    {
-                        <s>Mr.</s>
-
-                    }
-                    }/
-                    @if (dat.NametitleCus == "Ms.")
-                    {
-                        <span>Ms.</span>
-                    }
-                    else
-                    {
-                        <s>Ms.</s>
+                        <s>นางสาว</s>
 
                     }
                 </div>
                 <div class="flex-in-b" style="width: 60%;">
-                    <div style="border-bottom: 1px dashed #000; width: 100%;text-align: center;">@dat.NametitleCus&nbsp;@dat.FirstNameCus&nbsp;@dat.lastNameCus</div>
+                    <div style="border-bottom: 1px dashed #000; width: 100%;text-align: center;">@dat.FirstNameCus&nbsp;@dat.lastNameCus</div>
                 </div>
                 ไม่เป็นโรคดังต่อไปนี้
             </div>
@@ -351,7 +316,6 @@
 
             <div class="display-flex">
                 <div class="flex-in-b" style="width: 20%">
-
                 </div>
                 <div class="flex-in-a" style="width: 80%">
                     1 ) วัณโรคในระยะแพร่กระจายเชื้อ
@@ -362,7 +326,6 @@
 
             <div class="display-flex">
                 <div class="flex-in-b" style="width: 20%">
-
                 </div>
                 <div class="flex-in-a" style="width: 80%">
                     2 ) โรคเท้าช้างในระยะที่ปรากฎอาการเป็นที่รังเกียจแก่สังคม
@@ -374,7 +337,6 @@
             <div class="display-flex">
 
                 <div class="flex-in-b" style="width: 20%">
-
                 </div>
                 <div class="flex-in-a" style="width: 80%">
                     3 ) โรคติดยาเสพติดให้โทษ
@@ -387,7 +349,6 @@
             <div class="display-flex">
 
                 <div class="flex-in-b" style="width: 20%">
-
                 </div>
                 <div class="flex-in-a" style="width: 80%">
                     4 ) โรคพิษสุราเรื้อรัง
@@ -400,7 +361,6 @@
             <div class="display-flex">
 
                 <div class="flex-in-b" style="width: 20%">
-
                 </div>
                 <div class="flex-in-a" style="width: 75%">
                     5 ) โรคติดต่อร้ายแรงหรือโรคเรื้อรังที่ปรากฏอาการเด่นชัดหรือรุนแรงและเป็นอุปสรรคต่อการปฏิบัติหน้าที่ตาม ก.พ. ข้อกำหนด
@@ -412,15 +372,15 @@
 
             @*<div class="display-flex">
 
-            <div class="flex-in-b" style="width: 20%">
+        <div class="flex-in-b" style="width: 20%">
 
-            </div>
-            <div class="flex-in-b" style="width: 3%">
-                6 )
-            </div>
-            <div class="flex-in-a" style="width: 77%">
-                <div style="border-bottom: 1px dashed #000; width: 100%; text-align: center; height: 20px;"></div>
-            </div>
+        </div>
+        <div class="flex-in-b" style="width: 3%">
+        6 )
+        </div>
+        <div class="flex-in-a" style="width: 77%">
+        <div style="border-bottom: 1px dashed #000; width: 100%; text-align: center; height: 20px;"></div>
+        </div>
 
         </div>*@
 
@@ -431,38 +391,38 @@
             </div>
 
             <div class="flex-in-a" style="width: 4%">
-                <div style="border-bottom: 1px dashed #000; height: 20px; width: 100%; text-align: center;"></div>
+            <div style="border-bottom: 1px dashed #000; height: 20px; width: 100%; text-align: center;"></div>
             </div>
             <div class="flex-in-a" style="width: 48%">
-                <span style="font-size: 12px">(ถ้าหากจำเป็นต้องตรวจหาโรคที่เกี่ยวข้องกับการปฎิบัติงานของผู้รับรองการตรวจให้ระบุข้อนี้)</span>
+            <span style="font-size: 12px">(ถ้าหากจำเป็นต้องตรวจหาโรคที่เกี่ยวข้องกับการปฎิบัติงานของผู้รับรองการตรวจให้ระบุข้อนี้)</span>
             </div>
             <div class="flex-in-a" style="width: 28%">
-                <div style="border-bottom: 1px dashed #000; height: 20px; width: 100%; text-align: center;"></div>
+            <div style="border-bottom: 1px dashed #000; height: 20px; width: 100%; text-align: center;"></div>
             </div>*@
 
             </div>
 
             @*<div class="display-flex">
 
-            <div class="flex-in-b" style="width: 20%">
+        <div class="flex-in-b" style="width: 20%">
 
-            </div>
+        </div>
 
-            <div class="flex-in-a" style="width: 80%">
-                <div style="border-bottom: 1px dashed #000; width: 100%; text-align: center; height: 20px;"></div>
-            </div>
+        <div class="flex-in-a" style="width: 80%">
+        <div style="border-bottom: 1px dashed #000; width: 100%; text-align: center; height: 20px;"></div>
+        </div>
 
         </div>*@
 
             @*<div class="display-flex">
 
-            <div class="flex-in-b" style="width: 20%">
+        <div class="flex-in-b" style="width: 20%">
 
-            </div>
+        </div>
 
-            <div class="flex-in-a" style="width: 80%">
-                <div style="border-bottom: 1px dashed #000; width: 100%; text-align: center; height: 20px;"></div>
-            </div>
+        <div class="flex-in-a" style="width: 80%">
+        <div style="border-bottom: 1px dashed #000; width: 100%; text-align: center; height: 20px;"></div>
+        </div>
 
         </div>*@
 
@@ -472,7 +432,6 @@
                     สรุปความเห็นของแพทย์
                 </div>
                 <div class="flex-in-a" style="width: 78%">
-
                 </div>
 
 
@@ -494,7 +453,6 @@
         <div class="display-flex" style="margin-top:40px;text-align:right">
 
             <div class="flex-in-b" style="width: 55%">
-
             </div>
             <div class="flex-in-a" style="width: 4%">
                 ลงชื่อ
@@ -515,7 +473,6 @@
         <div class="display-flex" style="margin-top: 40px">
 
             <div class="flex-in-a" style="width: 65%;">
-
             </div>
             <div class="flex-in-b" style="width: 5%;margin-left:2px">
                 วันที่
@@ -549,7 +506,6 @@
 
         <div class="display-flex">
             <div class="flex-in-a" style="width: 8%">
-
             </div>
             <div class="flex-in-a" style="width: 90%">
                 (2)&nbsp;ให้แสดงว่าเป็นผู้มีร่างกายสมบูรณ์เพียงใด ใบรับรองแพทย์ฉบับนี้ใช้ได้ 1 เดือนนับแต่วันตรวจร่างกาย

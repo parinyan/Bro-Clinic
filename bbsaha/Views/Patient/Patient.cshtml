@@ -119,8 +119,9 @@
                             <div class="col-6">
                                 <span>CN:&nbsp;</span>
 
-                                @*<input type="date" v-model="DateCus" />*@
-                                <input type="text" v-model="cncode" readonly class="form-control" />
+                                @*<input type="date" v-model="DateCus" />
+                                <input type="text" v-model="cncode" readonly class="form-control" />*@
+                                <input type="text" v-model="cncode" class="form-control" />
 
 
                             </div>
@@ -258,6 +259,10 @@
                                 <br />
 
                                 <input type="text" v-model="tel" style="width: 100%" class="form-control" />
+                            </div>
+                            <div class="col-6">
+                                <br />
+                                <button v-on:click="getdataCNcheck()" style="margin-left: 10px" class="btn btn-primary">Request CN</button>
                             </div>
                         </div>
 
@@ -2549,8 +2554,9 @@
                         <div class="col-6">
                             <span>CN:&nbsp;</span>
 
-                            @*<input type="date" v-model="DateCus" />*@
-                            <input type="text" v-model="cncode" readonly />
+                            @*<input type="date" v-model="DateCus" />
+                            <input type="text" v-model="cncode" readonly />*@
+                            <input type="text" v-model="cncode"  />
 
 
                         </div>
@@ -2716,7 +2722,8 @@
                         <div class="col-4">
                             <span>เลขบัตรประจำตัวประชาชน:</span>
                             <br />
-                            <input type="number" value="" v-model="idcarde" style="width: 100%" :disabled="disabled == 0" />
+                            @*<input type="number" value="" v-model="idcarde" style="width: 100%" :disabled="disabled == 0" />*@
+                            <input type="number" value="" v-model="idcarde" style="width: 100%"  />
                         </div>
 
                         <div class="col-6">
@@ -2731,8 +2738,9 @@
                         <div class="col-6">
                             <span>CN:&nbsp;</span>
 
-                            @*<input type="date" v-model="DateCus" />*@
-                            <input type="text" v-model="cncodee" readonly :disabled="disabled == 0" />
+                            @*<input type="date" v-model="DateCus" />
+                            <input type="text" v-model="cncodee" readonly :disabled="disabled == 0" />*@
+                            <input type="text" v-model="cncodee"  />
 
 
                         </div>

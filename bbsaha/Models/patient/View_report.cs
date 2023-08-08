@@ -12,8 +12,8 @@ namespace bbsaha.Models.patient
             public string date { get; set; }
             public string time { get; set; }
             public string number { get; set; }
-            public string company { get; set; }
-            public string birthday { get; set; }
+            public string company { get; set; } //
+            public string birthday { get; set; } //
             public string height { get; set; }
             public string weight { get; set; }
             public string bloodgr { get; set; }

@@ -29,6 +29,23 @@ namespace bbsaha.Models.patient
         public string titlename1 { get; set; }
         public string skinCus { get; set; }
 
+        public string ch6md { get; set; }
+        public string tex6md { get; set; }
+        public string ch6md0 { get; set; }
+        public string ch6md1 { get; set; }
+        public string ch6md2 { get; set; }
+        public string ch6md3 { get; set; }
+        public string ch6md4 { get; set; }
+        public string ch6md5 { get; set; }
+        public string ch6md6 { get; set; }
+        public string ch6md7 { get; set; }
+        public string ch6md8 { get; set; }
+
+        public string ch1md { get; set; }
+        public string ch2md { get; set; }
+        public string ch3md { get; set; }
+        public string commentmd { get; set; }
+
         public string Tel { get; set; }
         public string Emname { get; set; }
         public string Emtel { get; set; }

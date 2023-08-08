@@ -2289,7 +2289,7 @@
 
                                         </div>
                                         <div class="col-3">
-                                            <input type="text" step="0.1" v-model="bloodmd" class="form-control" />
+                                            <input type="text" step="0.1" v-model="skinCus" class="form-control" />
                                         </div>
                                         <div class="col-2">
                                             <span></span>
@@ -2307,14 +2307,14 @@
                                             <br />
                                             <span>ชื่อ-สกุลนายจ้าง :</span>
                                             <br />
-                                            <input type="text" v-model="adrmd2" style="width: 550px; " class="form-control" />
+                                            <input type="text" v-model="fname1" style="width: 550px; " class="form-control" />
                                         </div>
                                         <div class="col-6">
                                             <span></span>
                                             <br />
                                             <span>สถานประกอบการ</span>
                                             <br />
-                                            <input type="text" v-model="adrmd3" style="width: 550px; " class="form-control" />
+                                            <input type="text" v-model="titlename1" style="width: 550px; " class="form-control" />
                                         </div>
                                     </div>
                                     <div class="row mt-2">
@@ -2372,10 +2372,10 @@
                                             <span>สภาพร่างกาย และจิตใจทั่วไป :</span>
                                         </div>
                                         <div class="col-9">
-                                            <input type="radio" id="one" value="One" v-model="ch6md">
+                                            <input type="radio" id="one" value="One" v-model="ch6md" >
                                             <label for="one">ไม่มี</label>
 
-                                            <input type="radio" id="two" value="Two" v-model="ch6md">
+                                            <input type="radio" id="two" value="Two" v-model="ch6md" >
                                             <label for="two">มี(ระบุ)</label>
 
                                             <input type="text" v-model="tex6md" class="form-control" />
@@ -2386,13 +2386,13 @@
                                             <span>ผลการตรวจวัณโรค :</span>
                                         </div>
                                         <div class="col-9">
-                                            <input type="radio" id="one1" value="One" v-model="ch6md1">
+                                            <input type="radio" id="one1" value="One" name="ch6md1"  v-model="ch6md1" checked >
                                             <label for="one1">ปกติ</label>
 
-                                            <input type="radio" id="two1" value="Two" v-model="ch6md1">
+                                            <input type="radio" id="two1" value="Two"  name="ch6md1" v-model="ch6md1" >
                                             <label for="two1">ผิดปกติ/ให้รักษา</label>
 
-                                            <input type="radio" id="three1" value="Three" v-model="ch6md1">
+                                            <input type="radio" id="three1" value="Three" name="ch6md1"  v-model="ch6md1" >
                                             <label for="three1">ระยะอันตราย</label>
 
                                             @*<input type="text" v-model="tex6md" class="form-control" />*@
@@ -2404,13 +2404,13 @@
                                             <span>ผลการตรวจโรคเรื้อน :</span>
                                         </div>
                                         <div class="col-9">
-                                            <input type="radio" id="one2" value="One" v-model="ch6md2">
+                                            <input type="radio" id="one2" value="One" v-model="ch6md2" checked >
                                             <label for="one2">ปกติ</label>
 
-                                            <input type="radio" id="two2" value="Two" v-model="ch6md2">
+                                            <input type="radio" id="two2" value="Two" v-model="ch6md2" >
                                             <label for="two2">ผิดปกติ/ให้รักษา</label>
 
-                                            <input type="radio" id="three2" value="Three" v-model="ch6md2">
+                                            <input type="radio" id="three2" value="Three" v-model="ch6md2" >
                                             <label for="three2">ระยะติดต่อ/อาการเป็นที่น่ารังเกียจ</label>
 
                                             @*<input type="text" v-model="tex6md" class="form-control" />*@
@@ -2422,13 +2422,13 @@
                                             <span>ผลการตรวจโรคเท้าช้าง :</span>
                                         </div>
                                         <div class="col-9">
-                                            <input type="radio" id="one3" value="One" v-model="ch6md3">
+                                            <input type="radio" id="one3" value="One" v-model="ch6md3" checked >
                                             <label for="one3">ปกติ</label>
 
                                             <input type="radio" id="two3" value="Two" v-model="ch6md3">
                                             <label for="two3">ผิดปกติ/ให้รักษา</label>
 
-                                            <input type="radio" id="three3" value="Three" v-model="ch6md3">
+                                            <input type="radio" id="three3" value="Three" v-model="ch6md3" >
                                             <label for="three3">อาการเป็นที่น่ารังเกียจ</label>
 
                                             @*<input type="text" v-model="tex6md" class="form-control" />*@
@@ -2440,13 +2440,13 @@
                                             <span>ผลการตรวจโรคซิฟิลิส :</span>
                                         </div>
                                         <div class="col-9">
-                                            <input type="radio" id="one4" value="One" v-model="ch6md4">
+                                            <input type="radio" id="one4" value="One" v-model="ch6md4" checked>
                                             <label for="one4">ปกติ</label>
 
-                                            <input type="radio" id="two4" value="Two" v-model="ch6md4">
+                                            <input type="radio" id="two4" value="Two" v-model="ch6md4" >
                                             <label for="two4">ผิดปกติ/ให้รักษา</label>
 
-                                            <input type="radio" id="three4" value="Three" v-model="ch6md4">
+                                            <input type="radio" id="three4" value="Three" v-model="ch6md4" >
                                             <label for="three4">ระยะที่ ๓</label>
 
                                             @*<input type="text" v-model="tex6md" class="form-control" />*@
@@ -2458,13 +2458,13 @@
                                             <span>ผลการตรวจสารเสพติด :</span>
                                         </div>
                                         <div class="col-9">
-                                            <input type="radio" id="one5" value="One" v-model="ch6md5">
+                                            <input type="radio" id="one5" value="One" v-model="ch6md5" checked >
                                             <label for="one5">ปกติ</label>
 
-                                            <input type="radio" id="two5" value="Two" v-model="ch6md5">
+                                            <input type="radio" id="two5" value="Two" v-model="ch6md5" >
                                             <label for="two5">ผิดปกติ/ให้รักษา</label>
 
-                                            <input type="radio" id="three5" value="Three" v-model="ch6md5">
+                                            <input type="radio" id="three5" value="Three" v-model="ch6md5" >
                                             <label for="three5">ให้ตรวจยืนยัน</label>
 
                                             @*<input type="text" v-model="tex6md" class="form-control" />*@
@@ -2476,10 +2476,10 @@
                                             <span>ผลการตรวจโรคพิษสุราเรื้อรัง :</span>
                                         </div>
                                         <div class="col-9">
-                                            <input type="radio" id="one6" value="One" v-model="ch6md6">
+                                            <input type="radio" id="one6" value="One" v-model="ch6md6" checked >
                                             <label for="one6">ปกติ</label>
 
-                                            <input type="radio" id="two6" value="Two" v-model="ch6md6">
+                                            <input type="radio" id="two6" value="Two" v-model="ch6md6" >
                                             <label for="two6">ปรากฎอาการ</label>
 
                                             @*<input type="text" v-model="tex6md" class="form-control" />*@
@@ -2491,10 +2491,10 @@
                                             <span>ผลการตรวจการตั้งครรภ์ :</span>
                                         </div>
                                         <div class="col-9">
-                                            <input type="radio" id="one7" value="One" v-model="ch6md7">
+                                            <input type="radio" id="one7" value="One" v-model="ch6md7" checked >
                                             <label for="one7">ไม่ตั้งครรภ์</label>
 
-                                            <input type="radio" id="two7" value="Two" v-model="ch6md7">
+                                            <input type="radio" id="two7" value="Two" v-model="ch6md7" >
                                             <label for="two7">ตั้งครรภ์</label>
 
                                             @*<input type="text" v-model="tex6md" class="form-control" />*@
@@ -2506,13 +2506,13 @@
                                             <span>ผลการตรวจอื่นๆ (ถ้ามี) :</span>
                                         </div>
                                         <div class="col-9">
-                                            <input type="radio" id="one8" value="One" v-model="ch6md8">
+                                            <input type="radio" id="one8" value="One" v-model="ch6md8" checked >
                                             <label for="one8">ไม่มี</label>
 
-                                            <input type="radio" id="two8" value="Two" v-model="ch6md8">
+                                            <input type="radio" id="two8" value="Two" v-model="ch6md8" >
                                             <label for="two8">มี(ระบุ)</label>
 
-                                            <input type="text" v-model="tex6md" class="form-control" />
+                                            <input type="text" v-model="tex6md8" class="form-control" />
                                         </div>
                                     </div>
 
@@ -2533,9 +2533,9 @@
 
                                         </div>
                                         <div class="col-8">
-                                            <input type="radio" id="one1" value="One" v-model="ch1md">
+                                            <input type="radio" id="one1" value="One" v-model="ch1md" checked >
                                             <label for="one1">ไม่มี</label>
-                                            <input type="radio" id="two1" value="Two" v-model="ch1md">
+                                            <input type="radio" id="two1" value="Two" v-model="ch1md" >
                                             <label for="two1">มี(ระบุ)</label>
                                             <input type="text" v-model="tex1md" class="form-control" />
                                         </div>

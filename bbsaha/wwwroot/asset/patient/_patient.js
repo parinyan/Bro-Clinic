@@ -17,8 +17,10 @@
             postcode: "",
             career: "",
             tel: "",
+
             birthday: "",
-            skinCus:"",
+            skinCus: "",
+
             yearV: "",
             monthV: "",
             dayV: "",
@@ -41,6 +43,7 @@
             postcodee: "",
             careere: "",
             tele: "",
+
             birthdaye: "",
             skinCuse: "",
             
@@ -465,15 +468,15 @@
                         this.pulsemd = res.data.pulseCus
 
                         this.ch6md = (res.data.body_healthStatusCus == true ? "Two" : "One")
-                        this.ch6md0 = (res.data.body_healthStatusCus == true ? "Two" : "One")
-                        this.ch6md1 = (res.data.body_healthStatusCus == true ? "Two" : "One")
-                        this.ch6md2 = (res.data.body_healthStatusCus == true ? "Two" : "One")
-                        this.ch6md3 = (res.data.body_healthStatusCus == true ? "Two" : "One")
-                        this.ch6md4 = (res.data.body_healthStatusCus == true ? "Two" : "One")
-                        this.ch6md5 = (res.data.body_healthStatusCus == true ? "Two" : "One")
-                        this.ch6md6 = (res.data.body_healthStatusCus == true ? "Two" : "One")
-                        this.ch6md7 = (res.data.body_healthStatusCus == true ? "Two" : "One")
-                        this.ch6md8 = (res.data.body_healthStatusCus == true ? "Two" : "One")
+                        this.ch6md0 = (res.data.body_healthStatusCus0 == true ? "Two" : "One")
+                        this.ch6md1 = (res.data.body_healthStatusCus1 == true ? "Two" : "One")
+                        this.ch6md2 = (res.data.body_healthStatusCus2 == true ? "Two" : "One")
+                        this.ch6md3 = (res.data.body_healthStatusCus3 == true ? "Two" : "One")
+                        this.ch6md4 = (res.data.body_healthStatusCus4 == true ? "Two" : "One")
+                        this.ch6md5 = (res.data.body_healthStatusCus5 == true ? "Two" : "One")
+                        this.ch6md6 = (res.data.body_healthStatusCus6 == true ? "Two" : "One")
+                        this.ch6md7 = (res.data.body_healthStatusCus7 == true ? "Two" : "One")
+                        this.ch6md8 = (res.data.body_healthStatusCus8 == true ? "Two" : "One")
 
                         this.commentmd = res.data.commentCom
                         this.DateCusmd = new Date(da.setDate(da.getDate() + 1)).toISOString().slice(0, 10)
@@ -511,15 +514,15 @@
                         this.pulsemd = res.data.pulseCus
                         this.ch6md = (res.data.body_healthStatusCus == true ? "Two" : "One")
 
-                        this.ch6md0 = (res.data.body_healthStatusCus == true ? "Two" : "One")
-                        this.ch6md1 = (res.data.body_healthStatusCus == true ? "Two" : "One")
-                        this.ch6md2 = (res.data.body_healthStatusCus == true ? "Two" : "One")
-                        this.ch6md3 = (res.data.body_healthStatusCus == true ? "Two" : "One")
-                        this.ch6md4 = (res.data.body_healthStatusCus == true ? "Two" : "One")
-                        this.ch6md5 = (res.data.body_healthStatusCus == true ? "Two" : "One")
-                        this.ch6md6 = (res.data.body_healthStatusCus == true ? "Two" : "One")
-                        this.ch6md7 = (res.data.body_healthStatusCus == true ? "Two" : "One")
-                        this.ch6md8 = (res.data.body_healthStatusCus == true ? "Two" : "One")
+                        this.ch6md0 = (res.data.body_healthStatusCus0 == true ? "Two" : "One")
+                        this.ch6md1 = (res.data.body_healthStatusCus1 == true ? "Two" : "One")
+                        this.ch6md2 = (res.data.body_healthStatusCus2 == true ? "Two" : "One")
+                        this.ch6md3 = (res.data.body_healthStatusCus3 == true ? "Two" : "One")
+                        this.ch6md4 = (res.data.body_healthStatusCus4 == true ? "Two" : "One")
+                        this.ch6md5 = (res.data.body_healthStatusCus5 == true ? "Two" : "One")
+                        this.ch6md6 = (res.data.body_healthStatusCus6 == true ? "Two" : "One")
+                        this.ch6md7 = (res.data.body_healthStatusCus7 == true ? "Two" : "One")
+                        this.ch6md8 = (res.data.body_healthStatusCus8 == true ? "Two" : "One")
 
                         this.commentmd = res.data.commentCom
                         this.DateCusmd = new Date(da.setDate(da.getDate() + 1)).toISOString().slice(0, 10)
@@ -559,15 +562,15 @@
                         this.tex6md = res.data.body_healthDetailCus
                         this.ch6md = (res.data.body_healthStatusCus == true ? "Two" : "One")
 
-                        this.ch6md0 = (res.data.body_healthStatusCus == true ? "Two" : "One")
-                        this.ch6md1 = (res.data.body_healthStatusCus == true ? "Two" : "One")
-                        this.ch6md2 = (res.data.body_healthStatusCus == true ? "Two" : "One")
-                        this.ch6md3 = (res.data.body_healthStatusCus == true ? "Two" : "One")
-                        this.ch6md4 = (res.data.body_healthStatusCus == true ? "Two" : "One")
-                        this.ch6md5 = (res.data.body_healthStatusCus == true ? "Two" : "One")
-                        this.ch6md6 = (res.data.body_healthStatusCus == true ? "Two" : "One")
-                        this.ch6md7 = (res.data.body_healthStatusCus == true ? "Two" : "One")
-                        this.ch6md8 = (res.data.body_healthStatusCus == true ? "Two" : "One")
+                        this.ch6md0 = (res.data.body_healthStatusCus0 == true ? "Two" : "One")
+                        this.ch6md1 = (res.data.body_healthStatusCus1 == true ? "Two" : "One")
+                        this.ch6md2 = (res.data.body_healthStatusCus2 == true ? "Two" : "One")
+                        this.ch6md3 = (res.data.body_healthStatusCus3 == true ? "Two" : "One")
+                        this.ch6md4 = (res.data.body_healthStatusCus4 == true ? "Two" : "One")
+                        this.ch6md5 = (res.data.body_healthStatusCus5 == true ? "Two" : "One")
+                        this.ch6md6 = (res.data.body_healthStatusCus6 == true ? "Two" : "One")
+                        this.ch6md7 = (res.data.body_healthStatusCus7 == true ? "Two" : "One")
+                        this.ch6md8 = (res.data.body_healthStatusCus8 == true ? "Two" : "One")
 
                         this.commentmd = res.data.commentCom
 
@@ -988,8 +991,10 @@
             this.formsubmitE[0].tel = this.tele
             this.formsubmitE[0].gender = this.gendere
             this.formsubmitE[0].titlen = this.titlene
+
             this.formsubmitE[0].birthday = this.birthdaye
             this.formsubmitE[0].skinCus = this.skinCuse
+
             this.formsubmitE[0].idpat = this.idpate
             this.formsubmitE[0].idrun = this.idrune
             this.formsubmitE[0].id = id
@@ -1061,8 +1066,10 @@
                     this.postcodee = res.data[0].postcode;
                     this.careere = res.data[0].career;
                     this.tele = res.data[0].tel;
+
                     this.birthdaye = res.data[0].birthday;
                     this.skinCuse = res.data[0].skinCus;
+
                     this.idpae = res.data[0].id;
                     //this.idrune = res.data.titlename;
 
@@ -1294,8 +1301,10 @@
             this.formsubmit[0].tel = this.tel
             this.formsubmit[0].gender = parseInt(this.gender)
             this.formsubmit[0].titlen = this.titlen
+
             this.formsubmit[0].birthday = this.birthday
             this.formsubmit[0].skinCus = this.skinCus
+
             this.formsubmit[0].idpat = this.idpat
             this.formsubmit[0].idrun = this.idrun
 
@@ -1592,8 +1601,10 @@
                             this.postcode = res.data.postcode
                             this.tel = res.data.tel
                             this.career = res.data.career
+
                             this.birthday = res.data.birthday
                             this.skinCus = res.data.skinCus
+
                             this.cncode = "BB-" + res.data.idPatient + (res.data.iDrunnumber > 9 ? "-00" : (res.data.iDrunnumber > 99 ? "-0" : (res.data.iDrunnumber >= 999 ? "-" : "-000"))) + res.data.iDrunnumber
 
 
@@ -1646,6 +1657,7 @@
                         this.postcode = ""
                         this.tel = ""
                         this.career = ""
+
                         this.birthday = ""
                         this.skinCus = ""
                        
@@ -1750,7 +1762,9 @@
             var yearDob = dob.getYear();
             var monthDob = dob.getMonth();
             var dateDob = dob.getDate();
+
             var skinCUs = "";
+
             var age = {};
             var ageString = "";
             var yearString = "";
@@ -2178,8 +2192,9 @@
                 })
 
         },
-        Createmed1() {
+        Createmed1() { //FUNCTION INSERT patient DATA TO TABLE 
             $("#staticBackdrop").show();
+
             this.formmed[0].fname = this.fnamemd
             this.formmed[0].lname = this.lnamemd
 
@@ -2229,6 +2244,7 @@
             this.formmed[0].type = this.typemedcer
             /*      console.log(this.comment)*/
             console.log(this.formmed)
+
             axios({
                 method: 'post',
                 url: '/medic/savedatatype1',

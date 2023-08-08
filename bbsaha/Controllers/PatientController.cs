@@ -53,7 +53,14 @@ namespace bbsaha.Controllers
             public string titlename { get; set; }
             public string fname { get; set; }
             public string lname { get; set; }
+
+            public string adr0 { get; set; }
             public string adr { get; set; }
+
+            public string adr1 { get; set; }
+            public string adr2 { get; set; }
+            public string adr3 { get; set; }
+
             public string idcard { get; set; }
             public string idpart { get; set; }
             //public string tanon { get; set; }
@@ -65,7 +72,9 @@ namespace bbsaha.Controllers
             public string tel { get; set; }
             public int gender { get; set; }
             public string titlen { get; set; }
+
             public string birthday { get; set; }
+
             public string idpat { get; set; }
             public string idrun { get; set; }
 
@@ -513,7 +522,14 @@ namespace bbsaha.Controllers
                     Age = 0,
                     Gender = (model[0].gender == 1 ? "ชาย" : "หญิง"),
                     IDCard = (model[0].idcard == null || model[0].idcard == "" ? model[0].idpart : model[0].idcard),
+
+                    address0 = model[0].adr0,
                     address = model[0].adr,
+
+                    address1 = model[0].adr1,
+                    fname1 = model[0].adr2,
+                    titlename1 = model[0].adr3,
+
                     Tel = model[0].tel,
                     SubDistrict = model[0].tambon,
                     District = model[0].ampur,
@@ -560,8 +576,15 @@ namespace bbsaha.Controllers
                 //_dataup.Age = 0;
                 _dataup.Gender = (model[0].gender == 1 ? "ชาย" : "หญิง");
                 _dataup.IDCard = (model[0].idcard == null || model[0].idcard == "" ? model[0].idpart : model[0].idcard);
+
                 //_dataup.IDpart = model[0].idpart;
+                _dataup.address0 = model[0].adr0;
                 _dataup.address = model[0].adr;
+
+                _dataup.address1 = model[0].adr1;
+                _dataup.fname1 = model[0].adr2;
+                _dataup.titlename1 = model[0].adr3;
+
                 _dataup.Tel = model[0].tel;
                 _dataup.SubDistrict = model[0].tambon;
                 _dataup.District = model[0].ampur;
@@ -853,6 +876,9 @@ namespace bbsaha.Controllers
                     date = dat.ae.DateReg.ToString("dd/MM/yyyy"),
                     time = dat.ae.time,
                     company = dat.ae.Customer,
+
+                    birthday = dat.ea.birthday,
+
                     height = Convert.ToInt32(dat.ae.Height).ToString(),
                     weight = Convert.ToInt32(dat.ae.Weight).ToString(),
                     bloodgr = dat.ae.bloodgr,
@@ -952,7 +978,7 @@ namespace bbsaha.Controllers
             return View();
         }
 
-
+        
         public IActionResult GetPrintreciept(string id)
         {
             var url = $"{this.Request.Scheme}://{this.Request.Host}" + Url.Action("med_reciept", "Patient", new { id = id });
@@ -1006,7 +1032,6 @@ namespace bbsaha.Controllers
             var _datatp = _mysqlbro.CEN_TypePayment.ToList();
             var _datapr = _mysqlbro.CEN_PerReceive.ToList();
 
-
             var _data = _datase.Join(_datade, ae => ae.DetailID, ea => ea.ID, (ae, ea) => new { ae, ea })
                 .Join(_datapa, dg => dg.ea.PatientID, gd => gd.ID, (dg, gd) => new { dg, gd })
                 .Join(_datath, vb => vb.dg.ea.medtype, bv => bv.ID.ToString(), (vb, bv) => new { vb, bv })
@@ -1029,7 +1054,15 @@ namespace bbsaha.Controllers
                 listA.Add(new View_salesreciept()
                 {
                     fname = dat.ku.xc.vb.gd.Fname + " " + dat.ku.xc.vb.gd.Lname,
+
+                    //update view for new field
+                    adr0 = dat.ku.xc.vb.gd.address0,
                     adr = dat.ku.xc.vb.gd.address,
+
+                    adr1 = dat.ku.xc.vb.gd.address1,
+                    adr2 = dat.ku.xc.vb.gd.fname1,
+                    adr3 = dat.ku.xc.vb.gd.titlename1,
+
                     Tel = dat.ku.xc.vb.gd.Tel,
                     refno = "RE" + dat.ku.xc.vb.dg.ae.IDreciept + "-" + (dat.ku.xc.vb.dg.ae.IDrunnumber > 9 ? "00" : (dat.ku.xc.vb.dg.ae.IDrunnumber > 99 ? "0" : (dat.ku.xc.vb.dg.ae.IDrunnumber > 999 ? "" : "000"))) + dat.ku.xc.vb.dg.ae.IDrunnumber,
                     datereg = Convert.ToDateTime(dat.ku.xc.vb.dg.ae.ReceivePayDate).ToString("dd/MM/yyyy"),
@@ -1129,7 +1162,14 @@ namespace bbsaha.Controllers
                 listA.Add(new View_salesreciept()
                 {
                     fname = dat.ku.xc.vb.gd.Fname + " " + dat.ku.xc.vb.gd.Lname,
+
+                    adr0 = dat.ku.xc.vb.gd.address0,
                     adr = dat.ku.xc.vb.gd.address,
+
+                    adr1 = dat.ku.xc.vb.gd.address1,
+                    adr2 = dat.ku.xc.vb.gd.fname1,
+                    adr3 = dat.ku.xc.vb.gd.titlename1,
+
                     Tel = dat.ku.xc.vb.gd.Tel,
                     refno = "RE" + dat.ku.xc.vb.dg.ae.IDreciept + "-" + (dat.ku.xc.vb.dg.ae.IDrunnumber > 9 ? "00" : (dat.ku.xc.vb.dg.ae.IDrunnumber > 99 ? "0" : (dat.ku.xc.vb.dg.ae.IDrunnumber > 999 ? "" : "000"))) + dat.ku.xc.vb.dg.ae.IDrunnumber,
                     datereg = Convert.ToDateTime(dat.ku.xc.vb.dg.ae.ReceivePayDate).ToString("dd/MM/yyyy"),
@@ -1180,9 +1220,11 @@ namespace bbsaha.Controllers
                         date = dat.df.ae.DateReg.ToString("yyyy-MM-dd"),
                         time = dat.df.ae.time,
                         company = dat.df.ae.Customer,
+                        
                         name = dat.df.ea.Lname,
                         direct = dat.df.ea.titlename,
                         mid = dat.df.ea.Fname,
+                        
                         gender = dat.df.ea.Gender,
                         refno = dat.df.ae.IDdate + "-" + (dat.df.ae.IDrunnumber > 9 ? "00" : (dat.df.ae.IDrunnumber > 99 ? "0" : (dat.df.ae.IDrunnumber > 999 ? "" : "000"))) + dat.df.ae.IDrunnumber,
                         age = "BB-" + dat.df.ea.IDPatient + "-" + (dat.df.ea.IDrunnumber > 9 ? "00" : (dat.df.ea.IDrunnumber > 99 ? "0" : (dat.df.ea.IDrunnumber > 999 ? "" : "000"))) + dat.df.ea.IDrunnumber,
@@ -1292,6 +1334,11 @@ namespace bbsaha.Controllers
             public string refno { get; set; }
             public string titlename { get; set; }
             public string fname { get; set; }
+
+            
+            public string fname1 { get; set; }
+            public string titlename1 { get; set; }
+
             public string lname { get; set; }
             public string medservice { get; set; }
             public string customer { get; set; }
@@ -1323,7 +1370,14 @@ namespace bbsaha.Controllers
             public string Tel { get; set; }
             public string revinvdat { get; set; }
             public string deductdate { get; set; }
+
+            public string adr0 { get; set; }
             public string adr { get; set; }
+
+            public string adr1 { get; set; }
+            public string adr2 { get; set; }
+            public string adr3 { get; set; }
+
             public string pro { get; set; }
             public string dis { get; set; }
             public string subdis { get; set; }

@@ -18,6 +18,7 @@
             career: "",
             tel: "",
             birthday: "",
+            skinCus:"",
             yearV: "",
             monthV: "",
             dayV: "",
@@ -41,6 +42,8 @@
             careere: "",
             tele: "",
             birthdaye: "",
+            skinCuse: "",
+            
             yearVe: "",
             monthVe: "",
             dayVe: "",
@@ -210,7 +213,14 @@
             titlenmd: "",
             fnamemd: "",
             lnamemd: "",
+
+            adrmd0: "",
             adrmd: "",
+
+            adrmd1: "",
+            adrmd2: "",
+            adrmd3: "",
+
             idcardmd: "",
             ch1md: "",
             ch2md: "",
@@ -227,6 +237,15 @@
             bloodmd: "",
             pulsemd: "",
             ch6md: "",
+            ch6md0: "",
+            ch6md1: "",
+            ch6md2: "",
+            ch6md3: "",
+            ch6md4: "",
+            ch6md5: "",
+            ch6md6: "",
+            ch6md7: "",
+            ch6md8: "",
             tex6: "",
             commentmd: "",
             DateCusmd: new Date().toISOString().slice(0, 10),
@@ -418,7 +437,18 @@
                     if (res.data.type == 1) {
                         this.fnamemd = res.data.firstNameCus
                         this.lnamemd = res.data.lastNameCus
+
+                        this.adrmd0 = res.data.addressCus0
                         this.adrmd = res.data.addressCus
+
+                        this.adrmd1 = res.data.addressCus1
+                        this.adrmd2 = res.data.FnameCom1
+                        this.adrmd3 = res.data.TitleCom1
+
+                        this.birthday = res.data.birthday
+                        this.skinCus = res.data.skinCus
+
+
                         this.idcardmd = res.data.idcardCus
                         this.ch1md = (res.data.check_1 == true ? "Two" : "One")
                         this.ch2md = (res.data.check_2 == true ? "Two" : "One")
@@ -433,14 +463,35 @@
                         this.heightmd = res.data.heightCus
                         this.bloodmd = res.data.blood_pressureCus
                         this.pulsemd = res.data.pulseCus
+
                         this.ch6md = (res.data.body_healthStatusCus == true ? "Two" : "One")
+                        this.ch6md0 = (res.data.body_healthStatusCus == true ? "Two" : "One")
+                        this.ch6md1 = (res.data.body_healthStatusCus == true ? "Two" : "One")
+                        this.ch6md2 = (res.data.body_healthStatusCus == true ? "Two" : "One")
+                        this.ch6md3 = (res.data.body_healthStatusCus == true ? "Two" : "One")
+                        this.ch6md4 = (res.data.body_healthStatusCus == true ? "Two" : "One")
+                        this.ch6md5 = (res.data.body_healthStatusCus == true ? "Two" : "One")
+                        this.ch6md6 = (res.data.body_healthStatusCus == true ? "Two" : "One")
+                        this.ch6md7 = (res.data.body_healthStatusCus == true ? "Two" : "One")
+                        this.ch6md8 = (res.data.body_healthStatusCus == true ? "Two" : "One")
+
                         this.commentmd = res.data.commentCom
                         this.DateCusmd = new Date(da.setDate(da.getDate() + 1)).toISOString().slice(0, 10)
 
                     } else if (res.data.type == 2) {
                         this.fnamemd = res.data.firstNameCus
                         this.lnamemd = res.data.lastNameCus
+
+                        this.adrmd0 = res.data.addressCus0
                         this.adrmd = res.data.addressCus
+
+                        this.adrmd1 = res.data.addressCus1
+                        this.adrmd2 = res.data.FnameCom1
+                        this.adrmd3 = res.data.TitleCom1
+
+                        this.birthday = res.data.birthday
+                        this.skinCus = res.data.skinCus
+
                         this.idcardmd = res.data.idcardCus
                         this.ch1md = (res.data.check_1 == true ? "Two" : "One")
                         this.ch2md = (res.data.check_2 == true ? "Two" : "One")
@@ -459,6 +510,17 @@
                         this.bloodmd = res.data.blood_pressureCus
                         this.pulsemd = res.data.pulseCus
                         this.ch6md = (res.data.body_healthStatusCus == true ? "Two" : "One")
+
+                        this.ch6md0 = (res.data.body_healthStatusCus == true ? "Two" : "One")
+                        this.ch6md1 = (res.data.body_healthStatusCus == true ? "Two" : "One")
+                        this.ch6md2 = (res.data.body_healthStatusCus == true ? "Two" : "One")
+                        this.ch6md3 = (res.data.body_healthStatusCus == true ? "Two" : "One")
+                        this.ch6md4 = (res.data.body_healthStatusCus == true ? "Two" : "One")
+                        this.ch6md5 = (res.data.body_healthStatusCus == true ? "Two" : "One")
+                        this.ch6md6 = (res.data.body_healthStatusCus == true ? "Two" : "One")
+                        this.ch6md7 = (res.data.body_healthStatusCus == true ? "Two" : "One")
+                        this.ch6md8 = (res.data.body_healthStatusCus == true ? "Two" : "One")
+
                         this.commentmd = res.data.commentCom
                         this.DateCusmd = new Date(da.setDate(da.getDate() + 1)).toISOString().slice(0, 10)
 
@@ -466,7 +528,18 @@
 
                         this.fnamemd = res.data.firstNameCus
                         this.lnamemd = res.data.lastNameCus
+
+                        this.adrmd0 = res.data.addressCus0
                         this.adrmd = res.data.addressCus
+
+                        this.adrmd1 = res.data.addressCus1
+                        this.adrmd2 = res.data.FnameCom1
+                        this.adrmd3 = res.data.TitleCom1
+
+                        this.birthday = res.data.birthday
+                        this.skinCus = res.data.skinCus
+
+
                         this.idcardmd = res.data.idcardCus
                         //this.ch1md = (res.data.check_1 == true ? "Two" : "One")
                         //this.ch2md = (res.data.check_2 == true ? "Two" : "One")
@@ -485,6 +558,17 @@
                         //this.pulsemd = res.data.pulseCus
                         this.tex6md = res.data.body_healthDetailCus
                         this.ch6md = (res.data.body_healthStatusCus == true ? "Two" : "One")
+
+                        this.ch6md0 = (res.data.body_healthStatusCus == true ? "Two" : "One")
+                        this.ch6md1 = (res.data.body_healthStatusCus == true ? "Two" : "One")
+                        this.ch6md2 = (res.data.body_healthStatusCus == true ? "Two" : "One")
+                        this.ch6md3 = (res.data.body_healthStatusCus == true ? "Two" : "One")
+                        this.ch6md4 = (res.data.body_healthStatusCus == true ? "Two" : "One")
+                        this.ch6md5 = (res.data.body_healthStatusCus == true ? "Two" : "One")
+                        this.ch6md6 = (res.data.body_healthStatusCus == true ? "Two" : "One")
+                        this.ch6md7 = (res.data.body_healthStatusCus == true ? "Two" : "One")
+                        this.ch6md8 = (res.data.body_healthStatusCus == true ? "Two" : "One")
+
                         this.commentmd = res.data.commentCom
 
 
@@ -706,6 +790,17 @@
                     this.bloodmd = ""
                     this.pulsemd = ""
                     this.ch6md = ""
+
+                    this.ch6md0 = ""
+                    this.ch6md1 = ""
+                    this.ch6md2 = ""
+                    this.ch6md3 = ""
+                    this.ch6md4 = ""
+                    this.ch6md5 = ""
+                    this.ch6md6 = ""
+                    this.ch6md7 = ""
+                    this.ch6md8 = ""
+
                     this.commentmd = ""
 
 
@@ -733,8 +828,17 @@
                     this.fnamemd = res.data[0].fname
                     this.lnamemd = res.data[0].lname
                     this.idcardmd = res.data[0].idCard
+
+                    this.adrmd0 = res.data[0].addressCus0 // res.data[0].address0 + " " + res.data[0].subDistrict0 + " " + res.data[0].district0 + " " + res.data[0].province0 + " " + res.data[0].postcode0
                     this.adrmd = res.data[0].address + " " + res.data[0].subDistrict + " " + res.data[0].district + " " + res.data[0].province + " " + res.data[0].postcode
-                  
+
+                    this.adrmd1 = res.data[0].addressCus1 // res.data[0].address0 + " " + res.data[0].subDistrict0 + " " + res.data[0].district0 + " " + res.data[0].province0 + " " + res.data[0].postcode0
+                    this.adrmd2 = res.data.adr2
+                    this.adrmd3 = res.data.adr3
+
+                    this.birthday = res.data.birthday
+                    this.skinCus = res.data.skinCus
+
 
                   
                 }).catch(err => {
@@ -885,6 +989,7 @@
             this.formsubmitE[0].gender = this.gendere
             this.formsubmitE[0].titlen = this.titlene
             this.formsubmitE[0].birthday = this.birthdaye
+            this.formsubmitE[0].skinCus = this.skinCuse
             this.formsubmitE[0].idpat = this.idpate
             this.formsubmitE[0].idrun = this.idrune
             this.formsubmitE[0].id = id
@@ -945,7 +1050,10 @@
                     this.gendere = (res.data[0].gender == "ชาย" ? 1 : 2);
                     this.idcarde = res.data[0].idCard;
                     this.idparte = res.data[0].idpart;
+
+                    this.adre0 = res.data[0].address0;
                     this.adre = res.data[0].address;
+
                     this.tanone = res.data[0].titlename;
                     this.tambone = res.data[0].subDistrict;
                     this.ampure = res.data[0].district;
@@ -954,6 +1062,7 @@
                     this.careere = res.data[0].career;
                     this.tele = res.data[0].tel;
                     this.birthdaye = res.data[0].birthday;
+                    this.skinCuse = res.data[0].skinCus;
                     this.idpae = res.data[0].id;
                     //this.idrune = res.data.titlename;
 
@@ -1186,6 +1295,7 @@
             this.formsubmit[0].gender = parseInt(this.gender)
             this.formsubmit[0].titlen = this.titlen
             this.formsubmit[0].birthday = this.birthday
+            this.formsubmit[0].skinCus = this.skinCus
             this.formsubmit[0].idpat = this.idpat
             this.formsubmit[0].idrun = this.idrun
 
@@ -1470,6 +1580,7 @@
 
                             console.log(res.data);
                             this.adr = res.data.address
+                            this.adr0 = res.data.address0
                             this.fname = res.data.fname
                             this.lname = res.data.lname
                             this.titlen = res.data.titlename
@@ -1482,6 +1593,7 @@
                             this.tel = res.data.tel
                             this.career = res.data.career
                             this.birthday = res.data.birthday
+                            this.skinCus = res.data.skinCus
                             this.cncode = "BB-" + res.data.idPatient + (res.data.iDrunnumber > 9 ? "-00" : (res.data.iDrunnumber > 99 ? "-0" : (res.data.iDrunnumber >= 999 ? "-" : "-000"))) + res.data.iDrunnumber
 
 
@@ -1535,6 +1647,7 @@
                         this.tel = ""
                         this.career = ""
                         this.birthday = ""
+                        this.skinCus = ""
                        
                         this.yearV = ""
                         this.monthV = ""
@@ -1567,8 +1680,11 @@
 
 
                             //---show already has data
-                        this.idcardCus = res.data.idcardCus
-                        this.adr = res.data.address
+                            this.idcardCus = res.data.idcardCus
+
+                            this.adr = res.data.address
+                            this.adr0 = res.data.address0
+
                         this.fname = res.data.fname
                         this.lname = res.data.lname
                         this.titlen = res.data.titlename
@@ -1634,6 +1750,7 @@
             var yearDob = dob.getYear();
             var monthDob = dob.getMonth();
             var dateDob = dob.getDate();
+            var skinCUs = "";
             var age = {};
             var ageString = "";
             var yearString = "";
@@ -1930,11 +2047,33 @@
           
             this.formmed[0].fname = this.fnamemd
             this.formmed[0].lname = this.lnamemd
+
+            this.formmed[0].adr0 = this.adrmd0
             this.formmed[0].adr = this.adrmd
+
+            this.formmed[0].adr1 = this.adrmd1
+
+            this.formmed[0].adr2 = this.adrmd2
+            this.formmed[0].adr3 = this.adrmd3
+
+            this.formmed[0].birthday = this.birthday
+            this.formmed[0].skinCus = this.skinCus
+
             this.formmed[0].idcard = this.idcardmd
            
             this.formmed[0].tex5 = this.tex5md
             this.formmed[0].ch6 = this.ch6md
+
+            this.formmed[0].ch60 = this.ch6md0
+            this.formmed[0].ch61 = this.ch6md1
+            this.formmed[0].ch62 = this.ch6md2
+            this.formmed[0].ch63 = this.ch6md3
+            this.formmed[0].ch64 = this.ch6md4
+            this.formmed[0].ch65 = this.ch6md5
+            this.formmed[0].ch66 = this.ch6md6
+            this.formmed[0].ch67 = this.ch6md7
+            this.formmed[0].ch68 = this.ch6md8
+
             this.formmed[0].tex6 = this.tex6md
             
             this.formmed[0].comment = this.commentmd
@@ -1970,7 +2109,18 @@
             $("#staticBackdrop").show();
             this.formmed[0].fname = this.fnamemd
             this.formmed[0].lname = this.lnamemd
+
+            this.formmed[0].adr0 = this.adrmd0
             this.formmed[0].adr = this.adrmd
+
+            this.formmed[0].adr1 = this.adrmd1
+
+            this.formmed[0].adr2 = this.adrmd2
+            this.formmed[0].adr3 = this.adrmd3
+
+            this.formmed[0].birthday = this.birthday
+            this.formmed[0].skinCus = this.skinCus
+
             this.formmed[0].idcard = this.idcardmd
             this.formmed[0].ch1 = this.ch1md
             this.formmed[0].tex1 = this.tex1md
@@ -1986,6 +2136,17 @@
             this.formmed[0].blood = String(this.bloodmd)
             this.formmed[0].pulse = String(this.pulsemd)
             this.formmed[0].ch6 = this.ch6md
+
+            this.formmed[0].ch60 = this.ch6md0
+            this.formmed[0].ch61 = this.ch6md1
+            this.formmed[0].ch62 = this.ch6md2
+            this.formmed[0].ch63 = this.ch6md3
+            this.formmed[0].ch64 = this.ch6md4
+            this.formmed[0].ch65 = this.ch6md5
+            this.formmed[0].ch66 = this.ch6md6
+            this.formmed[0].ch67 = this.ch6md7
+            this.formmed[0].ch68 = this.ch6md8
+
             this.formmed[0].tex6 = this.tex6md
             this.formmed[0].DateCus = this.DateCusmd
             this.formmed[0].titlen = this.titlenmd
@@ -2021,7 +2182,18 @@
             $("#staticBackdrop").show();
             this.formmed[0].fname = this.fnamemd
             this.formmed[0].lname = this.lnamemd
+
+            this.formmed[0].adr0 = this.adrmd0
             this.formmed[0].adr = this.adrmd
+
+            this.formmed[0].adr1 = this.adrmd1
+
+            this.formmed[0].adr2 = this.adrmd2
+            this.formmed[0].adr3 = this.adrmd3
+
+            this.formmed[0].birthday = this.birthday
+            this.formmed[0].skinCus = this.skinCus
+
             this.formmed[0].idcard = this.idcardmd
             this.formmed[0].ch1 = this.ch1md
             this.formmed[0].tex1 = this.tex1md
@@ -2036,6 +2208,17 @@
             this.formmed[0].blood = String(this.bloodmd)
             this.formmed[0].pulse = String(this.pulsemd)
             this.formmed[0].ch6 = this.ch6md
+
+            this.formmed[0].ch60 = this.ch6md0
+            this.formmed[0].ch61 = this.ch6md1
+            this.formmed[0].ch62 = this.ch6md2
+            this.formmed[0].ch63 = this.ch6md3
+            this.formmed[0].ch64 = this.ch6md4
+            this.formmed[0].ch65 = this.ch6md5
+            this.formmed[0].ch66 = this.ch6md6
+            this.formmed[0].ch67 = this.ch6md7
+            this.formmed[0].ch68 = this.ch6md8
+
             this.formmed[0].tex6 = this.tex6md
             this.formmed[0].DateCus = this.DateCusmd
             this.formmed[0].titlen = this.titlenmd
@@ -2071,7 +2254,19 @@
 
             this.formmed[0].fname = this.fnamemd
             this.formmed[0].lname = this.lnamemd
+
+            this.formmed[0].adr0 = this.adrmd0
             this.formmed[0].adr = this.adrmd
+
+            this.formmed[0].adr1 = this.adrmd1
+
+            this.formmed[0].adr2 = this.adrmd2
+            this.formmed[0].adr3 = this.adrmd3
+
+
+            this.formmed[0].birthday = this.birthday
+            this.formmed[0].skinCus = this.skinCus
+
             this.formmed[0].idcard = this.idcardmd
             this.formmed[0].ch1 = this.ch1md
             this.formmed[0].tex1 = this.tex1md
@@ -2087,6 +2282,17 @@
             this.formmed[0].blood = String(this.bloodmd)
             this.formmed[0].pulse = String(this.pulsemd)
             this.formmed[0].ch6 = this.ch6md
+
+            this.formmed[0].ch60 = this.ch6md0
+            this.formmed[0].ch61 = this.ch6md1
+            this.formmed[0].ch62 = this.ch6md2
+            this.formmed[0].ch63 = this.ch6md3
+            this.formmed[0].ch64 = this.ch6md4
+            this.formmed[0].ch65 = this.ch6md5
+            this.formmed[0].ch66 = this.ch6md6
+            this.formmed[0].ch67 = this.ch6md7
+            this.formmed[0].ch68 = this.ch6md8
+
             this.formmed[0].tex6 = this.tex6md
             this.formmed[0].DateCus = this.DateCusmd
             this.formmed[0].titlen = this.titlenmd
@@ -2122,7 +2328,19 @@
 
             this.formmed[0].fname = this.fnamemd
             this.formmed[0].lname = this.lnamemd
+
+            this.formmed[0].adr0 = this.adrmd0
             this.formmed[0].adr = this.adrmd
+
+            this.formmed[0].adr1 = this.adrmd1
+
+            this.formmed[0].adr2 = this.adrmd2
+            this.formmed[0].adr3 = this.adrmd3
+
+            this.formmed[0].birthday = this.birthday
+            this.formmed[0].skinCus = this.skinCus 
+
+
             this.formmed[0].idcard = this.idcardmd
             this.formmed[0].ch1 = this.ch1md
             this.formmed[0].tex1 = this.tex1md
@@ -2137,6 +2355,17 @@
             this.formmed[0].blood = String(this.bloodmd)
             this.formmed[0].pulse = String(this.pulsemd)
             this.formmed[0].ch6 = this.ch6md
+
+            this.formmed[0].ch60 = this.ch6md0
+            this.formmed[0].ch61 = this.ch6md1
+            this.formmed[0].ch62 = this.ch6md2
+            this.formmed[0].ch63 = this.ch6md3
+            this.formmed[0].ch64 = this.ch6md4
+            this.formmed[0].ch65 = this.ch6md5
+            this.formmed[0].ch66 = this.ch6md6
+            this.formmed[0].ch67 = this.ch6md7
+            this.formmed[0].ch68 = this.ch6md8
+
             this.formmed[0].tex6 = this.tex6md
             this.formmed[0].DateCus = this.DateCusmd
             this.formmed[0].titlen = this.titlenmd
@@ -2175,11 +2404,33 @@
 
             this.formmed[0].fname = this.fnamemd
             this.formmed[0].lname = this.lnamemd
+
+            this.formmed[0].adr0 = this.adrmd0
             this.formmed[0].adr = this.adrmd
+
+            this.formmed[0].adr1 = this.adrmd1
+            
+            this.formmed[0].adr2 = this.adrmd2
+            this.formmed[0].adr3 = this.adrmd3
+
+            this.formmed[0].birthday = this.birthday
+            this.formmed[0].skinCus = this.skinCus
+
             this.formmed[0].idcard = this.idcardmd
 
             this.formmed[0].tex5 = this.tex5md
             this.formmed[0].ch6 = this.ch6md
+
+            this.formmed[0].ch60 = this.ch6md0
+            this.formmed[0].ch61 = this.ch6md1
+            this.formmed[0].ch62 = this.ch6md2
+            this.formmed[0].ch63 = this.ch6md3
+            this.formmed[0].ch64 = this.ch6md4
+            this.formmed[0].ch65 = this.ch6md5
+            this.formmed[0].ch66 = this.ch6md6
+            this.formmed[0].ch67 = this.ch6md7
+            this.formmed[0].ch68 = this.ch6md8
+
             this.formmed[0].tex6 = this.tex6md
 
             this.formmed[0].comment = this.commentmd

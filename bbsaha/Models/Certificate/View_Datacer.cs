@@ -18,11 +18,21 @@ namespace bbsaha.Models.Certificate
         public string EmailClinic { get; set; }
         public string cerid { get; set; }
         public DateTime CerDate { get; set; }
+
+        public string birthday { get; set; }
+
         public string IdcardCus { get; set; }
         public string FirstNameCus { get; set; }
         public string NametitleCus { get; set; }
         public string lastNameCus { get; set; }
+
         public string AddressCus { get; set; }
+        public string AddressCus0 { get; set; }
+
+        public string AddressCus1 { get; set; }
+        public string FnameCom1 { get; set; }
+        public string TitleCom1 { get; set; }        
+
         public bool? Check_1 { get; set; }
         public string Detail_1 { get; set; }
         public bool? Check_2 { get; set; }
@@ -37,6 +47,9 @@ namespace bbsaha.Models.Certificate
         public int? NameComId { get; set; }
         public Decimal? WeightCus { get; set; }
         public Decimal? HeightCus { get; set; }
+
+        public string SkinCus { get; set; }
+
         public string blood_pressureCus { get; set; }
         public int? PulseCus { get; set; }
         public bool? Body_healthStatusCus { get; set; }

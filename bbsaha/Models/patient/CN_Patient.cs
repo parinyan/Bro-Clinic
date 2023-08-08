@@ -13,12 +13,22 @@ namespace bbsaha.Models.patient
         public string titlename { get; set; }
         public string Fname { get; set; }
         public string Lname { get; set; }
+
         public string birthday { get; set; }
+
         public int Age { get; set; }
         public string Gender { get; set; }
         public string IDCard { get; set; }
         public string IDpart { get; set; }
+
+        public string address0 { get; set; }
         public string address { get; set; }
+       
+        public string address1 { get; set; }
+        public string fname1 { get; set; }
+        public string titlename1 { get; set; }
+        public string skinCus { get; set; }
+
         public string Tel { get; set; }
         public string Emname { get; set; }
         public string Emtel { get; set; }

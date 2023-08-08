@@ -13,6 +13,7 @@ namespace bbsaha.Models.patient
             public string time { get; set; }
             public string number { get; set; }
             public string company { get; set; }
+            public string birthday { get; set; }
             public string height { get; set; }
             public string weight { get; set; }
             public string bloodgr { get; set; }
@@ -70,7 +71,12 @@ namespace bbsaha.Models.patient
             public string alk { get; set; }
             public string totalbilirubin { get; set; }
             public string direct { get; set; }
-            public string sgot { get; set; }
+
+            public string direct1 { get; set; }
+            public string mid1 { get; set; }
+        public string skinCus { get; set; }
+
+        public string sgot { get; set; }
             public string sgpt { get; set; }
             public string name { get; set; }
             public string age { get; set; }

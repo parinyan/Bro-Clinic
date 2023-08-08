@@ -61,6 +61,8 @@ namespace bbsaha.Controllers
             public string adr2 { get; set; }
             public string adr3 { get; set; }
 
+            public string adr4 { get; set; }
+
             public string idcard { get; set; }
             public string idpart { get; set; }
             //public string tanon { get; set; }
@@ -529,6 +531,7 @@ namespace bbsaha.Controllers
                     address1 = model[0].adr1,
                     fname1 = model[0].adr2,
                     titlename1 = model[0].adr3,
+                    skinCus = model[0].adr4,
 
                     Tel = model[0].tel,
                     SubDistrict = model[0].tambon,
@@ -584,6 +587,7 @@ namespace bbsaha.Controllers
                 _dataup.address1 = model[0].adr1;
                 _dataup.fname1 = model[0].adr2;
                 _dataup.titlename1 = model[0].adr3;
+                _dataup.skinCus = model[0].adr4;
 
                 _dataup.Tel = model[0].tel;
                 _dataup.SubDistrict = model[0].tambon;
@@ -1062,6 +1066,7 @@ namespace bbsaha.Controllers
                     adr1 = dat.ku.xc.vb.gd.address1,
                     adr2 = dat.ku.xc.vb.gd.fname1,
                     adr3 = dat.ku.xc.vb.gd.titlename1,
+                    adr4 = dat.ku.xc.vb.gd.skinCus,
 
                     Tel = dat.ku.xc.vb.gd.Tel,
                     refno = "RE" + dat.ku.xc.vb.dg.ae.IDreciept + "-" + (dat.ku.xc.vb.dg.ae.IDrunnumber > 9 ? "00" : (dat.ku.xc.vb.dg.ae.IDrunnumber > 99 ? "0" : (dat.ku.xc.vb.dg.ae.IDrunnumber > 999 ? "" : "000"))) + dat.ku.xc.vb.dg.ae.IDrunnumber,
@@ -1169,6 +1174,7 @@ namespace bbsaha.Controllers
                     adr1 = dat.ku.xc.vb.gd.address1,
                     adr2 = dat.ku.xc.vb.gd.fname1,
                     adr3 = dat.ku.xc.vb.gd.titlename1,
+                    adr4 = dat.ku.xc.vb.gd.skinCus,
 
                     Tel = dat.ku.xc.vb.gd.Tel,
                     refno = "RE" + dat.ku.xc.vb.dg.ae.IDreciept + "-" + (dat.ku.xc.vb.dg.ae.IDrunnumber > 9 ? "00" : (dat.ku.xc.vb.dg.ae.IDrunnumber > 99 ? "0" : (dat.ku.xc.vb.dg.ae.IDrunnumber > 999 ? "" : "000"))) + dat.ku.xc.vb.dg.ae.IDrunnumber,
@@ -1377,6 +1383,8 @@ namespace bbsaha.Controllers
             public string adr1 { get; set; }
             public string adr2 { get; set; }
             public string adr3 { get; set; }
+
+            public string adr4 { get; set; }
 
             public string pro { get; set; }
             public string dis { get; set; }

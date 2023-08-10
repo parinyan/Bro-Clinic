@@ -29,6 +29,7 @@ namespace bbsaha.Models.patient
         public string titlename1 { get; set; }
         public string skinCus { get; set; }
 
+        //result
         public string ch6md { get; set; }
         public string tex6md { get; set; }
         public string ch6md0 { get; set; }
@@ -40,7 +41,9 @@ namespace bbsaha.Models.patient
         public string ch6md6 { get; set; }
         public string ch6md7 { get; set; }
         public string ch6md8 { get; set; }
+        public string tex6md8 { get; set; }
 
+        //summary
         public string ch1md { get; set; }
         public string ch2md { get; set; }
         public string ch3md { get; set; }

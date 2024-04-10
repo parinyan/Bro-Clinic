@@ -36,7 +36,8 @@ namespace bbsaha.Controllers
         }
 
 
-        public class setdata {
+        public class setdata
+        {
             public int id { get; set; }
             public string fname { get; set; }
             public string lname { get; set; }
@@ -76,7 +77,8 @@ namespace bbsaha.Controllers
 
             var num = _mysqlbro.CER_Medical.Where(x => x.cerid.Contains(model[0].DateCus.ToString("yyMMdd"))).Select(v => new { v.cerid }).ToList();
 
-            var CER_medical = new cer_medical {
+            var CER_medical = new cer_medical
+            {
 
                 cerid = model[0].DateCus.ToString("yyMMdd"),
                 CerDate = model[0].DateCus,
@@ -127,7 +129,8 @@ namespace bbsaha.Controllers
 
             var num = _mysqlbro.CER_Medical.FirstOrDefault(x => x.ID == model[0].id);
 
-            if (num != null) {
+            if (num != null)
+            {
 
                 //num.cerid = model[0].DateCus.ToString("yyMMdd"),
                 num.CerDate = model[0].DateCus;
@@ -149,7 +152,7 @@ namespace bbsaha.Controllers
                 num.blood_pressureCus = model[0].blood;
                 num.PulseCus = (model[0].pulse != "" ? Convert.ToInt32(model[0].pulse) : 0);
                 num.Body_healthStatusCus = (model[0].ch6 == "One" ? false : true);
-                num.Body_healthDetailCus = model[0].tex6;              
+                num.Body_healthDetailCus = model[0].tex6;
                 num.UpdateDate = DateTime.Now;
                 num.RecordBy = User.Identity.Name;
                 num.NametitleCus = model[0].titlen;
@@ -170,7 +173,8 @@ namespace bbsaha.Controllers
         }
 
 
-        public IActionResult GetMedicCer() {
+        public IActionResult GetMedicCer()
+        {
 
             var _data = _mysqlbro.CER_Medical.OrderByDescending(x => x.ID).Where(c => c.Status == "1").ToList();
 
@@ -178,7 +182,7 @@ namespace bbsaha.Controllers
             //   dat.CerDate = dat.CerDate.ToString("yyyy-MM-dd");
 
             return Json(_data);
-        
+
         }
 
         public IActionResult GetPrintcertificate(string id)
@@ -247,6 +251,96 @@ namespace bbsaha.Controllers
             //var file = _converter.Convert(pdf);
 
             //return File(file, "application/pdf");
+
+            string pdf_page_size = "A4";
+            PdfPageSize pageSize = (PdfPageSize)Enum.Parse(typeof(PdfPageSize),
+                pdf_page_size, true);
+
+            string pdf_orientation = "Portrait";
+            PdfPageOrientation pdfOrientation =
+                (PdfPageOrientation)Enum.Parse(typeof(PdfPageOrientation),
+                pdf_orientation, true);
+
+
+            HtmlToPdf converter = new HtmlToPdf();
+
+            // set converter options
+            converter.Options.PdfPageSize = pageSize;
+            converter.Options.PdfPageOrientation = pdfOrientation;
+            converter.Options.WebPageWidth = 1024;
+            converter.Options.WebPageHeight = 0;
+            converter.Options.MarginLeft = 15;
+            converter.Options.MarginRight = 15;
+            converter.Options.MarginTop = 15;
+            //converter.Options.MarginBottom = 15;
+            // create a new pdf document converting an url
+            PdfDocument doc = converter.ConvertUrl(url);
+            MemoryStream ms = new MemoryStream();
+            // save pdf document
+            doc.Save(ms);
+
+            // close pdf document
+            doc.Close();
+            ms.Position = 0;
+            FileStreamResult fileStreamResult = new FileStreamResult(ms, "application/pdf");
+            //fileStreamResult.FileDownloadName = "sample.pdf";
+
+            //return File(file, "application/pdf");
+            return fileStreamResult;
+        }
+
+
+        public IActionResult GetPrintcertificate_th(string id)
+        {
+            var url = $"{this.Request.Scheme}://{this.Request.Host}" + Url.Action("mediccer_report_th", "medic", new { id = id });
+
+
+
+
+            string pdf_page_size = "A4";
+            PdfPageSize pageSize = (PdfPageSize)Enum.Parse(typeof(PdfPageSize),
+                pdf_page_size, true);
+
+            string pdf_orientation = "Portrait";
+            PdfPageOrientation pdfOrientation =
+                (PdfPageOrientation)Enum.Parse(typeof(PdfPageOrientation),
+                pdf_orientation, true);
+
+
+            HtmlToPdf converter = new HtmlToPdf();
+
+            // set converter options
+            converter.Options.PdfPageSize = pageSize;
+            converter.Options.PdfPageOrientation = pdfOrientation;
+            converter.Options.WebPageWidth = 1024;
+            converter.Options.WebPageHeight = 0;
+            converter.Options.MarginLeft = 15;
+            converter.Options.MarginRight = 15;
+            converter.Options.MarginTop = 15;
+            //converter.Options.MarginBottom = 15;
+            // create a new pdf document converting an url
+            PdfDocument doc = converter.ConvertUrl(url);
+            MemoryStream ms = new MemoryStream();
+            // save pdf document
+            doc.Save(ms);
+
+            // close pdf document
+            doc.Close();
+            ms.Position = 0;
+            FileStreamResult fileStreamResult = new FileStreamResult(ms, "application/pdf");
+            //fileStreamResult.FileDownloadName = "sample.pdf";
+
+            //return File(file, "application/pdf");
+            return fileStreamResult;
+        }
+
+
+        public IActionResult GetPrintcertificate_en(string id)
+        {
+            var url = $"{this.Request.Scheme}://{this.Request.Host}" + Url.Action("mediccer_report_en", "medic", new { id = id });
+
+
+
 
             string pdf_page_size = "A4";
             PdfPageSize pageSize = (PdfPageSize)Enum.Parse(typeof(PdfPageSize),
@@ -503,7 +597,8 @@ namespace bbsaha.Controllers
 
             List<View_Datacer> listA = new List<View_Datacer>();
 
-            foreach (var dat in _datasum) {
+            foreach (var dat in _datasum)
+            {
 
                 listA.Add(new View_Datacer
                 {
@@ -539,13 +634,122 @@ namespace bbsaha.Controllers
                     cerid = dat.ae.cerid
 
                 });
-            
+
             }
 
             ViewBag.data = listA.ToArray();
             return View();
         }
 
+
+
+        public IActionResult mediccer_report_en(int id)
+        {
+            var _datache = _mysqlbro.CER_Medical.Where(x => x.ID == id).ToList();
+            var _datahea = _mysqlbro.CER_Header.ToList();
+
+            var _datasum = _datache.Join(_datahea, ae => ae.NameComId, ea => ea.ID, (ae, ea) => new { ae, ea }).ToList();
+
+            List<View_Datacer> listA = new List<View_Datacer>();
+
+            foreach (var dat in _datasum)
+            {
+
+                listA.Add(new View_Datacer
+                {
+                    NametitleCus = dat.ae.NametitleCus,
+                    FirstNameCus = dat.ae.FirstNameCus,
+                    lastNameCus = dat.ae.lastNameCus,
+                    AddressCus = dat.ae.AddressCus,
+                    IdcardCus = dat.ae.IdcardCus,
+                    Check_1 = dat.ae.Check_1,
+                    Check_2 = dat.ae.Check_2,
+                    Check_3 = dat.ae.Check_3,
+                    Check_4 = dat.ae.Check_4,
+                    Check_5 = dat.ae.Check_5,
+                    Detail_1 = dat.ae.Detail_1,
+                    Detail_2 = dat.ae.Detail_2,
+                    Detail_3 = dat.ae.Detail_3,
+                    Detail_4 = dat.ae.Detail_4,
+                    Detail_5 = dat.ae.Detail_5,
+                    CerDate = dat.ae.CerDate,
+                    WeightCus = dat.ae.WeightCus,
+                    HeightCus = dat.ae.HeightCus,
+                    blood_pressureCus = dat.ae.blood_pressureCus,
+                    PulseCus = dat.ae.PulseCus,
+                    Body_healthStatusCus = dat.ae.Body_healthStatusCus,
+                    Body_healthDetailCus = dat.ae.Body_healthDetailCus,
+                    CommentCom = dat.ae.CommentCom,
+                    FnameCom = dat.ea.FnameCom,
+                    LnameCom = dat.ea.LnameCom,
+                    LicenseIdCom = dat.ea.LicenseIdCom,
+                    NameClinic = dat.ea.NameClinic,
+                    titleCom = dat.ea.titleCom,
+                    runnumber = dat.ae.Runnumber.ToString(),
+                    cerid = dat.ae.cerid
+
+                });
+
+            }
+
+            ViewBag.data = listA.ToArray();
+            return View();
+        }
+
+
+
+        public IActionResult mediccer_report_th(int id)
+        {
+            var _datache = _mysqlbro.CER_Medical.Where(x => x.ID == id).ToList();
+            var _datahea = _mysqlbro.CER_Header.ToList();
+
+            var _datasum = _datache.Join(_datahea, ae => ae.NameComId, ea => ea.ID, (ae, ea) => new { ae, ea }).ToList();
+
+            List<View_Datacer> listA = new List<View_Datacer>();
+
+            foreach (var dat in _datasum)
+            {
+
+                listA.Add(new View_Datacer
+                {
+                    NametitleCus = dat.ae.NametitleCus,
+                    FirstNameCus = dat.ae.FirstNameCus,
+                    lastNameCus = dat.ae.lastNameCus,
+                    AddressCus = dat.ae.AddressCus,
+                    IdcardCus = dat.ae.IdcardCus,
+                    Check_1 = dat.ae.Check_1,
+                    Check_2 = dat.ae.Check_2,
+                    Check_3 = dat.ae.Check_3,
+                    Check_4 = dat.ae.Check_4,
+                    Check_5 = dat.ae.Check_5,
+                    Detail_1 = dat.ae.Detail_1,
+                    Detail_2 = dat.ae.Detail_2,
+                    Detail_3 = dat.ae.Detail_3,
+                    Detail_4 = dat.ae.Detail_4,
+                    Detail_5 = dat.ae.Detail_5,
+                    CerDate = dat.ae.CerDate,
+                    WeightCus = dat.ae.WeightCus,
+                    HeightCus = dat.ae.HeightCus,
+                    blood_pressureCus = dat.ae.blood_pressureCus,
+                    PulseCus = dat.ae.PulseCus,
+                    Body_healthStatusCus = dat.ae.Body_healthStatusCus,
+                    Body_healthDetailCus = dat.ae.Body_healthDetailCus,
+                    CommentCom = dat.ae.CommentCom,
+                    FnameCom = dat.ea.FnameCom,
+                    LnameCom = dat.ea.LnameCom,
+                    LicenseIdCom = dat.ea.LicenseIdCom,
+                    NameClinic = dat.ea.NameClinic,
+                    titleCom = dat.ea.titleCom,
+                    runnumber = dat.ae.Runnumber.ToString(),
+                    cerid = dat.ae.cerid
+
+                });
+
+            }
+
+            ViewBag.data = listA.ToArray();
+            return View();
+        }
 
         public IActionResult mediccer_cerfive(int id)
         {
@@ -703,10 +907,11 @@ namespace bbsaha.Controllers
             ViewBag.data = listA.ToArray();
             return View();
         }
-        
 
 
-        public IActionResult Getdatadetail(int id) {
+
+        public IActionResult Getdatadetail(int id)
+        {
 
 
             var _data = _mysqlbro.CER_Medical.Where(x => x.ID == id).ToList();
@@ -715,7 +920,7 @@ namespace bbsaha.Controllers
             //ViewBag.detaildat = _data.ToArray();
 
             return Json(_data);
-        
+
         }
 
 
@@ -753,7 +958,8 @@ namespace bbsaha.Controllers
             var _data = _mysqlbro.CN_Patient.Where(x => x.ID == id).ToList();
 
 
-            foreach (var a in _data) {
+            foreach (var a in _data)
+            {
                 var _sd = _mysqlbro.CEN_SubDistrictTH.FirstOrDefault(x => x.SubDistrictID == a.SubDistrict);
                 var _dis = _mysqlbro.CEN_DistrictTH.FirstOrDefault(x => x.DistrictID == a.District);
                 var _pro = _mysqlbro.CEN_ProvinceTH.FirstOrDefault(x => x.ProvinceID == a.Province);
@@ -801,7 +1007,7 @@ namespace bbsaha.Controllers
                 CreateDate = DateTime.Now,
                 UpdateDate = DateTime.Now,
                 UpdateBy = User.Identity.Name,
-                IDrunnumber = _chk + 1 ,
+                IDrunnumber = _chk + 1,
                 IDdate = model[0].DateCus.ToString("yyMMdd"),
                 medtype = model[0].medtype
 
@@ -996,7 +1202,7 @@ namespace bbsaha.Controllers
                 FirstNameCus = model[0].fname,
                 lastNameCus = model[0].lname,
                 AddressCus = model[0].adr,
-              
+
                 IdcardCus = model[0].idcard,
                 Detail_5 = model[0].tex5,
                 Body_healthStatusCus = (model[0].ch6 == "One" ? false : true),
@@ -1136,7 +1342,7 @@ namespace bbsaha.Controllers
             //DetailID = detail.ID,
             _dataedit.type = model[0].type;
 
-          
+
 
             _mysqlbro.CER_Medical.Update(_dataedit);
             _mysqlbro.SaveChanges();
@@ -1189,7 +1395,7 @@ namespace bbsaha.Controllers
             _dataedit.type = model[0].type;
 
 
-        
+
 
             _mysqlbro.CER_Medical.Update(_dataedit);
             _mysqlbro.SaveChanges();
@@ -1199,7 +1405,8 @@ namespace bbsaha.Controllers
         }
 
 
-        public IActionResult Getdatameddetail(string id) {
+        public IActionResult Getdatameddetail(string id)
+        {
 
             var _data = _mysqlbro.CER_Medical.FirstOrDefault(x => x.ID == Convert.ToInt32(id));
 
@@ -1208,7 +1415,7 @@ namespace bbsaha.Controllers
         }
 
 
-     
+
 
     }
 }

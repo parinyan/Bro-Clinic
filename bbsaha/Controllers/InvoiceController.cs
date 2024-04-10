@@ -61,13 +61,30 @@ namespace bbsaha.Controllers
             var datet = DateTime.Parse(InvDate).ToString("yyMMdd");
             //AMN_Invoices.Select(dg => new { num1 = dg.InvInvoiceID.Substring(10, 1), num2 = dg.InvInvoiceID.Substring(11, 1), dg.InvCustID, dg.InvInvoiceID }).OrderByDescending(er => er.num1).ThenByDescending(n => n.num2).FirstOrDefault(ae => ae.InvCustID == "ATA" && ae.InvInvoiceID.StartsWith("GATA211124"))
 
+         
+            
             var dt_numinvoice = _mysqlbro.INV_Invoice.Select(dg => new { num1 = dg.InvID.Substring(10, 1), num2 = dg.InvID.Substring(11, 1), dg.CusID, dg.InvID }).OrderByDescending(er => er.num1).ThenByDescending(n => n.num2).FirstOrDefault(ae => ae.CusID == id && ae.InvID.StartsWith("H" + idcode + datet));
+
+        
+
             var sum_suc = "";
 
 
             if (dt_numinvoice != null)
             {
-                int num1 = 0;
+                //2023.11.06 최희문 주석 처리
+                //int num1 = 0;
+
+                //2023.11.06 최희문 추가 - 인보이스 오류 수정을 위한 순번 다시 구하기
+                //
+                var lsize = dt_numinvoice.InvID.Length;
+                //십의자리
+                var tnum1 = dt_numinvoice.InvID.Substring(lsize - 2, 1);
+                //일의 자리
+                var tnum2 = dt_numinvoice.InvID.Substring(lsize - 1, 1);
+
+                int num1 = Convert.ToInt32(tnum1);
+
                 int num2 = Convert.ToInt32(dt_numinvoice.num2) + 1;
                 if (num2 >= 10)
                 {
@@ -665,6 +682,9 @@ namespace bbsaha.Controllers
 
             return Json(App);
         }
+
+
+
 
         public class showdetailinv { 
         public string Date { get; set; }

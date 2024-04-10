@@ -1,4 +1,5 @@
 ﻿using bbsaha.Data;
+using bbsaha.Models.Center.View;
 using bbsaha.Models.patient;
 using ClosedXML.Excel;
 using Microsoft.AspNetCore.Authorization;
@@ -197,6 +198,15 @@ namespace bbsaha.Controllers
             //public string sgpt { get; set; }
             //public string sgpt { get; set; }
 
+            //2023.11.07 최희문 필드 추가 
+            public string ekg { get; set; }
+
+            //2023.11.19 최희문 필드 추가 
+            public string Others_ekg { get; set; }
+            public string Others_hearing { get; set; }
+            public string Others_pulmonary { get; set; }
+
+
         }
 
 
@@ -382,12 +392,16 @@ namespace bbsaha.Controllers
                 mchc = model[0].mchc,
                 status = "1",
                 type = "",
-                clarity = model[0].clarity
+                clarity = model[0].clarity,
+
+            /*2023.11.19 최희문 추가 필드 항목 추가 */
+            Ekg = model[0].ekg,
+            Others_ekg = model[0].Others_ekg,
+            Others_hearing = model[0].Others_hearing,
+            Others_pulmonary = model[0].Others_pulmonary
 
 
-
-
-            };
+        };
 
             _mysqlbro.CN_Detail.Add(cnpsave);
             _mysqlbro.SaveChanges();
@@ -498,6 +512,12 @@ namespace bbsaha.Controllers
             _data.mch = model[0].mch;
             _data.mcv = model[0].mcv;
             _data.mchc = model[0].mchc;
+
+            /*2023.11.19 최희문 추가 필드 항목 추가 */
+            _data.Ekg = model[0].ekg;
+            _data.Others_ekg = model[0].Others_ekg;
+            _data.Others_hearing = model[0].Others_hearing;
+            _data.Others_pulmonary = model[0].Others_pulmonary;
 
             _mysqlbro.CN_Detail.Update(_data);
             _mysqlbro.SaveChanges();
@@ -929,14 +949,15 @@ namespace bbsaha.Controllers
                     platelet = dat.ae.platelet,
                     eyecolor = dat.ae.eyecolor,
                     xray = dat.ae.xray,
-                    s1 = (dat.ae.s1 == "1" ? "ผลปกติ" : (dat.ae.s1 == "2" ? "ไม่ปกติ" : "")),
+                    s1 = (dat.ae.s1 == "1" ? "ผลปกติ" : (dat.ae.s1 == "2" ? "ความดันโลหิตสูง" :  (dat.ae.s1 == "3" ? "ความดันโลหิตต่ำ" : ""))),
                     s2 = (dat.ae.s2xray == "1" ? "ผลปกติ" : (dat.ae.s2xray == "2" ? "ไม่ปกติ" : "")),
                     s3 = (dat.ae.s3cbc == "1" ? "ผลปกติ" : (dat.ae.s3cbc == "2" ? "ไม่ปกติ" : "")),
-                    s4 = (dat.ae.s4cigar == "1" ? "ผลปกติ" : (dat.ae.s4cigar == "2" ? "ไม่ปกติ" : "")),
-                    s5 = (dat.ae.s5chid == "1" ? "ผลปกติ" : (dat.ae.s5chid == "2" ? "ไม่ปกติ" : "")),
+                    s4 = (dat.ae.s4cigar == "1" ? "พบสารเสพติด" : (dat.ae.s4cigar == "2" ? "ไม่พบสารเสพติด" : "")),
+                    s5 = (dat.ae.s5chid == "1" ? "พบการตั้งครรภ์" : (dat.ae.s5chid == "2" ? "ไม่พบการตั้งครรภ์" : "")),
                     s6 = (dat.ae.s6viral == "1" ? "ผลปกติ" : (dat.ae.s6viral == "2" ? "ไม่ปกติ" : "")),
                     s7 = (dat.ae.s7cbc == "1" ? "ผลปกติ" : (dat.ae.s7cbc == "2" ? "ไม่ปกติ" : "")),
-                    s8 = (dat.ae.s8 == "1" ? "ผลปกติ" : (dat.ae.s8 == "2" ? "ไม่ปกติ" : "")),
+                    s8 = (dat.ae.s8 == "1" ? "ผลปกติ" : (dat.ae.s8 == "2" ? "ไม่ปกติ" : (dat.ae.s8 == "3" ? "แปลผลไม่ได้" : ""))),
+                    
                     name = dat.ea.titlename + " " + dat.ea.Fname + " " + dat.ea.Lname,
                     gender = dat.ea.Gender,
                     refno = dat.ae.IDdate + "-" + (dat.ae.IDrunnumber > 999 ? "" : (dat.ae.IDrunnumber > 99 ? "0" : (dat.ae.IDrunnumber > 9 ? "00" : "000"))) + dat.ae.IDrunnumber,
@@ -969,7 +990,16 @@ namespace bbsaha.Controllers
                     totalbilirubin = dat.ae.totalbilirubin,
                     mcv = dat.ae.mcv,
                     mch = dat.ae.mch,
-                    mchc = dat.ae.mchc
+                    mchc = dat.ae.mchc,
+
+                    /*2023.11.19 최희문 추가 필드 항목 추가 */
+                    //Ekg = (dat.ae.Ekg == "1" ? "ผลปกติ" : (dat.ae.Ekg == "2" ? "ไม่ปกติ" : "")),
+                    Ekg = dat.ae.Ekg,
+                    Others_ekg =dat.ae.Others_ekg,
+                    
+                    Others_hearing =dat.ae.Others_hearing,
+                    Others_pulmonary=dat.ae.Others_pulmonary
+
 
 
 
@@ -1050,38 +1080,93 @@ namespace bbsaha.Controllers
                 //var today = DateTime.Today;
                 //int age = (int)((DateTime.Now - Convert.ToDateTime(dat.ea.birthday)).TotalDays / 365.242199);
                 //var age = today.Year - Convert.ToDateTime(dat.ea.birthday).Year;
+               
                 var _datpro = _mysqlbro.CEN_ProvinceTH.FirstOrDefault(x => x.ProvinceID == dat.ku.xc.vb.gd.Province);
                 var _datdis = _mysqlbro.CEN_DistrictTH.FirstOrDefault(x => x.DistrictID == dat.ku.xc.vb.gd.District);
                 var _datsub = _mysqlbro.CEN_SubDistrictTH.FirstOrDefault(x => x.SubDistrictID == dat.ku.xc.vb.gd.SubDistrict);
                 var _datpost = _mysqlbro.CEN_Postcode.FirstOrDefault(x => x.PostCode == dat.ku.xc.vb.gd.Postcode);
 
-                listA.Add(new View_salesreciept()
+
+                
+
+
+
+                //2023.11.06 최희문 수정
+                //_datpost 값이 null 인경우 오류 발생으로 null 값 로직 구분 추가
+
+                if (_datpost == null)
                 {
-                    fname = dat.ku.xc.vb.gd.Fname + " " + dat.ku.xc.vb.gd.Lname,
 
-                    //update view for new field
-                    adr0 = dat.ku.xc.vb.gd.address0,
-                    adr = dat.ku.xc.vb.gd.address,
+                    listA.Add(new View_salesreciept()
+                    {
+                        fname = dat.ku.xc.vb.gd.Fname + " " + dat.ku.xc.vb.gd.Lname,
 
-                    adr1 = dat.ku.xc.vb.gd.address1,
-                    adr2 = dat.ku.xc.vb.gd.fname1,
-                    adr3 = dat.ku.xc.vb.gd.titlename1,
-                    adr4 = dat.ku.xc.vb.gd.skinCus,
+                        //update view for new field
+                        adr0 = dat.ku.xc.vb.gd.address0,
+                        adr = dat.ku.xc.vb.gd.address,
 
-                    Tel = dat.ku.xc.vb.gd.Tel,
-                    refno = "RE" + dat.ku.xc.vb.dg.ae.IDreciept + "-" + (dat.ku.xc.vb.dg.ae.IDrunnumber > 9 ? "00" : (dat.ku.xc.vb.dg.ae.IDrunnumber > 99 ? "0" : (dat.ku.xc.vb.dg.ae.IDrunnumber > 999 ? "" : "000"))) + dat.ku.xc.vb.dg.ae.IDrunnumber,
-                    datereg = Convert.ToDateTime(dat.ku.xc.vb.dg.ae.ReceivePayDate).ToString("dd/MM/yyyy"),
-                    detail = dat.ku.xc.bv.TypeName,
-                    price = dat.ku.xc.vb.dg.ae.Price,
-                    paytype = dat.ku.cx.ID,
-                    pro = _datpro.ProvinceTH,
-                    dis = _datdis.DistrictTH,
-                    subdis = _datsub.SubDistrictTH,
-                    postcode = _datpost.PostCode
+                        adr1 = dat.ku.xc.vb.gd.address1,
+                        adr2 = dat.ku.xc.vb.gd.fname1,
+                        adr3 = dat.ku.xc.vb.gd.titlename1,
+                        adr4 = dat.ku.xc.vb.gd.skinCus,
 
+                        Tel = dat.ku.xc.vb.gd.Tel,
+                        refno = "RE" + dat.ku.xc.vb.dg.ae.IDreciept + "-" + (dat.ku.xc.vb.dg.ae.IDrunnumber > 9 ? "00" : (dat.ku.xc.vb.dg.ae.IDrunnumber > 99 ? "0" : (dat.ku.xc.vb.dg.ae.IDrunnumber > 999 ? "" : "000"))) + dat.ku.xc.vb.dg.ae.IDrunnumber,
+                        datereg = Convert.ToDateTime(dat.ku.xc.vb.dg.ae.ReceivePayDate).ToString("dd/MM/yyyy"),
+                        detail = dat.ku.xc.bv.TypeName,
+                        price = dat.ku.xc.vb.dg.ae.Price,
+                        paytype = dat.ku.cx.ID
 
 
-                });
+                        //pro = _datpro.ProvinceTH,
+                        //dis = _datdis.DistrictTH,
+                        //subdis = _datsub.SubDistrictTH
+
+                      
+
+
+
+
+                    });
+
+                }
+                else
+                {
+
+                    listA.Add(new View_salesreciept()
+                    {
+                        fname = dat.ku.xc.vb.gd.Fname + " " + dat.ku.xc.vb.gd.Lname,
+
+                        //update view for new field
+                        adr0 = dat.ku.xc.vb.gd.address0,
+                        adr = dat.ku.xc.vb.gd.address,
+
+                        adr1 = dat.ku.xc.vb.gd.address1,
+                        adr2 = dat.ku.xc.vb.gd.fname1,
+                        adr3 = dat.ku.xc.vb.gd.titlename1,
+                        adr4 = dat.ku.xc.vb.gd.skinCus,
+
+                        Tel = dat.ku.xc.vb.gd.Tel,
+                        refno = "RE" + dat.ku.xc.vb.dg.ae.IDreciept + "-" + (dat.ku.xc.vb.dg.ae.IDrunnumber > 9 ? "00" : (dat.ku.xc.vb.dg.ae.IDrunnumber > 99 ? "0" : (dat.ku.xc.vb.dg.ae.IDrunnumber > 999 ? "" : "000"))) + dat.ku.xc.vb.dg.ae.IDrunnumber,
+                        datereg = Convert.ToDateTime(dat.ku.xc.vb.dg.ae.ReceivePayDate).ToString("dd/MM/yyyy"),
+                        detail = dat.ku.xc.bv.TypeName,
+                        price = dat.ku.xc.vb.dg.ae.Price,
+                        paytype = dat.ku.cx.ID,
+
+                        pro = _datpro.ProvinceTH,
+                        dis = _datdis.DistrictTH,
+                        subdis = _datsub.SubDistrictTH,
+                        postcode = _datpost.PostCode
+
+
+                    });
+
+
+                }
+                
+
+                
+               
 
 
             }
@@ -1275,6 +1360,7 @@ namespace bbsaha.Controllers
 
                     });
                 }
+
 
             }
 
@@ -1498,7 +1584,9 @@ namespace bbsaha.Controllers
         public IActionResult Exportex(int payty, int perrev, int medser, DateTime enddate, DateTime startdate)
         {
             DataTable dt = new DataTable("Invoice_report");
-            dt.Columns.AddRange(new DataColumn[14] { new DataColumn("ServiceDate"),
+            dt.Columns.AddRange(new DataColumn[15] {
+                                        new DataColumn("No"),
+                                        new DataColumn("ServiceDate"),
                                         new DataColumn("CN"),
                                         new DataColumn("titlename"),
                                         //new DataColumn("Edit Date") ,
@@ -1599,9 +1687,14 @@ namespace bbsaha.Controllers
 
                 );
 
+            int rowCount = dt.Rows.Count;
+
+
             foreach (var da in _data)
             {
+
                 dt.Rows.Add(
+                    dt.Rows.Count,
                      da.ku.xc.vb.dg.ea.DateReg.ToString("dd/MM/yyyy"),
                     "BB-" + da.ku.xc.vb.gd.IDPatient + (da.ku.xc.vb.gd.IDrunnumber > 9 ? "-00" : (da.ku.xc.vb.gd.IDrunnumber > 99 ? "-0" : (da.ku.xc.vb.gd.IDrunnumber > 999 ? "-0" : "-000"))) + da.ku.xc.vb.gd.IDrunnumber,
                     da.ku.xc.vb.gd.titlename,

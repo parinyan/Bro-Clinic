@@ -103,7 +103,7 @@
                                         <th>Date</th>
                                         <th>Name-Surname</th>
                                         <th>Service</th>
-                                        <th>Company</th>
+                                        <th>Amount</th>
                                         <th>Amount(Baht)</th>
                                     </tr>
                                     <tr v-for="(value,key) in fdetail">
@@ -266,10 +266,13 @@
                                 <div class="row space-text">
                                     <div class="col-3">Date</div>
                                     <div class="col-6">
-                                        @*<input type="text" name="name" v-model="" />*@
+                                        @*<input type="date" class="form-control"  v-model="Datesel" />*@
+                                        @*<input type="date" class="form-control" v-model="invDate" />*@
                                         {{value.invDate}}
                                     </div>
                                 </div>
+
+                              
 
                             </div>
 
@@ -286,7 +289,7 @@
                                     <th>First Name</th>
                                     <th>Last Name</th>
                                     <th>Service</th>
-                                    <th>Company</th>
+                                    <th>Amount</th>
                                     <th>Amount(Baht)</th>
                                 </tr>
                                 <tr v-for="(value,key) in fulledit">
@@ -297,10 +300,13 @@
                                     <td><input type="text" class="form-control" v-model="lastNameTH[key]" /> </td>
                                     <td><input type="text" class="form-control" v-model="service[key]" /> </td>
                                     <td>
-                                        <select class="form-control" v-model="cusName[key]">
+                                        <input type="text" list="browsers2" name="browser2" id="browser2" class="form-control" v-model="cusName[key]">
+        
+                                        <datalist id="browsers2">
+                                            <option value="">Select Company</option>
                                             <option v-for="(value,key) in com" v-bind:value="value.nameSimple">{{value.nameSimple}}</option>
-                                        </select>
-                                  
+                                        </input>
+                                        </datalist>
                                     <td><input type="text" class="form-control" v-model="amount[key]" /> </td>
 
                                 </tr>

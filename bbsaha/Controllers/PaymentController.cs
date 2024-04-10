@@ -81,7 +81,7 @@ namespace bbsaha.Controllers
             //  .Join(_datapr, ku => ku.xc.vb.dg.ae.PerReceiver, uk => uk.ID, (ku, uk) => new { ku, uk }).GroupBy(b => b.ku.xc.vb.dg.ea.Customer).Sum(x => (x.Key != null ? 1 : 0));
             
             List<Showsummary> _manapp = new List<Showsummary>();
-            using (MySqlConnection con = new MySqlConnection("Data Source=8.213.198.166;Initial Catalog=" + db + ";Persist Security Info=True;User ID=sa;Password=Jobgate@m1n;Max Pool Size=20000;ConvertZeroDateTime=True;"))
+            using (MySqlConnection con = new MySqlConnection("Data Source=103.30.126.174;Initial Catalog=" + db + ";Persist Security Info=True;User ID=sa;Password=Jobgate@m1n;Max Pool Size=20000;ConvertZeroDateTime=True;"))
             //using (MySqlConnection con = new MySqlConnection("Data Source=ls-45cff82ac10d1518f2ee0eccea65733beec0ec7c.cwwhyjgyqjh8.ap-southeast-1.rds.amazonaws.com;Initial Catalog=GMP;Persist Security Info=True;User ID=dbmasteruser;Password=gmpsystemm1n;Max Pool Size=20000;ConvertZeroDateTime=True;"))
             {
                 con.Open();
@@ -153,7 +153,7 @@ INNER JOIN  CN_Patient cp ON cp.ID = cd.PatientID ?1 GROUP BY cd.Customer ORDER 
             var _datacusgrop = _mysqlbro.CN_Detail.GroupBy(xx => new { xx.Customer, xx.DateReg }).OrderBy(o => o.Key.Customer).Where(v => v.Key.DateReg >= startdate && v.Key.DateReg <= enddate).Select(k => k.Key).ToList() ;
                
             List<Showsummary> _manapp = new List<Showsummary>();
-            using (MySqlConnection con = new MySqlConnection("Data Source=8.213.198.166;Initial Catalog=" + db + ";Persist Security Info=True;User ID=sa;Password=Jobgate@m1n;Max Pool Size=20000;ConvertZeroDateTime=True;"))
+            using (MySqlConnection con = new MySqlConnection("Data Source=103.30.126.174;Initial Catalog=" + db + ";Persist Security Info=True;User ID=sa;Password=Jobgate@m1n;Max Pool Size=20000;ConvertZeroDateTime=True;"))
             //using (MySqlConnection con = new MySqlConnection("Data Source=ls-45cff82ac10d1518f2ee0eccea65733beec0ec7c.cwwhyjgyqjh8.ap-southeast-1.rds.amazonaws.com;Initial Catalog=GMP;Persist Security Info=True;User ID=dbmasteruser;Password=gmpsystemm1n;Max Pool Size=20000;ConvertZeroDateTime=True;"))
             {
                 con.Open();
@@ -207,7 +207,7 @@ Order BY Customer ASC";
         {
 
             List<Showsummary> _manapp = new List<Showsummary>();
-            using (MySqlConnection con = new MySqlConnection("Data Source=8.213.198.166;Initial Catalog=" + db + ";Persist Security Info=True;User ID=sa;Password=Jobgate@m1n;Max Pool Size=20000;ConvertZeroDateTime=True;"))
+            using (MySqlConnection con = new MySqlConnection("Data Source=103.30.126.174;Initial Catalog=" + db + ";Persist Security Info=True;User ID=sa;Password=Jobgate@m1n;Max Pool Size=20000;ConvertZeroDateTime=True;"))
             //using (MySqlConnection con = new MySqlConnection("Data Source=ls-45cff82ac10d1518f2ee0eccea65733beec0ec7c.cwwhyjgyqjh8.ap-southeast-1.rds.amazonaws.com;Initial Catalog=GMP;Persist Security Info=True;User ID=dbmasteruser;Password=gmpsystemm1n;Max Pool Size=20000;ConvertZeroDateTime=True;"))
             {
                
@@ -491,7 +491,7 @@ INNER JOIN  CN_Patient cp ON cp.ID = cd.PatientID ?1 GROUP BY cd.DateReg ORDER B
                
 
 
-                using (MySqlConnection con = new MySqlConnection("Data Source=8.213.198.166;Initial Catalog=" + db + ";Persist Security Info=True;User ID=sa;Password=Jobgate@m1n;Max Pool Size=20000;ConvertZeroDateTime=True;"))
+                using (MySqlConnection con = new MySqlConnection("Data Source=103.30.126.174;Initial Catalog=" + db + ";Persist Security Info=True;User ID=sa;Password=Jobgate@m1n;Max Pool Size=20000;ConvertZeroDateTime=True;"))
                 {
                     //con.Open();
                     //MySqlCommand cmd = new MySqlCommand(query2, con);
@@ -509,7 +509,7 @@ INNER JOIN  CN_Patient cp ON cp.ID = cd.PatientID ?1 GROUP BY cd.DateReg ORDER B
                     con.Open();
                     string query = "";
 
-                    query = @"SELECT Customer ,DateReg
+                    query = @"SELECT Customer 
 FROM bbsaha.CN_Detail 
 ?1
 group by Customer 
@@ -600,7 +600,7 @@ Order BY Customer ASC";
 
                         //var name = worksheet.Cells[row2 + 1, 2];
                         //name.Value = dr2["NameSimple"].ToString();
-                        using (MySqlConnection con2 = new MySqlConnection("Data Source=8.213.198.166;Initial Catalog=" + db + ";Persist Security Info=True;User ID=sa;Password=Jobgate@m1n;Max Pool Size=20000;ConvertZeroDateTime=True;"))
+                        using (MySqlConnection con2 = new MySqlConnection("Data Source=103.30.126.174;Initial Catalog=" + db + ";Persist Security Info=True;User ID=sa;Password=Jobgate@m1n;Max Pool Size=20000;ConvertZeroDateTime=True;"))
                         {
 
                             con2.Open();

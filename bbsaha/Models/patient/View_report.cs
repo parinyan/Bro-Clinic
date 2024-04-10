@@ -122,5 +122,16 @@ namespace bbsaha.Models.patient
             public DateTime UpdateDate { get; set; }
             public string Updateby { get; set; }
             public string RecordBy { get; set; }
+
+
+        //2023.11.07 최희문 필드 추가 
+        public string Ekg { get; set; }
+
+        //2023.11.19 최희문 필드 추가 
+        public string Others_ekg { get; set; }
+        public string Others_hearing { get; set; }
+        public string Others_pulmonary { get; set; }
+
+
     }
 }

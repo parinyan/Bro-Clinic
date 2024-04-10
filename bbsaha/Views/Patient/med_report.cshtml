@@ -136,8 +136,8 @@
     </tr>
     <tr style="color: #000" class="backcol">
 
-        <td colspan="7" class="backcola"><span class="head-card">บริษัท (Organination)</span></td>
-        <td colspan="4" class="backcola"><span class="head-card">ผลการตรวจทางห้องปฎิบัติการ (LABORTORY INVESTIGATION)</span></td>
+        <td colspan="7" class="backcola"><span class="head-card">บริษัท (Company)</span></td>
+            <td colspan="4" class="backcola"><span class="head-card">ผลตรวจทางห้องปฏิบัติการ LABOLATORY INVESTIGATION</span></td>
 
 
     </tr>
@@ -146,8 +146,8 @@
         <td colspan="7"><span class="row-card"></span>@dat.company</td>
         @*<td colspan="4" class="backcol"><span class="row-card"></span></td>*@
         <td colspan="2" class="backcol"><span class="head-card">ความสมบูรณ์ของเม็ดเลือด</span></td>
-        <td class="backcol"><span class="head-card">ค่าปกติ/Normal</span></td>
-        <td class="backcol"><span class="head-card">ผลการตรวจ/Result</span></td>
+        <td class="backcol"><span class="head-card">ค่าปกติ</span></td>
+        <td class="backcol"><span class="head-card">Result</span></td>
 
 
     </tr>
@@ -157,7 +157,7 @@
         <td class="backcol"><span class="head-card">ส่วนสูง/Height</span></td>
         <td colspan="2" class="backcol"><span class="head-card">ชีพจร/Pulse</span></td>
         <td colspan="3" class="backcol"><span class="head-card">ความดันโลหิต/Blood Pressure</span></td>
-        <td colspan="2"><span class="row-card">Hemoglobin(g/dL)</span></td>
+        <td colspan="2"><span class="row-card">Hemoglobin</span></td>
         <td><span class="row-card">M12-18,F11-16</span></td>
         <td><span class="row-card">@dat.hemoglobin</span></td>
     </tr>
@@ -169,7 +169,7 @@
         <td style="width: 80px"><span class="row-card">@dat.bloodpr</span></td>
         <td colspan="2"><span class="row-card">มิลลิเมตร/ปรอท</span></td>
         <td colspan="2"><span class="head-card">Hematocrit</span></td>
-        <td><span class="head-card">M35-52,F33-47</span></td>
+        <td><span class="head-card">M35-52,F11-16</span></td>
         <td><span class="head-card">@dat.hematocrit</span></td>
 
 
@@ -198,7 +198,11 @@
 
     <tr style="color: #000">
         <td colspan="4" class="backcol"><span class="head-card">ประวัติการสูบบุหรี่ (Smoking)</span></td>
-        <td colspan="3" class="backcol"><span class="head-card">ประวัติดื่มแอลกอฮอล์</span></td>
+            <td colspan="3" class="backcol">
+                <span class="head-card">
+                    ประวัติการดื่มแอลกอฮอล์(Dink Alcohol)
+                </span>
+            </td>
 
         <td colspan="4" class="backcola"><span class="head-card">Differential</span></td>
 
@@ -217,7 +221,7 @@
     </tr>
 
     <tr style="color: #000">
-        <td colspan="7" class="backcola"><span class="head-card">ผลการตรวจทางห้องปฎิบัติการ (LABORTORY INVESTIGATION)</span></td>
+            <td colspan="7" class="backcola"><span class="head-card">ผลการตรวจทางห้องปฏิบัติการ LABOLATORY INVESTIGATION</span></td>
 
         <td colspan="2"><span class="head-card">Lymphocyte</span></td>
         <td><span class="head-card">(20 - 45)%</span></td>
@@ -227,8 +231,8 @@
     <tr style="color: #000;" class="tr-a">
 
         <td colspan="2" class="backcol"><span class="row-card">การตรวจทางเคมี (Chemistry)</span></td>
-        <td colspan="3" class="backcol"><span class="row-card">ค่าปกติ/Normal</span></td>
-        <td colspan="2" class="backcol"><span class="row-card">ผลการตรวจ/Result</span></td>
+        <td colspan="3" class="backcol"><span class="row-card">ค่าปกติ</span></td>
+        <td colspan="2" class="backcol"><span class="row-card">Result</span></td>
 
         <td colspan="2"><span class="row-card">Monocyte</span></td>
         <td><span class="row-card">(1 - 5)%</span></td>
@@ -239,7 +243,7 @@
 
     <tr style="color: #000;" class="tr-a">
 
-        <td colspan="2" class="bt-a"><span class="row-card text-a">ตรวจโซเดียมในเลือด Sodium</span></td>
+            <td colspan="2" class="bt-a"><span class="row-card text-a">ตรวจโซเดียม Sodium</span></td>
         <td colspan="3"><span class="row-card">137 - 145 mmol/L</span></td>
         <td colspan="2"><span class="row-card">@dat.sodium</span></td>
 
@@ -251,7 +255,11 @@
 
     <tr style="color: #000;" class="tr-a">
 
-        <td colspan="2" class="bt-a"><span class="row-card text-a">ตรวจโพแทสเซียมในเลือด Postassium</span></td>
+            <td colspan="2" class="bt-a">
+                <span class="row-card text-a">
+                    ตรวจโพแทสเซียม Potassium
+                </span>
+            </td>
         <td colspan="3"><span class="row-card">3.5 -5.1 mmol/L</span></td>
         <td colspan="2"><span class="row-card">@dat.potassium</span></td>
 
@@ -266,24 +274,24 @@
 
     <tr style="color: #000;" class="tr-a">
 
-        <td colspan="2" class="bt-a"><span class="row-card text-a">ตรวจคลอไรด์ในเลือด Chloride</span></td>
+            <td colspan="2" class="bt-a"><span class="row-card text-a">ตรวจคลอไรด์ Chloride</span></td>
         <td colspan="3"><span class="row-card">98 - 107 mmol/L</span></td>
         <td colspan="2"><span class="row-card">@dat.chloride</span></td>
 
         <td colspan="2"><span class="row-card">MCV</span></td>
-        <td><span class="row-card">(80 - 95 fL)</span></td>
+        <td><span class="row-card">(80 - 95) fL</span></td>
         <td><span class="row-card">@dat.mcv</span></td>
 
     </tr>
 
     <tr style="color: #000;" class="tr-a">
 
-        <td colspan="2" class="bt-a"><span class="row-card text-a">ตรวจคาร์บอนไดออกไซด์ Total CO2</span></td>
+            <td colspan="2" class="bt-a"><span class="row-card text-a">ตรวจคาร์บอนไดออกไซด์ CO₂</span></td>
         <td colspan="3"><span class="row-card">22 - 30 mmol/L</span></td>
         <td colspan="2"><span class="row-card">@dat.totalc02</span></td>
 
         <td colspan="2"><span class="row-card">MCH</span></td>
-        <td><span class="row-card">(27 - 31 pg)</span></td>
+        <td><span class="row-card">(27 - 31) pg</span></td>
         <td><span class="row-card">@dat.mch</span></td>
 
     </tr>
@@ -295,50 +303,85 @@
         <td colspan="2"><span class="row-card">@dat.uricacid</span></td>
 
         <td colspan="2"><span class="row-card">MCHC</span></td>
-        <td><span class="row-card">(32 - 36 g/dl)</span></td>
+        <td><span class="row-card">(32 - 36) g/dl</span></td>
         <td><span class="row-card">@dat.mchc</span></td>
 
     </tr>
 
+
+        <tr style="color: #000;" class="tr-a">
+
+
+
+            <td colspan="2" class="backcol"><span class="row-card">การทำงานของไต(Renal Function)</span></td>
+            @*<td class="backcol"><span class="row-card">detail</span></td>*@
+
+            <td colspan="3" class="backcol"><span class="row-card">ค่าปกติ</span></td>
+            <td colspan="2" class="backcol"><span class="row-card">Result</span></td>
+
+            <td colspan="4" class="backcola"><span class="head-card">การตรวจจุลทรรศนศาสตร์ (Microscopic)</span></td>
+            @*<td class="backcol"><span class="row-card">การตรวจจุลทรรศนศาสตร์ (Microscopic)</span></td>
+            <td class="backcol"><span class="row-card">ตรวจปัสสาวะ (Urine Exam)</span></td>
+            <td class="backcol"><span class="row-card">detail</span></td>
+            <td class="backcol"><span class="row-card">Result</span></td>*@
+
+
+    </tr>
+
     <tr style="color: #000;" class="tr-a">
 
-        <td><span class="row-card">การทำงานของไต</span></td>
-
-        <td><span class="row-card">BUN</span></td>
-        <td colspan="3"><span class="row-card">4 - 23 mg/dl</span></td>
+            <td colspan="2"><span class="row-card">BUN</span></td>
+        @*<td><span class="row-card">การทำงานของไต</span></td>
+        <td><span class="row-card">BUN</span></td>*@
+        <td colspan="3"><span class="row-card">4 - 23 mg/dL</span></td>
         <td colspan="2"><span class="row-card">@dat.bun</span></td>
 
-        <td colspan="4" class="backcola"><span class="row-card">การตรวจทางจุลทรรศนศาสตร์ (Microsbiology)</span></td>
+
+
+            <td class="backcol" rowspan="16" style="vertical-align : middle;text-align:center;font-size: 12px"><span class="row-card"> ตรวจปัสสาวะ <br>Urine Exam</span></td>
+            <td class="backcol" style="vertical-align : middle;text-align:center;font-size: 12px"><span class="row-card"></span></td>
+            <td class="backcol"><span class="row-card">ค่าปกติ</span></td>
+            <td class="backcol"><span class="row-card">@dat.urin1</span>Result</td>
+
 
 
     </tr>
 
     <tr style="color: #000;" class="tr-a">
 
-        <td><span class="row-card">Kidney Function</span></td>
-
-        <td><span class="row-card">Creatinine</span></td>
-        <td colspan="3"><span class="row-card">0.5 - 2 mg/dl</span></td>
+        <td colspan="2"><span class="row-card">Creatinine</span></td>
+        @*<td><span class="row-card">Renal Function</span></td>
+        <td><span class="row-card">Creatinine</span></td>*@
+        <td colspan="3"><span class="row-card">0.5 - 2 mg/dL</span></td>
         <td colspan="2"><span class="row-card">@dat.creatinine</span></td>
-        <td rowspan="2" colspan="2" style="vertical-align : middle;text-align:center;font-size: 12px" class="backcol"><span class="row-card">ตรวจปัสสาวะ (Urine Exam)</span></td>
-        <td class="backcol"><span class="row-card">ค่าปกติ/Normal</span></td>
-        <td class="backcol"><span class="row-card">ผลการตรวจ/Result</span></td>
+
+
+
+            <td><span class="row-card">Color</span></td>
+            <td><span class="row-card"></span></td>
+            <td><span class="row-card">@dat.color</span></td>
+
 
 
     </tr>
 
     <tr style="color: #000;" class="tr-a">
 
-        <td rowspan="2" style="vertical-align: middle; text-align: center; width: 20px;"><span class="row-card">ไขมันไม่ไดี</span></td>
+            <td class="backcol" rowspan="4" style="vertical-align: middle; text-align: center; width: 20px;">
+                <span class="row-card">
+                    ไขมันในเลือด<br>(Lipid Profile)
 
-        <td><span class="row-card">Choiesterol</span></td>
-        <td colspan="3"><span class="row-card">&lt; 200 mg/dl</span></td>
+                </span>
+            </td>
+
+        <td><span class="row-card">Cholesterol</span></td>
+        <td colspan="3"><span class="row-card">&lt; 200 mg/dL</span></td>
         <td colspan="2"><span class="row-card">@dat.choiesterol</span></td>
 
 
-        <td><span class="row-card">Normal</span></td>
-        <td><span class="row-card">@dat.urin1</span></td>
-
+            <td><span class="row-card">Clarity</span></td>
+            <td><span class="row-card"></span></td>
+            <td><span class="row-card">@dat.clarity</span></td>
 
     </tr>
 
@@ -347,13 +390,14 @@
 
 
         <td><span class="row-card">Triglyceride</span></td>
-        <td colspan="3"><span class="row-card">35 - 150 mg/dl</span></td>
+        <td colspan="3"><span class="row-card">&lt; 150 mg/dL</span></td>
         <td colspan="2"><span class="row-card">@dat.triglyceride</span></td>
 
-        <td class="micoE backcol" rowspan="2" colspan="2" style="vertical-align : middle;text-align:center;font-size: 12px"><span class="row-card">Microscopic examination</span></td>
+            <td><span class="row-card">Sp.gr.</span></td>
+            <td><span class="row-card">1.003-1.030</span></td>
+            <td><span class="row-card">@dat.sg</span></td>
 
-        <td><span class="row-card">Color</span></td>
-        <td><span class="row-card">@dat.color</span></td>
+
 
     </tr>
 
@@ -361,112 +405,242 @@
 
     <tr style="color: #000;" class="tr-a">
 
-        <td rowspan="2" style="vertical-align: middle; text-align: center; width: 20px;"><span class="row-card">ไขมันดี</span></td>
+      
+            <td><span class="row-card">LDL</span></td>
+            <td colspan="3"><span class="row-card">19.25-120.89 mg/dL</span></td>
+            <td colspan="2"><span class="row-card">@dat.ldlc</span></td>
 
-        <td><span class="row-card">HDL-C</span></td>
-        <td colspan="3"><span class="row-card">35 - 80 mg/dl</span></td>
-        <td colspan="2"><span class="row-card">@dat.hdlc</span></td>
 
-        <td><span class="row-card">Clarity</span></td>
-        <td><span class="row-card">@dat.clarity</span></td>
+            <td><span class="row-card">pH</span></td>
+            <td class="micoE"><span class="row-card">4.0-8.0</span></td>
+            <td class="micoC"><span class="row-card">@dat.ph</span></td>
 
     </tr>
 
     <tr style="color: #000;" class="tr-a">
 
+            @*<td  style="vertical-align: middle; text-align: center; width: 20px;"><span class="row-card">ไขมันดี(Good fats)</span></td>*@
 
 
-        <td><span class="row-card">LDL-C</span></td>
-        <td colspan="3"><span class="row-card">&lt; 150 mg/dl</span></td>
-        <td colspan="2"><span class="row-card">@dat.ldlc</span></td>
-
-        <td class="micoE backcol" colspan="2"><span class="row-card">Chemical examination</span></td>
-
-        <td><span class="row-card">Bilirubin</span></td>
-        <td><span class="row-card">@dat.bilirubin</span></td>
-
-    </tr>
+            <td><span class="row-card">HDL</span></td>
+            <td colspan="3"><span class="row-card">&gt; 40 mg/dl</span></td>
+            <td colspan="2"><span class="row-card">@dat.hdlc</span></td>
 
 
-    <tr style="color: #000;" class="tr-a">
-
-        <td colspan="2" class="backcol"><span class="row-card">การทำงานของตับ Liver Function</span></td>
-
-
-        <td colspan="3" class="backcol"><span class="row-card">ค่าปกติ/Normal</span></td>
-        <td colspan="2" class="backcol"><span class="row-card">ผลการตรวจ/Result</span></td>
-
-        <td class="micoE"><span class="row-card">Sp. gr.</span></td>
-        <td class="micoC"><span class="row-card">@dat.sg</span></td>
-        <td><span class="row-card">Urobilinogen</span></td>
-        <td><span class="row-card">@dat.urobilinogen</span></td>
+            <td><span class="row-card">Protein</span></td>
+            <td class="micoE"><span class="row-card">Negative</span></td>
+            <td class="micoC"><span class="row-card">@dat.protein</span></td>
 
     </tr>
 
 
     <tr style="color: #000;" class="tr-a">
 
-        <td rowspan="3" style="vertical-align : middle;text-align:center;"><span class="row-card">Protein</span></td>
+            <td colspan="2" class="backcol"><span class="row-card">ตรวจการทำงานของตับ (Liver Function)</span></td>
+        @*<td  class="backcol"><span class="row-card">Group Name</span></td>
+        <td  class="backcol"><span class="row-card">Sub Group</span></td>*@
+        <td colspan="3" class="backcol"><span class="row-card">ค่าปกติ</span></td>
+        @*<td  class="backcol"><span class="row-card">detail</span></td>
+        <td colspan="2" class="backcol"><span class="row-card">Normal</span></td>*@
+        <td colspan="2" class="backcol"><span class="row-card">Result</span></td>
+        
 
-        <td><span class="row-card">Total</span></td>
-        <td colspan="3"><span class="row-card">6 - 8 mg/dl</span></td>
+            <td><span class="row-card">Glucose</span></td>
+            <td class="micoE"><span class="row-card">Negative</span></td>
+            <td class="micoC"><span class="row-card">@dat.glucose</span></td>
+
+
+
+
+    </tr>
+
+    
+
+
+    <tr style="color: #000;" class="tr-a">
+
+            <td rowspan="3" style="vertical-align: middle; text-align: center;"><span class="row-card">Protein</span></td>
+            
+            <td><span class="row-card">Total</span></td>
+      
+        
+
+        <td colspan="3"><span class="row-card">6.0 - 8.0 mg/dL</span></td>
         <td colspan="2"><span class="row-card">@dat.totalpro</span></td>
 
-        <td class="micoE"><span class="row-card">pH</span></td>
-        <td class="micoC"><span class="row-card">@dat.ph</span></td>
-        <td><span class="row-card">Blood</span></td>
-        <td><span class="row-card">@dat.blood</span></td>
 
-    </tr>
+
+            <td><span class="row-card">Ketone</span></td>
+            <td class="micoE"><span class="row-card">Negative</span></td>
+            <td class="micoC"><span class="row-card">@dat.ketone</span></td>
+
+
+
+   
+       
 
     <tr style="color: #000;" class="tr-a">
 
-        <td><span class="row-card">Albumin</span></td>
-        <td colspan="3"><span class="row-card">3.4 - 5.5 mg/dl</span></td>
+                @*<td style="border-bottom: none;"><span class="row-card"></span></td>*@
+            <td><span class="row-card">Albumin</span></td>
+
+        
+
+        <td colspan="3"><span class="row-card">3.4 - 5.5 mg/dL</span></td>
         <td colspan="2"><span class="row-card">@dat.albumin</span></td>
         @*<td colspan="2" style="vertical-align : middle;text-align:center;"><span class="row-card"></span></td>*@
 
 
-        <td class="micoE"><span class="row-card">Protein</span></td>
-        <td class="micoC"><span class="row-card">@dat.protein</span></td>
-        <td><span class="row-card"></span>Leukocyte</td>
-        <td><span class="row-card"></span>@dat.leukocyte</td>
+
+            <td><span class="row-card">Bilirubin</span></td>
+            <td><span class="row-card"></span>Negative</td>
+            <td><span class="row-card">@dat.bilirubin</span></td>
+
 
     </tr>
 
     <tr style="color: #000;" class="tr-a">
+       
+                @*<td><span class="row-card"></span></td>*@
 
         <td><span class="row-card">Globulin</span></td>
-        <td colspan="3"><span class="row-card">1.5 - 3.5 mg/dl</span></td>
+
+        <td colspan="3"><span class="row-card">1.5 - 3.5 mg/dL</span></td>
         <td colspan="2"><span class="row-card">@dat.globulin</span></td>
 
 
-        <td class="micoE"><span class="row-card">Glucose</span></td>
-        <td class="micoC"><span class="row-card">@dat.glucose</span></td>
-        <td><span class="row-card"></span>Nitrite</td>
-        <td><span class="row-card"></span>@dat.nitrite</td>
+
+
+            <td><span class="row-card">Urobilinogen</span></td>
+            <td><span class="row-card">Normal</span></td>
+            <td><span class="row-card">@dat.urobilinogen</span></td>
+   
     </tr>
 
 
     <tr style="color: #000;" class="tr-a">
+            <td rowspan="2" style="vertical-align: middle; text-align: center;"><span class="row-card">Bilirubin</span></td>
 
-        <td rowspan="2" style="vertical-align : middle;text-align:center;"><span class="row-card">Bilirubin</span></td>
+            <td><span class="row-card">Total</span></td>
+        
 
-        <td><span class="row-card">Total</span></td>
-        <td colspan="3"><span class="row-card">0.5 - 1.5 mg/dl</span></td>
+        <td colspan="3"><span class="row-card">0.5 - 1.5 mg/dL</span></td>
         <td colspan="2"><span class="row-card">@dat.totalbilirubin</span></td>
 
-        <td class="micoE"><span class="row-card">Ketone</span></td>
-        <td class="micoC"><span class="row-card">@dat.ketone</span></td>
-        <td><span class="row-card"></span>Ascorbic acid</td>
-        <td><span class="row-card"></span>@dat.ascorbic</td>
+
+            <td><span class="row-card">Blood</span></td>
+            <td><span class="row-card">Negative</span></td>
+            <td><span class="row-card">@dat.blood</span></td>
+
+
     </tr>
 
     <tr style="color: #000;" class="tr-a">
 
-        <td><span class="row-card">Direct</span></td>
-        <td colspan="3"><span class="row-card">0 - 0.5 mg/dl</span></td>
-        <td colspan="2"><span class="row-card">@dat.direct</span></td>
+                @*<td><span class="row-card"></span></td>*@
+            <td><span class="row-card">Direct</span></td>
+
+            <td colspan="3"><span class="row-card">0 - 0.5 mg/dL</span></td>
+            <td colspan="2"><span class="row-card">@dat.direct</span></td>
+
+
+
+            <td><span class="row-card">Leukocyte</span></td>
+            <td><span class="row-card">Negative</span></td>
+            <td><span class="row-card"></span>@dat.leukocyte</td>
+
+
+
+    </tr>
+
+        <tr style="color: #000;" class="tr-a">
+
+
+            <td colspan="2"><span class="row-card">AST</span></td>
+        
+
+            <td colspan="3"><span class="row-card">0 - 40 U/L</span></td>
+            <td colspan="2"><span class="row-card">@dat.sgot</span></td>
+
+
+            <td><span class="row-card">Nitrite</span></td>
+            <td><span class="row-card">Negative</span></td>
+            <td><span class="row-card"></span>@dat.nitrite</td>
+
+
+        </tr>
+
+
+           
+
+        <tr style="color: #000;" class="tr-a">
+
+
+            <td colspan="2"><span class="row-card">ALT</span></td>
+
+
+      
+
+            <td colspan="3"><span class="row-card">0 - 40 U/L</span></td>
+            <td colspan="2"><span class="row-card">@dat.sgpt</span></td>
+
+
+
+            <td><span class="row-card">Ascorbic acid</span></td>
+            <td><span class="row-card">Negative</span></td>
+            <td><span class="row-card"></span>@dat.ascorbic</td>
+  
+
+        </tr>
+
+        <tr style="color: #000;" class="tr-a">
+
+
+            <td colspan="2"><span class="row-card">Alk,Phosphatase</span></td>
+
+
+     
+
+            <td colspan="3"><span class="row-card">40 - 129 U/L</span></td>
+            <td colspan="2"><span class="row-card">@dat.alk</span></td>
+
+
+
+            @*<td rowspan="2" style="vertical-align : middle;text-align:center;font-size: 12px"> <span class="row-card">เพิ่มช่องรายการตรวจ</span> </td>*@
+            <td class="backcol"><span class="row-card">ตรวจหาสารเสพติด (Amphetamine)</span></td>
+            <td><span class="row-card">Negative</span></td>
+            <td><span class="row-card">@dat.amphetamine</span></td>
+        
+
+        </tr>
+
+        <tr style="color: #000;" class="tr-a">
+
+
+            <td class="backcol" colspan="2"><span class="row-card">ตรวจระดับน้ำตาลในเลือด (FBS)</span></td>
+
+
+         
+
+            <td colspan="3"><span class="row-card">75 - 100 mg/dL</span></td>
+            <td colspan="2"><span class="row-card">@dat.fbs</span></td>
+
+
+
+
+            <td class="backcol"><span class="row-card">ตรวจการตั้งครรภ์ (Pregnancy test)</span></td>
+            <td><span class="row-card">Negative</span></td>
+            <td><span class="row-card">@dat.pregnancy</span></td>
+
+        
+
+        </tr>
+
+
+    <tr style="color: #000;" class="tr-a">
+       
+        <td colspan="7" class="backcola"><span class="head-card">การตรวจทางภูมิคุ้มกันวิทยา (Immunology)</span></td>
+
         @*<td colspan="2" rowspan="1" class="backcol"><span class="row-card"></span></td>*@
         <td colspan="4" class="backcola"><span class="row-card">การตรวจทางปรสิตวิทยา (Parasitology)</span></td>
 
@@ -475,35 +649,54 @@
 
     <tr style="color: #000;" class="tr-a">
 
-        <td colspan="2" class="bt-a"><span class="row-card text-a">SGOT</span></td>
-        <td colspan="3"><span class="row-card">0 - 40 U/L</span></td>
-        <td colspan="2"><span class="row-card">@dat.sgot</span></td>
-        <td colspan="2" rowspan="2" style="vertical-align : middle;text-align:center;"><span class="row-card">การตรวจหา Stool Examination</span></td>
-        <td class="backcol"><span class="row-card">ค่าปกติ/Normal</span></td>
-        <td class="backcol"><span class="row-card">ผลการตรวจ/Result</span></td>
 
+            <td colspan="2" class="backcol"><span class="row-card">ตรวจไวรัสตับอักเสบบี (Hepatitis B Virus)</span></td>
+
+            <td colspan="3" class="backcol"><span class="row-card">ค่าปกติ</span></td>
+            <td colspan="2" class="backcol"><span class="row-card">Result</span></td>
+            <td colspan="2" class="backcol"><span class="row-card"></span></td>
+
+
+       
+
+        <td class="backcol"><span class="row-card">ค่าปกติ</span></td>
+        <td class="backcol"><span class="row-card">Result</span></td>
+
+
+    
 
 
     </tr>
 
     <tr style="color: #000;" class="tr-a">
 
-        <td colspan="2" class="bt-a"><span class="row-card text-a">SGPT</span></td>
-        <td colspan="3"><span class="row-card">0 - 40 U/L</span></td>
-        <td colspan="2"><span class="row-card">@dat.sgpt</span></td>
+            <td colspan="2"><span class="row-card">HBs Ag เชื้อ</span></td>
+
+            <td colspan="3"><span class="row-card">Negative</span></td>
+            <td colspan="2"><span class="row-card">@dat.hbsag</span></td>
+
+
+            <td colspan="2" style="vertical-align : middle;text-align:center;"><span class="row-card">ตรวจ Stool Examination</span></td>
         <td><span class="row-card">No found</span></td>
         <td><span class="row-card">@dat.stoolex</span></td>
 
 
 
+
+
     </tr>
 
     <tr style="color: #000;" class="tr-a">
 
-        <td colspan="2" class="bt-a"><span class="row-card text-a">Alk,Phosphatase</span></td>
-        <td colspan="3"><span class="row-card">40 - 129 U/L</span></td>
-        <td colspan="2"><span class="row-card">@dat.alk</span></td>
-        <td colspan="2"><span class="row-card">การตรวจหา Stool Culture</span></td>
+            <td colspan="2"><span class="row-card">HBs Ab ภูมิต้านทาน</span></td>
+
+            <td colspan="3"><span class="row-card"> - </span></td>
+            <td colspan="2"><span class="row-card">@dat.hbsagb</span></td>
+
+
+
+
+            <td colspan="2"><span class="row-card">ตรวจ Stool Culture</span></td>
         <td><span class="row-card">No Growth</span></td>
         <td><span class="row-card">@dat.stoolcul</span></td>
 
@@ -513,12 +706,20 @@
 
     <tr style="color: #000;" class="tr-a">
 
-        <td colspan="2" class="bt-a"><span class="row-card text-a">ตรวจระดับน้ำตาลในเลือด (FBS)</span></td>
-        <td colspan="3"><span class="row-card">75 - 100 mg/dl</span></td>
-        <td colspan="2"><span class="row-card">@dat.fbs</span></td>
-        <td colspan="2" class="backcol"><span class="row-card">การตรวจอื่นๆ (Other)</span></td>
-        <td class="backcol"><span class="row-card">ค่าปกติ/Normal</span></td>
-        <td class="backcol"><span class="row-card">ผลการตรวจ/result</span></td>
+
+            <td colspan="2" class="backcol"><span class="row-card">ตรวจไวรัสตับอักเสบเอ (Hepatitis A Virus)</span></td>
+            <td colspan="3" class="backcol"><span class="row-card">ค่าปกติ</span></td>
+            <td colspan="2" class="backcol"><span class="row-card">Result</span></td>
+            <td colspan="2" class="backcol"><span class="row-card"></span></td>
+            @*<td colspan="3"><span class="row-card">Negative</span></td>
+        <td colspan="2"><span class="row-card">@dat.antihavtotal</span></td>*@
+
+
+
+       @* <td  class="backcol"><span class="row-card">Group Name</span></td>
+        <td class="backcol"><span class="row-card">Sub Name</span></td>*@
+        <td class="backcol"><span class="row-card">ค่าปกติ</span></td>
+        <td class="backcol"><span class="row-card">Result</span></td>
 
 
 
@@ -526,138 +727,107 @@
 
     <tr style="color: #000;" class="tr-a">
 
-        <td colspan="2" class="bt-a"><span class="row-card text-a">ตรวจหาสารเสพติด (Amphetamine)</span></td>
-        <td colspan="3"><span class="row-card">Negative</span></td>
-        <td colspan="2"><span class="row-card">@dat.amphetamine</span></td>
-        <td colspan="2"><span class="row-card">การตรวจหาหมู่เลือด<br /> (Blood Group)</span></td>
-        <td><span class="row-card">A,B,AB,O</span></td>
-        <td><span class="row-card">@dat.bloodgr</span></td>
+            <td colspan="2"><span class="row-card">HAV IgM / IgG</span></td>
 
+            <td colspan="3"><span class="row-card">Negative</span></td>
+            <td colspan="2"><span class="row-card">@dat.antihavtotal</span></td>
 
+           @* <td colspan="3"><span class="row-card">Negative</span></td>
+        <td colspan="2"><span class="row-card">@dat.antihavigm</span></td>*@
+
+            <td class="backcol" rowspan="8" style="vertical-align : middle;text-align:center;font-size: 12px"><span class="row-card">การตรวจอื่น ๆ <br>(Other)</span></td>
+            <td><span class="row-card">การตรวจหากรุ๊ปเลือด (Blood group)</span></td>
+            <td ><span class="row-card">A,B,AB,O</span></td>
+            <td ><span class="row-card">@dat.bloodgr</span></td>
 
     </tr>
 
     <tr style="color: #000;" class="tr-a">
 
-        <td colspan="2" class="bt-a"><span class="row-card text-a">ตรวจการตั้งครรภ์ (Pregnancy test)</span></td>
-        <td colspan="3"><span class="row-card">Negative</span></td>
-        <td colspan="2"><span class="row-card">@dat.pregnancy</span></td>
-        <td colspan="2"><span class="row-card">ทดสอบตาบอดสี</span></td>
-        <td><span class="row-card"></span></td>
-        <td><span class="row-card">@dat.eyecolor</span></td>
+            <td class="backcol" colspan="2"><span class="row-card">ตรวจเชื้อซิฟิลิส (RPR)</span></td>
+            <td colspan="3"><span class="row-card">Non-reactive</span></td>
+            <td colspan="2"><span class="row-card">@dat.vdrl</span></td>
+
+
+         
+            <td><span class="row-card">ทดสอบตาบอดสี (Color Blindness)</span></td>
+            <td><span class="row-card"></span></td>
+        <td><span class="row-card"></span> @dat.eyecolor</td>
 
     </tr>
 
     <tr style="color: #000">
-        <td colspan="7" class="backcola"><span class="head-card">การตรวจทางภูมิคุ้มกันวิทยาชีวโมเลกุล (Immunology)</span></td>
-        <td colspan="2"><span class="head-card">เอกซเรย์ (X-Ray)</span></td>
+            <td class="backcol" colspan="2"><span class="row-card">ตรวจหาเชื้อ HIV</span></td>
+            <td colspan="3"><span class="row-card">Negative</span></td>
+            <td colspan="2"><span class="row-card">@dat.antihiv</span></td>
+
+
+
+     
+         <td><span class="head-card"> ตรวจสายตาอาชีวะอนามัย (Vision test )</span></td>
         <td><span class="head-card">Normal</span></td>
-        <td><span class="head-card">@dat.xray</span></td>
+            <td><span class="head-card"></span>@dat.hissickbody</td>
 
     </tr>
 
     <tr style="color: #000;" class="tr-a">
 
-        <td colspan="2" class="backcol"><span class="row-card">ตรวจไวรัสตับอักเสบบี (Hepatitis B Virus)</span></td>
-        <td colspan="3" class="backcol"><span class="row-card">ค่าปกติ/Normal</span></td>
-        <td colspan="2" class="backcol"><span class="row-card">ผลการตรวจ/Result</span></td>
-        <td colspan="2"><span class="row-card">การได้ยิน</span></td>
+
+            <td class="backcol" rowspan="5" style="vertical-align: middle; text-align: center;"><span class="row-card">ตรวจการทำงาน<br />ของต่อมไทรอยด์<br />(Thyroid Function)</span></td>
+            <td><span class="row-card">TSH</span></td>
+            <td colspan="3"><span class="row-card">0.47 - 4.68 mIU/L</span></td>
+            <td colspan="2"><span class="row-card">@dat.tsh</span></td>
+
+    
+        <td ><span class="row-card">ตรวจการได้ยิน (Hearing test)</span></td>
         <td><span class="row-card"></span></td>
-        <td><span class="row-card"></span>@dat.hissickbody</td>
+        <td><span class="row-card"></span>@dat.Others_hearing</td>
 
     </tr>
     <tr style="color: #000;" class="tr-a">
 
-        <td colspan="2"><span class="row-card">HBsAg (เชื้อ)</span></td>
-        <td colspan="3"><span class="row-card">Negative</span></td>
-        <td colspan="2"><span class="row-card">@dat.hbsag</span></td>
-        <td colspan="2"><span class="row-card">แพ้ยา</span></td>
+            <td><span class="row-card">Free T3</span></td>
+            <td colspan="3"><span class="row-card">2.77- 5.27pg/mL</span></td>
+            <td colspan="2"><span class="row-card">@dat.freet3</span></td>
+
+           
+        <td><span class="row-card">ตรวจสมรรถภาพปอด (Pulmonary Function test)</span></td>
         <td><span class="row-card"></span></td>
-        <td><span class="row-card">@dat.hisfood</span></td>
+            <td><span class="row-card">@dat.Others_pulmonary</span></td>
 
     </tr>
+
+
+
+
+
     <tr style="color: #000;" class="tr-a">
 
-        <td colspan="2"><span class="row-card">HBsAb (ภูมิต้านทาน)</span></td>
-        <td colspan="3"><span class="row-card">-</span></td>
-        <td colspan="2"><span class="row-card">@dat.hbsagb</span></td>
-        <td colspan="2"><span class="row-card">ผลการตรวจโควิด(Covid Test)</span></td>
+
+            <td><span class="row-card">Free T4</span></td>
+            <td colspan="3"><span class="row-card">0.78- 2.19ng/mL</span></td>
+            <td colspan="2"><span class="row-card">@dat.freet4</span></td>
+
+
+            <td><span class="row-card"> ตรวจคลื่นไฟฟ้าหัวใจ EKG</span></td>
         <td><span class="row-card"></span></td>
-        <td><span class="row-card">@dat.hissickwork</span></td>
+        <td><span class="row-card">@dat.Others_ekg</span></td>
 
     </tr>
 
     <tr style="color: #000;" class="tr-a">
 
-        <td colspan="2" class="backcol"><span class="row-card">ตรวจไวรัสตับอักเสบเอ (Hepatitis A Virus)</span></td>
-        <td colspan="3" class="backcol"><span class="row-card">ค่าปกติ/Normal</span></td>
-        <td colspan="2" class="backcol"><span class="row-card">ผลการตรวจ/Result</span></td>
-        <td colspan="4" class="backcola" style=""><span class="row-card">สรุป (Summary)</span></td>
+            <td><span class="row-card">T3</span></td>
+            <td colspan="3"><span class="row-card">0.7- 1.9ng/dL</span></td>
+            <td colspan="2"><span class="row-card">@dat.t3</span></td>
 
-    </tr>
+ 
+            <td><span class="row-card">เอกซเรย์ (X-Ray)</span></td>
+            <td><span class="row-card"></span></td>
+            <td><span class="row-card">@dat.xray</span></td>
 
-    <tr style="color: #000;" class="tr-a">
+          
 
-        <td colspan="2"><span class="row-card">AntiHAV(Total)</span></td>
-        <td colspan="3"><span class="row-card">Negative</span></td>
-        <td colspan="2"><span class="row-card">@dat.antihavtotal</span></td>
-        <td colspan="4" rowspan="9" style="">
-            <div style="height: 164px;">
-                <p class="row-card" style=" line-height: 16px; text-align: left !important;margin-left: 5px;margin-top:5px">
-                    <span>ตรวจสุขภาพร่ายกายได้แก่ วัดความดันโลหิต,ส่วนสูง: @(dat.s1 != ""  ? dat.s1 : "-")</span><br />
-                    <span>ตรวจเอกซ์เรย์(X-Ray): @(dat.s2 != ""  ? dat.s2  : "-")</span><br />
-                    <span>ตรวจหาความสมบูรณ์ของเม็ดเลือด(CBC): @(dat.s3 != ""  ? dat.s3 : "-")</span><br />
-                    <span>ตรวจหาสารเสพติด: @(dat.s4 != ""  ? dat.s4 : "-")</span><br />
-                    <span>ตรวจการตั้งครรภ์: @(dat.s5 != ""  ? dat.s5 : "-")</span><br />
-                    <span>ตรวจไวรัสตับอักเสบบี(HBsAg): @(dat.s6 != ""  ?  dat.s6 : "-")</span><br />
-                    <span>ตรวจสมรรถภาพทางสายตา: @(dat.s7 != ""  ?  dat.s7 : "-")</span><br />
-                    <span>ตรวจเชื้อไวรัสเอดส์ : @(dat.s8 != ""  ?  dat.s8 : "-")</span><br />
-                    <span>ตรวจการได้ยิน: @(dat.hissickbody != ""  ?  dat.hissickbody : "-")</span>
-                </p>
-            </div>
-            <div style="height: 20%;">
-                @*<img src="~/asset/img/mata.png" style="width: 20%;position:absolute;left: 686px;bottom: 345px" />*@
-                <div style="border-bottom: 1px dashed #000; width: 60%; height: 22px; margin-left: 80px; margin-bottom: 14px"></div>
-                @*<span>ทนพ.มาธวี ไวมาตร</span>*@
-                <span></span>
-            </div>
-        </td>
-
-    </tr>
-
-    <tr style="color: #000;" class="tr-a">
-
-        <td colspan="2"><span class="row-card">AntiHAV(IgM)</span></td>
-        <td colspan="3"><span class="row-card">Positive</span></td>
-        <td colspan="2"><span class="row-card">@dat.antihavigm</span></td>
-
-
-    </tr>
-
-    <tr style="color: #000;" class="tr-a">
-
-        <td colspan="2"><span class="row-card">ตรวจเชื้อซิฟิลิส (RPR)</span></td>
-        <td colspan="3"><span class="row-card">Non-reactive</span></td>
-        <td colspan="2"><span class="row-card">@dat.vdrl</span></td>
-
-
-    </tr>
-
-    <tr style="color: #000;" class="tr-a">
-
-        <td colspan="2"><span class="row-card">ตรวจเชื้อไวรัลเอดส์ (Anti-HIV)</span></td>
-        <td colspan="3"><span class="row-card">Negative</span></td>
-        <td colspan="2"><span class="row-card">@dat.antihiv</span></td>
-
-
-    </tr>
-
-    <tr style="color: #000;" class="tr-a">
-
-        <td rowspan="5" style="vertical-align: middle; text-align: center;"><span class="row-card">ตรวจการทำงาน<br />ของต่อมไทรอยด์<br />(Thyroid Function)</span></td>
-        <td><span class="row-card">TSH</span></td>
-        <td colspan="3"><span class="row-card">0.47 - 4.68 mIU/L</span></td>
-        <td colspan="2"><span class="row-card">@dat.tsh</span></td>
 
 
     </tr>
@@ -665,42 +835,82 @@
     <tr style="color: #000;" class="tr-a">
 
 
-        <td><span class="row-card">Free T3</span></td>
-        <td colspan="3"><span class="row-card">2.77- 5.27pg/ml</span></td>
-        <td colspan="2"><span class="row-card">@dat.freet3</span></td>
+            <td><span class="row-card">T4</span></td>
+            <td colspan="3"><span class="row-card">4.6 - 12ug/dL</span></td>
+            <td colspan="2"><span class="row-card">@dat.t4</span></td>
 
 
-    </tr>
-
-    <tr style="color: #000;" class="tr-a">
-
-
-        <td><span class="row-card">Free T4</span></td>
-        <td colspan="3"><span class="row-card">0.78- 2.19ng/ml</span></td>
-        <td colspan="2"><span class="row-card">@dat.freet4</span></td>
-
+            <td><span class="row-card">ตรวจโควิด (Covid-19)</span></td>
+            <td><span class="row-card"></span></td>
+            <td><span class="row-card">@dat.hissickwork</span></td>
 
     </tr>
 
     <tr style="color: #000;" class="tr-a">
 
 
-        <td><span class="row-card">T3</span></td>
-        <td colspan="3"><span class="row-card">0.7- 1.9ng/dl</span></td>
-        <td colspan="2"><span class="row-card">@dat.t3</span></td>
-
+            <td colspan="11" class="backcola" style=""><span class="row-card">สรุป (Summary)</span></td>
 
     </tr>
 
     <tr style="color: #000;" class="tr-a">
 
 
-        <td><span class="row-card">T4</span></td>
-        <td colspan="3"><span class="row-card">4.6 - 12ug/dl</span></td>
-        <td colspan="2"><span class="row-card">@dat.t4</span></td>
+            <td colspan="11" rowspan="9" style="">
+                <div style="height: 164px;">
+                    <p class="row-card" style=" line-height: 16px; text-align: left !important;margin-left: 5px;margin-top:5px">
+                        <span>ตรวจสุขภาพร่ายกายได้แก่ วัดความดันโลหิต: @(dat.s1 != "" ? dat.s1 : "-")</span><br />
+                        <span>ตรวจเอกซเรย์(X-Ray): @(dat.s2 != "" ? dat.s2 : "-")</span><br />
+                        <span>ตรวจหาความสมบูรณ์ของเม็ดเลือด(CBC): @(dat.s3 != "" ? dat.s3 : "-")</span><br />
+                            @*20240106 최희문 수정  두 항목, 항목 잘되어있음  *@
+                            @*<span>ตรวจหาสารเสพติดในปัสสาวะ: @(dat.s4 != "" ? dat.s4 : "-")</span><br />*@
+                            @*<span>ตรวจการตั้งครรภ์ในปัสสาวะ: @(dat.s5 != "" ? dat.s5 : "-")</span><br />*@
 
 
+                            @{
+                                if (dat.amphetamine == "Positive")
+                              {
+                                <span>ตรวจการตั้ตรวจหาสารเสพติดในปัสสาวะ:  <font color="red"> @(dat.amphetamine != "" ? dat.amphetamine : "-")</font></span><br />
+                                }
+                                else
+                                {
+                                <span>ตรวจการตั้ตรวจหาสารเสพติดในปัสสาวะ:  @(dat.amphetamine != "" ? dat.amphetamine : "-")</span> <br />
+                                }
+                            }
+
+                            @{
+                                if (dat.pregnancy == "Positive")
+                                {
+
+                                <span>ตรวจการตั้งครรภ์ในปัสสาวะ: <font color="red"> @(dat.pregnancy != "" ? dat.pregnancy : "-")</font></span>
+
+                                    <br />
+
+                                }
+                                else
+                                {
+                                <span>ตรวจการตั้ตรวจหาสารเสพติดในปัสสาวะ:  @(dat.pregnancy != "" ? dat.pregnancy : "-")</span> <br />
+                                }
+                            }
+
+
+                        <span>ตรวจไวรัสตับอักเสบบี(HBsAg): @(dat.s6 != "" ? dat.s6 : "-")</span><br />
+                        <span>ตรวจสมรรถภาพทางสายตา: @(dat.s7 != "" ? dat.s7 : "-")</span><br />
+                        <span>ตรวจหาเชื้อ HIV : @(dat.s8 != "" ? dat.s8 : "-")</span><br />
+                        <span>ตรวจการได้ยิน: @(dat.Others_hearing != "" ? dat.Others_hearing : "-")</span>
+                    </p>
+                </div>
+                <div style="height: 20%;">
+                    @*<img src="~/asset/img/mata.png" style="width: 20%;position:absolute;left: 686px;bottom: 345px" />*@
+                    <div style="border-bottom: 1px dashed #000; width: 60%; height: 22px; margin-left: 80px; margin-bottom: 14px"></div>
+                    @*<span>ทนพ.มาธวี ไวมาตร</span>*@
+                    <span></span>
+                </div>
+            </td>
     </tr>
+
+
+   
 
 </table>
 }

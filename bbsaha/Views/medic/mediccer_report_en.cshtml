@@ -1,0 +1,574 @@
+﻿@{
+    Layout = "";
+
+}
+
+@using bbsaha.Models.Certificate
+<link href="~/css/sb-admin-2.css" rel="stylesheet" asp-append-version="true" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+<link href="~/css/fontawesome-free/css/all.css" rel="stylesheet" />
+
+<script src="~/js/jquery.min.js" asp-append-version="true"></script>
+<script src="~/js/jquery-3.5.1.js" asp-append-version="true"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/Scripts/umd/popper.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<script src="~/Scripts/vendor/chart.js/Chart.min.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4-4.6.0/jszip-2.5.0/dt-1.10.25/af-2.3.7/b-1.7.1/b-colvis-1.7.1/b-html5-1.7.1/b-print-1.7.1/cr-1.5.4/date-1.1.0/fc-3.3.3/fh-3.1.9/kt-2.6.2/r-2.2.9/rg-1.1.3/rr-1.2.8/sc-2.0.4/sb-1.1.0/sp-1.3.0/sl-1.3.3/datatables.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" asp-append-version="true" />
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4-4.6.0/jszip-2.5.0/dt-1.10.25/af-2.3.7/b-1.7.1/b-colvis-1.7.1/b-html5-1.7.1/b-print-1.7.1/cr-1.5.4/date-1.1.0/fc-3.3.3/fh-3.1.9/kt-2.6.2/r-2.2.9/rg-1.1.3/rr-1.2.8/sc-2.0.4/sb-1.1.0/sp-1.3.0/sl-1.3.3/datatables.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun&display=swap" rel="stylesheet">
+<style>
+    .display-flex {
+        display: flex;
+        display: -webkit-box;
+        margin-top: 10px
+    }
+
+    .flex-a {
+        width: 35%;
+    }
+
+    .flex-b {
+        width: 65%
+    }
+
+    .flex-in-a {
+        width: 30%;
+    }
+
+    .flex-in-b {
+        width: 70%
+    }
+
+    body, button, h1, h2, h3, h4, h5, input, option {
+        font-family: 'Sarabun', sans-serif !important;
+        /*font-weight: 800 !important;*/
+        /*font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;*/
+    }
+</style>
+
+
+<div style="width: 100%;height: 140px;border-bottom: 2px solid #000">
+    <div class="display-flex">
+        <div class="flex-a">
+            @*<img src="~/asset/img/2022-09-28_13-38-51.png" style="width:90%;margin-top: 10px" />*@
+            <img src="~/asset/img/logobbnew.png" style="width:90%;margin-top: 10px"/>
+        </div>
+        <div class="flex-b">
+            <span style="white-space:pre-line;text-align:center">
+                บีบี สหคลินิก คลินิกเวชกรรม (BB SahaClinic)
+                556/29‐30 หมู่บ้านบ่อวินนคร 2 ม.3 ต.บ่อวิน อ.ศรีราชา จ.ชลบุรี 20230
+                @*556/29‐30 Bowin Nakorn 2 Village Moo 3 , Bowin Sub‐district, Si racha District, Chonburi Province 20230*@
+                Tel. 065‐9459882 , 098‐227684 Email: sahaclinic.bb@gmail.com
+                Tax ID 0‐2055‐64001‐73‐5
+            </span>
+        </div>
+
+    </div>
+
+
+</div>
+@foreach(View_Datacer dat in ViewBag.data)
+{
+<div style="width: 100%; height: auto; padding: 0px 40px;margin-top: 15px;font-size: 17px;">
+    <div style="width: 100%;text-align:center">
+        <h4>ใบรับรองแพทย์</h4>
+    </div>
+    <div style="font-size: 16px">
+        <div class="display-flex">
+
+            <div class="flex-in-a" style="font-size: 18px; font-weight: 900">
+                Part 1 for the patient who requests for the medical fitness certificate 
+            </div>
+            <div class="flex-in-b">
+
+            </div>
+
+        </div>
+        <div class="display-flex">
+
+            <div class="flex-in-a">
+                I
+                @if (dat.NametitleCus == "นาย")
+                {
+                    <span>นาย</span>
+                }
+                else
+                { <s>นาย</s>
+
+                }/
+                @if (dat.NametitleCus == "นาง")
+                {
+                    <span>นาง</span>
+                }
+                else
+                { <s>นาง</s>
+
+                }/
+                @if (dat.NametitleCus == "นางสาว")
+                {
+                    <span>นางสาว</span>
+                }
+                else
+                { <s>นางสาว</s>
+
+
+                    }/
+                    @if (dat.NametitleCus == "ာMr.")
+                    {
+                        <span>Mr.</span>
+                    }
+                    else
+                    {
+                        <s>Mr.</s>
+
+                    }
+                    }/
+                    @if (dat.NametitleCus == "Ms.")
+                    {
+                        <span>Ms.</span>
+                    }
+                    else
+                    {
+                        <s>Ms.</s>
+
+                    }
+
+               
+            </div>
+            <div class="flex-in-b">
+                    <div style="border-bottom: 1px dashed #000; width: 600px;text-align: center;">@dat.NametitleCus&nbsp;@dat.FirstNameCus&nbsp;@dat.lastNameCus</div>
+            </div>
+
+        </div>
+        <div class="display-flex">
+
+            <div class="flex-in-a">
+                residing at address 
+            </div>
+            <div class="flex-in-b">
+                <div style="border-bottom: 1px dashed #000; width: 600px;">&nbsp;@dat.AddressCus</div>
+            </div>
+
+        </div>
+
+        <div class="display-flex">
+
+            <div class="flex-in-a">
+                national identification number 
+            </div>
+            <div class="flex-in-b" style="width: 30% !important;">
+                <div style="border-bottom: 1px dashed #000; width: 100%;height: 22px;text-align:center">@dat.IdcardCus </div>
+            </div>
+            <div class="flex-in-b" style="width: 40% !important;margin-left:5px">
+              
+            </div>
+
+        </div>
+
+        <div class="display-flex">
+
+            <div class="flex-in-a">
+               
+            </div>
+            <div class="flex-in-b" style="width: 30% !important;">
+                <div style="border-bottom: 1px dashed #000; width: 100%;height: 22px;text-align:center"> would like to request for the medical fitness certificate. Below is my health history. </div>
+            </div>
+            <div class="flex-in-b" style="width: 2% !important;margin-left:5px">
+              
+            </div>
+
+        </div>
+
+
+        <div class="display-flex">
+
+            <div class="flex-in-a">
+                1. chronic health condition/disease 
+            </div>
+            <div class="flex-in-b" style="width: 40% !important;">
+                <img src="~/asset/img/@(dat.Check_1 == false? "checknoblank.png" : "checkblank.png")" style="width: 9%; margin-right: 20px; margin-left: 40px " /> No
+                <img src="~/asset/img/@(dat.Check_1 == true? "checknoblank.png" : "checkblank.png")" style="width: 9%; margin-right: 20px; margin-left: 40px" /> Yes (please specify)
+
+
+            </div>
+            <div class="flex-in-c" style="width: 30% !important;">
+                <div style="border-bottom: 1px dashed #000; width: 100%;height: 22px">@dat.Detail_1</div>
+
+            </div>
+
+        </div>
+        <div class="display-flex">
+
+            <div class="flex-in-a">
+                2. accident and operation 
+            </div>
+            <div class="flex-in-b" style="width: 40% !important;">
+                <img src="~/asset/img/@(dat.Check_2 == false? "checknoblank.png" : "checkblank.png")" style="width: 9%; margin-right: 20px; margin-left: 40px " /> No
+                <img src="~/asset/img/@(dat.Check_2 == true? "checknoblank.png" : "checkblank.png")" style="width: 9%; margin-right: 20px; margin-left: 40px" /> Yes (please specify)
+
+            </div>
+            <div class="flex-in-c" style="width: 30% !important;">
+                <div style="border-bottom: 1px dashed #000; width: 100%;height: 22px">@dat.Detail_2</div>
+
+            </div>
+
+        </div>
+        <div class="display-flex">
+
+            <div class="flex-in-a">
+                3. hospital admission   
+            </div>
+            <div class="flex-in-b" style="width: 40% !important;">
+                
+                <img src="~/asset/img/@(dat.Check_3 == false? "checknoblank.png" : "checkblank.png")" style="width: 9%; margin-right: 20px; margin-left: 40px " />No
+                <img src="~/asset/img/@(dat.Check_3 == true? "checknoblank.png" : "checkblank.png")" style="width: 9%; margin-right: 20px; margin-left: 40px" />Yes (please specify)
+
+            </div>
+            <div class="flex-in-c" style="width: 30% !important;">
+                <div style="border-bottom: 1px dashed #000; width: 100%;height: 22px;">@dat.Detail_3</div>
+
+            </div>
+
+        </div>
+
+
+        <div class="display-flex">
+
+            <div class="flex-in-a">
+                4. other important history 
+            </div>
+            <div class="flex-in-b">
+                <div style="border-bottom: 1px dashed #000; width: 600px;height: 22px">@dat.Detail_5</div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+
+    <div class="display-flex" style="margin-top: 16px !important">
+        <div class="" style="width: 15% !important;">
+        </div>
+        <div class="flex-in-a" style="width: 4% !important;">
+            signature
+        </div>
+        <div class="flex-in-a" style="font-size: 14px;width: 55% !important;">
+            <div style="border-bottom: 1px dashed #000; width: 100%;height: 22px;margin-bottom:6px"> </div>
+           If the patient is a child who cannot certify his/own health history, the guardian may sign on this document on behalf of the child. 
+        </div>
+        <div class="flex-in-a" style="width: 1% !important;">
+           
+        </div>
+        <div class="flex-in-b" style="width: 4% !important;">
+            date
+        </div>
+        <div class="flex-in-b" style="width: 21% !important;">
+            <div style="border-bottom: 1px dashed #000; width: 100%; height: 22px; text-align: center ">@dat.CerDate.ToString("dd/MM/yyyy")</div>
+        </div>
+    </div>
+    <div class="display-flex">
+
+        <div class="flex-in-a" style="font-size: 18px;font-weight: 900">
+           Part 2 for the physician
+        </div>
+        <div class="flex-in-b">
+
+        </div>
+
+    </div>
+    <div class="display-flex">
+
+        <div class="flex-in-a" style="width: 10% !important;">
+            Place of examination 
+        </div>
+        <div class="flex-in-b" style="width: 65% !important;">
+            <div style="border-bottom: 1px dashed #000; width: 80%; padding-left: 80px">@dat.NameClinic</div>
+        </div>
+        <div class="flex-in-b" style="width: 4% !important;">
+            date
+        </div>
+        <div class="flex-in-b" style="width: 21% !important;">
+            <div style="border-bottom: 1px dashed #000; width: 100%; height: 22px; text-align: center">@dat.CerDate.ToString("dd/MM/yyyy")</div>
+        </div>
+
+    </div>
+    <div class="display-flex">
+
+        <div class="flex-in-a">
+           (1) I, Dr
+        </div>
+        <div class="flex-in-b">
+            <div style="border-bottom: 1px dashed #000; width: 100%; padding-left: 40px">@dat.FnameCom&nbsp;@dat.LnameCom</div>
+        </div>
+
+    </div>
+    <div class="display-flex">
+
+        <div class="flex-in-a">
+           medical license No. 
+        </div>
+        <div class="flex-in-b">
+            <div style="border-bottom: 1px dashed #000; width: 100%; padding-left: 40px">@dat.LicenseIdCom</div>
+        </div>
+
+    </div>
+    <div class="display-flex">
+
+        <div class="flex-in-a">
+            location of medical practice 
+        </div>
+        <div class="flex-in-b">
+            <div style="border-bottom: 1px dashed #000; width: 100%;padding-left:40px">@dat.NameClinic</div>
+        </div>
+
+    </div>
+    <div class="display-flex">
+
+        <div class="flex-in-a">
+            examined    @if (dat.NametitleCus == "นาย")
+            {
+                <span>นาย</span>
+            }
+            else
+            { <s>นาย</s>
+
+            }/
+            @if (dat.NametitleCus == "นาง")
+            {
+                <span>นาง</span>
+            }
+            else
+            { <s>นาง</s>
+
+            }/
+            @if (dat.NametitleCus == "นางสาว")
+            {
+                <span>นางสาว</span>
+            }
+            else
+            { <s>นางสาว</s>
+
+
+                }/
+                @if (dat.NametitleCus == "ာMr.")
+                {
+                    <span>Mr.</span>
+                }
+                else
+                {
+                    <s>Mr.</s>
+
+                }
+                }/
+                @if (dat.NametitleCus == "Ms.")
+                {
+                    <span>Ms.</span>
+                }
+                else
+                {
+                    <s>Ms.</s>
+
+                }
+
+        </div>
+        <div class="flex-in-b">
+                <div style="border-bottom: 1px dashed #000; width: 100%;text-align:center">@dat.NametitleCus&nbsp;@dat.FirstNameCus&nbsp;@dat.lastNameCus</div>
+        </div>
+
+    </div>
+    <div class="display-flex">
+
+        <div class="flex-in-a" style="width: 7%">
+            date
+        </div>
+        <div class="flex-in-b">
+            <div style="border-bottom: 1px dashed #000; width: 20%; height: 22px; text-align: center ">@dat.CerDate.ToString("dd/MM/yyyy")</div>
+        </div>
+
+    </div>
+    <div class="display-flex">
+
+        <div class="flex-in-a" style="width: 8%;">
+            weight 
+        </div>
+        <div class="flex-in-a" style="width: 10%;">
+            <div style="border-bottom: 1px dashed #000; width: 100%; height: 22px; text-align: center">@dat.WeightCus</div>
+        </div>
+        <div class="flex-in-b" style="width: 10%;">
+           height 
+        </div>
+        <div class="flex-in-b" style="width: 10%;">
+            <div style="border-bottom: 1px dashed #000; width: 100%; height: 22px; text-align: center">@dat.HeightCus</div>
+        </div>
+        <div class="flex-in-b" style="width: 9%;">
+            cm.
+        </div>
+        <div class="flex-in-b" style="width: 11%;margin-left:2px">
+            blood pressure 
+        </div>
+        <div class="flex-in-b" style="width: 10%;">
+            <div style="border-bottom: 1px dashed #000; width: 100%; height: 22px; text-align: center">@dat.blood_pressureCus</div>
+        </div>
+        <div class="flex-in-b" style="width: 14%;">
+            mmHg
+        </div>
+        <div class="flex-in-b" style="width: 10%;">
+            <div style="border-bottom: 1px dashed #000; width: 100%; height: 22px; text-align: center">@dat.PulseCus</div>
+        </div>
+        <div class="flex-in-b" style="width: 10%;">
+             beats per minute 
+        </div>
+    </div>
+    <div class="display-flex">
+
+        <div class="flex-in-a" style="width: 24%">
+           general health condition  
+        </div>
+        <div class="flex-in-b" style="width: 30% !important;">
+            <img src="~/asset/img/@(dat.Body_healthStatusCus == false? "checknoblank.png" : "checkblank.png")" style="width: 9%; margin-right: 5px; margin-left: 30px " /> normal      
+            <img src="~/asset/img/@(dat.Body_healthStatusCus == true? "checknoblank.png" : "checkblank.png")" style="width: 9%; margin-right: 5px; margin-left: 20px" /> abnormal (please specify) 
+
+        </div>
+        <div class="flex-in-c" style="width: 46% !important;">
+            <div style="border-bottom: 1px dashed #000; width: 100%;height: 22px">@dat.Body_healthDetailCus</div>
+
+        </div>
+
+    </div>
+    <div class="display-flex">
+        <div class="flex-in-a" style="width: 100%;">
+            <p style="text-indent: 40px;line-height: 35px">I certify that the person is fit to work and free from disability with no symptom of psychosis, delusion, mental retardation, drug addiction, and alcohol use disorder.  Also, there is no sign and symptom of the following diseases</p>
+        </div>
+
+
+    </div>
+    <div class="display-flex">
+        <div class="flex-in-b" style="width: 20%">
+
+        </div>
+        <div class="flex-in-a" style="width: 80%">
+            1 ) leprosy at the infective stage or the stage with apparent symptoms that may be disgusted by society; 
+        </div>
+
+
+    </div>
+
+    <div class="display-flex">
+        <div class="flex-in-b" style="width: 20%">
+
+        </div>
+        <div class="flex-in-a" style="width: 80%">
+            2 ) tuberculosis at the dangerous period 
+        </div>
+
+
+    </div>
+
+    <div class="display-flex">
+
+        <div class="flex-in-b" style="width: 20%">
+
+        </div>
+        <div class="flex-in-a" style="width: 80%">
+            3 ) elephantiasis at the stage with apparent symptoms that may be disgusted by society and 
+        </div>
+
+
+
+    </div>
+
+    <div class="display-flex">
+
+        <div class="flex-in-b" style="width: 20%">
+
+        </div>
+        <div class="flex-in-a" style="width: 80%">
+              4 ) other (if any) 
+        </div>
+
+
+    </div>
+
+
+
+    <div class="display-flex">
+
+        <div class="flex-in-b" style="width: 42%">
+                &nbsp;(2)Physician's opinion and recommendation 
+        </div>
+        <div class="flex-in-a" style="width: 10%">
+           
+        </div>
+        <div class="flex-in-a" style="width: 48%">
+            <div style="border-bottom: 1px solid #000; width: 100%;height: 22px;text-align:center">@dat.CommentCom</div>
+        </div>
+
+    </div>
+
+    <div class="display-flex" style="margin-top:40px">
+
+        <div class="flex-in-b" style="width: 48%">
+
+        </div>
+        <div class="flex-in-a" style="width: 4%">
+            signature
+        </div>
+        <div class="flex-in-a" style="width: 24%">
+            <div style="border-bottom: 1px dashed #000; width: 100%; height: 22px">
+                    @*<img src="~/asset/img/chonlapark.png" style="position: absolute;width: 10%;bottom: 170px;right: 330px"/>*@
+            </div>
+            @dat.titleCom&nbsp;@dat.FnameCom&nbsp;@dat.LnameCom
+        </div>
+        <div class="flex-in-a" style="width: 18%">
+           Physician
+        </div>
+
+    </div>
+
+    <div class="display-flex">
+        <div class="flex-in-a" style="width: 8%">
+            หมายเหตุ
+        </div>
+        <div class="flex-in-a" style="width: 90%">
+            (1)&nbsp;must be the physician who owns the medical license
+        </div>
+
+    </div>
+
+    <div class="display-flex">
+        <div class="flex-in-a" style="width: 8%">
+
+        </div>
+        <div class="flex-in-a" style="width: 90%">
+            (2)&nbsp;describe the patient's fitness.  This certificate will be valid for one month since the date of examination
+        </div>
+
+    </div>
+
+    <div class="display-flex">
+        <div class="flex-in-a" style="width: 8%">
+
+        </div>
+        <div class="flex-in-a" style="width: 90%">
+                (3) this certificate is the result of initial examination This form is approved by resolution of The Medical Council of Thailand meeting No. 4/2018 on 19 April 2018.
+        </div>
+
+    </div>
+
+
+</div>
+
+}

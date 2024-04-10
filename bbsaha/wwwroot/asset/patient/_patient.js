@@ -46,7 +46,7 @@
 
             birthdaye: "",
             skinCuse: "",
-            
+
             yearVe: "",
             monthVe: "",
             dayVe: "",
@@ -70,12 +70,12 @@
 
 
             DE_date: new Date().toISOString().slice(0, 10),
-            DE_time:"",
-          
+            DE_time: "",
+
 
             DE_datee: new Date().toISOString().slice(0, 10),
-            DE_timee: new Date().getHours() + ":" + (new Date().getMinutes() < 10 ? '0' : '') + new Date().getMinutes() ,
-            DE_customere: {comname: "-",code: 2},
+            DE_timee: new Date().getHours() + ":" + (new Date().getMinutes() < 10 ? '0' : '') + new Date().getMinutes(),
+            DE_customere: { comname: "-", code: 2 },
             DE_heighte: "",
             DE_weighte: "",
             DE_bpe: "",
@@ -138,7 +138,7 @@
             DE_s6e: "",
             DE_s7e: "",
             DE_s8e: "",
-            DE_number:"",
+            DE_number: "",
             DE_numbere: "",
             DE_colore: "",
             DE_phe: "",
@@ -190,7 +190,7 @@
             reccomsel: "",
             paymentsel: "",
             medtypesel: "",
-            idsel:"",
+            idsel: "",
 
             getdatamedty: [],
             getdatapayty: [],
@@ -206,7 +206,7 @@
             chkdupil: false,
             chkdetailedit: false,
             chkselpayment: [],
-            butchkpayment:0,
+            butchkpayment: 0,
             medtypewalk: "",
             searchhc: [],
             chkselectpatient: 0,
@@ -259,7 +259,7 @@
 
 
 
-            
+
 
 
         }
@@ -269,7 +269,7 @@
             axios.get("/Patient/Getdatapatient", {
                 params: {
                     sercon: this.searchhc,
-                    
+
 
                 }
             })
@@ -282,7 +282,7 @@
                 })
         },
         Getdataeditdetail(id) {
-           /* console.log(this.DE_customere)*/
+            /* console.log(this.DE_customere)*/
             this.disabled = 0
             axios.get("/Patient/Getdataeditdetail",
                 {
@@ -293,10 +293,10 @@
                 })
                 .then(res => {
 
-                  
-                
+
+
                     const myArray = res.data[0].bpm.split("/")
-                    
+
                     /* this.getdatadetail = res.data*/
                     this.DE_datee = res.data[0].labinves
                     this.DE_timee = res.data[0].time
@@ -305,7 +305,7 @@
                     this.DE_customere.code = (res.data[0].customer == "" || res.data[0].service == "191" ? "0" : res.data[0].service)
                     this.DE_heighte = res.data[0].height
                     this.DE_weighte = res.data[0].weight
-                   
+
                     this.DE_pulsee = res.data[0].pulse
                     this.DE_bpme = myArray[0]
                     this.DE_bpe = myArray[1]
@@ -400,9 +400,30 @@
                     this.medtypewalk = res.data[0].medtype
                     //this.idrune = res.data.titlename;
 
-                    
+
+                    //2023.10.28 CHOI : ADD WEIGHT, HEIGHT
+                    if (res.data[0].height == 0) {
+                        //this.DE_heighte = res.data.heightCus
+                        this.DE_heighte = this.heightmd
+                    }
+                    else {
+                        this.DE_heighte = res.data[0].height
+                    }
+
+                    if (res.data[0].weight == 0) {
+                        //this.DE_weighte = res.data.weightCus
+                        this.DE_weighte = this.weightmd
+
+                    }
+                    else {
+                        this.DE_weighte = res.data[0].weight
+                    }
+
+
+
+
                     this.chkdetailedit = true
-                   /* console.log(this.DE_customere)*/
+                    /* console.log(this.DE_customere)*/
                     //console.log(res.data[0].labinves);
                     //console.log(this.DE_numbere)
 
@@ -430,9 +451,9 @@
                 })
                 .then(res => {
                     var da = new Date(res.data.cerDate)
-                   /* const myArray = res.data[0].bpm.split("/")*/
+                    /* const myArray = res.data[0].bpm.split("/")*/
                     /* this.getdatadetail = res.data*/
-                   /* this.DE_datee = res.data[0].labinves*/
+                    /* this.DE_datee = res.data[0].labinves*/
                     this.ideditmed = id
                     //this.idrune = res.data.titlename;
                     this.typemedcer = res.data.type
@@ -557,7 +578,7 @@
                         this.tex5md = res.data.detail_5
                         //this.weightmd = res.data.weightCus
                         //this.heightmd = res.data.heightCus
-                      /*  this.bloodmd = res.data.blood_pressureCus*/
+                        /*  this.bloodmd = res.data.blood_pressureCus*/
                         //this.pulsemd = res.data.pulseCus
                         this.tex6md = res.data.body_healthDetailCus
                         this.ch6md = (res.data.body_healthStatusCus == true ? "Two" : "One")
@@ -579,7 +600,7 @@
                     //this.fnamemd = res.data.firstNameCus
                     //this.fnamemd = res.data.firstNameCus
 
-                   
+
                     this.chkmededit = true
                     /* console.log(this.DE_customere)*/
                     //console.log(res.data);
@@ -600,9 +621,9 @@
             $("#med").addClass("show active");
             $("#med-tab").addClass("active");
 
-           
+
         },
-        getdatapay(id,chk) {
+        getdatapay(id, chk) {
             axios.get("/Patient/Getdatapay",
                 {
                     params: {
@@ -611,7 +632,7 @@
                     }
                 })
                 .then(res => {
-                   /* console.log(res.data);*/
+                    /* console.log(res.data);*/
                     this.cnsel = res.data[0].age;
                     this.mednosel = res.data[0].refno;
                     this.fnamesel = res.data[0].mid
@@ -646,8 +667,6 @@
         },
         setrefno(id) {
 
-
-
             axios.get("/Patient/Getdatadig",
                 {
                     params: {
@@ -659,15 +678,15 @@
 
                     this.refnosel = "BB-" + res.data[0].idPatient + (res.data[0].iDrunnumber > 9 ? "-00" : (res.data[0].iDrunnumber > 99 ? "-0" : (res.data[0].iDrunnumber >= 999 ? "-" : "-000"))) + res.data[0].iDrunnumber;
                     this.namesel = res.data[0].fname + " " + res.data[0].lname
-                    this.DE_number = id
+                    this.DE_number = id//patient id
                     /* console.log(this.refnosel)*/
                     this.chkdetailedit = false
                     this.chkmededit = false
-                  
+
 
                     this.DE_datee = new Date().toISOString().slice(0, 10)
                     this.DE_timee = new Date().getHours() + ":" + (new Date().getMinutes() < 10 ? '0' : '') + new Date().getMinutes()
-                   /* this.DE_customere = { comname: "-", code: 0 }*/
+                    /* this.DE_customere = { comname: "-", code: 0 }*/
                     this.DE_heighte = ""
                     this.DE_weighte = ""
                     this.DE_bpe = ""
@@ -778,7 +797,7 @@
                     this.customersel = ""
                     this.idsel = ""
 
-                 
+
                     this.ch1md = ""
                     this.ch2md = ""
                     this.ch3md = ""
@@ -812,6 +831,7 @@
                     this.chkselectpatient = 1
                 }).catch(err => {
                     console.log(err);
+
                 })
 
 
@@ -826,24 +846,24 @@
                 .then(res => {
 
                     /*console.log(res.data);*/
-                  
+
                     this.titlenmd = res.data[0].titlename
                     this.fnamemd = res.data[0].fname
                     this.lnamemd = res.data[0].lname
                     this.idcardmd = res.data[0].idCard
 
-                    this.adrmd0 = res.data[0].addressCus0 // res.data[0].address0 + " " + res.data[0].subDistrict0 + " " + res.data[0].district0 + " " + res.data[0].province0 + " " + res.data[0].postcode0
+                    this.adrmd0 = res.data[0].address0 // res.data[0].address0 + " " + res.data[0].subDistrict0 + " " + res.data[0].district0 + " " + res.data[0].province0 + " " + res.data[0].postcode0
                     this.adrmd = res.data[0].address + " " + res.data[0].subDistrict + " " + res.data[0].district + " " + res.data[0].province + " " + res.data[0].postcode
 
                     this.adrmd1 = res.data[0].addressCus1 // res.data[0].address0 + " " + res.data[0].subDistrict0 + " " + res.data[0].district0 + " " + res.data[0].province0 + " " + res.data[0].postcode0
-                    this.adrmd2 = res.data.adr2
-                    this.adrmd3 = res.data.adr3
+                    this.adrmd2 = res.data[0].adr2
+                    this.adrmd3 = res.data[0].adr3
 
-                    this.birthday = res.data.birthday
-                    this.skinCus = res.data.skinCus
+                    this.birthday = res.data[0].birthday
+                    this.skinCus = res.data[0].skinCus
 
 
-                  
+
                 }).catch(err => {
                     console.log(err);
                 })
@@ -902,9 +922,9 @@
             this.DEformsubmitE[0].gran = this.DE_grane
             this.DEformsubmitE[0].mid = this.DE_mide
             this.DEformsubmitE[0].platelet = this.DE_platelete
-            this.DEformsubmitE[0].mcv =  this.DE_mcv
-            this.DEformsubmitE[0].mch =  this.DE_mch
-            this.DEformsubmitE[0].mchc =  this.DE_mchc
+            this.DEformsubmitE[0].mcv = this.DE_mcv
+            this.DEformsubmitE[0].mch = this.DE_mch
+            this.DEformsubmitE[0].mchc = this.DE_mchc
             this.DEformsubmitE[0].eyecolor = this.DE_eyecolore
             this.DEformsubmitE[0].xray = this.DE_xraye
             this.DEformsubmitE[0].s1 = this.DE_s1e
@@ -941,7 +961,7 @@
             this.DEformsubmitE[0].labinves = this.DE_labinvese
             /*this.DEformsubmitE[0].wbcdif = this.DE_wbcdif*/
             this.DEformsubmitE[0].ascorbic = this.DE_ascorbice
-            
+
             this.DEformsubmitE[0].diff4 = this.DE_dif4e
             this.DEformsubmitE[0].diff5 = this.DE_dif5e
             this.DEformsubmitE[0].clarity = this.DE_claritye
@@ -950,8 +970,17 @@
             this.DEformsubmitE[0].id = this.iddetaile
             this.DEformsubmitE[0].medtype = this.medtypewalk
 
-             console.log(this.DEformsubmitE)
-           
+            //2023.11.07 최희문 ekg 추가 
+            this.DEformsubmitE[0].ekg = this.DE_ekg
+
+            /*2023.11.19최희문 추가 */
+            this.DEformsubmitE[0].others_hearing = this.DE_s9e
+            this.DEformsubmitE[0].others_ekg = this.DE_s10e
+            this.DEformsubmitE[0].others_pulmonary = this.DE_s11e
+            /*2023.11.19 최희문 추가 종료*/
+
+            console.log(this.DEformsubmitE)
+
             axios({
                 method: 'post',
                 url: '/patient/savedatadeedit',
@@ -961,7 +990,7 @@
                     console.log(res)
 
                     if (res.data == "suc") {
-                        alert("บันทึกข้อมูลสำเร็จ")
+                        alert("บันทึกข้อมูลสำเร็จ(Success!!)")
                         /*  $("#staticBackdrop").hide();*/
                         this.getdatadet(this.DE_number)
                         this.chkselectpatient = 0
@@ -1001,7 +1030,7 @@
 
 
 
-           /*  console.log(this.formsubmitE)*/
+            /*  console.log(this.formsubmitE)*/
             /* console.log(this.formsubmit[0].fname)*/
             axios({
                 method: 'post',
@@ -1009,19 +1038,19 @@
                 data: this.formsubmitE
             })
                 .then(res => {
-                   
+
                     if (res.data == "suc") {
-                       
-                        alert("บันทึกข้อมูลสำเร็จ")
+
+                        alert("บันทึกข้อมูลสำเร็จ(Success!!)")
                         this.getpatient()
                         /* $("#edit").modal("hide");*/
 
                         $("#staticBackdrop").hide();
-                       
+
                     } else {
                         alert("บันทึกข้อมูลไม่สำเร็จ !!!")
                     }
-                    
+
                 })
                 .catch(err => {
                     console.log(err);
@@ -1045,7 +1074,7 @@
                     }
                 })
                 .then(res => {
-                   
+
                     /* console.log(res.data);*/
                     /* this.getdatadetail = res.data*/
                     this.cncodee = "BB-" + res.data[0].idPatient + (res.data[0].iDrunnumber > 9 ? "-00" : (res.data[0].iDrunnumber > 99 ? "-0" : (res.data[0].iDrunnumber >= 999 ? "-" : "-000"))) + res.data[0].iDrunnumber;
@@ -1077,7 +1106,7 @@
                     this.getdis(2)
                     this.getsubdis(2)
                     this.getAge(2)
-                   
+
                     /*console.log(res.data)*/
                 }).catch(err => {
                     console.log(err);
@@ -1104,6 +1133,18 @@
             window.open(window.location.origin + "/medic/GetPrintcertificatefor?id=" + id, "'_blank'");
 
         },
+        printcertreport_th(id) {
+
+            /* alert(id)*/
+            window.open(window.location.origin + "/medic/GetPrintcertificate_th?id=" + id, "'_blank'");
+
+        },
+        printcertreport_en(id) {
+
+            /* alert(id)*/
+            window.open(window.location.origin + "/medic/GetPrintcertificate_en?id=" + id, "'_blank'");
+
+        },
         printmedreciept(id) {
 
             /* alert(id)*/
@@ -1111,7 +1152,7 @@
 
         },
         getdatadet(id) {
-          
+
             axios.get("/Patient/Getdatadetail",
                 {
                     params: {
@@ -1125,27 +1166,30 @@
                     for (i = 0; i < res.data.length; i++) {
                         this.chkselpayment[i] = res.data[i].x.urin2
                         this.idpayment[i] = res.data[i].x.alk
-                       /* console.log(this.chkselpayment[i])*/
+                        /* console.log(this.chkselpayment[i])*/
                     }
-                    
+
                     this.getdatadetail = res.data
                     console.log(this.chkselpayment)
                 }).catch(err => {
                     console.log(err);
                 })
-           
+
         },
         Createdetail() {
             $("#staticBackdrop").show();
 
             //check and alert before save information
 
-        
+
             this.DEformsubmitE[0].number = this.DE_number
             this.DEformsubmitE[0].date = this.DE_datee
             this.DEformsubmitE[0].time = this.DE_timee
             /*this.DEformsubmitE[0].number = this.DE_numbere*/
             this.DEformsubmitE[0].company = (this.DE_customere2 != "" && this.DE_customere2 != null && this.DE_customere2 != "-" ? this.DE_customere2 : this.DE_customere.comname)
+
+            //add 4 fields for support forienner form
+
 
             //body detail
             this.DEformsubmitE[0].height = String(this.DE_heighte)
@@ -1231,28 +1275,50 @@
             this.DEformsubmitE[0].labinves = this.DE_labinvese
             /*this.DEformsubmitE[0].wbcdif = this.DE_wbcdif*/
             this.DEformsubmitE[0].ascorbic = this.DE_ascorbice
-
             this.DEformsubmitE[0].diff4 = this.DE_dif4e
             this.DEformsubmitE[0].diff5 = this.DE_dif5e
             this.DEformsubmitE[0].clarity = this.DE_dif5e
             this.DEformsubmitE[0].stoolex = this.DE_stoolexe
             this.DEformsubmitE[0].stoolcul = this.DE_stoolcue
 
+
+            //2023.11.07 최희문 ekg 추가 
+            this.DEformsubmitE[0].ekg = this.DE_ekg
+
+            /*2023.11.19최희문 추가 */
+            this.DEformsubmitE[0].others_hearing = this.DE_s9e
+            this.DEformsubmitE[0].others_ekg = this.DE_s10e
+            this.DEformsubmitE[0].others_pulmonary = this.DE_s11e
+            /*2023.11.19 최희문 추가 종료*/
+
+
+
+
             if (this.iddetaile != "" && this.iddetaile != null)
                 this.DEformsubmitE[0].id = this.iddetaile
-                this.DEformsubmitE[0].medtype = this.medtypewalk
+            this.DEformsubmitE[0].medtype = this.medtypewalk
 
             console.log(this.DEformsubmitE)
 
             //cncode for check CN number before save
 
             //console.log(res.data);
-            if (this.cncode == "") {
-                ageString = "Oops! ยังไม่ได้ขอรหัส CN !";
+            //2023.10.28 CHOI : CHANGE this.DE_number
+            //if (this.cncode == "") {
+            //    ageString = "Oops! ยังไม่ได้ขอรหัส CN!(Oops! The CN code has not been requested from the system!)";
+            //    alert(ageString)
+            //    //this.idcard.setFocus();
+
+            // }
+
+            if (this.DE_number == "") {
+                ageString = "Oops! ยังไม่ได้ขอรหัส CN!(Oops! The CN code has not been requested from the system!)";
                 alert(ageString)
                 //this.idcard.setFocus();
 
-            } else {
+            }
+
+            else {
                 //---show already has data
                 //ageString = "Oops! ยังไม่ได้ขอรหัส CN จากระบบ!";
                 //alert(ageString)
@@ -1267,7 +1333,7 @@
                         /* console.log(res)*/
 
                         if (res.data == "suc") {
-                            alert("บันทึกข้อมูลสำเร็จ")
+                            alert("บันทึกข้อมูลสำเร็จ(Success!!)")
                             $("#staticBackdrop").hide();
                             this.getdatadet(this.DE_number)
                             this.chkselectpatient = 0
@@ -1287,28 +1353,30 @@
         Createpatient() {
             $("#staticBackdrop").show();
 
-            this.formsubmit[0].fname = this.fname
-            this.formsubmit[0].lname = this.lname
-            this.formsubmit[0].adr = this.adr
-            this.formsubmit[0].idcard = this.idcard
-            this.formsubmit[0].idpart = this.idpart
-           /* this.formsubmit[0].tanon = this.tanon*/
-            this.formsubmit[0].tambon = this.tambon
-            this.formsubmit[0].ampur = this.ampur
-            this.formsubmit[0].province = this.province
-            this.formsubmit[0].postcode = this.postcode
+            this.formsubmit[0].fname = this.fname//first name
+            this.formsubmit[0].lname = this.lname//last name
+            this.formsubmit[0].adr = this.adr//residence
+            this.formsubmit[0].idcard = this.idcard//id card
+            this.formsubmit[0].idpart = this.idpart//passport
+            /* this.formsubmit[0].tanon = this.tanon*/
+            this.formsubmit[0].tambon = this.tambon//subdistrict
+            this.formsubmit[0].ampur = this.ampur//district
+            this.formsubmit[0].province = this.province//provice
+            this.formsubmit[0].postcode = this.postcode//postcode
             this.formsubmit[0].career = this.career
-            this.formsubmit[0].tel = this.tel
-            this.formsubmit[0].gender = parseInt(this.gender)
-            this.formsubmit[0].titlen = this.titlen
+            this.formsubmit[0].tel = this.tel//telephone number
+            this.formsubmit[0].gender = parseInt(this.gender)//sex
+            this.formsubmit[0].titlen = this.titlen//prefix
 
-            this.formsubmit[0].birthday = this.birthday
+            this.formsubmit[0].birthday = this.birthday//birthday
             this.formsubmit[0].skinCus = this.skinCus
 
             this.formsubmit[0].idpat = this.idpat
             this.formsubmit[0].idrun = this.idrun
 
-          
+            //(age)
+            this.formsubmit[0].age = this.age
+
             console.log(this.formsubmit)
             /* console.log(this.formsubmit[0].fname)*/
 
@@ -1316,12 +1384,113 @@
             //cncode for check CN number dupplicate before save
             //console.log(res.data);
             if (this.cncode == "") {
-                ageString = "Oops! ยังไม่ได้ขอรหัส CN จากระบบ!";
+                ageString = "Oops! ยังไม่ได้ขอรหัส CN จากระบบ!(Oops! The CN code has not been requested from the system!)";
                 alert(ageString)
                 //this.idcard.setFocus();
                 $("#staticBackdrop").hide();
 
-            } else {
+            }
+            //prefix
+            else if (this.titlen == "") {
+
+                ageString = "Oops! ยังไม่ได้ขอรหัส เทเลโฟนนัมเบอร์ส จากระบบ!(Oops! Please input Prefix!)";
+                alert(ageString)
+                //this.idcard.setFocus();
+                $("#staticBackdrop").hide();
+            }
+
+            //firstname
+            else if (this.fname == "") {
+
+                ageString = "Oops! ยังไม่ได้ขอรหัส เฟิร์สท์เนม จากระบบ!(Oops! Please input First name!)";
+                alert(ageString)
+                //this.idcard.setFocus();
+                $("#staticBackdrop").hide();
+            }
+
+            //last name
+            else if (this.lname == "") {
+
+                ageString = "Oops! ยังไม่ได้ขอรหัส ลาสท์เนม จากระบบ! (Oops! Please input Last name!)";
+                alert(ageString)
+                //this.idcard.setFocus();
+                $("#staticBackdrop").hide();
+            }
+
+            else if (this.sex == "") {
+
+                ageString = "Oops! ยังไม่ได้ขอรหัส เซ็กส์ จากระบบ! (Oops! Please input sex!)";
+                alert(ageString)
+                //this.idcard.setFocus();
+                $("#staticBackdrop").hide();
+            }
+
+            else if (this.birthday == "") {
+
+                ageString = " Oops! ยังไม่ได้ขอรหัส เบิร์ธเดย์ จากระบบ! (Oops! Please input Birthday!)";
+                alert(ageString)
+                //this.idcard.setFocus();
+                $("#staticBackdrop").hide();
+            }
+
+            else if (this.age == "") {
+
+                ageString = "Oops! ยังไม่ได้ขอรหัส เอจ จากระบบ! (Oops! Please input age!)";
+                alert(ageString)
+                //this.idcard.setFocus();
+                $("#staticBackdrop").hide();
+            }
+
+            else if (this.adr == "") {
+
+                ageString = "Oops! ยังไม่ได้ขอรหัส Residence จากระบบ! (Oops! Please input Residence!)";
+                alert(ageString)
+                //this.idcard.setFocus();
+                $("#staticBackdrop").hide();
+            }
+
+            /*else if (this.province == "") {
+
+                ageString = " Oops! ยังไม่ได้ขอรหัส Provice จากระบบ! (Oops! Please input Provice!)";
+                alert(ageString)
+                //this.idcard.setFocus();
+                $("#staticBackdrop").hide();
+            }
+
+            else if (this.ampur == "") {
+
+                ageString = "Oops! ยังไม่ได้ขอรหัส Districtจากระบบ! (Oops! Please input District!)";
+                alert(ageString)
+                //this.idcard.setFocus();
+                $("#staticBackdrop").hide();
+            }
+
+            else if (this.tambon == "") {
+
+                ageString = " Oops! ยังไม่ได้ขอรหัส Subdistrict จากระบบ! (Oops! Please input Subdistrict!)";
+                alert(ageString)
+                //this.idcard.setFocus();
+                $("#staticBackdrop").hide();
+            }
+
+            else if (this.postcode == "") {
+
+                ageString = "Oops! ยังไม่ได้ขอรหัส โพสอะ โค้ด จากระบบ! (Oops! Please input Postal code!)";
+                alert(ageString)
+                //this.idcard.setFocus();
+                $("#staticBackdrop").hide();
+            }*/
+
+
+            else if (this.tel == "") {
+
+                ageString = "Oops! ยังไม่ได้ขอรหัส เทเลโฟนนัมเบอร์ส จากระบบ!(Oops! Please input Telephone number!)";
+                alert(ageString)
+                //this.idcard.setFocus();
+                $("#staticBackdrop").hide();
+            }
+
+            else {
                 //---show already has data
                 //ageString = "Oops! ยังไม่ได้ขอรหัส CN จากระบบ!";
                 //alert(ageString)
@@ -1337,14 +1506,14 @@
                     .then(res => {
                         if (res.data == "suc") {
 
-                            alert("บันทึกข้อมูลสำเร็จ")
+                            alert("บันทึกข้อมูลสำเร็จ(success!)")
                             this.getpatient()
 
                             //load hiden
                             $("#staticBackdrop").hide();
 
                         } else {
-                            alert("บันทึกข้อมูลไม่สำเร็จ !!!")
+                            alert("บันทึกข้อมูลไม่สำเร็จ !!!(Fail!!)")
 
                             //load hiden
                             $("#staticBackdrop").hide();
@@ -1372,8 +1541,8 @@
             this.formsubmitsel[0].recommen = this.reccomsel
             this.formsubmitsel[0].id = this.idsel
             this.formsubmitsel[0].company = this.customersel
-          /*  this.formsubmitsel[0].prid = this.province*/
-           
+            /*  this.formsubmitsel[0].prid = this.province*/
+
 
 
             console.log(this.formsubmitsel)
@@ -1387,12 +1556,12 @@
                     console.log(res)
 
                     //console.log(res.data);
-                    ageString = "Oops! ต้องการยืนยันการบันทึกข้อมูล!";
+                    ageString = "Oops! ต้องการยืนยันการบันทึกข้อมูล!(Want to confirm data recording)";
                     alert(ageString)
                     //---show already has data
 
                     if (res.data == "suc") {
-                        alert("บันทึกข้อมูลสำเร็จ")
+                        alert("บันทึกข้อมูลสำเร็จ(Success!!)")
                         /*  $("#staticBackdrop").hide();*/
                         this.getdatadet(this.DE_number)
 
@@ -1422,21 +1591,21 @@
                     console.log(err);
 
                     //console.log(res.data);
-                    if (res.data.cncode == "") { 
-                    ageString = "Oops! ยังไม่ได้ขอรหัส CN จากระบบ!";
+                    if (res.data.cncode == "") {
+                        ageString = "Oops! ยังไม่ได้ขอรหัส CN จากระบบ!(Oops! The CN code has not been requested from the system!)";
                         alert(ageString)
 
                         $("#staticBackdrop").hide();
 
-                    }else{
-                    //---show already has data
-                        ageString = "Oops! ยังไม่ได้ขอรหัส CN จากระบบ!";
+                    } else {
+                        //---show already has data
+                        ageString = "Oops! ยังไม่ได้ขอรหัส CN จากระบบ!(Oops! The CN code has not been requested from the system!)";
                         alert(ageString)
 
-                       $("#staticBackdrop").hide();
+                        $("#staticBackdrop").hide();
 
-                     }
-                   
+                    }
+
                 })
 
 
@@ -1457,7 +1626,7 @@
             /*  this.formsubmitsel[0].prid = this.province*/
 
 
-           /* alert(this.reccomsel)*/
+            /* alert(this.reccomsel)*/
             console.log(this.formsubmitsel)
 
             /* console.log(this.formsubmit[0].fname)*/
@@ -1469,7 +1638,7 @@
                 .then(res => {
                     console.log(res)
                     if (res.data == "suc") {
-                        alert("บันทึกข้อมูลสำเร็จ")
+                        alert("บันทึกข้อมูลสำเร็จ(Success!!)")
                         /*  $("#staticBackdrop").hide();*/
                         this.getdatadet(this.DE_number)
 
@@ -1512,7 +1681,7 @@
                 .then(res => {
                     console.log(res)
                     if (res.data == "suc") {
-                        alert("บันทึกข้อมูลสำเร็จ")
+                        alert("บันทึกข้อมูลสำเร็จ(Success!!)")
                         /*  $("#staticBackdrop").hide();*/
                         this.getdatadet(this.DE_number)
 
@@ -1576,7 +1745,7 @@
 
                         //console.log(res.data);
                         if (this.cncode == "") {
-                            ageString = "Oops! ใส่รหัส CN!";
+                            ageString = "Oops! ใส่รหัส CN!(Oops! Enter the CN code!)";
                             alert(ageString)
                             //this.idcard.setFocus();
 
@@ -1660,7 +1829,7 @@
 
                         this.birthday = ""
                         this.skinCus = ""
-                       
+
                         this.yearV = ""
                         this.monthV = ""
                         this.dayV = ""
@@ -1679,8 +1848,8 @@
                         console.log(res.data);
 
                         //console.log(res.data);
-                        if (this.idcard == "" ) {
-                            ageString = "Oops! ใส่รหัสบัตรประจำตัวประชาชน!";
+                        if (this.idcard == "") {
+                            ageString = "Oops! ใส่รหัสบัตรประจำตัวประชาชน!(Oops! Enter your ID card code!)";
                             alert(ageString)
                             //this.idcard.setFocus();
 
@@ -1688,7 +1857,7 @@
                             //---show already has data
                             //ageString = "Oops! ยังไม่ได้ขอรหัส CN จากระบบ!";
                             //alert(ageString)
-                        //}
+                            //}
 
 
                             //---show already has data
@@ -1697,31 +1866,31 @@
                             this.adr = res.data.address
                             this.adr0 = res.data.address0
 
-                        this.fname = res.data.fname
-                        this.lname = res.data.lname
-                        this.titlen = res.data.titlename
-                        this.gender = (res.data.gender == "ชาย" ? 1 : 2)
-                        this.DateCus = res.data.DateCus //date of birth
-                        this.weightCus = res.data.weightCus
-                        this.tanon = res.data.address
-                        this.province = res.data.province
-                        this.ampur = res.data.district
-                        this.tambon = res.data.subDistrict
-                        this.postcode = res.data.postcode
-                        this.tel = res.data.tel
-                        this.career = res.data.career
-                        this.birthday = res.data.birthday
-                        this.cncode = "BB-" + res.data.idPatient + (res.data.iDrunnumber > 9 ? "-00" : (res.data.iDrunnumber > 99 ? "-0" : (res.data.iDrunnumber >= 999 ? "-" : "-000"))) + res.data.iDrunnumber
-                        
-                        this.getdis()
-                        this.getsubdis()
-                        this.getAge()
+                            this.fname = res.data.fname
+                            this.lname = res.data.lname
+                            this.titlen = res.data.titlename
+                            this.gender = (res.data.gender == "ชาย" ? 1 : 2)
+                            this.DateCus = res.data.DateCus //date of birth
+                            this.weightCus = res.data.weightCus
+                            this.tanon = res.data.address
+                            this.province = res.data.province
+                            this.ampur = res.data.district
+                            this.tambon = res.data.subDistrict
+                            this.postcode = res.data.postcode
+                            this.tel = res.data.tel
+                            this.career = res.data.career
+                            this.birthday = res.data.birthday
+                            this.cncode = "BB-" + res.data.idPatient + (res.data.iDrunnumber > 9 ? "-00" : (res.data.iDrunnumber > 99 ? "-0" : (res.data.iDrunnumber >= 999 ? "-" : "-000"))) + res.data.iDrunnumber
 
-                        //control save button
-                        this.chkdupil = true 
+                            this.getdis()
+                            this.getsubdis()
+                            this.getAge()
+
+                            //control save button
+                            this.chkdupil = true
 
 
-                        ageString = "Oops! เคยลงทะเบียนเรียบร้อย!";
+                            ageString = "Oops! เคยลงทะเบียนเรียบร้อย!(Oops! Already registered!)";
                             alert(ageString)
 
                             this.idcard.setFocus();
@@ -1818,7 +1987,7 @@
                 this.dayVe = age.days
                 this.agee = age.years
             }
-           
+
             if ((age.years > 0) && (age.months > 0) && (age.days > 0))
                 ageString = age.years + yearString + ", " + age.months + monthString + ", and " + age.days + dayString + " old.";
             else if ((age.years == 0) && (age.months == 0) && (age.days > 0))
@@ -1834,7 +2003,7 @@
             else if ((age.years == 0) && (age.months > 0) && (age.days == 0))
                 ageString = age.months + monthString + " old.";
             else ageString = "Oops! Could not calculate age!";
-           /* alert(ageString)*/
+            /* alert(ageString)*/
             /*return ageString;*/
 
         },
@@ -1848,14 +2017,14 @@
             })
                 .then(res => {
                     this.getdistrict = res.data
-                   
+
                 }).catch(err => {
                     console.log(err);
                 })
 
 
 
-           
+
 
         },
         getsubdis(ch) {
@@ -1912,7 +2081,7 @@
 
         }
         , getdatapaytype() {
-            
+
             axios.get("/Patient/Getdatapayt")
                 .then(res => {
                     /* console.log(res.data);*/
@@ -1984,13 +2153,13 @@
                 this.DE_s8e = "2"
             else
                 this.DE_s8e = "0"
-            
+
 
         }
         , checid() {
-          
+
             if (this.refnosel == "")
-                alert("กรุณาระบุผู้เข้ารับการตรวจสุขภาพ")
+                alert("กรุณาระบุผู้เข้ารับการตรวจสุขภาพ(Please specify the person receiving the health examination.)")
 
 
 
@@ -2002,7 +2171,7 @@
 
         }
         , getdatachktype() {
-            
+
             axios.get("/Patient/Gettypechk", {
                 params: {
                     id: this.DE_customere.code
@@ -2016,7 +2185,7 @@
                 }).catch(err => {
                     console.log(err);
                 })
-            
+
         }
         , getdatareca() {
 
@@ -2037,7 +2206,7 @@
             if (confirm("ต้องการลบคนไข้ใช่ไหม") == true) {
                 const formdata = new FormData();
                 formdata.append('ID', id);
-              /*  formdata.append('Status', str);*/
+                /*  formdata.append('Status', str);*/
                 axios.post("/patient/deldatapatient", formdata)
                     .then(res => {
                         this.getpatient()
@@ -2058,7 +2227,7 @@
         Createmed3() {
             $("#staticBackdrop").show();
             this.formmed[0].DateCus = this.DateCusmd
-          
+
             this.formmed[0].fname = this.fnamemd
             this.formmed[0].lname = this.lnamemd
 
@@ -2074,7 +2243,7 @@
             this.formmed[0].skinCus = this.skinCus
 
             this.formmed[0].idcard = this.idcardmd
-           
+
             this.formmed[0].tex5 = this.tex5md
             this.formmed[0].ch6 = this.ch6md
 
@@ -2089,7 +2258,7 @@
             this.formmed[0].ch68 = this.ch6md8
 
             this.formmed[0].tex6 = this.tex6md
-            
+
             this.formmed[0].comment = this.commentmd
             this.formmed[0].id = this.DE_number
             this.formmed[0].titlen = this.titlenmd
@@ -2216,7 +2385,7 @@
             this.formmed[0].tex2 = this.tex2md
             this.formmed[0].ch3 = this.ch3md
             this.formmed[0].tex3 = this.tex3md
-            
+
             this.formmed[0].tex5 = this.tex5md
             this.formmed[0].weight = String(this.weightmd)
             this.formmed[0].height = String(this.heightmd)
@@ -2251,7 +2420,7 @@
                 data: this.formmed
             })
                 .then(res => {
-                   /* console.log(res)*/
+                    /* console.log(res)*/
 
                     if (res.data == "suc") {
                         alert("success")
@@ -2354,7 +2523,7 @@
             this.formmed[0].adr3 = this.adrmd3
 
             this.formmed[0].birthday = this.birthday
-            this.formmed[0].skinCus = this.skinCus 
+            this.formmed[0].skinCus = this.skinCus
 
 
             this.formmed[0].idcard = this.idcardmd
@@ -2425,7 +2594,7 @@
             this.formmed[0].adr = this.adrmd
 
             this.formmed[0].adr1 = this.adrmd1
-            
+
             this.formmed[0].adr2 = this.adrmd2
             this.formmed[0].adr3 = this.adrmd3
 
@@ -2494,7 +2663,7 @@
                 }).catch(err => {
                     console.log(err);
                 })
-                    
+
 
             }
         }, delpay(id) {
@@ -2508,7 +2677,7 @@
                     }
                 }).then(res => {
                     /* console.log(res.data);*/
-                    
+
                     this.getdatadet(this.DE_number)
                     /*console.log(this.getdatachkty)*/
 
@@ -2528,25 +2697,25 @@
         }
 
     }, mounted: function () {
-       /* $("#staticBackdrop").show();*/
-      /*  console.log(this.DE_customere)*/
+        /* $("#staticBackdrop").show();*/
+        /*  console.log(this.DE_customere)*/
         axios.get("/Patient/Getprovince")
             .then(res => {
-              
+
                 this.getprovince = res.data
-             /*   console.log(this.getprovince)*/
+                /*   console.log(this.getprovince)*/
 
             }).catch(err => {
                 console.log(err);
             })
-      
+
         this.getpatient()
         this.getdatacom()
         this.getdatamedtype()
         this.getdatapaytype()
         this.getdatareceive()
 
-        
+
     }
 
 })

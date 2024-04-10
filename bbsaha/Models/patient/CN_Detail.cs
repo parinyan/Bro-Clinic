@@ -109,7 +109,15 @@ namespace bbsaha.Models.patient
         public string mchc { get; set; }
         public string type { get; set; }
         public string status { get; set; }
-       
+
+
+        //2023.11.07 최희문 필드 추가 
+        public string Ekg { get; set; }
+
+        //2023.11.19 최희문 필드 추가 
+        public string Others_ekg { get; set; }
+        public string Others_hearing { get; set; }
+        public string Others_pulmonary { get; set; }
 
     }
 }

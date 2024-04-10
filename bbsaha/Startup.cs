@@ -49,10 +49,11 @@ namespace bbsaha
             services.AddControllersWithViews();
             services.AddDbContext<MysqlDBDataContext>(
           options => options
-              //    .UseMySql("Data Source=ls-45cff82ac10d1518f2ee0eccea65733beec0ec7c.cwwhyjgyqjh8.ap-southeast-1.rds.amazonaws.com;Initial Catalog=BBTTEST;Persist Security Info=True;User ID=dbmasteruser;Password=gmpsystemm1n;Max Pool Size=20000;ConvertZeroDateTime=True;", serverVersion));
-              //.UseMySql("Data Source=ls-45cff82ac10d1518f2ee0eccea65733beec0ec7c.cwwhyjgyqjh8.ap-southeast-1.rds.amazonaws.com;Initial Catalog=bbsaha;Persist Security Info=True;User ID=dbmasteruser;Password=gmpsystemm1n;Max Pool Size=20000;ConvertZeroDateTime=True;", serverVersion));
+             //    .UseMySql("Data Source=ls-45cff82ac10d1518f2ee0eccea65733beec0ec7c.cwwhyjgyqjh8.ap-southeast-1.rds.amazonaws.com;Initial Catalog=BBTTEST;Persist Security Info=True;User ID=dbmasteruser;Password=gmpsystemm1n;Max Pool Size=20000;ConvertZeroDateTime=True;", serverVersion));
+             //.UseMySql("Data Source=ls-45cff82ac10d1518f2ee0eccea65733beec0ec7c.cwwhyjgyqjh8.ap-southeast-1.rds.amazonaws.com;Initial Catalog=bbsaha;Persist Security Info=True;User ID=dbmasteruser;Password=gmpsystemm1n;Max Pool Size=20000;ConvertZeroDateTime=True;", serverVersion));
+             //.UseMySql("Data Source=8.213.198.166;Initial Catalog=bbsaha;Persist Security Info=True;User ID=sa;Password=Jobgate@m1n;Max Pool Size=20000;ConvertZeroDateTime=True;", serverVersion));
               //.UseMySql("Data Source=8.213.198.166;Initial Catalog=bbsaha;Persist Security Info=True;User ID=sa;Password=Jobgate@m1n;Max Pool Size=20000;ConvertZeroDateTime=True;", serverVersion));
-              .UseMySql("Data Source=8.213.198.166;Initial Catalog=bbsaha;Persist Security Info=True;User ID=sa;Password=Jobgate@m1n;Max Pool Size=20000;ConvertZeroDateTime=True;", serverVersion));
+         .UseMySql("Data Source=103.30.126.174;Initial Catalog=bbsaha;Persist Security Info=True;User ID=sa;Password=Jobgate@m1n;Max Pool Size=20000;ConvertZeroDateTime=True;", serverVersion));
 
 
             services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));

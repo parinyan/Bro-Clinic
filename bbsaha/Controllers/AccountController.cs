@@ -110,7 +110,19 @@ namespace bbsaha.Controllers
             }
         }
 
-        
+        public IActionResult Profile()
+        {
+            var user = HttpContext.User;
+
+            // Get user information
+            var userName = user.Identity.Name;
+            var userRole = user.FindFirst(ClaimTypes.Role)?.Value;
+            var profileData = new { userName = userName, userRole = userRole };
+
+            // Return profile data as JSON
+            return Json(profileData);
+        }
+
         public IActionResult Logout()
         {
             var login = HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);

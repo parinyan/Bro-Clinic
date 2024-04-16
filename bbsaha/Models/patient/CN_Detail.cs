@@ -72,6 +72,7 @@ namespace bbsaha.Models.patient
         public string xray{ get; set; }
         public string s1{ get; set; }
         public string s2xray{ get; set; }
+        public string s2xray_comment { get; set; }
         public string s3cbc{ get; set; }
         public string s4cigar{ get; set; }
         public string s5chid{ get; set; }

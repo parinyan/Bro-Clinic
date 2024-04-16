@@ -155,6 +155,7 @@ namespace bbsaha.Controllers
             public string xray { get; set; }
             public string s1 { get; set; }
             public string s2 { get; set; }
+            public string s2xray_comment { get; set; }
             public string s3 { get; set; }
             public string s4 { get; set; }
             public string s5 { get; set; }
@@ -470,6 +471,7 @@ namespace bbsaha.Controllers
             _data.xray = model[0].xray;
             _data.s1 = model[0].s1;
             _data.s2xray = model[0].s2;
+            _data.s2xray_comment = model[0].s2xray_comment;
             _data.s3cbc = model[0].s3;
             _data.s4cigar = model[0].s4;
             _data.s5chid = model[0].s5;
@@ -877,6 +879,49 @@ namespace bbsaha.Controllers
 
         }
 
+        public IActionResult GetPrintReportXray(string id)
+        {
+            var url = $"{this.Request.Scheme}://{this.Request.Host}" + Url.Action("ReportXray", "Patient", new { id = id });
+
+
+            string pdf_page_size = "A4";
+            PdfPageSize pageSize = (PdfPageSize)Enum.Parse(typeof(PdfPageSize),
+                pdf_page_size, true);
+
+            string pdf_orientation = "Portrait";
+            PdfPageOrientation pdfOrientation =
+                (PdfPageOrientation)Enum.Parse(typeof(PdfPageOrientation),
+                pdf_orientation, true);
+
+
+            HtmlToPdf converter = new HtmlToPdf();
+
+            // set converter options
+            converter.Options.PdfPageSize = pageSize;
+            converter.Options.PdfPageOrientation = pdfOrientation;
+            converter.Options.WebPageWidth = 1024;
+            converter.Options.WebPageHeight = 0;
+            converter.Options.MarginLeft = 15;
+            converter.Options.MarginRight = 15;
+            converter.Options.MarginTop = 15;
+            //converter.Options.MarginBottom = 15;
+            // create a new pdf document converting an url
+            PdfDocument doc = converter.ConvertUrl(url);
+            MemoryStream ms = new MemoryStream();
+            // save pdf document
+            doc.Save(ms);
+
+            // close pdf document
+            doc.Close();
+            ms.Position = 0;
+            FileStreamResult fileStreamResult = new FileStreamResult(ms, "application/pdf");
+            //fileStreamResult.FileDownloadName = "sample.pdf";
+
+            //return File(file, "application/pdf");
+            return fileStreamResult;
+
+        }
+
 
         public IActionResult med_report(int id)
         {
@@ -1012,7 +1057,141 @@ namespace bbsaha.Controllers
             return View();
         }
 
-        
+        public IActionResult ReportXray(int id)
+        {
+            var _datapt = _mysqlbro.CN_Patient.ToList();
+            var _datadt = _mysqlbro.CN_Detail.Where(x => x.ID == id).ToList();
+
+            var _datasum = _datadt.Join(_datapt, ae => ae.PatientID, ea => ea.ID, (ae, ea) => new { ae, ea }).ToList();
+
+            List<View_report> listA = new List<View_report>();
+
+            foreach (var dat in _datasum)
+            {
+
+                var today = DateTime.Today;
+                int age = 0;
+                if (dat.ea.birthday != "" && dat.ea.birthday != null)
+                    age = (int)((DateTime.Now - Convert.ToDateTime(dat.ea.birthday)).TotalDays / 365.242199);
+                //var age = today.Year - Convert.ToDateTime(dat.ea.birthday).Year;
+                listA.Add(new View_report
+                {
+                    date = dat.ae.DateReg.ToString("dd/MM/yyyy"),
+                    time = dat.ae.time,
+                    company = dat.ae.Customer,
+
+                    birthday = dat.ea.birthday,
+
+                    height = Convert.ToInt32(dat.ae.Height).ToString(),
+                    weight = Convert.ToInt32(dat.ae.Weight).ToString(),
+                    bloodgr = dat.ae.bloodgr,
+                    pulse = dat.ae.Pulse,
+                    bloodpr = dat.ae.BPM,
+                    hissick = dat.ae.HisSick,
+                    hisphara = dat.ae.hisphara,
+                    cigar = (dat.ae.Cigar == "1" ? "ปฏิเสธ" : "สูบบุหรี่"),
+                    alcohol = (dat.ae.Alcohol == "1" ? "ปฏิเสธ" : "ดื่มแอลกอฮอล์"),
+                    sodium = dat.ae.sodium,
+                    potassium = dat.ae.potassium,
+                    chloride = dat.ae.chloride,
+                    totalc02 = dat.ae.totalco2,
+                    uricacid = dat.ae.uricacid,
+                    bun = dat.ae.bun,
+                    creatinine = dat.ae.creatinine,
+                    choiesterol = dat.ae.choiesterol,
+                    triglyceride = dat.ae.triglyceride,
+                    hdlc = dat.ae.hdlc,
+                    ldlc = dat.ae.ldlc,
+                    totalpro = dat.ae.totalpro,
+                    albumin = dat.ae.albumin,
+                    globulin = dat.ae.globulin,
+                    fbs = dat.ae.fbs,
+                    amphetamine = dat.ae.amphetamine,
+                    pregnancy = dat.ae.pregnancy,
+                    hbsag = dat.ae.hbsag,
+                    hbsagb = dat.ae.hbsagb,
+                    antihavtotal = dat.ae.antihavtotal,
+                    antihavigm = dat.ae.antihavlgm,
+                    vdrl = dat.ae.vdrl,
+                    antihiv = dat.ae.antihiv,
+                    tsh = dat.ae.tsh,
+                    freet3 = dat.ae.freet3,
+                    freet4 = dat.ae.freet4,
+                    t3 = dat.ae.t3,
+                    t4 = dat.ae.t4,
+                    hemoglobin = dat.ae.hemoglobin,
+                    hematocrit = dat.ae.hematocrit,
+                    wbc = dat.ae.wbc,
+                    lym = dat.ae.lym,
+                    gran = dat.ae.gran,
+                    mid = dat.ae.mid,
+                    platelet = dat.ae.platelet,
+                    eyecolor = dat.ae.eyecolor,
+                    xray = dat.ae.xray,
+                    s1 = (dat.ae.s1 == "1" ? "ผลปกติ" : (dat.ae.s1 == "2" ? "ความดันโลหิตสูง" : (dat.ae.s1 == "3" ? "ความดันโลหิตต่ำ" : ""))),
+                    s2 = (dat.ae.s2xray == "1" ? "ผลปกติ" : (dat.ae.s2xray == "2" ? "ไม่ปกติ" : "")),
+                    s3 = (dat.ae.s3cbc == "1" ? "ผลปกติ" : (dat.ae.s3cbc == "2" ? "ไม่ปกติ" : "")),
+                    s4 = (dat.ae.s4cigar == "1" ? "พบสารเสพติด" : (dat.ae.s4cigar == "2" ? "ไม่พบสารเสพติด" : "")),
+                    s5 = (dat.ae.s5chid == "1" ? "พบการตั้งครรภ์" : (dat.ae.s5chid == "2" ? "ไม่พบการตั้งครรภ์" : "")),
+                    s6 = (dat.ae.s6viral == "1" ? "ผลปกติ" : (dat.ae.s6viral == "2" ? "ไม่ปกติ" : "")),
+                    s7 = (dat.ae.s7cbc == "1" ? "ผลปกติ" : (dat.ae.s7cbc == "2" ? "ไม่ปกติ" : "")),
+                    s8 = (dat.ae.s8 == "1" ? "ผลปกติ" : (dat.ae.s8 == "2" ? "ไม่ปกติ" : (dat.ae.s8 == "3" ? "แปลผลไม่ได้" : ""))),
+
+                    name = dat.ea.titlename + " " + dat.ea.Fname + " " + dat.ea.Lname,
+                    gender = dat.ea.Gender,
+                    refno = dat.ae.IDdate + "-" + (dat.ae.IDrunnumber > 999 ? "" : (dat.ae.IDrunnumber > 99 ? "0" : (dat.ae.IDrunnumber > 9 ? "00" : "000"))) + dat.ae.IDrunnumber,
+                    age = age.ToString(),
+                    color = dat.ae.color,
+                    ph = dat.ae.ph,
+                    protein = dat.ae.protien,
+                    sg = dat.ae.sg,
+                    glucose = dat.ae.glucose,
+                    ketone = dat.ae.ketone,
+                    bilirubin = dat.ae.bilirubin,
+                    urobilinogen = dat.ae.urobilinogen,
+                    blood = dat.ae.blood,
+                    leukocyte = dat.ae.leukocyte,
+                    nitrite = dat.ae.nitrite,
+                    urin1 = dat.ae.urin1,
+                    stoolex = dat.ae.stoolex,
+                    stoolcul = dat.ae.stoolcul,
+                    hissickbody = dat.ae.hissickbody,
+                    hisfood = dat.ae.hisfood,
+                    hissickwork = dat.ae.hissickwork,
+                    dif4 = dat.ae.dif4,
+                    dif5 = dat.ae.dif5,
+                    ascorbic = dat.ae.ascorbic,
+                    direct = dat.ae.direct,
+                    sgot = dat.ae.sgot,
+                    clarity = dat.ae.clarity,
+                    sgpt = dat.ae.sgpt,
+                    alk = dat.ae.alk,
+                    totalbilirubin = dat.ae.totalbilirubin,
+                    mcv = dat.ae.mcv,
+                    mch = dat.ae.mch,
+                    mchc = dat.ae.mchc,
+
+                    /*2023.11.19 최희문 추가 필드 항목 추가 */
+                    //Ekg = (dat.ae.Ekg == "1" ? "ผลปกติ" : (dat.ae.Ekg == "2" ? "ไม่ปกติ" : "")),
+                    Ekg = dat.ae.Ekg,
+                    Others_ekg = dat.ae.Others_ekg,
+
+                    Others_hearing = dat.ae.Others_hearing,
+                    Others_pulmonary = dat.ae.Others_pulmonary
+
+
+
+
+
+                });
+
+            }
+
+            ViewBag.data = listA.ToArray();
+            return View();
+        }
+
+
         public IActionResult GetPrintreciept(string id)
         {
             var url = $"{this.Request.Scheme}://{this.Request.Host}" + Url.Action("med_reciept", "Patient", new { id = id });
@@ -1827,11 +2006,6 @@ namespace bbsaha.Controllers
         
         public IActionResult Exportpatient(string id)
         {
-
-
-          
-
-
             var stream = new MemoryStream();
             using (var xlPackage = new ExcelPackage(stream))
             {
@@ -1963,6 +2137,38 @@ namespace bbsaha.Controllers
 
         }
 
+        public IActionResult ExportExcel2(string id)
+        {
+            var workbook = new XLWorkbook("D:\\Programming\\1.Web\\BRO\\Programming\\Bro-Clinic\\bbsaha\\wwwroot\\asset\\Template\\temp.xlsx");
+            var worksheet = workbook.Worksheet("sheet1");
+
+            // Add data to the worksheet
+            worksheet.Cell("A1").Value = "Name";
+            worksheet.Cell("B1").Value = "Age";
+
+            // Example data
+            var data = new[]
+            {
+                new { Name = "John Doe", Age = 30 },
+                new { Name = "Jane Smith", Age = 25 }
+            };
+
+            int row = 2;
+            foreach (var item in data)
+            {
+                worksheet.Cell("A" + row).Value = item.Name;
+                worksheet.Cell("B" + row).Value = item.Age;
+                row++;
+            }
+
+            // Write workbook to response stream
+            using (var memoryStream = new System.IO.MemoryStream())
+            {
+                workbook.SaveAs(memoryStream);
+                MemoryStream ms2 = new MemoryStream(memoryStream.ToArray());
+                return File(ms2, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Patient" + DateTime.Now.ToString("yyyy-MM-dd") + ".xlsx");
+            }
+        }
 
 
 

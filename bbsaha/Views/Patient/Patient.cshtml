@@ -1461,6 +1461,8 @@
                                                 <option value="2">ผิดปกติ(Abnormal)</option>
 
                                             </select>
+
+                                            <input v-if="DE_s2e==2" type="text" v-model="s2xray_comment" class="form-control" placeholder="Comment X-Ray" />
                                         </div>
 
                                     </div>
@@ -1853,7 +1855,7 @@
                                     <button class="btn btn-success mt-4" v-on:click="Createsel()" style="width: 100%">SAVE</button>
                                 </template>
                                 <template v-else>
-                                    <button class="btn btn-success mt-4" v-on:click="editsel()" style="width: 100%">EDIT SAVE</button>
+                                    <button :disabled="chkselpayment[key] != '0' && userRole != 'Admin'" class="btn btn-success mt-4" v-on:click="editsel()" style="width: 100%">EDIT SAVE</button>
 
                                 </template>
 
@@ -3094,51 +3096,57 @@
                                     <td>{{value.x.time}}</td>
                                     @*<td>{{value.customer}}</td>*@
 
-                                    <td>
-                                     
-                                             <template v-if="(value.y != null ? value.y.type : 0 ) != '2'">
-                                            <template v-if="chkselpayment[key] != '0'">
-                                                 <button   class="btn btn-primary btn-manage btn-med" v-on:click="printmedreport(value.x.id)" style="height:35px;">1.Laps in Detail</button>
-                                                 </template>
+                                <td>
+
+                                    <template v-if="(value.y != null ? value.y.type : 0 ) != '2'">
+                                        <template v-if="chkselpayment[key] != '0'">
+                                            <button class="btn btn-primary btn-manage btn-med" v-on:click="printmedreport(value.x.id)" style="height:35px;">1.Laps in Detail</button>
                                         </template>
-                                               
-                                                    <template v-if="value.y != null">
-                                            <template v-if="chkselpayment[key] != '0'">
-                                                        <button class="btn btn-primary btn-manage btn-med" v-on:click="printcertreport(value.y.id)" style="height:35px;">2.Medical Certificate1</button>
-                                                    </template>
+                                    </template>
+
+                                    <template v-if="value.y != null">
+                                        <template v-if="chkselpayment[key] != '0'">
+                                            <button class="btn btn-primary btn-manage btn-med" v-on:click="printcertreport(value.y.id)" style="height:35px;">2.Medical Certificate1</button>
                                         </template>
+                                    </template>
+
+                                    <template v-if="value.y != null">
+                                        <template v-if="chkselpayment[key] != '0'">
+                                            <button class="btn btn-primary btn-manage btn-med" v-on:click="PrintReportXray(value.y.id)" style="height:35px;">3.X-Ray</button>
+                                        </template>
+                                    </template>
 
 
 
-                                        @*<template v-if="value.y != null">
-                                                        <button class="btn btn-primary btn-manage btn-med" v-on:click="printcertreportfor(value.y.id)" style="height:35px;">3.Me.C2</button>
-                                                    </template>
-                                             
+                                    @*<template v-if="value.y != null">
+                        <button class="btn btn-primary btn-manage btn-med" v-on:click="printcertreportfor(value.y.id)" style="height:35px;">3.Me.C2</button>
+                    </template>
 
 
-                                                    <template v-if="value.y != null">
-                                                        <button class="btn btn-primary btn-manage btn-med" v-on:click="printcertreport_th(value.y.id)" style="height:35px;">4.Med.C3(Th)</button>
-                                                    </template>
-                                          
 
-                                                    <template v-if="value.y != null">
-                                                        <button class="btn btn-primary btn-manage btn-med" v-on:click="printcertreport_en(value.y.id)" style="height:35px;">5.Med.C4(En)</button>
-                                                    </template>
-                                              
-                                                    <template v-if="value.y != null">
-                                                        <button class="btn btn-primary btn-manage btn-med" v-on:click="printcertreport(value.y.id)" style="height:35px;">6.Med.dis.</button>
-                                        </template>*@
-                                              
+                    <template v-if="value.y != null">
+                        <button class="btn btn-primary btn-manage btn-med" v-on:click="printcertreport_th(value.y.id)" style="height:35px;">4.Med.C3(Th)</button>
+                    </template>
 
-                                   
 
-                                        @* <button class="btn btn-primary " v-on:click="printmedreciept(value.id)" style="height:35px;">Print Report </button>*@
-                                        @*<button class="btn btn-warning " data-toggle="modal" data-target=".editdetail" v-on:click="Getdataeditdetail(value.id)" style="height:35px;">edit</button>*@
+                    <template v-if="value.y != null">
+                        <button class="btn btn-primary btn-manage btn-med" v-on:click="printcertreport_en(value.y.id)" style="height:35px;">5.Med.C4(En)</button>
+                    </template>
+
+                    <template v-if="value.y != null">
+                        <button class="btn btn-primary btn-manage btn-med" v-on:click="printcertreport(value.y.id)" style="height:35px;">6.Med.dis.</button>
+        </template>*@
 
 
 
 
-                                    </td>
+                                    @* <button class="btn btn-primary " v-on:click="printmedreciept(value.id)" style="height:35px;">Print Report </button>*@
+                                    @*<button class="btn btn-warning " data-toggle="modal" data-target=".editdetail" v-on:click="Getdataeditdetail(value.id)" style="height:35px;">edit</button>*@
+
+
+
+
+                                </td>
                                     <td>
 
                                         <template v-if="(value.y != null ? value.y.type : 0 ) != '2'">
@@ -3156,7 +3164,7 @@
                                         <template>
 
                                             <div class="btn-group">
-                                                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <button :disabled="chkselpayment[key] != '0' && userRole != 'Admin'" type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     Delete
                                                 </button>
                                                 <div class="dropdown-menu">

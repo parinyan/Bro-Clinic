@@ -132,6 +132,7 @@
             DE_xraye: "",
             DE_s1e: "",
             DE_s2e: "",
+            s2xray_comment: "",
             DE_s3e: "",
             DE_s4e: "",
             DE_s5e: "",
@@ -255,9 +256,11 @@
             chkmededit: false,
             typemedcer: "",
             timemd: new Date().getHours() + ":" + (new Date().getMinutes() < 10 ? '0' : '') + new Date().getMinutes(),
-            ideditmed: ""
+            ideditmed: "",
 
-
+            userName: null,
+            userRole: null,
+            isAdmin: false
 
 
 
@@ -362,6 +365,7 @@
                     this.DE_xraye = res.data[0].xray
                     this.DE_s1e = res.data[0].s1
                     this.DE_s2e = res.data[0].s2xray
+                    this.s2xray_comment = res.data[0].s2xray_comment
                     this.DE_s3e = res.data[0].s3cbc
                     this.DE_s4e = res.data[0].s4cigar
                     this.DE_s5e = res.data[0].s5chid
@@ -929,6 +933,7 @@
             this.DEformsubmitE[0].xray = this.DE_xraye
             this.DEformsubmitE[0].s1 = this.DE_s1e
             this.DEformsubmitE[0].s2 = this.DE_s2e
+            this.DEformsubmitE[0].s2xray_comment = this.s2xray_comment
             this.DEformsubmitE[0].s3 = this.DE_s3e
             this.DEformsubmitE[0].s4 = this.DE_s4e
             this.DEformsubmitE[0].s5 = this.DE_s5e
@@ -1126,6 +1131,11 @@
 
             /* alert(id)*/
             window.open(window.location.origin + "/medic/GetPrintcertificate?id=" + id, "'_blank'");
+
+        }, PrintReportXray(id) {
+
+            /* alert(id)*/
+            window.open(window.location.origin + "/Patient/GetPrintReportXray?id=" + id, "'_blank'");
 
         }, printcertreportfor(id) {
 
@@ -2690,10 +2700,24 @@
         }, exportpa() {
 
 
-            window.open(window.location.origin + "/Patient/Exportpatient", "'_blank'");
+            window.open(window.location.origin + "/Patient/ExportExcel2", "'_blank'");
 
 
 
+        },
+
+        fetchUsername() {
+            axios.get('/Account/Profile') // Assuming your backend provides user info at /api/user
+                .then(response => {
+                    this.userName = response.data.userName;
+                    this.userRole = response.data.userRole;
+                    if (this.userRole=='Admin') {
+                        this.isAdmin = true;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching username:', error);
+                });
         }
 
     }, mounted: function () {
@@ -2714,6 +2738,7 @@
         this.getdatamedtype()
         this.getdatapaytype()
         this.getdatareceive()
+        this.fetchUsername()
 
 
     }

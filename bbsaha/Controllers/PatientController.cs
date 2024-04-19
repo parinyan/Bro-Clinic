@@ -186,6 +186,10 @@ namespace bbsaha.Controllers
             public string dif5 { get; set; }
             public int medtype { get; set; }
             public string ascorbic { get; set; }
+            public string WBC2 { get; set; }
+            public string RBC { get; set; }
+            public string Cast { get; set; }
+            public string Bacteria { get; set; }
             public string sgot { get; set; }
             public string sgpt { get; set; }
 
@@ -381,6 +385,10 @@ namespace bbsaha.Controllers
                 hissickwork = model[0].hissickwork,
                 medtype = model[0].medtype.ToString(),
                 ascorbic = model[0].ascorbic,
+                WBC2 = model[0].WBC2,
+                RBC = model[0].RBC,
+                Cast = model[0].Cast,
+                Bacteria = model[0].Bacteria,
                 dif4 = model[0].diff4,
                 dif5 = model[0].diff5,
                 alk = model[0].alk,
@@ -471,7 +479,7 @@ namespace bbsaha.Controllers
             _data.xray = model[0].xray;
             _data.s1 = model[0].s1;
             _data.s2xray = model[0].s2;
-            _data.s2xray_comment = model[0].s2xray_comment;
+            _data.s2xray_comment = model[0].s2=="2"?model[0].s2xray_comment:"";
             _data.s3cbc = model[0].s3;
             _data.s4cigar = model[0].s4;
             _data.s5chid = model[0].s5;
@@ -501,6 +509,10 @@ namespace bbsaha.Controllers
             _data.hissickwork = model[0].hissickwork;
             _data.medtype = model[0].medtype.ToString();
             _data.ascorbic = model[0].ascorbic;
+            _data.WBC2 = model[0].WBC2;
+            _data.RBC = model[0].RBC;
+            _data.Cast = model[0].Cast;
+            _data.Bacteria = model[0].Bacteria;
             _data.dif4 = model[0].diff4;
             _data.dif5 = model[0].diff5;
             _data.alk = model[0].alk;
@@ -945,7 +957,7 @@ namespace bbsaha.Controllers
                     date = dat.ae.DateReg.ToString("dd/MM/yyyy"),
                     time = dat.ae.time,
                     company = dat.ae.Customer,
-
+                    idcard = dat.ea.IDCard,
                     birthday = dat.ea.birthday,
 
                     height = Convert.ToInt32(dat.ae.Height).ToString(),
@@ -1027,6 +1039,10 @@ namespace bbsaha.Controllers
                     dif4 = dat.ae.dif4,
                     dif5 = dat.ae.dif5,
                     ascorbic = dat.ae.ascorbic,
+                    WBC2 = dat.ae.WBC2,
+                    RBC = dat.ae.RBC,
+                    Cast = dat.ae.Cast,
+                    Bacteria = dat.ae.Bacteria,
                     direct = dat.ae.direct,
                     sgot = dat.ae.sgot,
                     clarity = dat.ae.clarity,
@@ -1044,11 +1060,6 @@ namespace bbsaha.Controllers
                     
                     Others_hearing =dat.ae.Others_hearing,
                     Others_pulmonary=dat.ae.Others_pulmonary
-
-
-
-
-
                 });
 
             }
@@ -1079,6 +1090,7 @@ namespace bbsaha.Controllers
                     date = dat.ae.DateReg.ToString("dd/MM/yyyy"),
                     time = dat.ae.time,
                     company = dat.ae.Customer,
+                    idcard = dat.ea.IDCard,
 
                     birthday = dat.ea.birthday,
 
@@ -1130,6 +1142,7 @@ namespace bbsaha.Controllers
                     xray = dat.ae.xray,
                     s1 = (dat.ae.s1 == "1" ? "ผลปกติ" : (dat.ae.s1 == "2" ? "ความดันโลหิตสูง" : (dat.ae.s1 == "3" ? "ความดันโลหิตต่ำ" : ""))),
                     s2 = (dat.ae.s2xray == "1" ? "ผลปกติ" : (dat.ae.s2xray == "2" ? "ไม่ปกติ" : "")),
+                    s2xray_comment = dat.ae.s2xray_comment,
                     s3 = (dat.ae.s3cbc == "1" ? "ผลปกติ" : (dat.ae.s3cbc == "2" ? "ไม่ปกติ" : "")),
                     s4 = (dat.ae.s4cigar == "1" ? "พบสารเสพติด" : (dat.ae.s4cigar == "2" ? "ไม่พบสารเสพติด" : "")),
                     s5 = (dat.ae.s5chid == "1" ? "พบการตั้งครรภ์" : (dat.ae.s5chid == "2" ? "ไม่พบการตั้งครรภ์" : "")),
@@ -2142,6 +2155,16 @@ namespace bbsaha.Controllers
             var workbook = new XLWorkbook("D:\\Programming\\1.Web\\BRO\\Programming\\Bro-Clinic\\bbsaha\\wwwroot\\asset\\Template\\temp.xlsx");
             var worksheet = workbook.Worksheet("sheet1");
 
+            var _data1 = _mysqlbro.CN_Patient.ToList();
+            var _data2 = _mysqlbro.CN_Detail.ToList();
+
+
+            var sumdata = _data1.Join(_data2, ae => ae.ID, ea => ea.PatientID, (ae, ea) => new { ae, ea }).ToList();
+
+            //var s1 = sumdata.SelectMany(i=>i.ea.)
+
+             DataTable dt = ToDataTable(sumdata);
+
             // Add data to the worksheet
             worksheet.Cell("A1").Value = "Name";
             worksheet.Cell("B1").Value = "Age";
@@ -2170,7 +2193,32 @@ namespace bbsaha.Controllers
             }
         }
 
+        private DataTable ToDataTable<T>(List<T> items)
+        {
+            DataTable dataTable = new DataTable(typeof(T).Name);
 
+            // Get all the properties
+            var properties = typeof(T).GetProperties();
+
+            // Create the columns
+            foreach (var prop in properties)
+            {
+                dataTable.Columns.Add(prop.Name, prop.PropertyType);
+            }
+
+            // Add the rows
+            foreach (T item in items)
+            {
+                DataRow row = dataTable.NewRow();
+                foreach (var prop in properties)
+                {
+                    row[prop.Name] = prop.GetValue(item);
+                }
+                dataTable.Rows.Add(row);
+            }
+
+            return dataTable;
+        }
 
     }
 

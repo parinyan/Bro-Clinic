@@ -1227,16 +1227,16 @@
                                                         <option value="Non Hemolysis ++">Non Hemolysis ++</option>
 
                                                         @*<option value="H">Holiday</option>
-                                                        <option value="TD">Traditional day</option>*@
+                <option value="TD">Traditional day</option>*@
                                                     </datalist>
                                                     @*<select v-model="DE_bloode" style="width: 80%" class="form-control">
-                                                    <option value=""></option>
-                                                    <option value="Negative">Negative</option>
-                                                    <option value="1+">1+</option>
-                                                    <option value="2+">2+</option>
-                                                    <option value="3+">3+</option>
-                                                    <option value="4+">4+</option>
-                                                    </select>*@
+            <option value=""></option>
+            <option value="Negative">Negative</option>
+            <option value="1+">1+</option>
+            <option value="2+">2+</option>
+            <option value="3+">3+</option>
+            <option value="4+">4+</option>
+            </select>*@
                                                 </div>
                                                 <div class="col-3">
                                                     <span>Leukocyte</span>
@@ -1248,16 +1248,16 @@
                                                         <option value="+25 WBC/uL">+25 WBC/uL</option>
 
                                                         @*<option value="H">Holiday</option>
-                                                        <option value="TD">Traditional day</option>*@
+                <option value="TD">Traditional day</option>*@
                                                     </datalist>
                                                     @*<select v-model="DE_leukocytee" style="width: 80%" class="form-control">
-                                                    <option value=""></option>
-                                                    <option value="Negative">Negative</option>
-                                                    <option value="1+">1+</option>
-                                                    <option value="2+">2+</option>
-                                                    <option value="3+">3+</option>
-                                                    <option value="4+">4+</option>
-                                                    </select>*@
+            <option value=""></option>
+            <option value="Negative">Negative</option>
+            <option value="1+">1+</option>
+            <option value="2+">2+</option>
+            <option value="3+">3+</option>
+            <option value="4+">4+</option>
+            </select>*@
                                                 </div>
 
                                                 <div class="col-3">
@@ -1272,11 +1272,11 @@
 
                                                     </datalist>
                                                     @*<select v-model="DE_nitritee" style="width: 80%" class="form-control">
-                                                    <option value=""></option>
-                                                    <option value="Negative">Negative</option>
-                                                    <option value="Positive">Positive</option>
+            <option value=""></option>
+            <option value="Negative">Negative</option>
+            <option value="Positive">Positive</option>
 
-                                                    </select>*@
+            </select>*@
                                                 </div>
                                                 <div class="col-3">
                                                     <span>Ascorbic acid</span>
@@ -1290,13 +1290,53 @@
 
                                                     </datalist>
                                                     @*<select v-model="DE_ascorbice" style="width: 80%" class="form-control">
-                                                    <option value=""></option>
-                                                    <option value="Negative">Negative</option>
-                                                    <option value="1+">10mg/100ml</option>
-                                                    <option value="2+">25mg/100ml</option>
-                                                    <option value="3+">50mg/100ml</option>
+            <option value=""></option>
+            <option value="Negative">Negative</option>
+            <option value="1+">10mg/100ml</option>
+            <option value="2+">25mg/100ml</option>
+            <option value="3+">50mg/100ml</option>
 
-                                                    </select>*@
+            </select>*@
+                                                </div>
+                                                <div class="col-3">
+                                                    <span>WBC</span>
+                                                    <br />
+                                                    <input list="browsers12" v-model="DE_WBC2" style="border: 1px solid; " class="form-control">
+                                                    <datalist id="browsers12">
+                                                        <option value="Negative">Negative</option>
+                                                        <option value="Positive">Positive</option>
+
+                                                    </datalist>
+                                                </div>
+                                                <div class="col-3">
+                                                    <span>RBC</span>
+                                                    <br />
+                                                    <input list="browsers13" v-model="DE_RBC" style="border: 1px solid; " class="form-control">
+                                                    <datalist id="browsers13">
+                                                        <option value="Negative">Negative</option>
+                                                        <option value="Positive">Positive</option>
+
+                                                    </datalist>
+                                                </div>
+                                                <div class="col-3">
+                                                    <span>Cast</span>
+                                                    <br />
+                                                    <input list="browsers14" v-model="DE_Cast" style="border: 1px solid; " class="form-control">
+                                                    <datalist id="browsers14">
+                                                        <option value="Negative">Negative</option>
+                                                        <option value="Positive">Positive</option>
+
+                                                    </datalist>
+                                                </div>
+                                                <div class="col-3">
+                                                    <span>Bacteria</span>
+                                                    <br />
+                                                    <input list="browsers15" v-model="DE_Bacteria" style="border: 1px solid; " class="form-control">
+                                                    <datalist id="browsers15">
+                                                        <option value="Negative">Negative</option>
+                                                        <option value="Positive">Positive</option>
+
+                                                    </datalist>
                                                 </div>
 
                                             </div>
@@ -3112,7 +3152,7 @@
 
                                     <template v-if="value.y != null">
                                         <template v-if="chkselpayment[key] != '0'">
-                                            <button class="btn btn-primary btn-manage btn-med" v-on:click="PrintReportXray(value.y.id)" style="height:35px;">3.X-Ray</button>
+                                            <button class="btn btn-primary btn-manage btn-med" v-on:click="PrintReportXray(value.x.id)" style="height:35px;">3.X-Ray</button>
                                         </template>
                                     </template>
 

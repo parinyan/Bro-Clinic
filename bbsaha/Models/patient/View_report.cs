@@ -13,6 +13,7 @@ namespace bbsaha.Models.patient
             public string time { get; set; }
             public string number { get; set; }
             public string company { get; set; } //
+            public string idcard { get; set; } //
             public string birthday { get; set; } //
             public string height { get; set; }
             public string weight { get; set; }
@@ -62,6 +63,7 @@ namespace bbsaha.Models.patient
             public string xray { get; set; }
             public string s1 { get; set; }
             public string s2 { get; set; }
+            public string s2xray_comment { get; set; }
             public string s3 { get; set; }
             public string s4 { get; set; }
             public string s5 { get; set; }
@@ -101,6 +103,10 @@ namespace bbsaha.Models.patient
             public string leukocyte { get; set; }
             public string nitrite { get; set; }
             public string ascorbic { get; set; }
+            public string WBC2 { get; set; }
+            public string RBC { get; set; }
+            public string Cast { get; set; }
+            public string Bacteria { get; set; }
             public string stoolex { get; set; }
             public string stoolcul { get; set; }
             public string urin1 { get; set; }
@@ -132,6 +138,6 @@ namespace bbsaha.Models.patient
         public string Others_hearing { get; set; }
         public string Others_pulmonary { get; set; }
 
-
+        public int Item { get; set; } = 1;
     }
 }

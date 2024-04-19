@@ -162,6 +162,10 @@
             DE_labinvese: "",
             DE_wbcdife: "",
             DE_ascorbice: "",
+            DE_WBC2: "",
+            DE_RBC: "",
+            DE_Cast: "",
+            DE_Bacteria: "",
             DE_dif4e: "",
             DE_dif5e: "",
             DE_claritye: "",
@@ -398,6 +402,10 @@
                     this.DE_leukocytee = res.data[0].leukocyte
                     this.DE_nitritee = res.data[0].nitrite
                     this.DE_ascorbice = res.data[0].ascorbic
+                    this.DE_WBC2 = res.data[0].wbC2
+                    this.DE_RBC = res.data[0].rbc
+                    this.DE_Cast = res.data[0].cast
+                    this.DE_Bacteria = res.data[0].bacteria
                     this.DE_dif4e = res.data[0].dif4
                     this.DE_dif5e = res.data[0].dif5
                     this.iddetaile = res.data[0].id
@@ -966,6 +974,10 @@
             this.DEformsubmitE[0].labinves = this.DE_labinvese
             /*this.DEformsubmitE[0].wbcdif = this.DE_wbcdif*/
             this.DEformsubmitE[0].ascorbic = this.DE_ascorbice
+            this.DEformsubmitE[0].WBC2 = this.DE_WBC2
+            this.DEformsubmitE[0].RBC = this.DE_RBC
+            this.DEformsubmitE[0].Cast = this.DE_Cast
+            this.DEformsubmitE[0].Bacteria = this.DE_Bacteria
 
             this.DEformsubmitE[0].diff4 = this.DE_dif4e
             this.DEformsubmitE[0].diff5 = this.DE_dif5e
@@ -1253,6 +1265,7 @@
             this.DEformsubmitE[0].xray = this.DE_xraye
             this.DEformsubmitE[0].s1 = this.DE_s1e
             this.DEformsubmitE[0].s2 = this.DE_s2e
+            this.DEformsubmitE[0].s2xray_comment = this.s2xray_comment
             this.DEformsubmitE[0].s3 = this.DE_s3e
             this.DEformsubmitE[0].s4 = this.DE_s4e
             this.DEformsubmitE[0].s5 = this.DE_s5e
@@ -1285,6 +1298,10 @@
             this.DEformsubmitE[0].labinves = this.DE_labinvese
             /*this.DEformsubmitE[0].wbcdif = this.DE_wbcdif*/
             this.DEformsubmitE[0].ascorbic = this.DE_ascorbice
+            this.DEformsubmitE[0].WBC2 = this.DE_WBC2
+            this.DEformsubmitE[0].RBC = this.DE_RBC
+            this.DEformsubmitE[0].Cast = this.DE_Cast
+            this.DEformsubmitE[0].Bacteria = this.DE_Bacteria
             this.DEformsubmitE[0].diff4 = this.DE_dif4e
             this.DEformsubmitE[0].diff5 = this.DE_dif5e
             this.DEformsubmitE[0].clarity = this.DE_dif5e

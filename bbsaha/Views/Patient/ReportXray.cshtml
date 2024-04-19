@@ -3,7 +3,7 @@
 
 }
 
-@using bbsaha.Models.Certificate
+@using bbsaha.Models.patient
 <link href="~/css/sb-admin-2.css" rel="stylesheet" asp-append-version="true" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 <link href="~/css/fontawesome-free/css/all.css" rel="stylesheet" />
@@ -55,6 +55,7 @@
         /*font-weight: 800 !important;*/
         /*font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;*/
     }
+
     .backcola {
         background-color: #aeb9c9 !important
     }
@@ -65,9 +66,13 @@
     <div class="display-flex">
         <div class="flex-a">
             @*<img src="~/asset/img/2022-09-28_13-38-51.png" style="width:90%;margin-top: 10px" />*@
-            <img src="~/asset/img/2022-09-28_13-38-51.png" style="width:70%;margin-top: 10px"/>
+            <img src="~/asset/img/2022-09-28_13-38-51.png" style="width:70%;margin-top: 10px" />
         </div>
         <div class="flex-b">
+            @foreach (View_report dat in ViewBag.data)
+            {
+                <span style="position: absolute;left: 850px;top: 10px;font-size:12px">@dat.idcard</span>
+            }
             <span style="white-space:pre-line;text-align:center">
                 บริษัท บีบี สหคลินิก จำกัด สำนักงานใหญ่ 556/29-30  ม.3  ต.บ่อวิน  อ.ศรีราชา  ชลบุรี 20230
                 BB Saha Clinic Head Office Co., Ltd. 556/29-30 Moo 3  Bowin District  Sriracha, Chonburi 20230
@@ -84,32 +89,32 @@
         </tr>
         <tr>
             <td class="backcola" style="text-align: center; width: 30%">ชื่อ-สกุล/Name-Sumame</td>
-            <td style="text-align: center; width: 70%"></td>
+            <td style="text-align: center; width: 70%">@ViewBag.data[0].name</td>
 
         </tr>
         <tr>
             <td class="backcola" style="text-align: center;">บริษัท (Company)</td>
-            <td></td>
+            <td style="text-align: center;">@ViewBag.data[0].company</td>
         </tr>
         <tr>
             <td class="backcola" style="text-align: center;">เลขบัตรประชาชน</td>
-            <td></td>
+            <td style="text-align: center;">@ViewBag.data[0].idcard</td>
         </tr>
         <tr>
             <td class="backcola" style="text-align: center;">อายุ/Age</td>
-            <td></td>
+            <td style="text-align: center;">@ViewBag.data[0].age</td>
         </tr>
         <tr>
             <td class="backcola" style="text-align: center;">เพศ/Sex</td>
-            <td></td>
+            <td style="text-align: center;">@ViewBag.data[0].gender</td>
         </tr>
         <tr>
             <td class="backcola" style="text-align: center;">วันที่ตรวจ/Date</td>
-            <td></td>
+            <td style="text-align: center;">@ViewBag.data[0].date</td>
         </tr>
         <tr>
             <td class="backcola" style="text-align: center;">เวลา/Time</td>
-            <td></td>
+            <td style="text-align: center;">@ViewBag.data[0].time</td>
         </tr>
         <tr>
             <td class="backcola" colspan="2" style="text-align:center">ผลการตรวจเอกเรย์ ( Sereeing Chest X-Ray )</td>
@@ -120,7 +125,7 @@
         </tr>
         <tr>
             <td height="150px" style="text-align:center; vertical-align:middle;">-</td>
-            <td style="vertical-align:middle"></td>
+            <td style="vertical-align:middle">@ViewBag.data[0].s2xray_comment</td>
         </tr>
         <tr>
             <td colspan="2" height="80px" style="text-align: center;">รายงานผลตรวจเบื้องต้นโดย…......................................................................................ต่ำแหน่งนักรังสีการแพทย์</td>

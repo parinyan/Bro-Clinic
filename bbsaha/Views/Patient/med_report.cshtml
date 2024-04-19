@@ -92,18 +92,19 @@
         background-color: #aeb9c9 !important
     }
 </style>
-<div style="width: 100%; height: 75px; display: flex; display: -webkit-box;">
+<div style="width: 100%; display: flex; display: -webkit-box;">
     <div class="fix-a">
-        <img src="~/asset/img/logobbnew.png" style="width:100%;margin-top: 18px" />
+        <img src="~/asset/img/2022-09-28_13-38-51.png" style="width:85%;margin-top: 10px" />
     </div>
     <div class="fix-b" style="vertical-align : middle;font-size: 14px;margin-top: 30px;">
 
         @foreach (View_report dat in ViewBag.data)
         {
-        //<span style="position: absolute;left: 850px;top: 10px;font-size:12px">by : </span>
-        <span style="position: absolute;left: 850px;top: 10px;font-size:12px">@dat.refno/@dat.Updateby</span>
+            //<span style="position: absolute;left: 850px;top: 10px;font-size:12px">by : </span>
+            @*<span style="position: absolute;left: 850px;top: 10px;font-size:12px">@dat.refno/@dat.Updateby</span>*@
+        <span style="position: absolute;left: 850px;top: 10px;font-size:12px">@dat.idcard</span>
         }
-       
+
         <span>
             บริษัท บีบี สหคลินิก จำกัด สำนักงานใหญ่ 556/29-30  ม.3  ต.บ่อวิน  อ.ศรีราชา  ชลบุรี 20230 <br />
             BB Saha Clinic Head Office Co., Ltd. 556/29-30 Moo 3  Bowin District  Sriracha, Chonburi 20230 <br />
@@ -116,14 +117,17 @@
 @foreach (View_report dat in ViewBag.data)
 {
 <table class="table table-bordered" style="text-align: center;font-size:12px;margin-top: 40px !important">
+    <tr style="color: #000;" class="backcol">
+        <td class="backcola" colspan="11" style="text-align: center; font-size: 20px;">ใบรายงานผลตรวจสุขภาพ</td>
 
+    </tr>
     <tr style="color: #000" class="backcol">
 
-            <td colspan="5" style="width: 40px" class="backcola"><span class="head-card"><b>ชื่อ-นามสกุล / Name-Surname</b></span></td>
-            <td style="width: 60px" class="backcola"><span class="head-card"><b>อายุ / Age</b></span></td>
-            <td style="width: 60px" class="backcola"><span class="head-card"><b>เพศ / Sex</b></span></td>
-            <td colspan="2" style="width: 200px" class="backcola"><span class="head-card"><b>วันที่ตรวจ / Date</b></span></td>
-            <td colspan="2" class="backcola"><span class="head-card"><b>เวลา / Time</b></span></td>
+        <td colspan="5" style="width: 40px" class="backcola"><span class="head-card"><b>ชื่อ-นามสกุล / Name-Surname</b></span></td>
+        <td style="width: 60px" class="backcola"><span class="head-card"><b>อายุ / Age</b></span></td>
+        <td style="width: 60px" class="backcola"><span class="head-card"><b>เพศ / Sex</b></span></td>
+        <td colspan="2" style="width: 200px" class="backcola"><span class="head-card"><b>วันที่ตรวจ / Date</b></span></td>
+        <td colspan="2" class="backcola"><span class="head-card"><b>เวลา / Time</b></span></td>
 
 
     </tr>
@@ -139,8 +143,8 @@
     </tr>
     <tr style="color: #000" class="backcol">
 
-            <td colspan="7" class="backcola"><span class="head-card"><b>บริษัท (Company)</b></span></td>
-            <td colspan="4" class="backcola"><span class="head-card"><b>ผลตรวจทางห้องปฏิบัติการ LABOLATORY INVESTIGATION</b></span></td>
+        <td colspan="7" class="backcola"><span class="head-card"><b>บริษัท (Company)</b></span></td>
+        <td colspan="4" class="backcola"><span class="head-card"><b>ผลตรวจทางห้องปฏิบัติการ LABOLATORY INVESTIGATION</b></span></td>
 
 
     </tr>
@@ -148,18 +152,18 @@
 
         <td colspan="7"><span class="row-card"></span>@dat.company</td>
         @*<td colspan="4" class="backcol"><span class="row-card"></span></td>*@
-            <td colspan="2" class="backcol"><span class="head-card"><b>ความสมบูรณ์ของเม็ดเลือด (CVC)</b></span></td>
-            <td class="backcol"><span class="head-card"><b>ค่าปกติ</b></span></td>
-            <td class="backcol"><span class="head-card"><b>Result</b></span></td>
+        <td colspan="2" class="backcol"><span class="head-card"><b>ความสมบูรณ์ของเม็ดเลือด (CVC)</b></span></td>
+        <td class="backcol"><span class="head-card"><b>ค่าปกติ</b></span></td>
+        <td class="backcol"><span class="head-card"><b>Result</b></span></td>
 
 
     </tr>
 
     <tr style="color: #000">
-            <td class="backcol"><span class="head-card">น้ำหนัก / Weight</span></td>
-            <td class="backcol"><span class="head-card">ส่วนสูง / Height</span></td>
-            <td colspan="2" class="backcol"><span class="head-card">ชีพจร / Pulse</span></td>
-            <td colspan="3" class="backcol"><span class="head-card">ความดันโลหิต / Blood Pressure</span></td>
+        <td class="backcol"><span class="head-card">น้ำหนัก / Weight</span></td>
+        <td class="backcol"><span class="head-card">ส่วนสูง / Height</span></td>
+        <td colspan="2" class="backcol"><span class="head-card">ชีพจร / Pulse</span></td>
+        <td colspan="3" class="backcol"><span class="head-card">ความดันโลหิต / Blood Pressure</span></td>
         <td colspan="2"><span class="row-card">Hemoglobin</span></td>
         <td><span class="row-card">M13-17,F12-16</span></td>
         <td><span class="row-card">@dat.hemoglobin</span></td>
@@ -179,8 +183,8 @@
     </tr>
 
     <tr style="color: #000">
-            <td colspan="4" class="backcol"><span class="head-card">ประวัติการเจ็บป่วย</span></td>
-            <td colspan="3" class="backcol"><span class="head-card">ประวัติการแพ้ยา</span></td>
+        <td colspan="4" class="backcol"><span class="head-card">ประวัติการเจ็บป่วย</span></td>
+        <td colspan="3" class="backcol"><span class="head-card">ประวัติการแพ้ยา</span></td>
         <td colspan="2"><span class="row-card">WBC (cells/Cu.mm)</span></td>
         <td><span class="row-card">5,000-10,000</span></td>
         <td><span class="row-card">@dat.wbc</span></td>
@@ -200,15 +204,15 @@
 
 
     <tr style="color: #000">
-            <td colspan="4" class="backcol"><span class="head-card">ประวัติการสูบบุหรี่ (Smoking)</span></td>
-            <td colspan="3" class="backcol">
-                <span class="head-card">
-                    ประวัติการดื่มแอลกอฮอล์ (Dink Alcohol)
-                </span>
-            </td>
+        <td colspan="4" class="backcol"><span class="head-card">ประวัติการสูบบุหรี่ (Smoking)</span></td>
+        <td colspan="3" class="backcol">
+            <span class="head-card">
+                ประวัติการดื่มแอลกอฮอล์ (Dink Alcohol)
+            </span>
+        </td>
 
-            <td colspan="4" class="backcola"><span class="head-card"><b>Differential</b></span></td>
-           
+        <td colspan="4" class="backcola"><span class="head-card"><b>Differential</b></span></td>
+
 
     </tr>
 
@@ -224,7 +228,7 @@
     </tr>
 
     <tr style="color: #000">
-            <td colspan="7" class="backcola"><span class="head-card"><b>ผลการตรวจทางห้องปฏิบัติการ LABOLATORY INVESTIGATION</b></span></td>
+        <td colspan="7" class="backcola"><span class="head-card"><b>ผลการตรวจทางห้องปฏิบัติการ LABOLATORY INVESTIGATION</b></span></td>
 
         <td colspan="2"><span class="head-card">Lymphocyte</span></td>
         <td><span class="head-card">(20 - 45)%</span></td>
@@ -233,9 +237,9 @@
 
     <tr style="color: #000;" class="tr-a">
 
-            <td colspan="2" class="backcol"><span class="row-card"><b>การตรวจทางเคมี (Chemistry)</b></span></td>
-            <td colspan="3" class="backcol"><span class="row-card"><b>ค่าปกติ</b></span></td>
-            <td colspan="2" class="backcol"><span class="row-card"><b>Result</b></span></td>
+        <td colspan="2" class="backcol"><span class="row-card"><b>การตรวจทางเคมี (Chemistry)</b></span></td>
+        <td colspan="3" class="backcol"><span class="row-card"><b>ค่าปกติ</b></span></td>
+        <td colspan="2" class="backcol"><span class="row-card"><b>Result</b></span></td>
 
         <td colspan="2"><span class="row-card">Monocyte</span></td>
         <td><span class="row-card">(1 - 5)%</span></td>
@@ -246,7 +250,7 @@
 
     <tr style="color: #000;" class="tr-a">
 
-            <td colspan="2" class="bt-a"><span class="row-card text-a">ตรวจโซเดียม Sodium</span></td>
+        <td colspan="2" class="bt-a"><span class="row-card text-a">ตรวจโซเดียม Sodium</span></td>
         <td colspan="3"><span class="row-card">137 - 145 mmol/L</span></td>
         <td colspan="2"><span class="row-card">@dat.sodium</span></td>
 
@@ -258,11 +262,11 @@
 
     <tr style="color: #000;" class="tr-a">
 
-            <td colspan="2" class="bt-a">
-                <span class="row-card text-a">
-                    ตรวจโพแทสเซียม Potassium
-                </span>
-            </td>
+        <td colspan="2" class="bt-a">
+            <span class="row-card text-a">
+                ตรวจโพแทสเซียม Potassium
+            </span>
+        </td>
         <td colspan="3"><span class="row-card">3.5 -5.1 mmol/L</span></td>
         <td colspan="2"><span class="row-card">@dat.potassium</span></td>
 
@@ -277,7 +281,7 @@
 
     <tr style="color: #000;" class="tr-a">
 
-            <td colspan="2" class="bt-a"><span class="row-card text-a">ตรวจคลอไรด์ Chloride</span></td>
+        <td colspan="2" class="bt-a"><span class="row-card text-a">ตรวจคลอไรด์ Chloride</span></td>
         <td colspan="3"><span class="row-card">98 - 107 mmol/L</span></td>
         <td colspan="2"><span class="row-card">@dat.chloride</span></td>
 
@@ -289,7 +293,7 @@
 
     <tr style="color: #000;" class="tr-a">
 
-            <td colspan="2" class="bt-a"><span class="row-card text-a">ตรวจคาร์บอนไดออกไซด์ CO₂</span></td>
+        <td colspan="2" class="bt-a"><span class="row-card text-a">ตรวจคาร์บอนไดออกไซด์ CO₂</span></td>
         <td colspan="3"><span class="row-card">22 - 30 mmol/L</span></td>
         <td colspan="2"><span class="row-card">@dat.totalc02</span></td>
 
@@ -312,18 +316,18 @@
     </tr>
 
 
-        <tr style="color: #000;" class="tr-a">
+    <tr style="color: #000;" class="tr-a">
 
 
 
-            <td colspan="2" class="backcol"><span class="row-card"><b>การทำงานของไต (Renal Function)</b></span></td>
-            @*<td class="backcol"><span class="row-card">detail</span></td>*@
+        <td colspan="2" class="backcol"><span class="row-card"><b>การทำงานของไต (Renal Function)</b></span></td>
+        @*<td class="backcol"><span class="row-card">detail</span></td>*@
 
-            <td colspan="3" class="backcol"><span class="row-card"><b>ค่าปกติ</b></span></td>
-            <td colspan="2" class="backcol"><span class="row-card"><b>Result</b></span></td>
+        <td colspan="3" class="backcol"><span class="row-card"><b>ค่าปกติ</b></span></td>
+        <td colspan="2" class="backcol"><span class="row-card"><b>Result</b></span></td>
 
-            <td colspan="4" class="backcola"><span class="head-card"><b>การตรวจจุลทรรศนศาสตร์ (Microscopic)</b></span></td>
-            @*<td class="backcol"><span class="row-card">การตรวจจุลทรรศนศาสตร์ (Microscopic)</span></td>
+        <td colspan="4" class="backcola"><span class="head-card"><b>การตรวจจุลทรรศนศาสตร์ (Microscopic)</b></span></td>
+        @*<td class="backcol"><span class="row-card">การตรวจจุลทรรศนศาสตร์ (Microscopic)</span></td>
             <td class="backcol"><span class="row-card">ตรวจปัสสาวะ (Urine Exam)</span></td>
             <td class="backcol"><span class="row-card">detail</span></td>
             <td class="backcol"><span class="row-card">Result</span></td>*@
@@ -333,18 +337,18 @@
 
     <tr style="color: #000;" class="tr-a">
 
-            <td colspan="2"><span class="row-card">BUN</span></td>
+        <td colspan="2"><span class="row-card">BUN</span></td>
         @*<td><span class="row-card">การทำงานของไต</span></td>
-        <td><span class="row-card">BUN</span></td>*@
+            <td><span class="row-card">BUN</span></td>*@
         <td colspan="3"><span class="row-card">4 - 23 mg/dL</span></td>
         <td colspan="2"><span class="row-card">@dat.bun</span></td>
 
 
 
-            <td class="backcol" rowspan="14" style="vertical-align : middle;text-align:center;font-size: 12px"><span class="row-card"><b>ตรวจปัสสาวะ<br>Urine Exam</b></span></td>
-            <td class="backcol" style="vertical-align : middle;text-align:center;font-size: 12px"><span class="row-card"></span></td>
-            <td class="backcol"><span class="row-card"><b>ค่าปกติ</b></span></td>
-            <td class="backcol"><span class="row-card">@dat.urin1</span><b>Result</b></td>
+        <td class="backcol" rowspan="18" style="vertical-align : middle;text-align:center;font-size: 12px"><span class="row-card"><b>ตรวจปัสสาวะ<br>Urine Exam</b></span></td>
+        <td class="backcol" style="vertical-align : middle;text-align:center;font-size: 12px"><span class="row-card"></span></td>
+        <td class="backcol"><span class="row-card"><b>ค่าปกติ</b></span></td>
+        <td class="backcol"><span class="row-card">@dat.urin1</span><b>Result</b></td>
 
 
 
@@ -354,15 +358,15 @@
 
         <td colspan="2"><span class="row-card">Creatinine</span></td>
         @*<td><span class="row-card">Renal Function</span></td>
-        <td><span class="row-card">Creatinine</span></td>*@
+            <td><span class="row-card">Creatinine</span></td>*@
         <td colspan="3"><span class="row-card">0.5 - 2 mg/dL</span></td>
         <td colspan="2"><span class="row-card">@dat.creatinine</span></td>
 
 
 
-            <td><span class="row-card">Color</span></td>
-            <td><span class="row-card"></span></td>
-            <td><span class="row-card">@dat.color</span></td>
+        <td><span class="row-card">Color</span></td>
+        <td><span class="row-card"></span></td>
+        <td><span class="row-card">@dat.color</span></td>
 
 
 
@@ -370,20 +374,20 @@
 
     <tr style="color: #000;" class="tr-a">
 
-            <td class="backcol" rowspan="4" style="vertical-align: middle; text-align: center; width: 20px;">
-                <span class="row-card">
-                    ไขมันในเลือด<br>(Lipid Profile)                  
-                </span>
-            </td>
+        <td class="backcol" rowspan="4" style="vertical-align: middle; text-align: center; width: 20px;">
+            <span class="row-card">
+                ไขมันในเลือด<br>(Lipid Profile)
+            </span>
+        </td>
 
         <td><span class="row-card">Cholesterol</span></td>
         <td colspan="3"><span class="row-card">&lt; 200 mg/dL</span></td>
         <td colspan="2"><span class="row-card">@dat.choiesterol</span></td>
 
 
-            <td><span class="row-card">Clarity</span></td>
-            <td><span class="row-card"></span></td>
-            <td><span class="row-card">@dat.clarity</span></td>
+        <td><span class="row-card">Clarity</span></td>
+        <td><span class="row-card"></span></td>
+        <td><span class="row-card">@dat.clarity</span></td>
 
     </tr>
 
@@ -395,9 +399,9 @@
         <td colspan="3"><span class="row-card">&lt; 150 mg/dL</span></td>
         <td colspan="2"><span class="row-card">@dat.triglyceride</span></td>
 
-            <td><span class="row-card">Sp.gr.</span></td>
-            <td><span class="row-card">1.003-1.030</span></td>
-            <td><span class="row-card">@dat.sg</span></td>
+        <td><span class="row-card">Sp.gr.</span></td>
+        <td><span class="row-card">1.003-1.030</span></td>
+        <td><span class="row-card">@dat.sg</span></td>
 
 
 
@@ -407,86 +411,86 @@
 
     <tr style="color: #000;" class="tr-a">
 
-      
-            <td><span class="row-card">LDL</span></td>
-            <td colspan="3"><span class="row-card">19.25-120.89 mg/dL</span></td>
-            <td colspan="2"><span class="row-card">@dat.ldlc</span></td>
+
+        <td><span class="row-card">LDL</span></td>
+        <td colspan="3"><span class="row-card">19.25-120.89 mg/dL</span></td>
+        <td colspan="2"><span class="row-card">@dat.ldlc</span></td>
 
 
-            <td><span class="row-card">pH</span></td>
-            <td class="micoE"><span class="row-card">4.0-8.0</span></td>
-            <td class="micoC"><span class="row-card">@dat.ph</span></td>
+        <td><span class="row-card">pH</span></td>
+        <td class="micoE"><span class="row-card">4.0-8.0</span></td>
+        <td class="micoC"><span class="row-card">@dat.ph</span></td>
 
     </tr>
 
     <tr style="color: #000;" class="tr-a">
 
-            @*<td  style="vertical-align: middle; text-align: center; width: 20px;"><span class="row-card">ไขมันดี(Good fats)</span></td>*@
+        @*<td  style="vertical-align: middle; text-align: center; width: 20px;"><span class="row-card">ไขมันดี(Good fats)</span></td>*@
 
 
-            <td><span class="row-card">HDL</span></td>
-            <td colspan="3"><span class="row-card">&gt; 40 mg/dl</span></td>
-            <td colspan="2"><span class="row-card">@dat.hdlc</span></td>
+        <td><span class="row-card">HDL</span></td>
+        <td colspan="3"><span class="row-card">&gt; 40 mg/dl</span></td>
+        <td colspan="2"><span class="row-card">@dat.hdlc</span></td>
 
 
-            <td><span class="row-card">Protein</span></td>
-            <td class="micoE"><span class="row-card">Negative</span></td>
-            <td class="micoC"><span class="row-card">@dat.protein</span></td>
+        <td><span class="row-card">Protein</span></td>
+        <td class="micoE"><span class="row-card">Negative</span></td>
+        <td class="micoC"><span class="row-card">@dat.protein</span></td>
 
     </tr>
 
 
     <tr style="color: #000;" class="tr-a">
 
-            <td colspan="2" class="backcol"><span class="row-card"><b>ตรวจการทำงานของตับ (Liver Function)</b></span></td>
+        <td colspan="2" class="backcol"><span class="row-card"><b>ตรวจการทำงานของตับ (Liver Function)</b></span></td>
         @*<td  class="backcol"><span class="row-card">Group Name</span></td>
-        <td  class="backcol"><span class="row-card">Sub Group</span></td>*@
-            <td colspan="3" class="backcol"><span class="row-card"><b>ค่าปกติ</b></span></td>
+            <td  class="backcol"><span class="row-card">Sub Group</span></td>*@
+        <td colspan="3" class="backcol"><span class="row-card"><b>ค่าปกติ</b></span></td>
         @*<td  class="backcol"><span class="row-card">detail</span></td>
-        <td colspan="2" class="backcol"><span class="row-card">Normal</span></td>*@
-            <td colspan="2" class="backcol"><span class="row-card"><b>Result</b></span></td>
-        
+            <td colspan="2" class="backcol"><span class="row-card">Normal</span></td>*@
+        <td colspan="2" class="backcol"><span class="row-card"><b>Result</b></span></td>
 
-            <td><span class="row-card">Glucose</span></td>
-            <td class="micoE"><span class="row-card">Negative</span></td>
-            <td class="micoC"><span class="row-card">@dat.glucose</span></td>
+
+        <td><span class="row-card">Glucose</span></td>
+        <td class="micoE"><span class="row-card">Negative</span></td>
+        <td class="micoC"><span class="row-card">@dat.glucose</span></td>
 
 
 
 
     </tr>
 
-    
+
 
 
     <tr style="color: #000;" class="tr-a">
 
-            <td class="backcol" rowspan="3" style="vertical-align: middle; text-align: center;"><span class="row-card">Protein</span></td>
-            
-            <td><span class="row-card">Total</span></td>
-      
-        
+        <td class="backcol" rowspan="3" style="vertical-align: middle; text-align: center;"><span class="row-card">Protein</span></td>
+
+        <td><span class="row-card">Total</span></td>
+
+
 
         <td colspan="3"><span class="row-card">6.0 - 8.0 mg/dL</span></td>
         <td colspan="2"><span class="row-card">@dat.totalpro</span></td>
 
 
 
-            <td><span class="row-card">Ketone</span></td>
-            <td class="micoE"><span class="row-card">Negative</span></td>
-            <td class="micoC"><span class="row-card">@dat.ketone</span></td>
+        <td><span class="row-card">Ketone</span></td>
+        <td class="micoE"><span class="row-card">Negative</span></td>
+        <td class="micoC"><span class="row-card">@dat.ketone</span></td>
 
 
 
-   
-       
+
+
 
     <tr style="color: #000;" class="tr-a">
 
-                @*<td style="border-bottom: none;"><span class="row-card"></span></td>*@
-            <td><span class="row-card">Albumin</span></td>
+        @*<td style="border-bottom: none;"><span class="row-card"></span></td>*@
+        <td><span class="row-card">Albumin</span></td>
 
-        
+
 
         <td colspan="3"><span class="row-card">3.4 - 5.5 mg/dL</span></td>
         <td colspan="2"><span class="row-card">@dat.albumin</span></td>
@@ -494,16 +498,16 @@
 
 
 
-            <td ><span class="row-card">Bilirubin</span></td>
-            <td><span class="row-card"></span>Negative</td>
-            <td><span class="row-card">@dat.bilirubin</span></td>
+        <td><span class="row-card">Bilirubin</span></td>
+        <td><span class="row-card"></span>Negative</td>
+        <td><span class="row-card">@dat.bilirubin</span></td>
 
 
     </tr>
 
     <tr style="color: #000;" class="tr-a">
-       
-                @*<td><span class="row-card"></span></td>*@
+
+        @*<td><span class="row-card"></span></td>*@
 
         <td><span class="row-card">Globulin</span></td>
 
@@ -513,138 +517,129 @@
 
 
 
-            <td><span class="row-card">Urobilinogen</span></td>
-            <td><span class="row-card">Normal</span></td>
-            <td><span class="row-card">@dat.urobilinogen</span></td>
-   
+        <td><span class="row-card">Urobilinogen</span></td>
+        <td><span class="row-card">Normal</span></td>
+        <td><span class="row-card">@dat.urobilinogen</span></td>
+
     </tr>
 
 
     <tr style="color: #000;" class="tr-a">
-            <td class="backcol" rowspan="2" style="vertical-align: middle; text-align: center;"><span class="row-card">Bilirubin</span></td>
+        <td class="backcol" rowspan="2" style="vertical-align: middle; text-align: center;"><span class="row-card">Bilirubin</span></td>
 
-            <td><span class="row-card">Total</span></td>
-        
+        <td><span class="row-card">Total</span></td>
+
 
         <td colspan="3"><span class="row-card">0.5 - 1.5 mg/dL</span></td>
         <td colspan="2"><span class="row-card">@dat.totalbilirubin</span></td>
 
 
-            <td><span class="row-card">Blood</span></td>
-            <td><span class="row-card">Negative</span></td>
-            <td><span class="row-card">@dat.blood</span></td>
+        <td><span class="row-card">Blood</span></td>
+        <td><span class="row-card">Negative</span></td>
+        <td><span class="row-card">@dat.blood</span></td>
 
 
     </tr>
 
     <tr style="color: #000;" class="tr-a">
 
-                @*<td><span class="row-card"></span></td>*@
-            <td><span class="row-card">Direct</span></td>
+        @*<td><span class="row-card"></span></td>*@
+        <td><span class="row-card">Direct</span></td>
 
-            <td colspan="3"><span class="row-card">0 - 0.5 mg/dL</span></td>
-            <td colspan="2"><span class="row-card">@dat.direct</span></td>
+        <td colspan="3"><span class="row-card">0 - 0.5 mg/dL</span></td>
+        <td colspan="2"><span class="row-card">@dat.direct</span></td>
 
+        <td><span class="row-card">Leukocyte</span></td>
+        <td><span class="row-card">Negative</span></td>
+        <td><span class="row-card"></span>@dat.leukocyte</td>
 
+    </tr>
 
-            <td><span class="row-card">Leukocyte</span></td>
-            <td><span class="row-card">Negative</span></td>
-            <td><span class="row-card"></span>@dat.leukocyte</td>
+    <tr style="color: #000;" class="tr-a">
 
+        <td colspan="2"><span class="row-card">AST</span></td>
+
+        <td colspan="3"><span class="row-card">0 - 40 U/L</span></td>
+        <td colspan="2"><span class="row-card">@dat.sgot</span></td>
+
+        <td><span class="row-card">Nitrite</span></td>
+        <td><span class="row-card">Negative</span></td>
+        <td><span class="row-card"></span>@dat.nitrite</td>
+
+    </tr>
+
+    <tr style="color: #000;" class="tr-a">
+
+        <td colspan="2"><span class="row-card">ALT</span></td>
+
+        <td colspan="3"><span class="row-card">0 - 40 U/L</span></td>
+        <td colspan="2"><span class="row-card">@dat.sgpt</span></td>
+
+        <td><span class="row-card">Ascorbic acid</span></td>
+        <td><span class="row-card">Negative</span></td>
+        <td><span class="row-card"></span>@dat.ascorbic</td>
+
+    </tr>
+
+    <tr style="color: #000;" class="tr-a">
+
+        <td colspan="2"><span class="row-card">Alk,Phosphatase</span></td>
+
+        <td colspan="3"><span class="row-card">40 - 129 U/L</span></td>
+        <td colspan="2"><span class="row-card">@dat.alk</span></td>
+
+        @*<td rowspan="2" style="vertical-align : middle;text-align:center;font-size: 12px"> <span class="row-card">เพิ่มช่องรายการตรวจ</span> </td>*@
+        <td>
+            <span class="row-card">WBC</span>
+        </td>
+        <td><span class="row-card">0-1 Cell/HDF</span></td>
+        <td><span class="row-card">@dat.WBC2</span></td>
 
 
     </tr>
 
-        <tr style="color: #000;" class="tr-a">
-
-
-            <td colspan="2"><span class="row-card">AST</span></td>
-        
-
-            <td colspan="3"><span class="row-card">0 - 40 U/L</span></td>
-            <td colspan="2"><span class="row-card">@dat.sgot</span></td>
-
-
-            <td><span class="row-card">Nitrite</span></td>
-            <td><span class="row-card">Negative</span></td>
-            <td><span class="row-card"></span>@dat.nitrite</td>
-
-
-        </tr>
-
-
-           
-
-        <tr style="color: #000;" class="tr-a">
-
-
-            <td colspan="2"><span class="row-card">ALT</span></td>
-
-
-      
-
-            <td colspan="3"><span class="row-card">0 - 40 U/L</span></td>
-            <td colspan="2"><span class="row-card">@dat.sgpt</span></td>
-
-
-
-            <td><span class="row-card">Ascorbic acid</span></td>
-            <td><span class="row-card">Negative</span></td>
-            <td><span class="row-card"></span>@dat.ascorbic</td>
-  
-
-        </tr>
-
-        <tr style="color: #000;" class="tr-a">
-
-
-            <td colspan="2"><span class="row-card">Alk,Phosphatase</span></td>
-
-
-     
-
-            <td colspan="3"><span class="row-card">40 - 129 U/L</span></td>
-            <td colspan="2"><span class="row-card">@dat.alk</span></td>
-
-
-
-            @*<td rowspan="2" style="vertical-align : middle;text-align:center;font-size: 12px"> <span class="row-card">เพิ่มช่องรายการตรวจ</span> </td>*@
-            <td colspan="2" class="backcol"><span class="row-card"><b>ตรวจหาสารเสพติด (Amphetamine)</b></span></td>
-            <td><span class="row-card">Negative</span></td>
-            <td><span class="row-card">@dat.amphetamine</span></td>
-        
-
-        </tr>
-
-        <tr style="color: #000;" class="tr-a">
-
-
-            <td class="backcol" colspan="2"><span class="row-card"><b>ตรวจระดับน้ำตาลในเลือด (FBS)</b></span></td>
-
-
-         
-
-            <td colspan="3"><span class="row-card">75 - 100 mg/dL</span></td>
-            <td colspan="2"><span class="row-card">@dat.fbs</span></td>
-
-
-
-
-            <td colspan="2" class="backcol"><span class="row-card"><b>ตรวจการตั้งครรภ์ (Pregnancy test)</b></span></td>
-            <td><span class="row-card">Negative</span></td>
-            <td><span class="row-card">@dat.pregnancy</span></td>
-
-        
-
-        </tr>
+    <tr style="color: #000;" class="tr-a">
+        <td class="backcol" colspan="2"><span class="row-card"><b>ตรวจระดับน้ำตาลในเลือด (FBS)</b></span></td>
+        <td colspan="3"><span class="row-card">75 - 100 mg/dL</span></td>
+        <td colspan="2"><span class="row-card">@dat.fbs</span></td>
+        <td>
+            <span class="row-card">RBC</span>
+        </td>
+        <td><span class="row-card">0-1 Cell/HDF</span></td>
+        <td><span class="row-card">@dat.RBC</span></td>
+    </tr>
+    <tr style="color: #000;" class="tr-a">
+        <td colspan="2"><span class="row-card"><b>ตรวจหาสารเสพติด (Amphetamine)</b></span></td>
+        <td colspan="3"><span class="row-card">Negative</span></td>
+        <td colspan="2"><span class="row-card">@dat.amphetamine</span></td>
+        <td>
+            <span class="row-card">Cast</span>
+        </td>
+        <td><span class="row-card"></span></td>
+        <td><span class="row-card">@dat.Cast</span></td>
+    </tr>
+    <tr style="color: #000;" class="tr-a">
+        <td colspan="2"><span class="row-card"><b>ตรวจการตั้งครรภ์ (Pregnancy test)</b></span></td>
+        <td colspan="3"><span class="row-card">Negative</span></td>
+        <td colspan="2"><span class="row-card">@dat.pregnancy</span></td>
+        <td>
+            <span class="row-card">Bacteria</span>
+        </td>
+        <td><span class="row-card"></span></td>
+        <td><span class="row-card">@dat.Bacteria</span></td>
+    </tr>
 
 
     <tr style="color: #000;" class="tr-a">
-       
-            <td colspan="7" class="backcola"><span class="head-card"><b>การตรวจทางภูมิคุ้มกันวิทยา (Immunology)</b></span></td>
+
+        <td colspan="7" class="backcola">
+            <span class="head-card"><b>การตรวจทางภูมิคุ้มกันวิทยา (Immunology)</b></span>
+        </td>
 
         @*<td colspan="2" rowspan="1" class="backcol"><span class="row-card"></span></td>*@
-            <td colspan="4" class="backcola"><span class="row-card"><b>การตรวจทางปรสิตวิทยา (Parasitology)</b></span></td>
+        <td colspan="4" class="backcola">
+            <span class="row-card"><b>การตรวจทางปรสิตวิทยา (Parasitology)</b></span>
+        </td>
 
     </tr>
 
@@ -652,33 +647,33 @@
     <tr style="color: #000;" class="tr-a">
 
 
-            <td colspan="2" class="backcol"><span class="row-card"><b>ตรวจไวรัสตับอักเสบบี (Hepatitis B Virus)</b></span></td>
+        <td colspan="2" class="backcol"><span class="row-card"><b>ตรวจไวรัสตับอักเสบบี (Hepatitis B Virus)</b></span></td>
 
-            <td colspan="3" class="backcol"><span class="row-card"><b>ค่าปกติ</b></span></td>
-            <td colspan="2" class="backcol"><span class="row-card"><b>Result</b></span></td>
-            <td colspan="2" class="backcol"><span class="row-card"></span></td>
-
-
-       
-
-            <td class="backcol"><span class="row-card"><b>ค่าปกติ</b></span></td>
-            <td class="backcol"><span class="row-card"><b>Result</b></span></td>
+        <td colspan="3" class="backcol"><span class="row-card"><b>ค่าปกติ</b></span></td>
+        <td colspan="2" class="backcol"><span class="row-card"><b>Result</b></span></td>
+        <td colspan="2" class="backcol"><span class="row-card"></span></td>
 
 
-    
+
+
+        <td class="backcol"><span class="row-card"><b>ค่าปกติ</b></span></td>
+        <td class="backcol"><span class="row-card"><b>Result</b></span></td>
+
+
+
 
 
     </tr>
 
     <tr style="color: #000;" class="tr-a">
 
-            <td colspan="2"><span class="row-card">HBs Ag เชื้อ</span></td>
+        <td colspan="2"><span class="row-card">HBs Ag เชื้อ</span></td>
 
-            <td colspan="3"><span class="row-card">Negative</span></td>
-            <td colspan="2"><span class="row-card">@dat.hbsag</span></td>
+        <td colspan="3"><span class="row-card">Negative</span></td>
+        <td colspan="2"><span class="row-card">@dat.hbsag</span></td>
 
 
-            <td colspan="2" style="vertical-align : middle;text-align:center;"><span class="row-card">ตรวจ Stool Examination</span></td>
+        <td colspan="2" style="vertical-align : middle;text-align:center;"><span class="row-card">ตรวจ Stool Examination</span></td>
         <td><span class="row-card">No found</span></td>
         <td><span class="row-card">@dat.stoolex</span></td>
 
@@ -690,15 +685,15 @@
 
     <tr style="color: #000;" class="tr-a">
 
-            <td colspan="2"><span class="row-card">HBs Ab ภูมิต้านทาน</span></td>
+        <td colspan="2"><span class="row-card">HBs Ab ภูมิต้านทาน</span></td>
 
-            <td colspan="3"><span class="row-card"> - </span></td>
-            <td colspan="2"><span class="row-card">@dat.hbsagb</span></td>
-
-
+        <td colspan="3"><span class="row-card"> - </span></td>
+        <td colspan="2"><span class="row-card">@dat.hbsagb</span></td>
 
 
-            <td colspan="2"><span class="row-card">ตรวจ Stool Culture</span></td>
+
+
+        <td colspan="2"><span class="row-card">ตรวจ Stool Culture</span></td>
         <td><span class="row-card">No Growth</span></td>
         <td><span class="row-card">@dat.stoolcul</span></td>
 
@@ -709,183 +704,1138 @@
     <tr style="color: #000;" class="tr-a">
 
 
-            <td colspan="2" class="backcol"><span class="row-card"><b>ตรวจไวรัสตับอักเสบเอ (Hepatitis A Virus)</b></span></td>
-            <td colspan="3" class="backcol"><span class="row-card"><b>ค่าปกติ</b></span></td>
-            <td colspan="2" class="backcol"><span class="row-card"><b>Result</b></span></td>
-            <td colspan="2" class="backcol"><span class="row-card"></span></td>
-            @*<td colspan="3"><span class="row-card">Negative</span></td>
-        <td colspan="2"><span class="row-card">@dat.antihavtotal</span></td>*@
+        <td colspan="2" class="backcol"><span class="row-card"><b>ตรวจไวรัสตับอักเสบเอ (Hepatitis A Virus)</b></span></td>
+        <td colspan="3" class="backcol"><span class="row-card"><b>ค่าปกติ</b></span></td>
+        <td colspan="2" class="backcol"><span class="row-card"><b>Result</b></span></td>
+        <td colspan="2" class="backcol"><span class="row-card"></span></td>
+        @*<td colspan="3"><span class="row-card">Negative</span></td>
+            <td colspan="2"><span class="row-card">@dat.antihavtotal</span></td>*@
+        @* <td  class="backcol"><span class="row-card">Group Name</span></td>
+            <td class="backcol"><span class="row-card">Sub Name</span></td>*@
+        <td class="backcol"><span class="row-card"><b>ค่าปกติ</b></span></td>
+        <td class="backcol"><span class="row-card"><b>Result</b></span></td>
+    </tr>
 
+    <tr style="color: #000;" class="tr-a">
 
+        <td colspan="2"><span class="row-card">HAV IgM / IgG</span></td>
 
-       @* <td  class="backcol"><span class="row-card">Group Name</span></td>
-        <td class="backcol"><span class="row-card">Sub Name</span></td>*@
-            <td class="backcol"><span class="row-card"><b>ค่าปกติ</b></span></td>
-            <td class="backcol"><span class="row-card"><b>Result</b></span></td>
+        <td colspan="3"><span class="row-card">Negative</span></td>
+        <td colspan="2"><span class="row-card">@dat.antihavtotal</span></td>
 
+        @* <td colspan="3"><span class="row-card">Negative</span></td>
+            <td colspan="2"><span class="row-card">@dat.antihavigm</span></td>*@
 
+        <td class="backcol" rowspan="8" style="vertical-align : middle;text-align:center;font-size: 12px"><span class="row-card"><b>การตรวจอื่น ๆ <br>(Other)</b></span></td>
+        <td><span class="row-card">การตรวจหากรุ๊ปเลือด (Blood group)</span></td>
+        <td><span class="row-card">A,B,AB,O</span></td>
+        <td><span class="row-card">@dat.bloodgr</span></td>
 
     </tr>
 
     <tr style="color: #000;" class="tr-a">
 
-            <td colspan="2"><span class="row-card">HAV IgM / IgG</span></td>
-
-            <td colspan="3"><span class="row-card">Negative</span></td>
-            <td colspan="2"><span class="row-card">@dat.antihavtotal</span></td>
-
-           @* <td colspan="3"><span class="row-card">Negative</span></td>
-        <td colspan="2"><span class="row-card">@dat.antihavigm</span></td>*@
-
-            <td class="backcol" rowspan="8" style="vertical-align : middle;text-align:center;font-size: 12px"><span class="row-card"><b>การตรวจอื่น ๆ <br>(Other)</b></span></td>
-            <td><span class="row-card">การตรวจหากรุ๊ปเลือด (Blood group)</span></td>
-            <td ><span class="row-card">A,B,AB,O</span></td>
-            <td ><span class="row-card">@dat.bloodgr</span></td>
-
-    </tr>
-
-    <tr style="color: #000;" class="tr-a">
-
-            <td class="backcol" colspan="2"><span class="row-card"><b>ตรวจเชื้อซิฟิลิส (RPR)</b></span></td>
-            <td colspan="3"><span class="row-card">Non-reactive</span></td>
-            <td colspan="2"><span class="row-card">@dat.vdrl</span></td>
+        <td class="backcol" colspan="2"><span class="row-card"><b>ตรวจเชื้อซิฟิลิส (RPR)</b></span></td>
+        <td colspan="3"><span class="row-card">Non-reactive</span></td>
+        <td colspan="2"><span class="row-card">@dat.vdrl</span></td>
 
 
-         
-            <td><span class="row-card">ทดสอบตาบอดสี (Color Blindness)</span></td>
-            <td><span class="row-card"></span></td>
+
+        <td><span class="row-card">ทดสอบตาบอดสี (Color Blindness)</span></td>
+        <td><span class="row-card"></span></td>
         <td><span class="row-card"></span> @dat.eyecolor</td>
 
     </tr>
 
     <tr style="color: #000">
-            <td class="backcol" colspan="2"><span class="row-card"><b>ตรวจหาเชื้อ HIV</b></span></td>
-            <td colspan="3"><span class="row-card">Negative</span></td>
-            <td colspan="2"><span class="row-card">@dat.antihiv</span></td>
+        <td class="backcol" colspan="2"><span class="row-card"><b>ตรวจหาเชื้อ HIV</b></span></td>
+        <td colspan="3"><span class="row-card">Negative</span></td>
+        <td colspan="2"><span class="row-card">@dat.antihiv</span></td>
 
 
 
-     
-         <td><span class="head-card"> ตรวจสายตาอาชีวะอนามัย (Vision test )</span></td>
+
+        <td><span class="head-card"> ตรวจสายตาอาชีวะอนามัย (Vision test )</span></td>
         <td><span class="head-card">Normal</span></td>
-            <td><span class="head-card"></span>@dat.hissickbody</td>
+        <td><span class="head-card"></span>@dat.hissickbody</td>
 
     </tr>
 
     <tr style="color: #000;" class="tr-a">
 
 
-            <td class="backcol" rowspan="5" style="vertical-align: middle; text-align: center;"><span class="row-card"><b>ตรวจการทำงาน<br />ของต่อมไทรอยด์<br />(Thyroid Function)</b></span></td>
-            <td><span class="row-card">TSH</span></td>
-            <td colspan="3"><span class="row-card">0.47 - 4.68 mIU/L</span></td>
-            <td colspan="2"><span class="row-card">@dat.tsh</span></td>
-
-    
-        <td ><span class="row-card">ตรวจการได้ยิน (Hearing test)</span></td>
+        <td class="backcol" rowspan="5" style="vertical-align: middle; text-align: center;"><span class="row-card"><b>ตรวจการทำงาน<br />ของต่อมไทรอยด์<br />(Thyroid Function)</b></span></td>
+        <td><span class="row-card">TSH</span></td>
+        <td colspan="3"><span class="row-card">0.47 - 4.68 mIU/L</span></td>
+        <td colspan="2"><span class="row-card">@dat.tsh</span></td>
+        <td><span class="row-card">ตรวจการได้ยิน (Hearing test)</span></td>
         <td><span class="row-card"></span></td>
         <td><span class="row-card"></span>@dat.Others_hearing</td>
 
     </tr>
     <tr style="color: #000;" class="tr-a">
 
-            <td><span class="row-card">Free T3</span></td>
-            <td colspan="3"><span class="row-card">2.77- 5.27 pg/mL</span></td>
-            <td colspan="2"><span class="row-card">@dat.freet3</span></td>
-
-           
+        <td><span class="row-card">Free T3</span></td>
+        <td colspan="3"><span class="row-card">2.77- 5.27 pg/mL</span></td>
+        <td colspan="2"><span class="row-card">@dat.freet3</span></td>
         <td><span class="row-card">ตรวจสมรรถภาพปอด (Pulmonary Function test)</span></td>
         <td><span class="row-card"></span></td>
-            <td><span class="row-card">@dat.Others_pulmonary</span></td>
+        <td><span class="row-card">@dat.Others_pulmonary</span></td>
 
     </tr>
-
-
-
-
 
     <tr style="color: #000;" class="tr-a">
 
 
-            <td><span class="row-card">Free T4</span></td>
-            <td colspan="3"><span class="row-card">0.78- 2.19 ng/mL</span></td>
-            <td colspan="2"><span class="row-card">@dat.freet4</span></td>
+        <td><span class="row-card">Free T4</span></td>
+        <td colspan="3"><span class="row-card">0.78- 2.19 ng/mL</span></td>
+        <td colspan="2"><span class="row-card">@dat.freet4</span></td>
 
 
-            <td><span class="row-card"> ตรวจคลื่นไฟฟ้าหัวใจ EKG</span></td>
+        <td><span class="row-card"> ตรวจคลื่นไฟฟ้าหัวใจ EKG</span></td>
         <td><span class="row-card"></span></td>
         <td><span class="row-card">@dat.Others_ekg</span></td>
 
     </tr>
 
     <tr style="color: #000;" class="tr-a">
-
-            <td><span class="row-card">T3</span></td>
-            <td colspan="3"><span class="row-card">0.7- 1.9 ng/dL</span></td>
-            <td colspan="2"><span class="row-card">@dat.t3</span></td>
-
- 
-            <td><span class="row-card">เอกซเรย์ (X-Ray)</span></td>
-            <td><span class="row-card"></span></td>
-            <td><span class="row-card">@dat.xray</span></td>
-
-          
-
-
-
+        <td><span class="row-card">T3</span></td>
+        <td colspan="3"><span class="row-card">0.7- 1.9 ng/dL</span></td>
+        <td colspan="2"><span class="row-card">@dat.t3</span></td>
+        <td><span class="row-card">เอกซเรย์ (X-Ray)</span></td>
+        <td><span class="row-card"></span></td>
+        <td><span class="row-card">@dat.xray</span></td>
     </tr>
 
     <tr style="color: #000;" class="tr-a">
 
 
-            <td><span class="row-card">T4</span></td>
-            <td colspan="3"><span class="row-card">4.6 - 12 ug/dL</span></td>
-            <td colspan="2"><span class="row-card">@dat.t4</span></td>
+        <td><span class="row-card">T4</span></td>
+        <td colspan="3"><span class="row-card">4.6 - 12 ug/dL</span></td>
+        <td colspan="2"><span class="row-card">@dat.t4</span></td>
 
 
-            <td><span class="row-card">ตรวจโควิด (Covid-19)</span></td>
-            <td><span class="row-card"></span></td>
-            <td><span class="row-card">@dat.hissickwork</span></td>
-
-    </tr>
-
-    <tr style="color: #000;" class="tr-a">
-
-
-            <td colspan="11" class="backcola" style=""><span class="row-card"><b>สรุป (Summary)</b></span></td>
+        <td><span class="row-card">ตรวจโควิด (Covid-19)</span></td>
+        <td><span class="row-card"></span></td>
+        <td><span class="row-card">@dat.hissickwork</span></td>
 
     </tr>
 
-    <tr style="color: #000;" class="tr-a">
+    </table>
+
+    <br>
+    <br>
+
+    <table class="table table-bordered" style="text-align: center;font-size:12px;margin-top: 40px !important">
+
+        <tr style="color: #000;" class="tr-a">
 
 
-            <td colspan="11" rowspan="9" style="">
-                <div style="height: 164px;">
-                    <p class="row-card" style=" line-height: 16px; text-align: left !important;margin-left: 5px;margin-top:5px">
-                        <span>ตรวจสุขภาพร่ายกายได้แก่ วัดความดันโลหิต: @(dat.s1 != "" ? dat.s1 : "-")</span><br />
-                        <span>ตรวจเอกซเรย์ (X-Ray): @(dat.s2 != "" ? dat.s2 : "-")</span><br />
-                        <span>ตรวจหาความสมบูรณ์ของเม็ดเลือด (CBC): @(dat.s3 != "" ? dat.s3 : "-")</span><br />
-                        <span>ตรวจการตั้งครรภ์ในปัสสาวะ: @(dat.s5 != "" ? dat.s5 : "-")</span><br />
+            <td colspan="11" class="backcola" style=""><span class="row-card"><b>สรุปผลการสุขภถาพเบื้องต้น (Summary)</b></span></td>
 
-                        <span>ตรวจหาสารเสพติดในปัสสาวะ: @(dat.s4 != "" ? dat.s4 : "-")</span><br />
-                        
-                        <span>ตรวจไวรัสตับอักเสบบี (HBsAg): @(dat.s6 != "" ? dat.s6 : "-")</span><br />
-                        
-                        <span>ตรวจหาเชื้อ HIV : @(dat.s8 != "" ? dat.s8 : "-")</span><br />
-                        <span>ตรวจการได้ยิน: @(dat.Others_hearing != "" ? dat.Others_hearing : "-")</span><br />
-                        <span>ตรวจสมรรถภาพทางสายตา: @(dat.s7 != "" ? dat.s7 : "-")</span><br />
-                    </p>
-                </div>
-                <div style="height: 20%;">
-                    @*<img src="~/asset/img/mata.png" style="width: 20%;position:absolute;left: 686px;bottom: 345px" />*@
-                    <div style="border-bottom: 1px dashed #000; width: 60%; height: 22px; margin-left: 80px; margin-bottom: 14px"></div>
-                    @*<span>ทนพ.มาธวี ไวมาตร</span>*@
-                    <span></span>
-                </div>
-            </td>
-    </tr>
+        </tr>
+
+        <tr style="color: #000;" class="tr-a">
+            <td style="text-align:center; vertical-align:middle;" colspan="3" rowspan="2">รายการตรวจ</td>
+            <td style="text-align:center" colspan="4">ผลการตรวจ</td>
+            <td style="text-align:center; vertical-align:bottom;" colspan="4" rowspan="100">รายงานผลตรวจโดย นท พญ...........................................................................ตำแหน่ง นักเทคนิคการแพทย์ </td>
+        </tr>
+        <tr>
+            <td style="text-align: center;" colspan="2">ปกติ</td>
+            <td style="text-align: center;" colspan="2">ผิดปกติ</td>
+        </tr>
+        @if (@dat.hemoglobin != "" && @dat.hemoglobin != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ Hemoglobin : @dat.hemoglobin</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.hemoglobin == "Positive")
+                    {@dat.hemoglobin}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.hemoglobin == "Negative")
+                    {@dat.hemoglobin}
+                </td>
+            </tr>
+        }
+        @if (@dat.hematocrit != "" && @dat.hematocrit != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ Hematocrit: @dat.hematocrit</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.hematocrit == "Positive")
+                    {@dat.hematocrit}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.hematocrit == "Negative")
+                    {@dat.hematocrit}
+                </td>
+            </tr>
+        }
+        @if (@dat.wbc != "" && @dat.wbc != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ WBC (cells/Cu.mm): @dat.wbc</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.wbc == "Positive")
+                    {@dat.wbc}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.wbc == "Negative")
+                    {@dat.wbc}
+                </td>
+            </tr>
+        }
+        @if (@dat.platelet != "" && @dat.platelet != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ Platelet: @dat.platelet</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.platelet == "Positive")
+                    {@dat.platelet}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.platelet == "Negative")
+                    {@dat.platelet}
+                </td>
+            </tr>
+        }
+        @if (@dat.sodium != "" && @dat.sodium != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจโซเดียม Sodium: @dat.sodium</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.sodium == "Positive")
+                    {@dat.sodium}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.sodium == "Negative")
+                    {@dat.sodium}
+                </td>
+            </tr>
+        }
+        @if (@dat.potassium != "" && @dat.potassium != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจโพแทสเซียม Potassium: @dat.potassium</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.potassium == "Positive")
+                    {@dat.potassium}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.potassium == "Negative")
+                    {@dat.potassium}
+                </td>
+            </tr>
+        }
+        @if (@dat.chloride != "" && @dat.chloride != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจคลอไรด์ Chloride: @dat.chloride</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.chloride == "Positive")
+                    {@dat.chloride}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.chloride == "Negative")
+                    {@dat.chloride}
+                </td>
+            </tr>
+        }
+        @if (@dat.totalc02 != "" && @dat.totalc02 != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจคาร์บอนไดออกไซด์ CO2 : @dat.totalc02</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.totalc02 == "Positive")
+                    {@dat.totalc02}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.totalc02 == "Negative")
+                    {@dat.totalc02}
+                </td>
+            </tr>
+        }
+        @if (@dat.uricacid != "" && @dat.uricacid != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจกรดยูริก Uric acid: @dat.uricacid</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.uricacid == "Positive")
+                    {@dat.uricacid}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.uricacid == "Negative")
+                    {@dat.uricacid}
+                </td>
+            </tr>
+        }
+        @if (@dat.gran != "" && @dat.gran != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ Neutrophil: @dat.gran</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.gran == "Positive")
+                    {@dat.gran}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.gran == "Negative")
+                    {@dat.gran}
+                </td>
+            </tr>
+        }
+        @if (@dat.lym != "" && @dat.lym != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ Lymphocyte: @dat.lym</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.lym == "Positive")
+                    {@dat.lym}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.lym == "Negative")
+                    {@dat.lym}
+                </td>
+            </tr>
+        }
+        @if (@dat.mid != "" && @dat.mid != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ Monocyte: @dat.mid</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.mid == "Positive")
+                    {@dat.mid}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.mid == "Negative")
+                    {@dat.mid}
+                </td>
+            </tr>
+        }
+        @if (@dat.dif4 != "" && @dat.dif4 != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ Eosinophil: @dat.dif4</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.dif4 == "Positive")
+                    {@dat.dif4}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.dif4 == "Negative")
+                    {@dat.dif4}
+                </td>
+            </tr>
+        }
+        @if (@dat.dif5 != "" && @dat.dif5 != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ Basophil: @dat.dif5</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.dif5 == "Positive")
+                    {@dat.dif5}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.dif5 == "Negative")
+                    {@dat.dif5}
+                </td>
+            </tr>
+        }
+        @if (@dat.mcv != "" && @dat.mcv != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ MCV: @dat.mcv</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.mcv == "Positive")
+                    {@dat.mcv}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.mcv == "Negative")
+                    {@dat.mcv}
+                </td>
+            </tr>
+        }
+        @if (@dat.mch != "" && @dat.mch != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ MCH: @dat.mch</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.mch == "Positive")
+                    {@dat.mch}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.mch == "Negative")
+                    {@dat.mch}
+                </td>
+            </tr>
+        }
+        @if (@dat.mchc != "" && @dat.mchc != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ MCHC: @dat.mchc</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.mchc == "Positive")
+                    {@dat.mchc}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.mchc == "Negative")
+                    {@dat.mchc}
+                </td>
+            </tr>
+        }
+        @if (@dat.bun != "" && @dat.bun != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ BUN: @dat.bun</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.bun == "Positive")
+                    {@dat.bun}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.bun == "Negative")
+                    {@dat.bun}
+                </td>
+            </tr>
+        }
+        @if (@dat.creatinine != "" && @dat.creatinine != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจไขมันในเลือด Creatinine: @dat.creatinine</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.creatinine == "Positive")
+                    {@dat.creatinine}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.creatinine == "Negative")
+                    {@dat.creatinine}
+                </td>
+            </tr>
+        }
+        @if (@dat.choiesterol != "" && @dat.choiesterol != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจไขมันในเลือด Cholesterol: @dat.choiesterol</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.choiesterol == "Positive")
+                    {@dat.choiesterol}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.choiesterol == "Negative")
+                    {@dat.choiesterol}
+                </td>
+            </tr>
+        }
+        @if (@dat.triglyceride != "" && @dat.triglyceride != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจไขมันในเลือด Triglyceride: @dat.triglyceride</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.triglyceride == "Positive")
+                    {@dat.triglyceride}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.triglyceride == "Negative")
+                    {@dat.triglyceride}
+                </td>
+            </tr>
+        }
+        @if (@dat.ldlc != "" && @dat.ldlc != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจไขมันในเลือด LDL : @dat.ldlc</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.ldlc == "Positive")
+                    {@dat.ldlc}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.ldlc == "Negative")
+                    {@dat.ldlc}
+                </td>
+            </tr>
+        }
+        @if (@dat.hdlc != "" && @dat.hdlc != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจไขมันในเลือด HDL : @dat.hdlc</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.hdlc == "Positive")
+                    {@dat.hdlc}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.hdlc == "Negative")
+                    {@dat.hdlc}
+                </td>
+            </tr>
+        }
+        @if (@dat.totalpro != "" && @dat.totalpro != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ Protein Total: @dat.totalpro</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.totalpro == "Positive")
+                    {@dat.totalpro}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.totalpro == "Negative")
+                    {@dat.totalpro}
+                </td>
+            </tr>
+        }
+        @if (@dat.albumin != "" && @dat.albumin != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ Protein Albumin: @dat.albumin</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.albumin == "Positive")
+                    {@dat.albumin}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.albumin == "Negative")
+                    {@dat.albumin}
+                </td>
+            </tr>
+        }
+        @if (@dat.globulin != "" && @dat.globulin != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ Protein Globulin: @dat.globulin</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.globulin == "Positive")
+                    {@dat.globulin}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.globulin == "Negative")
+                    {@dat.globulin}
+                </td>
+            </tr>
+        }
+        @if (@dat.totalbilirubin != "" && @dat.totalbilirubin != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ Bilirubin Total: @dat.totalbilirubin</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.totalbilirubin == "Positive")
+                    {@dat.totalbilirubin}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.totalbilirubin == "Negative")
+                    {@dat.totalbilirubin}
+                </td>
+            </tr>
+        }
+        @if (@dat.direct != "" && @dat.direct != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ Bilirubin Direct: @dat.direct</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.direct == "Positive")
+                    {@dat.direct}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.direct == "Negative")
+                    {@dat.direct}
+                </td>
+            </tr>
+        }
+        @if (@dat.sgot != "" && @dat.sgot != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ AST: @dat.sgot</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.sgot == "Positive")
+                    {@dat.sgot}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.sgot == "Negative")
+                    {@dat.sgot}
+                </td>
+            </tr>
+        }
+        @if (@dat.sgpt != "" && @dat.sgpt != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ ALT: @dat.sgpt</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.sgpt == "Positive")
+                    {@dat.sgpt}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.sgpt == "Negative")
+                    {@dat.sgpt}
+                </td>
+            </tr>
+        }
+        @if (@dat.alk != "" && @dat.alk != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ Alk,Phosphatase: @dat.alk</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.alk == "Positive")
+                    {@dat.alk}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.alk == "Negative")
+                    {@dat.alk}
+                </td>
+            </tr>
+        }
+        @if (@dat.fbs != "" && @dat.fbs != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจระดับน้ำตาลในเลือด (FBS): @dat.fbs</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.fbs == "Positive")
+                    {@dat.fbs}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.fbs == "Negative")
+                    {@dat.fbs}
+                </td>
+            </tr>
+        }
+        @if (@dat.amphetamine != "" && @dat.amphetamine != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจหาสารเสพติด (Amphetamine): @dat.amphetamine</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.amphetamine == "Positive")
+                    {@dat.amphetamine}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.amphetamine == "Negative")
+                    {@dat.amphetamine}
+                </td>
+            </tr>
+        }
+        @if (@dat.pregnancy != "" && @dat.pregnancy != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจการตั้งครรภ์ (Pregnancy test): @dat.pregnancy</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.pregnancy == "Positive")
+                    {@dat.pregnancy}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.pregnancy == "Negative")
+                    {@dat.pregnancy}
+                </td>
+            </tr>
+        }
+        @if (@dat.color != "" && @dat.color != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ Color: @dat.color</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.color == "Positive")
+                    {@dat.color}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.color == "Negative")
+                    {@dat.color}
+                </td>
+            </tr>
+        }
+        @if (@dat.clarity != "" && @dat.clarity != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ Clarity: @dat.clarity</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.clarity == "Positive")
+                    {@dat.clarity}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.clarity == "Negative")
+                    {@dat.clarity}
+                </td>
+            </tr>
+        }
+        @if (@dat.sg != "" && @dat.sg != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ Sp.gr.: @dat.sg</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.sg == "Positive")
+                    {@dat.sg}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.sg == "Negative")
+                    {@dat.sg}
+                </td>
+            </tr>
+        }
+        @if (@dat.ph != "" && @dat.ph != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ pH: @dat.ph</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.ph == "Positive")
+                    {@dat.ph}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.ph == "Negative")
+                    {@dat.ph}
+                </td>
+            </tr>
+        }
+        @if (@dat.protein != "" && @dat.protein != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ Protein: @dat.protein</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.protein == "Positive")
+                    {@dat.protein}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.protein == "Negative")
+                    {@dat.protein}
+                </td>
+            </tr>
+        }
+        @if (@dat.glucose != "" && @dat.glucose != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ Glucose: @dat.glucose</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.glucose == "Positive")
+                    {@dat.glucose}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.glucose == "Negative")
+                    {@dat.glucose}
+                </td>
+            </tr>
+        }
+        @if (@dat.ketone != "" && @dat.ketone != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ Ketone: @dat.ketone</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.ketone == "Positive")
+                    {@dat.ketone}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.ketone == "Negative")
+                    {@dat.ketone}
+                </td>
+            </tr>
+        }
+        @if (@dat.bilirubin != "" && @dat.bilirubin != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ Bilirubin: @dat.bilirubin</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.bilirubin == "Positive")
+                    {@dat.bilirubin}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.bilirubin == "Negative")
+                    {@dat.bilirubin}
+                </td>
+            </tr>
+        }
+        @if (@dat.urobilinogen != "" && @dat.urobilinogen != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ Urobilinogen: @dat.urobilinogen</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.urobilinogen == "Positive")
+                    {@dat.urobilinogen}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.urobilinogen == "Negative")
+                    {@dat.urobilinogen}
+                </td>
+            </tr>
+        }
+        @if (@dat.blood != "" && @dat.blood != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ Blood: @dat.blood</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.blood == "Positive")
+                    {@dat.blood}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.blood == "Negative")
+                    {@dat.blood}
+                </td>
+            </tr>
+        }
+        @if (@dat.leukocyte != "" && @dat.leukocyte != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ Leukocyte: @dat.leukocyte</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.leukocyte == "Positive")
+                    {@dat.leukocyte}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.leukocyte == "Negative")
+                    {@dat.leukocyte}
+                </td>
+            </tr>
+        }
+        @if (@dat.nitrite != "" && @dat.nitrite != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ Nitrite: @dat.nitrite</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.nitrite == "Positive")
+                    {@dat.nitrite}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.nitrite == "Negative")
+                    {@dat.nitrite}
+                </td>
+            </tr>
+        }
+        @if (@dat.ascorbic != "" && @dat.ascorbic != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ Ascorbic  acid: @dat.ascorbic</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.ascorbic == "Positive")
+                    {@dat.ascorbic}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.ascorbic == "Negative")
+                    {@dat.ascorbic}
+                </td>
+            </tr>
+        }
+        @if (@dat.WBC2 != "" && @dat.WBC2 != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ WBC : @dat.WBC2</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.WBC2 == "Positive")
+                    {@dat.WBC2}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.WBC2 == "Negative")
+                    {@dat.WBC2}
+                </td>
+            </tr>
+        }
+        @if (@dat.RBC != "" && @dat.RBC != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ RBC: @dat.RBC</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.RBC == "Positive")
+                    {@dat.RBC}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.RBC == "Negative")
+                    {@dat.RBC}
+                </td>
+            </tr>
+        }
+        @if (@dat.Cast != "" && @dat.Cast != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ Cast: @dat.Cast</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.Cast == "Positive")
+                    {@dat.Cast}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.Cast == "Negative")
+                    {@dat.Cast}
+                </td>
+            </tr>
+        }
+        @if (@dat.Bacteria != "" && @dat.Bacteria != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ Bacteria: @dat.Bacteria</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.Bacteria == "Positive")
+                    {@dat.Bacteria}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.Bacteria == "Negative")
+                    {@dat.Bacteria}
+                </td>
+            </tr>
+        }
+        @if (@dat.hbsag != "" && @dat.hbsag != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ HBs Ag เชื้อ: @dat.hbsag</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.hbsag == "Positive")
+                    {@dat.hbsag}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.hbsag == "Negative")
+                    {@dat.hbsag}
+                </td>
+            </tr>
+        }
+        @if (@dat.hbsagb != "" && @dat.hbsagb != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ HBs Ab ภูมิต้านทาน: @dat.hbsagb</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.hbsagb == "Positive")
+                    {@dat.hbsagb}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.hbsagb == "Negative")
+                    {@dat.hbsagb}
+                </td>
+            </tr>
+        }
+        @if (@dat.stoolex != "" && @dat.stoolex != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ Stool Examination: @dat.stoolex</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.stoolex == "Positive")
+                    {@dat.stoolex}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.stoolex == "Negative")
+                    {@dat.stoolex}
+                </td>
+            </tr>
+        }
+        @if (@dat.stoolcul != "" && @dat.stoolcul != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ Stool Culture: @dat.stoolcul</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.stoolcul == "Positive")
+                    {@dat.stoolcul}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.stoolcul == "Negative")
+                    {@dat.stoolcul}
+                </td>
+            </tr>
+        }
+        @if (@dat.antihavtotal != "" && @dat.antihavtotal != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ HAV IgM/IgG: @dat.antihavtotal</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.antihavtotal == "Positive")
+                    {@dat.antihavtotal}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.antihavtotal == "Negative")
+                    {@dat.antihavtotal}
+                </td>
+            </tr>
+        }
+        @if (@dat.vdrl != "" && @dat.vdrl != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจเชื้อซิฟิลิส (RPR): @dat.vdrl</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.vdrl == "Positive")
+                    {@dat.vdrl}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.vdrl == "Negative")
+                    {@dat.vdrl}
+                </td>
+            </tr>
+        }
+        @if (@dat.antihiv != "" && @dat.antihiv != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจหาเชื้อ HIV: @dat.antihiv</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.antihiv == "Positive")
+                    {@dat.antihiv}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.antihiv == "Negative")
+                    {@dat.antihiv}
+                </td>
+            </tr>
+        }
+        @if (@dat.Others_hearing != "" && @dat.Others_hearing != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ TSH: @dat.Others_hearing</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.Others_hearing == "Positive")
+                    {@dat.Others_hearing}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.Others_hearing == "Negative")
+                    {@dat.Others_hearing}
+                </td>
+            </tr>
+        }
+        @if (@dat.Others_pulmonary != "" && @dat.Others_pulmonary != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ Free T3: @dat.Others_pulmonary</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.Others_pulmonary == "Positive")
+                    {@dat.Others_pulmonary}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.Others_pulmonary == "Negative")
+                    {@dat.Others_pulmonary}
+                </td>
+            </tr>
+        }
+        @if (@dat.freet4 != "" && @dat.freet4 != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ Free T4: @dat.freet4</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.freet4 == "Positive")
+                    {@dat.freet4}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.freet4 == "Negative")
+                    {@dat.freet4}
+                </td>
+            </tr>
+        }
+        @if (@dat.t3 != "" && @dat.t3 != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ T3: @dat.t3</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.t3 == "Positive")
+                    {@dat.t3}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.t3 == "Negative")
+                    {@dat.t3}
+                </td>
+            </tr>
+        }
+        @if (@dat.t4 != "" && @dat.t4 != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ T4: @dat.t4</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.t4 == "Positive")
+                    {@dat.t4}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.t4 == "Negative")
+                    {@dat.t4}
+                </td>
+            </tr>
+        }
+        @if (@dat.bloodgr != "" && @dat.bloodgr != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจหากรุ๊ปเลือด (Blood group): @dat.bloodgr</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.bloodgr == "Positive")
+                    {@dat.bloodgr}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.bloodgr == "Negative")
+                    {@dat.bloodgr}
+                </td>
+            </tr>
+        }
+        @if (@dat.Others_ekg != "" && @dat.Others_ekg != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจคลื่นไฟฟ้าหัวใจ EKG: @dat.Others_ekg</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.Others_ekg == "Positive")
+                    {@dat.Others_ekg}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.Others_ekg == "Negative")
+                    {@dat.Others_ekg}
+                </td>
+            </tr>
+        }
+        @if (@dat.hissickwork != "" && @dat.hissickwork != null)
+        {
+
+            <tr>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจโควิด (Covid-19): @dat.hissickwork</td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.hissickwork == "Positive")
+                    {@dat.hissickwork}
+                </td>
+                <td style="text-align: center;" colspan="2">
+                    @if (@dat.hissickwork == "Negative")
+                    {@dat.hissickwork}
+                </td>
+            </tr>
+        }
 
 
-   
 
-</table>
-}
+    </table>
+    }

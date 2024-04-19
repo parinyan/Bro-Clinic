@@ -118,7 +118,7 @@
 {
 <table class="table table-bordered" style="text-align: center;font-size:12px;margin-top: 40px !important">
     <tr style="color: #000;" class="backcol">
-        <td class="backcola" colspan="11" style="text-align: center; font-size: 20px;">ใบรายงานผลตรวจสุขภาพ</td>
+        <td class="backcola" colspan="11" style="text-align: center; font-size: 20px;"><b>ใบรายงานผลตรวจสุขภาพ</b></td>
 
     </tr>
     <tr style="color: #000" class="backcol">
@@ -194,8 +194,8 @@
 
         <td colspan="4"><span class="row-card">@dat.hissick</span></td>
         <td colspan="3"><span class="row-card">@dat.hisphara</span></td>
-        <td colspan="2"><span class="row-card"></span>Platelet</td>
-        <td><span class="row-card">140,000 - 400,000</span></td>
+        <td colspan="2"><span class="row-card"></span>Platelet (x10⁹/L)</td>
+        <td><span class="row-card">140,000 - 450,000</span></td>
         <td><span class="row-card">@dat.platelet</span></td>
 
 
@@ -365,7 +365,7 @@
 
 
         <td><span class="row-card">Color</span></td>
-        <td><span class="row-card"></span></td>
+        <td><span class="row-card">Yellow</span></td>
         <td><span class="row-card">@dat.color</span></td>
 
 
@@ -386,7 +386,7 @@
 
 
         <td><span class="row-card">Clarity</span></td>
-        <td><span class="row-card"></span></td>
+        <td><span class="row-card">Clear</span></td>
         <td><span class="row-card">@dat.clarity</span></td>
 
     </tr>
@@ -592,7 +592,7 @@
         <td>
             <span class="row-card">WBC</span>
         </td>
-        <td><span class="row-card">0-1 Cell/HDF</span></td>
+        <td><span class="row-card">0-5 Cell/HDF</span></td>
         <td><span class="row-card">@dat.WBC2</span></td>
 
 
@@ -605,7 +605,7 @@
         <td>
             <span class="row-card">RBC</span>
         </td>
-        <td><span class="row-card">0-1 Cell/HDF</span></td>
+        <td><span class="row-card">0-3 Cell/HDF</span></td>
         <td><span class="row-card">@dat.RBC</span></td>
     </tr>
     <tr style="color: #000;" class="tr-a">
@@ -613,10 +613,10 @@
         <td colspan="3"><span class="row-card">Negative</span></td>
         <td colspan="2"><span class="row-card">@dat.amphetamine</span></td>
         <td>
-            <span class="row-card">Cast</span>
+            <span class="row-card">Amorphous</span>
         </td>
-        <td><span class="row-card"></span></td>
-        <td><span class="row-card">@dat.Cast</span></td>
+        <td><span class="row-card">few</span></td>
+        <td><span class="row-card">@dat.Amorphous</span></td>
     </tr>
     <tr style="color: #000;" class="tr-a">
         <td colspan="2"><span class="row-card"><b>ตรวจการตั้งครรภ์ (Pregnancy test)</b></span></td>
@@ -625,7 +625,7 @@
         <td>
             <span class="row-card">Bacteria</span>
         </td>
-        <td><span class="row-card"></span></td>
+        <td><span class="row-card">few</span></td>
         <td><span class="row-card">@dat.Bacteria</span></td>
     </tr>
 
@@ -673,7 +673,7 @@
         <td colspan="2"><span class="row-card">@dat.hbsag</span></td>
 
 
-        <td colspan="2" style="vertical-align : middle;text-align:center;"><span class="row-card">ตรวจ Stool Examination</span></td>
+        <td colspan="2" style="vertical-align : middle;text-align:left;"><span class="row-card">ตรวจ Stool Examination</span></td>
         <td><span class="row-card">No found</span></td>
         <td><span class="row-card">@dat.stoolex</span></td>
 
@@ -687,13 +687,13 @@
 
         <td colspan="2"><span class="row-card">HBs Ab ภูมิต้านทาน</span></td>
 
-        <td colspan="3"><span class="row-card"> - </span></td>
+        <td colspan="3"><span class="row-card">Negative</span></td>
         <td colspan="2"><span class="row-card">@dat.hbsagb</span></td>
 
 
 
 
-        <td colspan="2"><span class="row-card">ตรวจ Stool Culture</span></td>
+        <td colspan="2" style="vertical-align : middle;text-align:left;"><span class="row-card">ตรวจ Stool Culture</span></td>
         <td><span class="row-card">No Growth</span></td>
         <td><span class="row-card">@dat.stoolcul</span></td>
 
@@ -707,7 +707,7 @@
         <td colspan="2" class="backcol"><span class="row-card"><b>ตรวจไวรัสตับอักเสบเอ (Hepatitis A Virus)</b></span></td>
         <td colspan="3" class="backcol"><span class="row-card"><b>ค่าปกติ</b></span></td>
         <td colspan="2" class="backcol"><span class="row-card"><b>Result</b></span></td>
-        <td colspan="2" class="backcol"><span class="row-card"></span></td>
+        <td colspan="2" class="backcol"><span class="row-card"><b>รายการตรวจ</b></span></td>
         @*<td colspan="3"><span class="row-card">Negative</span></td>
             <td colspan="2"><span class="row-card">@dat.antihavtotal</span></td>*@
         @* <td  class="backcol"><span class="row-card">Group Name</span></td>
@@ -726,9 +726,9 @@
         @* <td colspan="3"><span class="row-card">Negative</span></td>
             <td colspan="2"><span class="row-card">@dat.antihavigm</span></td>*@
 
-        <td class="backcol" rowspan="8" style="vertical-align : middle;text-align:center;font-size: 12px"><span class="row-card"><b>การตรวจอื่น ๆ <br>(Other)</b></span></td>
+        <td class="backcol" rowspan="8" style="vertical-align : middle;text-align:center;font-size: 12px"><span class="row-card"><b>การตรวจอื่นๆ</b></span></td>
         <td><span class="row-card">การตรวจหากรุ๊ปเลือด (Blood group)</span></td>
-        <td><span class="row-card">A,B,AB,O</span></td>
+        <td><span class="row-card">O,B,A,AB</span></td>
         <td><span class="row-card">@dat.bloodgr</span></td>
 
     </tr>
@@ -793,7 +793,7 @@
 
 
         <td><span class="row-card"> ตรวจคลื่นไฟฟ้าหัวใจ EKG</span></td>
-        <td><span class="row-card"></span></td>
+        <td><span class="row-card">Normol</span></td>
         <td><span class="row-card">@dat.Others_ekg</span></td>
 
     </tr>
@@ -816,7 +816,7 @@
 
 
         <td><span class="row-card">ตรวจโควิด (Covid-19)</span></td>
-        <td><span class="row-card"></span></td>
+        <td><span class="row-card">Negative</span></td>
         <td><span class="row-card">@dat.hissickwork</span></td>
 
     </tr>
@@ -831,20 +831,24 @@
         <tr style="color: #000;" class="tr-a">
 
 
-            <td colspan="11" class="backcola" style=""><span class="row-card"><b>สรุปผลการสุขภถาพเบื้องต้น (Summary)</b></span></td>
+            <td colspan="11" class="backcola" style=""><span class="row-card"><b>สรุปผลการสุขภาพเบื้องต้น (Summary)</b></span></td>
 
         </tr>
 
         <tr style="color: #000;" class="tr-a">
-            <td style="text-align:center; vertical-align:middle;" colspan="3" rowspan="2">รายการตรวจ</td>
-            <td style="text-align:center" colspan="4">ผลการตรวจ</td>
-            <td style="text-align:center; vertical-align:bottom;" colspan="4" rowspan="100">รายงานผลตรวจโดย นท พญ...........................................................................ตำแหน่ง นักเทคนิคการแพทย์ </td>
+            <td style="text-align:center; vertical-align:middle;" colspan="3" rowspan="2"><b>รายการตรวจ</b></td>
+            <td style="text-align:center" colspan="4"><b>ผลการตรวจ</b></td>
+            <td style="text-align:center; vertical-align:bottom;" colspan="4" rowspan="100">
+                    ..................................
+                <br>(ทนพญ.รวิสร์ลดา   พลฐณเศรษฐ์)
+                <br>ทน.3507
+            </td>
         </tr>
         <tr>
-            <td style="text-align: center;" colspan="2">ปกติ</td>
-            <td style="text-align: center;" colspan="2">ผิดปกติ</td>
+            <td style="text-align: center;" colspan="2"><b>ปกติ</b></td>
+            <td style="text-align: center;" colspan="2"><b>ผิดปกติ</b></td>
         </tr>
-        @if (@dat.hemoglobin != "" && @dat.hemoglobin != null)
+        @if (@dat.hemoglobin == "Positive" || @dat.hemoglobin == "Negative")
         {
 
             <tr>
@@ -859,7 +863,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.hematocrit != "" && @dat.hematocrit != null)
+        @if (@dat.hematocrit == "Positive" || @dat.hematocrit == "Negative")
         {
 
             <tr>
@@ -874,7 +878,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.wbc != "" && @dat.wbc != null)
+        @if (@dat.wbc == "Positive" || @dat.wbc == "Negative")
         {
 
             <tr>
@@ -889,7 +893,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.platelet != "" && @dat.platelet != null)
+        @if (@dat.platelet == "Positive" || @dat.platelet == "Negative")
         {
 
             <tr>
@@ -904,7 +908,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.sodium != "" && @dat.sodium != null)
+        @if (@dat.sodium == "Positive" || @dat.sodium == "Negative")
         {
 
             <tr>
@@ -919,7 +923,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.potassium != "" && @dat.potassium != null)
+        @if (@dat.potassium == "Positive" || @dat.potassium == "Negative")
         {
 
             <tr>
@@ -934,7 +938,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.chloride != "" && @dat.chloride != null)
+        @if (@dat.chloride == "Positive" || @dat.chloride == "Negative")
         {
 
             <tr>
@@ -949,7 +953,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.totalc02 != "" && @dat.totalc02 != null)
+        @if (@dat.totalc02 == "Positive" || @dat.totalc02 == "Negative")
         {
 
             <tr>
@@ -964,7 +968,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.uricacid != "" && @dat.uricacid != null)
+        @if (@dat.uricacid == "Positive" || @dat.uricacid == "Negative")
         {
 
             <tr>
@@ -979,7 +983,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.gran != "" && @dat.gran != null)
+        @if (@dat.gran == "Positive" || @dat.gran == "Negative")
         {
 
             <tr>
@@ -994,7 +998,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.lym != "" && @dat.lym != null)
+        @if (@dat.lym == "Positive" || @dat.lym == "Negative")
         {
 
             <tr>
@@ -1009,7 +1013,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.mid != "" && @dat.mid != null)
+        @if (@dat.mid == "Positive" || @dat.mid == "Negative")
         {
 
             <tr>
@@ -1024,7 +1028,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.dif4 != "" && @dat.dif4 != null)
+        @if (@dat.dif4 == "Positive" || @dat.dif4 == "Negative")
         {
 
             <tr>
@@ -1039,7 +1043,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.dif5 != "" && @dat.dif5 != null)
+        @if (@dat.dif5 == "Positive" || @dat.dif5 == "Negative")
         {
 
             <tr>
@@ -1054,7 +1058,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.mcv != "" && @dat.mcv != null)
+        @if (@dat.mcv == "Positive" || @dat.mcv == "Negative")
         {
 
             <tr>
@@ -1069,7 +1073,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.mch != "" && @dat.mch != null)
+        @if (@dat.mch == "Positive" || @dat.mch == "Negative")
         {
 
             <tr>
@@ -1084,7 +1088,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.mchc != "" && @dat.mchc != null)
+        @if (@dat.mchc == "Positive" || @dat.mchc == "Negative")
         {
 
             <tr>
@@ -1099,7 +1103,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.bun != "" && @dat.bun != null)
+        @if (@dat.bun == "Positive" || @dat.bun == "Negative")
         {
 
             <tr>
@@ -1114,7 +1118,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.creatinine != "" && @dat.creatinine != null)
+        @if (@dat.creatinine == "Positive" || @dat.creatinine == "Negative")
         {
 
             <tr>
@@ -1129,7 +1133,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.choiesterol != "" && @dat.choiesterol != null)
+        @if (@dat.choiesterol == "Positive" || @dat.choiesterol == "Negative")
         {
 
             <tr>
@@ -1144,7 +1148,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.triglyceride != "" && @dat.triglyceride != null)
+        @if (@dat.triglyceride == "Positive" || @dat.triglyceride == "Negative")
         {
 
             <tr>
@@ -1159,7 +1163,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.ldlc != "" && @dat.ldlc != null)
+        @if (@dat.ldlc == "Positive" || @dat.ldlc == "Negative")
         {
 
             <tr>
@@ -1174,7 +1178,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.hdlc != "" && @dat.hdlc != null)
+        @if (@dat.hdlc == "Positive" || @dat.hdlc == "Negative")
         {
 
             <tr>
@@ -1189,7 +1193,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.totalpro != "" && @dat.totalpro != null)
+        @if (@dat.totalpro == "Positive" || @dat.totalpro == "Negative")
         {
 
             <tr>
@@ -1204,7 +1208,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.albumin != "" && @dat.albumin != null)
+        @if (@dat.albumin == "Positive" || @dat.albumin == "Negative")
         {
 
             <tr>
@@ -1219,7 +1223,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.globulin != "" && @dat.globulin != null)
+        @if (@dat.globulin == "Positive" || @dat.globulin == "Negative")
         {
 
             <tr>
@@ -1234,7 +1238,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.totalbilirubin != "" && @dat.totalbilirubin != null)
+        @if (@dat.totalbilirubin == "Positive" || @dat.totalbilirubin == "Negative")
         {
 
             <tr>
@@ -1249,7 +1253,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.direct != "" && @dat.direct != null)
+        @if (@dat.direct == "Positive" || @dat.direct == "Negative")
         {
 
             <tr>
@@ -1264,7 +1268,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.sgot != "" && @dat.sgot != null)
+        @if (@dat.sgot == "Positive" || @dat.sgot == "Negative")
         {
 
             <tr>
@@ -1279,7 +1283,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.sgpt != "" && @dat.sgpt != null)
+        @if (@dat.sgpt == "Positive" || @dat.sgpt == "Negative")
         {
 
             <tr>
@@ -1294,7 +1298,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.alk != "" && @dat.alk != null)
+        @if (@dat.alk == "Positive" || @dat.alk == "Negative")
         {
 
             <tr>
@@ -1309,7 +1313,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.fbs != "" && @dat.fbs != null)
+        @if (@dat.fbs == "Positive" || @dat.fbs == "Negative")
         {
 
             <tr>
@@ -1324,7 +1328,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.amphetamine != "" && @dat.amphetamine != null)
+        @if (@dat.amphetamine == "Positive" || @dat.amphetamine == "Negative")
         {
 
             <tr>
@@ -1339,7 +1343,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.pregnancy != "" && @dat.pregnancy != null)
+        @if (@dat.pregnancy == "Positive" || @dat.pregnancy == "Negative")
         {
 
             <tr>
@@ -1354,7 +1358,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.color != "" && @dat.color != null)
+        @if (@dat.color == "Positive" || @dat.color == "Negative")
         {
 
             <tr>
@@ -1369,7 +1373,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.clarity != "" && @dat.clarity != null)
+        @if (@dat.clarity == "Positive" || @dat.clarity == "Negative")
         {
 
             <tr>
@@ -1384,7 +1388,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.sg != "" && @dat.sg != null)
+        @if (@dat.sg == "Positive" || @dat.sg == "Negative")
         {
 
             <tr>
@@ -1399,7 +1403,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.ph != "" && @dat.ph != null)
+        @if (@dat.ph == "Positive" || @dat.ph == "Negative")
         {
 
             <tr>
@@ -1414,7 +1418,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.protein != "" && @dat.protein != null)
+        @if (@dat.protein == "Positive" || @dat.protein == "Negative")
         {
 
             <tr>
@@ -1429,7 +1433,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.glucose != "" && @dat.glucose != null)
+        @if (@dat.glucose == "Positive" || @dat.glucose == "Negative")
         {
 
             <tr>
@@ -1444,7 +1448,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.ketone != "" && @dat.ketone != null)
+        @if (@dat.ketone == "Positive" || @dat.ketone == "Negative")
         {
 
             <tr>
@@ -1459,7 +1463,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.bilirubin != "" && @dat.bilirubin != null)
+        @if (@dat.bilirubin == "Positive" || @dat.bilirubin == "Negative")
         {
 
             <tr>
@@ -1474,7 +1478,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.urobilinogen != "" && @dat.urobilinogen != null)
+        @if (@dat.urobilinogen == "Positive" || @dat.urobilinogen == "Negative")
         {
 
             <tr>
@@ -1489,7 +1493,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.blood != "" && @dat.blood != null)
+        @if (@dat.blood == "Positive" || @dat.blood == "Negative")
         {
 
             <tr>
@@ -1504,7 +1508,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.leukocyte != "" && @dat.leukocyte != null)
+        @if (@dat.leukocyte == "Positive" || @dat.leukocyte == "Negative")
         {
 
             <tr>
@@ -1519,7 +1523,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.nitrite != "" && @dat.nitrite != null)
+        @if (@dat.nitrite == "Positive" || @dat.nitrite == "Negative")
         {
 
             <tr>
@@ -1534,7 +1538,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.ascorbic != "" && @dat.ascorbic != null)
+        @if (@dat.ascorbic == "Positive" || @dat.ascorbic == "Negative")
         {
 
             <tr>
@@ -1549,7 +1553,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.WBC2 != "" && @dat.WBC2 != null)
+        @if (@dat.WBC2 == "Positive" || @dat.WBC2 == "Negative")
         {
 
             <tr>
@@ -1564,7 +1568,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.RBC != "" && @dat.RBC != null)
+        @if (@dat.RBC == "Positive" || @dat.RBC == "Negative")
         {
 
             <tr>
@@ -1579,22 +1583,22 @@
                 </td>
             </tr>
         }
-        @if (@dat.Cast != "" && @dat.Cast != null)
+        @if (@dat.Amorphous == "Positive" || @dat.Amorphous == "Negative")
         {
 
             <tr>
-                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ Cast: @dat.Cast</td>
+                <td style="text-align:left;" colspan="3">@(dat.Item++). ตรวจ Cast: @dat.Amorphous</td>
                 <td style="text-align: center;" colspan="2">
-                    @if (@dat.Cast == "Positive")
-                    {@dat.Cast}
+                    @if (@dat.Amorphous == "Positive")
+                    {@dat.Amorphous}
                 </td>
                 <td style="text-align: center;" colspan="2">
-                    @if (@dat.Cast == "Negative")
-                    {@dat.Cast}
+                    @if (@dat.Amorphous == "Negative")
+                    {@dat.Amorphous}
                 </td>
             </tr>
         }
-        @if (@dat.Bacteria != "" && @dat.Bacteria != null)
+        @if (@dat.Bacteria == "Positive" || @dat.Bacteria == "Negative")
         {
 
             <tr>
@@ -1609,7 +1613,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.hbsag != "" && @dat.hbsag != null)
+        @if (@dat.hbsag == "Positive" || @dat.hbsag == "Negative")
         {
 
             <tr>
@@ -1624,7 +1628,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.hbsagb != "" && @dat.hbsagb != null)
+        @if (@dat.hbsagb == "Positive" || @dat.hbsagb == "Negative")
         {
 
             <tr>
@@ -1639,7 +1643,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.stoolex != "" && @dat.stoolex != null)
+        @if (@dat.stoolex == "Positive" || @dat.stoolex == "Negative")
         {
 
             <tr>
@@ -1654,7 +1658,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.stoolcul != "" && @dat.stoolcul != null)
+        @if (@dat.stoolcul == "Positive" || @dat.stoolcul == "Negative")
         {
 
             <tr>
@@ -1669,7 +1673,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.antihavtotal != "" && @dat.antihavtotal != null)
+        @if (@dat.antihavtotal == "Positive" || @dat.antihavtotal == "Negative")
         {
 
             <tr>
@@ -1684,7 +1688,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.vdrl != "" && @dat.vdrl != null)
+        @if (@dat.vdrl == "Positive" || @dat.vdrl == "Negative")
         {
 
             <tr>
@@ -1699,7 +1703,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.antihiv != "" && @dat.antihiv != null)
+        @if (@dat.antihiv == "Positive" || @dat.antihiv == "Negative")
         {
 
             <tr>
@@ -1714,7 +1718,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.Others_hearing != "" && @dat.Others_hearing != null)
+        @if (@dat.Others_hearing == "Positive" || @dat.Others_hearing == "Negative")
         {
 
             <tr>
@@ -1729,7 +1733,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.Others_pulmonary != "" && @dat.Others_pulmonary != null)
+        @if (@dat.Others_pulmonary == "Positive" || @dat.Others_pulmonary == "Negative")
         {
 
             <tr>
@@ -1744,7 +1748,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.freet4 != "" && @dat.freet4 != null)
+        @if (@dat.freet4 == "Positive" || @dat.freet4 == "Negative")
         {
 
             <tr>
@@ -1759,7 +1763,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.t3 != "" && @dat.t3 != null)
+        @if (@dat.t3 == "Positive" || @dat.t3 == "Negative")
         {
 
             <tr>
@@ -1774,7 +1778,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.t4 != "" && @dat.t4 != null)
+        @if (@dat.t4 == "Positive" || @dat.t4 == "Negative")
         {
 
             <tr>
@@ -1789,7 +1793,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.bloodgr != "" && @dat.bloodgr != null)
+        @if (@dat.bloodgr == "Positive" || @dat.bloodgr == "Negative")
         {
 
             <tr>
@@ -1804,7 +1808,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.Others_ekg != "" && @dat.Others_ekg != null)
+        @if (@dat.Others_ekg == "Positive" || @dat.Others_ekg == "Negative")
         {
 
             <tr>
@@ -1819,7 +1823,7 @@
                 </td>
             </tr>
         }
-        @if (@dat.hissickwork != "" && @dat.hissickwork != null)
+        @if (@dat.hissickwork == "Positive" || @dat.hissickwork == "Negative")
         {
 
             <tr>

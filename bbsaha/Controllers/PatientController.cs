@@ -188,7 +188,7 @@ namespace bbsaha.Controllers
             public string ascorbic { get; set; }
             public string WBC2 { get; set; }
             public string RBC { get; set; }
-            public string Cast { get; set; }
+            public string Amorphous { get; set; }
             public string Bacteria { get; set; }
             public string sgot { get; set; }
             public string sgpt { get; set; }
@@ -387,7 +387,7 @@ namespace bbsaha.Controllers
                 ascorbic = model[0].ascorbic,
                 WBC2 = model[0].WBC2,
                 RBC = model[0].RBC,
-                Cast = model[0].Cast,
+                Amorphous = model[0].Amorphous,
                 Bacteria = model[0].Bacteria,
                 dif4 = model[0].diff4,
                 dif5 = model[0].diff5,
@@ -511,7 +511,7 @@ namespace bbsaha.Controllers
             _data.ascorbic = model[0].ascorbic;
             _data.WBC2 = model[0].WBC2;
             _data.RBC = model[0].RBC;
-            _data.Cast = model[0].Cast;
+            _data.Amorphous = model[0].Amorphous;
             _data.Bacteria = model[0].Bacteria;
             _data.dif4 = model[0].diff4;
             _data.dif5 = model[0].diff5;
@@ -1041,7 +1041,7 @@ namespace bbsaha.Controllers
                     ascorbic = dat.ae.ascorbic,
                     WBC2 = dat.ae.WBC2,
                     RBC = dat.ae.RBC,
-                    Cast = dat.ae.Cast,
+                    Amorphous = dat.ae.Amorphous,
                     Bacteria = dat.ae.Bacteria,
                     direct = dat.ae.direct,
                     sgot = dat.ae.sgot,

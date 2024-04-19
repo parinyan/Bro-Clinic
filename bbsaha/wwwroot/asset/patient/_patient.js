@@ -164,7 +164,7 @@
             DE_ascorbice: "",
             DE_WBC2: "",
             DE_RBC: "",
-            DE_Cast: "",
+            DE_Amorphous: "",
             DE_Bacteria: "",
             DE_dif4e: "",
             DE_dif5e: "",
@@ -976,7 +976,7 @@
             this.DEformsubmitE[0].ascorbic = this.DE_ascorbice
             this.DEformsubmitE[0].WBC2 = this.DE_WBC2
             this.DEformsubmitE[0].RBC = this.DE_RBC
-            this.DEformsubmitE[0].Cast = this.DE_Cast
+            this.DEformsubmitE[0].Amorphous = this.Amorphous
             this.DEformsubmitE[0].Bacteria = this.DE_Bacteria
 
             this.DEformsubmitE[0].diff4 = this.DE_dif4e
@@ -1300,7 +1300,7 @@
             this.DEformsubmitE[0].ascorbic = this.DE_ascorbice
             this.DEformsubmitE[0].WBC2 = this.DE_WBC2
             this.DEformsubmitE[0].RBC = this.DE_RBC
-            this.DEformsubmitE[0].Cast = this.DE_Cast
+            this.DEformsubmitE[0].Amorphous = this.DE_Amorphous
             this.DEformsubmitE[0].Bacteria = this.DE_Bacteria
             this.DEformsubmitE[0].diff4 = this.DE_dif4e
             this.DEformsubmitE[0].diff5 = this.DE_dif5e

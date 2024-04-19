@@ -105,7 +105,7 @@ namespace bbsaha.Models.patient
             public string ascorbic { get; set; }
             public string WBC2 { get; set; }
             public string RBC { get; set; }
-            public string Cast { get; set; }
+            public string Amorphous { get; set; }
             public string Bacteria { get; set; }
             public string stoolex { get; set; }
             public string stoolcul { get; set; }

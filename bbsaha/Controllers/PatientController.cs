@@ -4,6 +4,7 @@ using bbsaha.Models.patient;
 using ClosedXML.Excel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MySqlConnector;
 using OfficeOpenXml;
 using SelectPdf;
@@ -12,6 +13,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using WkHtmlToPdfDotNet;
 using WkHtmlToPdfDotNet.Contracts;
@@ -214,6 +216,101 @@ namespace bbsaha.Controllers
 
         }
 
+        public class DataLab
+        {
+            public int No { get; set; }
+            public string CN { get; set; }
+            public string Name { get; set; }
+            public string LastName { get; set; }
+            public DateTime DateOfExamination { get; set; }
+            public string TimeOfExamination { get; set; }
+            public string MedicalService { get; set; }
+            public string Company { get; set; }
+            public decimal Weight { get; set; }
+            public decimal Height { get; set; }
+            public string Pulse { get; set; }
+            public string BloodPr { get; set; }
+            public string HisSick { get; set; }
+            public string Hisphara { get; set; }
+            public string Cigar { get; set; }
+            public string Alcohol { get; set; }
+            public string Sodium { get; set; }
+            public string Potassium { get; set; }
+            public string Chloride { get; set; }
+            public string TotalCO2 { get; set; }
+            public string UricAcid { get; set; }
+            public string BUN { get; set; }
+            public string Creatinine { get; set; }
+            public string Choiesterol { get; set; }
+            public string Triglyceride { get; set; }
+            public string HDLC { get; set; }
+            public string LDLC { get; set; }
+            public string TotalPro { get; set; }
+            public string Albumin { get; set; }
+            public string TotalBilirubin { get; set; }
+            public string Direct { get; set; }
+            public string Globulin { get; set; }
+            public string SGOT { get; set; }
+            public string SGPT { get; set; }
+            public string ALK { get; set; }
+            public string FBS { get; set; }
+            public string Hbsag { get; set; }
+            public string Hbsagb { get; set; }
+            public string Antihavtotal { get; set; }
+            public string Antihavlgm { get; set; }
+            public string RPR { get; set; }
+            public string Antihiv { get; set; }
+            public string Hemoglobin { get; set; }
+            public string Hematocrit { get; set; }
+            public string WBC { get; set; }
+            public string Neutrophil { get; set; }
+            public string Lymphocyte { get; set; }
+            public string Monocyte { get; set; }
+            public string Eosinophil { get; set; }
+            public string Basophil { get; set; }
+            public string Platelet { get; set; }
+            public string MCV { get; set; }
+            public string MCH { get; set; }
+            public string MCHC { get; set; }
+            public string Amphetamine { get; set; }
+            public string Pregnancy { get; set; }
+            public string Color { get; set; }
+            public string Clarity { get; set; }
+            public string PH { get; set; }
+            public string Protien { get; set; }
+            public string SG { get; set; }
+            public string Glucose { get; set; }
+            public string Ketone { get; set; }
+            public string Bilirubin { get; set; }
+            public string Urobilinogen { get; set; }
+            public string Blood { get; set; }
+            public string Leukocyte { get; set; }
+            public string Nitrite { get; set; }
+            public string Ascorbic { get; set; }
+            public string Eyecolor { get; set; }
+            public string Xray { get; set; }
+            public string OthersHearing { get; set; }
+            public string OthersPulmonary { get; set; }
+            public string HisSickWork { get; set; }
+            public string BloodGr { get; set; }
+        }
+
+        public class DataPayment
+        {
+            public int No { get; set; }
+            public string CN { get; set; }
+            public string MedicalNo { get; set; }
+            public DateTime DateOfExamination { get; set; }
+            public string MedicalService { get; set; }
+            public string Company { get; set; }
+            public string PaymentType { get; set; }
+            public decimal TotalAmount { get; set; }
+            public string MoneyReceiver { get; set; }
+            public string Remark { get; set; }
+            public DateTime ReceivePayDate { get; set; }
+            public string Recommend { get; set; }
+            
+        }
 
         public class View_detail
         {
@@ -1717,7 +1814,7 @@ namespace bbsaha.Controllers
                     fname = da.ku.xc.vb.gd.Fname,
                     lname = da.ku.xc.vb.gd.Lname,
                     medservice = da.ku.xc.bv.TypeName,
-                    customer = da.ku.xc.vb.dg.ae.Company,
+                    customer = da.ku.xc.vb.dg.ea.Customer,
                     paytype = da.ku.cx.TypeName,
                     totalamount = da.ku.xc.vb.dg.ae.Price,
                     moneyrev = da.uk.Name,
@@ -2133,10 +2230,6 @@ namespace bbsaha.Controllers
 
                 }
 
-
-
-
-
                 xlPackage.Save();
                 // Response.Clear();
                 //}
@@ -2144,44 +2237,39 @@ namespace bbsaha.Controllers
            
 
             stream.Position = 0;
-            return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet","Patient" + DateTime.Now.ToString("yyyy-MM-dd") + ".xlsx");
-
-
+            return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet","PatientLab" + DateTime.Now.ToString("yyyy-MM-dd") + ".xlsx");
 
         }
 
-        public IActionResult ExportExcel2(string id)
+        public IActionResult ExportExcelLab(string id)
         {
-            var workbook = new XLWorkbook("D:\\Programming\\1.Web\\BRO\\Programming\\Bro-Clinic\\bbsaha\\wwwroot\\asset\\Template\\temp.xlsx");
+            var workbook = new XLWorkbook("wwwroot\\asset\\Template\\TempLab.xlsx");
             var worksheet = workbook.Worksheet("sheet1");
 
-            var _data1 = _mysqlbro.CN_Patient.ToList();
-            var _data2 = _mysqlbro.CN_Detail.ToList();
+            List<DataLab> itemDataLab = new List<DataLab>();
+            // Calling a stored procedure that returns a result set
+            string q = "SELECT 0 as No, CONCAT('BB-' ,a.IDPatient) as CN, a.Fname as Name, a.Lname as LastName, b.DateReg as DateOfExamination, b.time as TimeOfExamination, c.TypeName as MedicalService, b.Customer as Company, b.Weight, b.Height, b.Pulse, b.BPM as BloodPr, b.HisSick, b.hisphara, b.cigar, b.alcohol, b.sodium, b.potassium, b.chloride, b.totalco2, b.uricacid, b.bun, b.creatinine, b.choiesterol, b.triglyceride, b.hdlc, b.ldlc, b.totalpro, b.albumin, b.totalbilirubin, b.direct, b.globulin, b.sgot, b.sgpt, b.alk, b.fbs, b.hbsag, b.hbsagb, b.antihavtotal, b.antihavlgm, b.vdrl as RPR, b.antihiv, b.hemoglobin, b.hematocrit, b.wbc, b.gran as Neutrophil, b.lym as Lymphocyte, b.mid as Monocyte, b.dif4 as Eosinophil, b.dif5 as Basophil, b.platelet as Platelet, b.mcv, b.mch, b.mchc, b.amphetamine as Amphetamine, b.pregnancy as Pregnancy, b.color, b.clarity, b.ph, b.protien, b.sg as SG, b.glucose, b.ketone, b.bilirubin, b.urobilinogen, b.blood, b.leukocyte, b.nitrite, b.ascorbic, b.eyecolor, b.xray, b.others_hearing as OthersHearing, b.others_pulmonary as OthersPulmonary, b.hissickwork as HisSickWork, b.Bloodgr FROM cn_patient a INNER JOIN cn_detail b on a.ID = b.PatientID INNER JOIN cen_typehealthcheck c on b.medtype = c.ID ORDER BY a.ID DESC";
+            itemDataLab = _mysqlbro.DataLab.FromSqlRaw(q).ToList();
 
-
-            var sumdata = _data1.Join(_data2, ae => ae.ID, ea => ea.PatientID, (ae, ea) => new { ae, ea }).ToList();
-
-            //var s1 = sumdata.SelectMany(i=>i.ea.)
-
-             DataTable dt = ToDataTable(sumdata);
-
-            // Add data to the worksheet
-            worksheet.Cell("A1").Value = "Name";
-            worksheet.Cell("B1").Value = "Age";
-
-            // Example data
-            var data = new[]
+            int l = 3;
+            PropertyInfo[] properties = typeof(DataLab).GetProperties();
+            foreach (DataLab item in itemDataLab)
             {
-                new { Name = "John Doe", Age = 30 },
-                new { Name = "Jane Smith", Age = 25 }
-            };
+                for (int i = 0; i < properties.Length; i++)
+                {
+                    var value = properties[i].GetValue(item);
 
-            int row = 2;
-            foreach (var item in data)
-            {
-                worksheet.Cell("A" + row).Value = item.Name;
-                worksheet.Cell("B" + row).Value = item.Age;
-                row++;
+                    if(properties[i].Name == "No")
+                    {
+                        worksheet.Row(l).Cell(i + 1).Value = (l-2).ToString();
+                    }
+                    else
+                    {
+                        worksheet.Row(l).Cell(i + 1).Value = value;
+                    }
+                    
+                }
+                l++;
             }
 
             // Write workbook to response stream
@@ -2190,6 +2278,45 @@ namespace bbsaha.Controllers
                 workbook.SaveAs(memoryStream);
                 MemoryStream ms2 = new MemoryStream(memoryStream.ToArray());
                 return File(ms2, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Patient" + DateTime.Now.ToString("yyyy-MM-dd") + ".xlsx");
+            }
+        }
+
+        public IActionResult ExportExcelPayment(string id)
+        {
+            var workbook = new XLWorkbook("wwwroot\\asset\\Template\\TempPayment.xlsx");
+            var worksheet = workbook.Worksheet("sheet1");
+
+            List<DataPayment> itemDataPayment = new List<DataPayment>();
+            // Calling a stored procedure that returns a result set
+            string q = "SELECT 0 as No, CONCAT('BB-' ,a.IDPatient) as CN, CONCAT(b.IDdate,'-', LPAD(b.IDrunnumber, 6, '0')) as MedicalNo, b.DateReg as DateOfExamination, c.TypeName as MedicalService, b.Customer as Company, e.TypeName as PaymentType, d.Price as TotalAmount, f.Name as MoneyReceiver, d.Remark, d.ReceivePayDate, d.Recommend FROM cn_patient a INNER JOIN cn_detail b on a.ID = b.PatientID INNER JOIN cen_typehealthcheck c on b.medtype = c.ID INNER JOIN cn_sales d on b.ID = d.DetailID INNER JOIN cen_typepayment e on d.TypeName = e.ID INNER JOIN cen_perreceive f on d.PerReceiver = f.ID ORDER BY a.ID DESC";
+            itemDataPayment = _mysqlbro.DataPayment.FromSqlRaw(q).ToList();
+
+            int l = 2;
+            PropertyInfo[] properties = typeof(DataPayment).GetProperties();
+            foreach (DataPayment item in itemDataPayment)
+            {
+                for (int i = 0; i < properties.Length; i++)
+                {
+                    var value = properties[i].GetValue(item);
+
+                    if (properties[i].Name == "No")
+                    {
+                        worksheet.Row(l).Cell(i + 1).Value = (l - 1).ToString();
+                    }
+                    else
+                    {
+                        worksheet.Row(l).Cell(i + 1).Value = value;
+                    }
+                }
+                l++;
+            }
+
+            // Write workbook to response stream
+            using (var memoryStream = new System.IO.MemoryStream())
+            {
+                workbook.SaveAs(memoryStream);
+                MemoryStream ms2 = new MemoryStream(memoryStream.ToArray());
+                return File(ms2, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "PatientPaymetn" + DateTime.Now.ToString("yyyy-MM-dd") + ".xlsx");
             }
         }
 

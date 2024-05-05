@@ -124,10 +124,11 @@
     <tr style="color: #000" class="backcol">
 
         <td colspan="5" style="width: 40px" class="backcola"><span class="head-card"><b>ชื่อ-นามสกุล / Name-Surname</b></span></td>
-        <td style="width: 60px" class="backcola"><span class="head-card"><b>อายุ / Age</b></span></td>
-        <td style="width: 60px" class="backcola"><span class="head-card"><b>เพศ / Sex</b></span></td>
-        <td colspan="2" style="width: 200px" class="backcola"><span class="head-card"><b>วันที่ตรวจ / Date</b></span></td>
-        <td colspan="2" class="backcola"><span class="head-card"><b>เวลา / Time</b></span></td>
+        <td class="backcola"><span class="head-card"><b>อายุ / Age</b></span></td>
+        <td class="backcola"><span class="head-card"><b>เพศ / Sex</b></span></td>
+        <td colspan="2" style="width: 40px" class="backcola"><span class="head-card"><b>เลขบัตรประชาชน/ID Card</b></span></td>
+        <td class="backcola"><span class="head-card"><b>วันที่ตรวจ / Date</b></span></td>
+        <td class="backcola"><span class="head-card"><b>เวลา / Time</b></span></td>
 
 
     </tr>
@@ -136,8 +137,9 @@
         <td colspan="5"><span class="row-card">@dat.name</span></td>
         <td><span class="row-card">@dat.age</span></td>
         <td><span class="row-card">@dat.gender</span></td>
-        <td colspan="2"><span class="row-card">@dat.date</span></td>
-        <td colspan="2"><span class="row-card">@dat.time</span></td>
+        <td colspan="2"><span class="row-card">@dat.idcard</span></td>
+        <td><span class="row-card">@dat.date</span></td>
+        <td><span class="row-card">@dat.time</span></td>
 
 
     </tr>
@@ -250,9 +252,9 @@
 
     <tr style="color: #000;" class="tr-a">
 
-        <td colspan="2" class="bt-a"><span class="row-card text-a">ตรวจโซเดียม Sodium</span></td>
-        <td colspan="3"><span class="row-card">137 - 145 mmol/L</span></td>
-        <td colspan="2"><span class="row-card">@dat.sodium</span></td>
+        <td colspan="2"><span class="row-card"><b>ตรวจระดับน้ำตาลในเลือด (FBS)</b></span></td>
+        <td colspan="3"><span class="row-card">70 - 100 mg/dL</span></td>
+        <td colspan="2"><span class="row-card">@dat.fbs</span></td>
 
         <td colspan="2"><span class="row-card">Eosinophil</span></td>
         <td><span class="row-card">(0 - 5)%</span></td>
@@ -262,13 +264,9 @@
 
     <tr style="color: #000;" class="tr-a">
 
-        <td colspan="2" class="bt-a">
-            <span class="row-card text-a">
-                ตรวจโพแทสเซียม Potassium
-            </span>
-        </td>
-        <td colspan="3"><span class="row-card">3.5 -5.1 mmol/L</span></td>
-        <td colspan="2"><span class="row-card">@dat.potassium</span></td>
+        <td colspan="2" class="backcol"><span class="row-card"><b>การทำงานของไต (Renal Function)</b></span></td>
+        <td colspan="3" class="backcol"><span class="row-card"><b>ค่าปกติ</b></span></td>
+        <td colspan="2" class="backcol"><span class="row-card"><b>Result</b></span></td>
 
 
         <td colspan="2"><span class="row-card">Basophil</span></td>
@@ -281,9 +279,9 @@
 
     <tr style="color: #000;" class="tr-a">
 
-        <td colspan="2" class="bt-a"><span class="row-card text-a">ตรวจคลอไรด์ Chloride</span></td>
-        <td colspan="3"><span class="row-card">98 - 107 mmol/L</span></td>
-        <td colspan="2"><span class="row-card">@dat.chloride</span></td>
+        <td colspan="2"><span class="row-card">BUN</span></td>
+        <td colspan="3"><span class="row-card">4 - 23 mg/dL</span></td>
+        <td colspan="2"><span class="row-card">@dat.bun</span></td>
 
         <td colspan="2"><span class="row-card">MCV</span></td>
         <td><span class="row-card">(80 - 95) fL</span></td>
@@ -293,9 +291,9 @@
 
     <tr style="color: #000;" class="tr-a">
 
-        <td colspan="2" class="bt-a"><span class="row-card text-a">ตรวจคาร์บอนไดออกไซด์ CO₂</span></td>
-        <td colspan="3"><span class="row-card">22 - 30 mmol/L</span></td>
-        <td colspan="2"><span class="row-card">@dat.totalc02</span></td>
+        <td colspan="2"><span class="row-card">Creatinine</span></td>
+        <td colspan="3"><span class="row-card">0.5 - 1.5 mg/dL</span></td>
+        <td colspan="2"><span class="row-card">@dat.creatinine</span></td>
 
         <td colspan="2"><span class="row-card">MCH</span></td>
         <td><span class="row-card">(27 - 31) pg</span></td>
@@ -305,7 +303,13 @@
 
     <tr style="color: #000;" class="tr-a">
 
-        <td colspan="2" class="bt-a"><span class="row-card text-a">ตรวจกรดยูริค Uric acid</span></td>
+        <td class="backcol" rowspan="5" style="vertical-align: middle; text-align: center; width: 20px;">
+            <span class="row-card">
+                ไขมันในเลือด<br>(Lipid Profile)
+            </span>
+        </td>
+
+        <td><span class="row-card">ตรวจกรดยูริค Uric acid</span></td>
         <td colspan="3"><span class="row-card">3 - 8 mg/L</span></td>
         <td colspan="2"><span class="row-card">@dat.uricacid</span></td>
 
@@ -317,74 +321,42 @@
 
 
     <tr style="color: #000;" class="tr-a">
-
-
-
-        <td colspan="2" class="backcol"><span class="row-card"><b>การทำงานของไต (Renal Function)</b></span></td>
-        @*<td class="backcol"><span class="row-card">detail</span></td>*@
-
-        <td colspan="3" class="backcol"><span class="row-card"><b>ค่าปกติ</b></span></td>
-        <td colspan="2" class="backcol"><span class="row-card"><b>Result</b></span></td>
+        
+        <td><span class="row-card">Cholesterol</span></td>
+        <td colspan="3"><span class="row-card">&lt; 200 mg/dL</span></td>
+        <td colspan="2"><span class="row-card">@dat.choiesterol</span></td>
 
         <td colspan="4" class="backcola"><span class="head-card"><b>การตรวจจุลทรรศนศาสตร์ (Microscopic)</b></span></td>
-        @*<td class="backcol"><span class="row-card">การตรวจจุลทรรศนศาสตร์ (Microscopic)</span></td>
-            <td class="backcol"><span class="row-card">ตรวจปัสสาวะ (Urine Exam)</span></td>
-            <td class="backcol"><span class="row-card">detail</span></td>
-            <td class="backcol"><span class="row-card">Result</span></td>*@
-
-
     </tr>
 
     <tr style="color: #000;" class="tr-a">
-
-        <td colspan="2"><span class="row-card">BUN</span></td>
-        @*<td><span class="row-card">การทำงานของไต</span></td>
-            <td><span class="row-card">BUN</span></td>*@
-        <td colspan="3"><span class="row-card">4 - 23 mg/dL</span></td>
-        <td colspan="2"><span class="row-card">@dat.bun</span></td>
-
-
+        <td><span class="row-card">Triglyceride</span></td>
+        <td colspan="3"><span class="row-card">&lt; 150 mg/dL</span></td>
+        <td colspan="2"><span class="row-card">@dat.triglyceride</span></td>
 
         <td class="backcol" rowspan="18" style="vertical-align : middle;text-align:center;font-size: 12px"><span class="row-card"><b>ตรวจปัสสาวะ<br>Urine Exam</b></span></td>
         <td class="backcol" style="vertical-align : middle;text-align:center;font-size: 12px"><span class="row-card"></span></td>
         <td class="backcol"><span class="row-card"><b>ค่าปกติ</b></span></td>
         <td class="backcol"><span class="row-card">@dat.urin1</span><b>Result</b></td>
 
-
-
     </tr>
 
     <tr style="color: #000;" class="tr-a">
-
-        <td colspan="2"><span class="row-card">Creatinine</span></td>
-        @*<td><span class="row-card">Renal Function</span></td>
-            <td><span class="row-card">Creatinine</span></td>*@
-        <td colspan="3"><span class="row-card">0.5 - 2 mg/dL</span></td>
-        <td colspan="2"><span class="row-card">@dat.creatinine</span></td>
-
-
+        <td><span class="row-card">LDL</span></td>
+        <td colspan="3"><span class="row-card">&lt; 100 mg/dL</span></td>
+        <td colspan="2"><span class="row-card">@dat.ldlc</span></td>
 
         <td><span class="row-card">Color</span></td>
         <td><span class="row-card">Yellow</span></td>
         <td><span class="row-card">@dat.color</span></td>
 
-
-
     </tr>
 
     <tr style="color: #000;" class="tr-a">
-
-        <td class="backcol" rowspan="4" style="vertical-align: middle; text-align: center; width: 20px;">
-            <span class="row-card">
-                ไขมันในเลือด<br>(Lipid Profile)
-            </span>
-        </td>
-
-        <td><span class="row-card">Cholesterol</span></td>
-        <td colspan="3"><span class="row-card">&lt; 200 mg/dL</span></td>
-        <td colspan="2"><span class="row-card">@dat.choiesterol</span></td>
-
-
+        <td><span class="row-card">HDL</span></td>
+        <td colspan="3"><span class="row-card">&gt; 40 mg/dl</span></td>
+        <td colspan="2"><span class="row-card">@dat.hdlc</span></td>
+        
         <td><span class="row-card">Clarity</span></td>
         <td><span class="row-card">Clear</span></td>
         <td><span class="row-card">@dat.clarity</span></td>
@@ -393,17 +365,13 @@
 
     <tr style="color: #000;" class="tr-a">
 
-
-
-        <td><span class="row-card">Triglyceride</span></td>
-        <td colspan="3"><span class="row-card">&lt; 150 mg/dL</span></td>
-        <td colspan="2"><span class="row-card">@dat.triglyceride</span></td>
+        <td colspan="2" class="backcol"><span class="row-card"><b>ตรวจการทำงานของตับ (Liver Function)</b></span></td>
+        <td colspan="3" class="backcol"><span class="row-card"><b>ค่าปกติ</b></span></td>
+        <td colspan="2" class="backcol"><span class="row-card"><b>Result</b></span></td>
 
         <td><span class="row-card">Sp.gr.</span></td>
         <td><span class="row-card">1.003-1.030</span></td>
         <td><span class="row-card">@dat.sg</span></td>
-
-
 
     </tr>
 
@@ -411,11 +379,10 @@
 
     <tr style="color: #000;" class="tr-a">
 
-
-        <td><span class="row-card">LDL</span></td>
-        <td colspan="3"><span class="row-card">19.25-120.89 mg/dL</span></td>
-        <td colspan="2"><span class="row-card">@dat.ldlc</span></td>
-
+        <td class="backcol" rowspan="3" style="vertical-align: middle; text-align: center;"><span class="row-card">Protein</span></td>
+        <td><span class="row-card">Total</span></td>
+        <td colspan="3"><span class="row-card">6.0 - 8.0 mg/dL</span></td>
+        <td colspan="2"><span class="row-card">@dat.totalpro</span></td>
 
         <td><span class="row-card">pH</span></td>
         <td class="micoE"><span class="row-card">4.0-8.0</span></td>
@@ -425,14 +392,10 @@
 
     <tr style="color: #000;" class="tr-a">
 
-        @*<td  style="vertical-align: middle; text-align: center; width: 20px;"><span class="row-card">ไขมันดี(Good fats)</span></td>*@
-
-
-        <td><span class="row-card">HDL</span></td>
-        <td colspan="3"><span class="row-card">&gt; 40 mg/dl</span></td>
-        <td colspan="2"><span class="row-card">@dat.hdlc</span></td>
-
-
+        <td><span class="row-card">Albumin</span></td>
+        <td colspan="3"><span class="row-card">3.4 - 5.5 mg/dL</span></td>
+        <td colspan="2"><span class="row-card">@dat.albumin</span></td>
+        
         <td><span class="row-card">Protein</span></td>
         <td class="micoE"><span class="row-card">Negative</span></td>
         <td class="micoC"><span class="row-card">@dat.protein</span></td>
@@ -442,21 +405,13 @@
 
     <tr style="color: #000;" class="tr-a">
 
-        <td colspan="2" class="backcol"><span class="row-card"><b>ตรวจการทำงานของตับ (Liver Function)</b></span></td>
-        @*<td  class="backcol"><span class="row-card">Group Name</span></td>
-            <td  class="backcol"><span class="row-card">Sub Group</span></td>*@
-        <td colspan="3" class="backcol"><span class="row-card"><b>ค่าปกติ</b></span></td>
-        @*<td  class="backcol"><span class="row-card">detail</span></td>
-            <td colspan="2" class="backcol"><span class="row-card">Normal</span></td>*@
-        <td colspan="2" class="backcol"><span class="row-card"><b>Result</b></span></td>
-
-
+        <td><span class="row-card">Globulin</span></td>
+        <td colspan="3"><span class="row-card">1.5 - 3.5 mg/dL</span></td>
+        <td colspan="2"><span class="row-card">@dat.globulin</span></td>
+        
         <td><span class="row-card">Glucose</span></td>
         <td class="micoE"><span class="row-card">Negative</span></td>
         <td class="micoC"><span class="row-card">@dat.glucose</span></td>
-
-
-
 
     </tr>
 
@@ -465,16 +420,10 @@
 
     <tr style="color: #000;" class="tr-a">
 
-        <td class="backcol" rowspan="3" style="vertical-align: middle; text-align: center;"><span class="row-card">Protein</span></td>
-
+        <td class="backcol" rowspan="2" style="vertical-align: middle; text-align: center;"><span class="row-card">Bilirubin</span></td>
         <td><span class="row-card">Total</span></td>
-
-
-
-        <td colspan="3"><span class="row-card">6.0 - 8.0 mg/dL</span></td>
-        <td colspan="2"><span class="row-card">@dat.totalpro</span></td>
-
-
+        <td colspan="3"><span class="row-card">0.5 - 1.5 mg/dL</span></td>
+        <td colspan="2"><span class="row-card">@dat.totalbilirubin</span></td>
 
         <td><span class="row-card">Ketone</span></td>
         <td class="micoE"><span class="row-card">Negative</span></td>
@@ -487,36 +436,22 @@
 
     <tr style="color: #000;" class="tr-a">
 
-        @*<td style="border-bottom: none;"><span class="row-card"></span></td>*@
-        <td><span class="row-card">Albumin</span></td>
-
-
-
-        <td colspan="3"><span class="row-card">3.4 - 5.5 mg/dL</span></td>
-        <td colspan="2"><span class="row-card">@dat.albumin</span></td>
-        @*<td colspan="2" style="vertical-align : middle;text-align:center;"><span class="row-card"></span></td>*@
-
-
+        <td><span class="row-card">Direct</span></td>
+        <td colspan="3"><span class="row-card">0 - 0.5 mg/dL</span></td>
+        <td colspan="2"><span class="row-card">@dat.direct</span></td>
 
         <td><span class="row-card">Bilirubin</span></td>
         <td><span class="row-card"></span>Negative</td>
         <td><span class="row-card">@dat.bilirubin</span></td>
 
-
     </tr>
 
     <tr style="color: #000;" class="tr-a">
 
-        @*<td><span class="row-card"></span></td>*@
-
-        <td><span class="row-card">Globulin</span></td>
-
-        <td colspan="3"><span class="row-card">1.5 - 3.5 mg/dL</span></td>
-        <td colspan="2"><span class="row-card">@dat.globulin</span></td>
-
-
-
-
+        <td colspan="2"><span class="row-card">AST</span></td>
+        <td colspan="3"><span class="row-card">0 - 40 U/L</span></td>
+        <td colspan="2"><span class="row-card">@dat.sgot</span></td>
+        
         <td><span class="row-card">Urobilinogen</span></td>
         <td><span class="row-card">Normal</span></td>
         <td><span class="row-card">@dat.urobilinogen</span></td>
@@ -525,15 +460,10 @@
 
 
     <tr style="color: #000;" class="tr-a">
-        <td class="backcol" rowspan="2" style="vertical-align: middle; text-align: center;"><span class="row-card">Bilirubin</span></td>
-
-        <td><span class="row-card">Total</span></td>
-
-
-        <td colspan="3"><span class="row-card">0.5 - 1.5 mg/dL</span></td>
-        <td colspan="2"><span class="row-card">@dat.totalbilirubin</span></td>
-
-
+        <td colspan="2"><span class="row-card">ALT</span></td>
+        <td colspan="3"><span class="row-card">0 - 40 U/L</span></td>
+        <td colspan="2"><span class="row-card">@dat.sgpt</span></td>
+        
         <td><span class="row-card">Blood</span></td>
         <td><span class="row-card">Negative</span></td>
         <td><span class="row-card">@dat.blood</span></td>
@@ -543,11 +473,9 @@
 
     <tr style="color: #000;" class="tr-a">
 
-        @*<td><span class="row-card"></span></td>*@
-        <td><span class="row-card">Direct</span></td>
-
-        <td colspan="3"><span class="row-card">0 - 0.5 mg/dL</span></td>
-        <td colspan="2"><span class="row-card">@dat.direct</span></td>
+        <td colspan="2"><span class="row-card"><b>Alk</b></span></td>
+        <td colspan="3"><span class="row-card">40 - 129 U/L</span></td>
+        <td colspan="2"><span class="row-card">@dat.alk</span></td>
 
         <td><span class="row-card">Leukocyte</span></td>
         <td><span class="row-card">Negative</span></td>
@@ -557,10 +485,9 @@
 
     <tr style="color: #000;" class="tr-a">
 
-        <td colspan="2"><span class="row-card">AST</span></td>
-
-        <td colspan="3"><span class="row-card">0 - 40 U/L</span></td>
-        <td colspan="2"><span class="row-card">@dat.sgot</span></td>
+        <td colspan="2"><span class="row-card">ตรวจโซเดียม Sodium</span></td>
+        <td colspan="3"><span class="row-card">137 - 145 mmol/L</span></td>
+        <td colspan="2"><span class="row-card">@dat.sodium</span></td>
 
         <td><span class="row-card">Nitrite</span></td>
         <td><span class="row-card">Negative</span></td>
@@ -570,10 +497,13 @@
 
     <tr style="color: #000;" class="tr-a">
 
-        <td colspan="2"><span class="row-card">ALT</span></td>
-
-        <td colspan="3"><span class="row-card">0 - 40 U/L</span></td>
-        <td colspan="2"><span class="row-card">@dat.sgpt</span></td>
+        <td colspan="2">
+            <span class="row-card">
+                ตรวจโพแทสเซียม Potassium
+            </span>
+        </td>
+        <td colspan="3"><span class="row-card">3.5 -5.1 mmol/L</span></td>
+        <td colspan="2"><span class="row-card">@dat.potassium</span></td>
 
         <td><span class="row-card">Ascorbic acid</span></td>
         <td><span class="row-card">Negative</span></td>
@@ -583,12 +513,10 @@
 
     <tr style="color: #000;" class="tr-a">
 
-        <td colspan="2"><span class="row-card">Alk,Phosphatase</span></td>
+        <td colspan="2"><span class="row-card">ตรวจคลอไรด์ Chloride</span></td>
+        <td colspan="3"><span class="row-card">98 - 107 mmol/L</span></td>
+        <td colspan="2"><span class="row-card">@dat.chloride</span></td>
 
-        <td colspan="3"><span class="row-card">40 - 129 U/L</span></td>
-        <td colspan="2"><span class="row-card">@dat.alk</span></td>
-
-        @*<td rowspan="2" style="vertical-align : middle;text-align:center;font-size: 12px"> <span class="row-card">เพิ่มช่องรายการตรวจ</span> </td>*@
         <td>
             <span class="row-card">WBC</span>
         </td>
@@ -599,9 +527,9 @@
     </tr>
 
     <tr style="color: #000;" class="tr-a">
-        <td class="backcol" colspan="2"><span class="row-card"><b>ตรวจระดับน้ำตาลในเลือด (FBS)</b></span></td>
-        <td colspan="3"><span class="row-card">75 - 100 mg/dL</span></td>
-        <td colspan="2"><span class="row-card">@dat.fbs</span></td>
+        <td colspan="2"><span class="row-card">ตรวจคาร์บอนไดออกไซด์ CO₂</span></td>
+        <td colspan="3"><span class="row-card">22 - 30 mmol/L</span></td>
+        <td colspan="2"><span class="row-card">@dat.totalc02</span></td>
         <td>
             <span class="row-card">RBC</span>
         </td>
@@ -820,14 +748,6 @@
         <td><span class="row-card">@dat.hissickwork</span></td>
 
     </tr>
-
-    </table>
-
-    <br>
-    <br>
-
-    <table class="table table-bordered" style="text-align: center;font-size:12px;margin-top: 40px !important">
-
         <tr style="color: #000;" class="tr-a">
 
 

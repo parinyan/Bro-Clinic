@@ -15,6 +15,7 @@ using bbsaha.Models.Certificate;
 using bbsaha.Models.Center;
 using bbsaha.Models.patient;
 using bbsaha.Models.Center.View;
+using static bbsaha.Controllers.PatientController;
 
 namespace bbsaha.Data
 {
@@ -60,8 +61,15 @@ namespace bbsaha.Data
         public DbSet<cen_typelabs> CEN_TypeLabs { get; set; }
         public DbSet<cn_checktype> CN_CheckType { get; set; }
         public DbSet<cn_typehealthmain> CN_Typehealthmain { get; set; }
-       
 
+        public DbSet<DataLab> DataLab { get; set; }
+        public DbSet<DataPayment> DataPayment { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<DataLab>().HasNoKey();
+            modelBuilder.Entity<DataPayment>().HasNoKey();
+        }
 
     }
 }

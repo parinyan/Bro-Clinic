@@ -99,7 +99,7 @@
                                 <span>
                                     เลขบัตรประจำตัวประชาชน: ID card number </span><span style="color: red">*</span>
                                 <br />
-                                <input type="number" value="" v-model="idcard" style="width: 100%" class="form-control" />
+                                <input type="number" maxlength="13" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" value="" v-model="idcard" style="width: 100%" class="form-control" />
                             </div>
 
                             <div class="col-4">
@@ -314,7 +314,7 @@
                             <table class="table table-bordered mt-4">
                                 <thead>
                                     <tr>
-                                        <th style="text-align:center">PatientID</th>
+                                        @*<th style="text-align:center">PatientID</th>*@
                                         <th>ID Card</th>
                                         <th>TitleName</th>
                                         <th>FirstName</th>
@@ -325,7 +325,7 @@
                                     </tr>
                                 </thead>
                                 <tr v-for="(value,key) in getdatapatirnt" style="color: #000">
-                                    <td style="text-align:center">BB-{{value.idPatient}}{{(value.iDrunnumber > 9 ? "-00":(value.iDrunnumber > 99 ? "-0": (value.iDrunnumber > 999 ? "-": "-000"))) + value.iDrunnumber}}</td>
+                                    @*<td style="text-align:center">BB-{{value.idPatient}}{{(value.iDrunnumber > 9 ? "-00":(value.iDrunnumber > 99 ? "-0": (value.iDrunnumber > 999 ? "-": "-000"))) + value.iDrunnumber}}</td>*@
                                     <td>{{value.idCard}}</td>
                                     <td>{{value.titlename}}</td>
                                     <td>{{value.fname}}</td>
@@ -352,13 +352,13 @@
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6" style="margin-top: 10px">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Laps</button>
+                            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true" v-on:click="onclickTab('lab')">Laps</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="med-tab" data-bs-toggle="tab" data-bs-target="#med" type="button" role="tab" aria-controls="med" aria-selected="false">Medical Certificate</button>
+                            <button class="nav-link" id="med-tab" data-bs-toggle="tab" data-bs-target="#med" type="button" role="tab" aria-controls="med" aria-selected="false" v-on:click="onclickTab('medical')">Medical Certificate</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Payment</button>
+                            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false" v-on:click="onclickTab('payment')">Payment</button>
                         </li>
 
                     </ul>
@@ -3077,11 +3077,13 @@
                     </div>
                     <div style="overflow: auto; max-height: 230px;  width: 100%; ">
                         <template>
-
+                            <div style="width: 50%">
+                                <button class="btn-success mt-3" v-on:click="exportExcel()" v-if="exportExceType != 'medical'">Export</button>
+                            </div>
                             <table class="table table-bordered mt-4 ">
                                 <thead>
                                     <tr>
-                                        <th style="text-align:center">PatientID</th>
+                                        @*<th style="text-align:center">PatientID</th>*@
                                         <th>IDCard</th>
                                         <th>TitleName</th>
                                         <th>FirstName</th>
@@ -3091,7 +3093,7 @@
                                 </thead>
                                 <tr v-for="(value,key) in getdatapatirnt" style="color: #000">
 
-                                    <td style="text-align:center">BB-{{value.idPatient}}{{(value.iDrunnumber > 9 ? "-00":(value.iDrunnumber > 99 ? "-0": (value.iDrunnumber > 999 ? "-": "-000"))) + value.iDrunnumber}}</td>
+                                    @*<td style="text-align:center">BB-{{value.idPatient}}{{(value.iDrunnumber > 9 ? "-00":(value.iDrunnumber > 99 ? "-0": (value.iDrunnumber > 999 ? "-": "-000"))) + value.iDrunnumber}}</td>*@
                                     <td>{{value.idCard}}</td>
                                     <td>{{value.titlename}}</td>
                                     <td>{{value.fname}}</td>

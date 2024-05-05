@@ -264,11 +264,8 @@
 
             userName: null,
             userRole: null,
-            isAdmin: false
-
-
-
-
+            isAdmin: false,
+            exportExceType:"lab"
         }
 
     }, methods: {
@@ -2715,12 +2712,16 @@
 
             }
         }, exportpa() {
-
-
-            window.open(window.location.origin + "/Patient/ExportExcel2", "'_blank'");
-
-
-
+            window.open(window.location.origin + "/Patient/Exportpatient", "'_blank'");
+        }, exportExcel() {
+            if (this.exportExceType == "lab") {
+                window.open(window.location.origin + "/Patient/ExportExcelLab", "'_blank'");
+            } else if (this.exportExceType == "payment") {
+                window.open(window.location.origin + "/Patient/ExportExcelPayment", "'_blank'");
+            }
+        }, onclickTab(type) {
+            this.exportExceType = type;
+            console.log(type);
         },
 
         fetchUsername() {
@@ -2735,6 +2736,11 @@
                 .catch(error => {
                     console.error('Error fetching username:', error);
                 });
+        },
+        limitCharacters13() {
+            if (this.myNumber.toString().length > 13) {
+                this.myNumber = parseInt(this.myNumber.toString().slice(0, 13));
+            }
         }
 
     }, mounted: function () {

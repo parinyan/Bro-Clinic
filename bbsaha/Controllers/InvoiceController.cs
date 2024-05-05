@@ -799,7 +799,7 @@ namespace bbsaha.Controllers
 
         public IActionResult Getsummamry(string year, string company, string month, string type)
         {
-            using (MySqlConnection con = new MySqlConnection("Data Source=8.213.198.166;Initial Catalog=" + db + ";Persist Security Info=True;User ID=sa;Password=Jobgate@m1n;Max Pool Size=20000;ConvertZeroDateTime=True;"))
+            using (MySqlConnection con = new MySqlConnection("Data Source=103.30.126.174;Initial Catalog=" + db + ";Persist Security Info=True;User ID=sa;Password=Jobgate@m1n;Max Pool Size=20000;ConvertZeroDateTime=True;"))
             {
 
                 con.Open();
@@ -979,7 +979,7 @@ namespace bbsaha.Controllers
 
 
 
-            using (MySqlConnection con = new MySqlConnection("Data Source=8.213.198.166;Initial Catalog=" + db + ";Persist Security Info=True;User ID=sa;Password=Jobgate@m1n;Max Pool Size=20000;ConvertZeroDateTime=True;"))
+            using (MySqlConnection con = new MySqlConnection("Data Source=103.30.126.174;Initial Catalog=" + db + ";Persist Security Info=True;User ID=sa;Password=Jobgate@m1n;Max Pool Size=20000;ConvertZeroDateTime=True;"))
             {
                 con.Open();
                 var query = "SELECT Datereceipt" +

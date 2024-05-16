@@ -93,7 +93,7 @@ namespace bbsaha.Controllers
 ,SUM(IF(cs.TypeName = 2  , cs.price ,0)) AS SUMBANK
 ,count(IF(cs.TypeName = 3  , 1 ,null)) AS COUNTINVOICE
 ,SUM(IF(cs.TypeName = 3  , cs.price ,0)) AS SUMINVOICE
-,COUNT(IF(cs.TypeName = 1 or  cs.TypeName = 2, cs.TypeName,null)) AS COUNTPERSON
+,COUNT(IF(cs.TypeName = 1 or cs.TypeName = 2 or cs.TypeName = 3, cs.TypeName,null)) AS COUNTPERSON
 ,SUM(cs.price) AS SUMPERSON
 FROM CN_Sales cs
 INNER JOIN  CN_Detail cd ON cd.ID = cs.DetailID
@@ -159,11 +159,11 @@ INNER JOIN  CN_Patient cp ON cp.ID = cd.PatientID ?1 GROUP BY cd.Customer ORDER 
                 con.Open();
                 string query = "";
 
-                query = @"SELECT Customer ,DateReg
-FROM bbsaha.CN_Detail 
-?1
-group by Customer 
-Order BY Customer ASC";
+                query = @"SELECT a.Customer
+                            FROM bbsaha.CN_Detail a
+                            ?1
+                            group by a.Customer
+                            Order BY a.Customer ASC";
                 if (startdate.ToString("yyyy") != "0001" || enddate.ToString("yyyy") != "0001")
                 {
                     query = query.Replace("?1", "Where DateReg between '" + startdate.ToString("yyyy-MM-dd") + "' and '" + enddate.ToString("yyyy-MM-dd") + "'");

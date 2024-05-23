@@ -165,7 +165,7 @@
 
         }, delinv: function (id) {
             if (confirm("you want delete invoice ?") == true) {
-                axios.get("/invoice/delinvoice", {
+                axios.get("/invoice/DeleteInv", {
                     params: {
                         id: id
                     }

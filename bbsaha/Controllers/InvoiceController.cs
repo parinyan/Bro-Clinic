@@ -944,6 +944,18 @@ namespace bbsaha.Controllers
 
         }
 
+        public IActionResult DeleteInv(string id)
+        {
+
+            var query = "DELETE FROM INV_Invoice " +
+            "WHERE " +
+            "InvID = '" + id + "' ";
+            _mysqlbro.Database.ExecuteSqlRaw(query);
+
+            return Json("success");
+
+        }
+
         public IActionResult NotApprove(string id)
         {
 
